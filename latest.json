@@ -1,0 +1,9 @@
+{
+  "build": 1,
+  "version": "2.1",
+  "file": "lens-1.js",
+  "sha256": "a624b3cd6ff105264c41b8ed688fa1bb7f5117b1947575e53d01d9124f839a1f",
+  "minShell": 2,
+  "publishedAt": "2026-10-20T14:45:59.982Z",
+  "sig": "KNVBTuuSN4+jpLs+frahWw4ub6i3MLuJ/Y359QFixABOkOXf2M24tKZAIMQ+N1ksmFkXib4y6vPcRbmHklvL1Q=="
+}
