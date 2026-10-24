@@ -1,9 +1,9 @@
 {
-  "build": 10,
-  "version": "2.10",
-  "file": "lens-10.js",
-  "sha256": "4206f619d1b339957f92958b8a543061b75db9120ef71b877a15937a5e008119",
+  "build": 11,
+  "version": "2.11",
+  "file": "lens-11.js",
+  "sha256": "7ca8c23c29f505b6c194ac266dd3f7ff919d2e83a337c1cce10a5a8b4077378e",
   "minShell": 3,
-  "publishedAt": "2026-10-24T10:59:12.576Z",
-  "sig": "dSlTbuccWCbXPWtFSAJiIo/aNBPmLa5MH8MvwdZbEzDJidTPMFGKLiFOUlqlC9ntKv2mnKMqNv6IXN5SLAZkmA=="
+  "publishedAt": "2026-10-24T12:10:19.139Z",
+  "sig": "spOhPixb4lMghBAnIzHEJEui7qwuNu0gJtQ8f4TmTXxDYpXhi9NF6pLlnyUsZek6EEsdQPODkA6JrAgrs1J/xw=="
 }
