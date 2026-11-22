@@ -1,6 +1,6 @@
-/* Roadmap Lens 2.16 — built 2026-10-31T13:32:47.413Z */
+/* Roadmap Lens 2.27 — built 2026-11-22T10:31:06.949Z */
 if (!(globalThis.SFR && globalThis.SFR.booted)) {
-globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ==========================================================================\n   Roadmap Lens — design system «نقشه‌راه»\n   Persian-first, RTL-native. Tokens → atoms → layout → views.\n   Type scale (6): 12 · 13 · 14 · 16 · 20 · 48   |  Spacing: 4px grid\n   Radius: control 8 · card 12 · panel 16          |  Motion: 160–240ms\n   Data marks use the validated status palette (--s-*); text never wears it.\n   ========================================================================== */\n\n:host { all: initial; }\n\n/* ---------- tokens ---------- */\n.app, .launcher {\n  --font: \"SFR Vazirmatn\", Vazirmatn, Tahoma, system-ui, sans-serif;\n  --fs-xs: 12px; --fs-sm: 13px; --fs-md: 14px; --fs-lg: 16px; --fs-xl: 20px; --fs-hero: 48px;\n  --r-control: 8px; --r-card: 12px; --r-panel: 16px; --r-pill: 999px;\n  --ease: cubic-bezier(.2, 0, 0, 1); --t-fast: 160ms; --t: 220ms;\n\n  --bg: #f6f5f2;\n  --surface: #fcfcfb;\n  --surface-2: #f1f0ec;\n  --surface-3: #e8e6e0;\n  --ink: #141413;\n  --ink-2: #52514e;\n  --ink-3: #6b6a64;\n  --line: rgba(11, 11, 11, .09);\n  --line-2: rgba(11, 11, 11, .16);\n  --grid: #e1e0d9;\n  --baseline: #c3c2b7;\n  --primary: #141413; --primary-ink: #fcfcfb;\n  --accent: #2a78d6; --accent-soft: rgba(42, 120, 214, .10); --accent-ink: #1c5cab;\n  --brand: #ef0d8a;\n  --danger: #d03b3b; --danger-soft: rgba(208, 59, 59, .10);\n  --ok-ink: #006300;\n  --focus: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);\n  --shadow-card: 0 1px 2px rgba(20, 20, 19, .05);\n  --shadow-lift: 0 2px 4px rgba(20, 20, 19, .06), 0 8px 24px rgba(20, 20, 19, .08);\n  --shadow-overlay: 0 24px 64px -16px rgba(20, 20, 19, .28), 0 2px 8px rgba(20, 20, 19, .08);\n  --scrim: rgba(20, 20, 19, .28);\n\n  /* status palette — validated (light): CVD ΔE ≥ 9.6, normal-vision ΔE ≥ 15.6 adjacent */\n  --s-done: #008300; --s-devdone: #1baf7a; --s-progress: #2a78d6;\n  --s-pending: #eda100; --s-todo: #6250d6; --s-canceled: #e34948;\n  --s-cat1: #2a78d6;\n}\n.app[data-theme=\"dark\"], .launcher.dark {\n  --bg: #0f0f0e;\n  --surface: #1a1a19;\n  --surface-2: #232321;\n  --surface-3: #2d2d2a;\n  --ink: #f0efec;\n  --ink-2: #c3c2b7;\n  --ink-3: #9d9b92;\n  --line: rgba(255, 255, 255, .09);\n  --line-2: rgba(255, 255, 255, .16);\n  --grid: #2c2c2a;\n  --baseline: #383835;\n  --primary: #f0efec; --primary-ink: #141413;\n  --accent: #3987e5; --accent-soft: rgba(57, 135, 229, .16); --accent-ink: #86b6ef;\n  --danger: #e66767; --danger-soft: rgba(230, 103, 103, .14);\n  --ok-ink: #0ca30c;\n  --shadow-card: none;\n  --shadow-lift: 0 0 0 1px rgba(255, 255, 255, .06), 0 8px 24px rgba(0, 0, 0, .4);\n  --shadow-overlay: 0 24px 64px -12px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .06);\n  --scrim: rgba(0, 0, 0, .5);\n  /* dark steps — validated as a set against #1a1a19 */\n  --s-done: #008300; --s-devdone: #1baf7a; --s-progress: #3987e5;\n  --s-pending: #c98500; --s-todo: #9085e9; --s-canceled: #e66767;\n  --s-cat1: #3987e5;\n}\n\n/* ---------- base ---------- */\n.app {\n  position: fixed; inset: 0;\n  display: grid; grid-template-rows: 56px 1fr;\n  background: var(--bg); color: var(--ink);\n  font: 400 var(--fs-md)/1.7 var(--font);\n  letter-spacing: 0;\n  -webkit-font-smoothing: antialiased;\n  color-scheme: light;\n  direction: rtl; text-align: start;\n  animation: app-in var(--t) var(--ease);\n}\n.app[data-theme=\"dark\"] { color-scheme: dark; }\n@keyframes app-in { from { opacity: 0; transform: scale(.995); } }\n.app *, .app *::before, .app *::after { box-sizing: border-box; }\n:where(.app) button, :where(.app) input, :where(.app) select, :where(.app) textarea { font: inherit; color: inherit; letter-spacing: 0; }\n:where(.app) button { cursor: pointer; background: none; border: 0; padding: 0; }\n.app :focus-visible { outline: none; box-shadow: var(--focus); border-radius: var(--r-control); }\n.app [hidden] { display: none !important; }\n:where(.app) a { color: var(--accent-ink); text-decoration: none; }\n:where(.app) a:hover { text-decoration: underline; }\n:where(.app) :where(h1, h2, h3, h4, p, ul, ol, dl, dd) { margin: 0; padding: 0; }\n:where(.app) :where(ul, ol) { list-style: none; }\n.grow { flex: 1 1 auto; }\n.muted { color: var(--ink-3); }\n.center { display: flex; justify-content: center; }\n.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n.ic { flex: none; display: inline-block; vertical-align: middle; stroke-width: 1.75; }\n.flip-x { transform: scaleX(-1); }\n.flip-y { transform: scaleY(-1); }\n.spin { animation: spin 1s linear infinite; }\n@keyframes spin { to { transform: rotate(360deg); } }\nkbd {\n  font: 500 11px/1 var(--font); color: var(--ink-3);\n  border: 1px solid var(--line-2); border-bottom-width: 2px; border-radius: 4px; padding: 2px 4px;\n  background: var(--surface);\n}\nbdi.key { font: 500 var(--fs-xs)/1 ui-monospace, \"SF Mono\", Menlo, monospace; color: var(--ink-3); unicode-bidi: isolate; }\n.app ::-webkit-scrollbar { width: 10px; height: 10px; }\n.app ::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; }\n.app ::-webkit-scrollbar-thumb:hover { background-color: var(--line-2); }\n\n/* ---------- atoms: buttons ---------- */\n.btn {\n  display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px;\n  border-radius: var(--r-control); font-weight: 600; font-size: var(--fs-sm); white-space: nowrap;\n  transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), border-color var(--t-fast);\n}\n.btn:active { transform: scale(.98); }\n.btn-primary { background: var(--primary); color: var(--primary-ink); }\n.btn-primary:hover { opacity: .9; }\n.btn-outline { border: 1px solid var(--line-2); background: var(--surface); }\n.btn-outline:hover, .btn-ghost:hover { background: var(--surface-2); }\n.btn-outline.is-active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-ink); }\n.btn-ghost { color: var(--ink-2); }\n.btn-ghost.is-active { color: var(--ink); background: var(--surface-2); }\n.btn-soft { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); }\n.btn-soft.is-active .ic { color: var(--ok-ink); }\n.btn-sm { height: 32px; padding: 0 10px; }\n.btn-xs { height: 28px; padding: 0 8px; font-size: var(--fs-xs); }\n.btn.is-busy { opacity: .6; pointer-events: none; }\n.icon-btn {\n  display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: var(--r-control); color: var(--ink-2);\n  transition: background var(--t-fast);\n}\n.icon-btn:hover { background: var(--surface-2); color: var(--ink); text-decoration: none; }\n.icon-btn.is-busy .ic { animation: spin 1s linear infinite; }\n.link { color: var(--accent-ink); font-weight: 600; font-size: var(--fs-sm); }\n.link:hover { text-decoration: underline; }\n\n/* ---------- atoms: chips, pills, counts, tags ---------- */\n.chip {\n  display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px;\n  border-radius: var(--r-pill); border: 1px solid var(--line); background: var(--surface);\n  font-size: var(--fs-sm); font-weight: 500; color: var(--ink-2); white-space: nowrap;\n  transition: all var(--t-fast) var(--ease);\n}\n.chip:hover { border-color: var(--line-2); color: var(--ink); }\n.chip.is-on { background: var(--ink); border-color: var(--ink); color: var(--surface); }\n.chip.is-on .av { box-shadow: 0 0 0 1.5px var(--ink); }\n.chip-sm { height: 28px; padding: 0 10px; font-size: var(--fs-xs); }\n.count {\n  display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px;\n  border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink-2);\n  font-size: var(--fs-xs); font-weight: 600; line-height: 1;\n}\n.btn-outline.is-active .count, .chip.is-on .count { background: var(--accent); color: #fff; }\n.pill {\n  display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px;\n  border-radius: var(--r-pill); font-size: var(--fs-xs); font-weight: 600; color: var(--ink-2); white-space: nowrap;\n  background: var(--surface-2);\n}\n.pill .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }\n.pill-done .dot { background: var(--s-done); } .pill-devdone .dot { background: var(--s-devdone); }\n.pill-progress .dot { background: var(--s-progress); } .pill-pending .dot { background: var(--s-pending); }\n.pill-todo .dot { background: var(--s-todo); } .pill-canceled .dot { background: var(--s-canceled); }\n.pill-done { background: color-mix(in srgb, var(--s-done) 11%, transparent); }\n.pill-devdone { background: color-mix(in srgb, var(--s-devdone) 13%, transparent); }\n.pill-progress { background: color-mix(in srgb, var(--s-progress) 11%, transparent); }\n.pill-pending { background: color-mix(in srgb, var(--s-pending) 15%, transparent); }\n.pill-todo { background: color-mix(in srgb, var(--s-todo) 10%, transparent); }\n.pill-canceled { background: color-mix(in srgb, var(--s-canceled) 10%, transparent); }\n.pill-late { background: var(--danger-soft); color: var(--danger); gap: 4px; }\n.pill-plain { background: var(--surface-2); }\n.tag {\n  display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px; border-radius: 6px;\n  background: var(--surface-2); color: var(--ink-2); font-size: var(--fs-xs); font-weight: 500; margin-inline-end: 4px;\n}\n.size {\n  display: inline-grid; place-items: center; height: 20px; min-width: 24px; padding: 0 6px; border-radius: 6px;\n  border: 1px solid var(--line-2); font: 600 11px/1 var(--font); color: var(--ink-2); direction: ltr;\n}\n\n/* ---------- atoms: avatars ---------- */\n.av {\n  display: inline-grid; place-items: center; flex: none; border-radius: 50%; object-fit: cover;\n  background: var(--surface-3); color: var(--ink-2); font-weight: 700; overflow: hidden;\n  box-shadow: 0 0 0 1.5px var(--surface);\n}\n.av-xs { width: 20px; height: 20px; font-size: 9px; }\n.av-sm { width: 28px; height: 28px; font-size: 11px; }\n.av-md { width: 32px; height: 32px; font-size: 12px; }\n.av-empty { background: var(--surface-2); color: var(--ink-3); }\n\n/* ---------- atoms: inputs ---------- */\n.search {\n  display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; min-width: 300px;\n  border: 1px solid var(--line-2); border-radius: var(--r-control); background: var(--surface); color: var(--ink-3);\n  transition: border-color var(--t-fast), box-shadow var(--t-fast);\n}\n.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }\n.search input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; color: var(--ink); font-size: var(--fs-sm); }\n.search input::placeholder { color: var(--ink-3); }\n.search input:focus-visible { box-shadow: none; }\n.search.sm { height: 32px; min-width: 0; margin: 0 16px 8px; }\n.select {\n  position: relative; display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 10px;\n  border: 1px solid var(--line-2); border-radius: var(--r-control); background: var(--surface); color: var(--ink-3);\n}\n.select select { appearance: none; border: 0; outline: 0; background: none; color: var(--ink); font-size: var(--fs-sm); padding-inline-end: 4px; max-width: 260px; cursor: pointer; }\n.select:focus-within { border-color: var(--accent); }\n\n/* segmented switch */\n.switch { display: inline-flex; padding: 3px; gap: 2px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }\n.switch button {\n  display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border-radius: 7px;\n  font-size: var(--fs-sm); font-weight: 500; color: var(--ink-2); white-space: nowrap; transition: all var(--t-fast);\n}\n.switch button:hover { color: var(--ink); }\n.switch button[aria-selected=\"true\"] { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 0 0 1px var(--line); }\n.switch.big button { height: 34px; padding: 0 14px; }\n\n/* ---------- top bar ---------- */\n.topbar {\n  display: flex; align-items: center; gap: 24px; padding: 0 20px;\n  background: var(--surface); border-bottom: 1px solid var(--line);\n}\n.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }\n.logo {\n  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px;\n  background: var(--ink); color: var(--surface); position: relative;\n}\n.logo::after { content: \"\"; position: absolute; inset-block-start: -2px; inset-inline-start: -2px; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 2px var(--surface); }\n.brand-text { display: grid; line-height: 1.3; }\n.brand-text b { font-size: var(--fs-md); font-weight: 700; }\n.brand-text small { font-size: var(--fs-xs); color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }\n.tabs { display: flex; gap: 4px; align-self: stretch; }\n.tabs button {\n  position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 0 14px;\n  font-weight: 500; color: var(--ink-2); transition: color var(--t-fast);\n}\n.tabs button:hover { color: var(--ink); }\n.tabs button[aria-selected=\"true\"] { color: var(--ink); font-weight: 700; }\n.tabs button[aria-selected=\"true\"]::after {\n  content: \"\"; position: absolute; inset-inline: 10px; bottom: -1px; height: 2px; border-radius: 2px 2px 0 0; background: var(--ink);\n}\n.badge {\n  display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px;\n  background: var(--brand); color: #fff; font-size: 11px; font-weight: 700; line-height: 1;\n}\n.top-actions { display: flex; align-items: center; gap: 4px; margin-inline-start: auto; }\n.sync { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); margin-inline-end: 8px; }\n.me { margin-inline-start: 8px; display: inline-flex; }\n\n/* ---------- main & state ---------- */\n.main { position: relative; min-height: 0; overflow: hidden; }\n.view { height: 100%; min-height: 0; }\n.view[data-view=\"board\"] { display: flex; flex-direction: column; }\n.view[data-view=\"following\"], .view[data-view=\"dashboard\"], .view[data-view=\"sif\"] { overflow-y: auto; }\n.state-screen { height: 100%; padding-top: 72px; }\n.state-screen .kanban { padding-top: 0; }\n\n/* ---------- board toolbar ---------- */\n.toolbar { padding: 16px 20px 12px; display: grid; gap: 12px; }\n.tb-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }\n.seg-group { display: flex; gap: 6px; flex-wrap: wrap; }\n.facepile { display: flex; align-items: center; }\n.face { margin-inline-start: -6px; border-radius: 50%; transition: transform var(--t-fast) var(--ease); }\n.face:first-child { margin-inline-start: 0; }\n.face:hover { transform: translateY(-2px); z-index: 1; }\n.face.is-on .av { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); }\n.face.more { display: grid; place-items: center; width: 32px; height: 32px; background: var(--surface-2); border: 1px dashed var(--line-2); color: var(--ink-2); margin-inline-start: 4px; }\n.status-filter { display: flex; gap: 4px; flex-wrap: wrap; }\n.sf {\n  display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: var(--r-pill);\n  font-size: var(--fs-sm); color: var(--ink-2); border: 1px solid transparent; transition: all var(--t-fast);\n}\n.sf .dot { width: 8px; height: 8px; border-radius: 50%; }\n.sf b { font-weight: 600; color: var(--ink-3); font-size: var(--fs-xs); }\n.sf:hover { background: var(--surface-2); }\n.sf.is-on { background: var(--surface); border-color: var(--line-2); color: var(--ink); font-weight: 600; box-shadow: var(--shadow-card); }\n.sf-done .dot { background: var(--s-done); } .sf-devdone .dot { background: var(--s-devdone); } .sf-progress .dot { background: var(--s-progress); }\n.sf-pending .dot { background: var(--s-pending); } .sf-todo .dot { background: var(--s-todo); } .sf-canceled .dot { background: var(--s-canceled); }\n.active-chips { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; padding-inline-start: 12px; border-inline-start: 1px solid var(--line); }\n.active-chips .chip { height: 28px; padding: 0 10px; font-size: var(--fs-xs); }\n.result-count { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); color: var(--ink-3); }\n\n/* ---------- kanban ---------- */\n.kanban {\n  flex: 1; min-height: 0; display: flex; gap: 12px; padding: 4px 20px 20px; overflow-x: auto; overflow-y: hidden;\n  scroll-snap-type: x proximity; overscroll-behavior-x: contain;\n}\n.column {\n  flex: 0 0 296px; width: 296px; min-width: 0; display: flex; flex-direction: column; min-height: 0; max-height: 100%;\n  background: var(--surface-2); border-radius: var(--r-panel); border: 1px solid transparent;\n  scroll-snap-align: start; transition: border-color var(--t-fast), background var(--t-fast);\n}\n.column.is-backlog { flex-basis: 312px; width: 312px; }\n.column.is-current { background: color-mix(in srgb, var(--accent) 6%, var(--surface-2)); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }\n.column.is-over { border-color: var(--accent); border-style: dashed; background: var(--accent-soft); }\n.column.rail {\n  flex: 0 0 48px; align-items: center; gap: 12px; padding: 16px 0; color: var(--ink-2); cursor: pointer;\n}\n.column.rail span { writing-mode: vertical-rl; font-weight: 700; }\n.column.rail b { font-size: var(--fs-xs); color: var(--ink-3); }\n.column.rail:hover { background: var(--surface-3); }\n.col-head { padding: 12px 14px 10px; display: grid; gap: 8px; }\n.col-title { display: flex; align-items: baseline; gap: 8px; }\n.col-title b { font-size: var(--fs-lg); font-weight: 700; line-height: 1.3; }\n.col-title small { font-size: var(--fs-xs); color: var(--ink-3); }\n.now { font-size: 11px; font-weight: 700; color: var(--accent-ink); background: var(--accent-soft); padding: 1px 8px; border-radius: var(--r-pill); align-self: center; }\n.col-dist { display: flex; gap: 2px; height: 6px; border-radius: 3px; overflow: hidden; }\n.col-dist i { display: block; height: 100%; min-width: 2px; }\n.col-dist.is-none { background: var(--surface-3); }\n.col-done { font-size: var(--fs-xs); color: var(--ink-3); line-height: 1; }\n.col-body { flex: 1; min-height: 0; overflow-y: auto; padding: 2px 8px 10px; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 8px; }\n.col-empty { display: grid; justify-items: center; gap: 4px; padding: 24px 0; color: var(--ink-3); font-size: var(--fs-sm); }\n.more {\n  width: 100%; height: 36px; border-radius: var(--r-control); border: 1px dashed var(--line-2);\n  color: var(--ink-2); font-size: var(--fs-xs); font-weight: 600;\n}\n.more:hover { background: var(--surface); color: var(--ink); }\n\n/* card */\n.card {\n  position: relative; display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 8px; padding: 12px; border-radius: var(--r-card);\n  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-card);\n  cursor: pointer; transition: box-shadow var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), border-color var(--t-fast);\n}\n@keyframes card-in { from { opacity: 0; transform: translateY(10px) scale(.985); } }\n.card:hover { box-shadow: var(--shadow-lift); border-color: var(--line-2); transform: translateY(-1px); }\n.card.is-dragging { opacity: .4; transform: rotate(-1.5deg); }\n.card.st-canceled .card-title { color: var(--ink-3); text-decoration: line-through; text-decoration-color: var(--line-2); }\n.card.st-done { background: color-mix(in srgb, var(--s-done) 3%, var(--surface)); }\n.card-top { display: flex; align-items: center; gap: 6px; min-height: 24px; }\n.card-title {\n  font-size: var(--fs-md); font-weight: 600; line-height: 1.65; color: var(--ink);\n  unicode-bidi: plaintext; text-align: start;\n  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;\n}\n.card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: -2px; }\n.card-tags bdi { display: inline-block; max-width: 100%; height: 20px; padding: 0 6px; border-radius: 5px; background: var(--surface-2); color: var(--ink-2); font-size: 11px; font-weight: 500; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.card-epic {\n  display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); line-height: 1.5;\n  unicode-bidi: plaintext;\n}\n.card-epic span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.card-foot { display: flex; align-items: center; gap: 6px; padding-top: 8px; border-top: 1px solid var(--line); font-size: var(--fs-xs); color: var(--ink-2); }\n.owner { max-width: 110px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.meta { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-3); font-weight: 500; }\n.meta.is-new { color: var(--ink); font-weight: 700; }\n.star { display: inline-grid; place-items: center; width: 28px; height: 28px; margin: -4px; border-radius: 8px; color: var(--ink-3); opacity: 0; transition: all var(--t-fast); }\n.card:hover .star, .card:focus-within .star, .star.is-on, tr:hover .star, .inbox-item .star { opacity: 1; }\n.star:hover { background: var(--surface-2); color: var(--ink); }\n.star.is-on { color: #e4a400; }\n.star.is-on .ic { fill: currentColor; }\n.news-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 20%, transparent); flex: none; }\n.card.has-news { border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }\n\n/* skeletons */\n.skel { pointer-events: none; animation: none; }\n.skel i, .skel-line, .skel-block { display: block; height: 12px; border-radius: 6px; background: linear-gradient(90deg, var(--surface-2), var(--surface-3), var(--surface-2)); background-size: 200% 100%; animation: shimmer 1.4s infinite; }\n.skel i.short { width: 55%; }\n.skel-line { width: 60%; height: 16px; }\n.skel-block { height: 56px; border-radius: 10px; margin-bottom: 8px; }\n@keyframes shimmer { to { background-position: -200% 0; } }\n\n/* ---------- table ---------- */\n.table-wrap { flex: 1; min-height: 0; overflow: auto; margin: 0 20px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-panel); }\n.grid-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: var(--fs-sm); }\n.grid-table th { position: sticky; top: 0; z-index: 1; background: var(--surface); text-align: start; border-bottom: 1px solid var(--line-2); padding: 0; }\n.grid-table th button { display: flex; align-items: center; gap: 4px; width: 100%; height: 40px; padding: 0 12px; font-weight: 600; color: var(--ink-2); font-size: var(--fs-xs); }\n.grid-table th[aria-sort=\"ascending\"] button, .grid-table th[aria-sort=\"descending\"] button { color: var(--ink); }\n.grid-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; white-space: nowrap; }\n.grid-table td.t-title { white-space: normal; min-width: 320px; max-width: 520px; font-weight: 500; unicode-bidi: plaintext; text-align: start; }\n.grid-table tbody tr { cursor: pointer; transition: background var(--t-fast); }\n.grid-table tbody tr:hover { background: var(--surface-2); }\n.grid-table tr.has-news td:first-child { box-shadow: inset -3px 0 0 var(--brand); }\n.num { font-variant-numeric: tabular-nums; }\n.who { display: inline-flex; align-items: center; gap: 6px; }\n\n/* ---------- popover ---------- */\n.popover {\n  position: fixed; z-index: 30; display: flex; flex-direction: column; width: 360px; max-height: min(72vh, 640px);\n  background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-panel); box-shadow: var(--shadow-overlay);\n  animation: pop-in var(--t-fast) var(--ease);\n}\n.popover.pop-filters { width: 560px; }\n@keyframes pop-in { from { opacity: 0; transform: translateY(-4px) scale(.99); } }\n.pop-head { display: flex; align-items: baseline; gap: 12px; padding: 16px 16px 10px; }\n.pop-head b { font-size: var(--fs-lg); }\n.pop-head .muted { font-size: var(--fs-xs); }\n.pop-body { overflow-y: auto; padding: 0 16px 12px; display: grid; gap: 16px; }\n.pop-foot { display: flex; justify-content: space-between; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line); }\n.fgroup h4 { display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs); font-weight: 700; color: var(--ink-3); margin-bottom: 8px; }\n.fgroup h4 small { color: var(--accent-ink); }\n.fgroup .chips { display: flex; flex-wrap: wrap; gap: 6px; }\n.pop-body.people { gap: 2px; }\n.person {\n  display: flex; align-items: center; gap: 10px; width: 100%; padding: 6px 8px; border-radius: var(--r-control);\n  text-align: start; font-size: var(--fs-sm);\n}\n.person span { flex: 1; }\n.person b, .person small { font-size: var(--fs-xs); color: var(--ink-3); font-weight: 500; }\n.person:hover, .person.is-on { background: var(--surface-2); }\n.person.is-on span { font-weight: 700; }\n\n/* ---------- drawer & sheet ---------- */\n.drawer, .sheet { position: fixed; inset: 0; z-index: 20; pointer-events: none; }\n.scrim { position: absolute; inset: 0; background: var(--scrim); opacity: 0; transition: opacity var(--t) var(--ease); }\n.drawer-panel, .sheet-panel {\n  position: absolute; inset-block: 0; inset-inline-end: 0; width: min(640px, 100vw);\n  display: flex; flex-direction: column; background: var(--surface); box-shadow: var(--shadow-overlay);\n  transform: translateX(-104%); transition: transform 260ms var(--ease);\n  border-start-end-radius: 0; border-end-end-radius: 0;\n}\n.sheet-panel { width: min(520px, 100vw); }\n.drawer.is-open, .sheet.is-open { pointer-events: auto; }\n.drawer.is-open .scrim, .sheet.is-open .scrim { opacity: 1; }\n.drawer.is-open .drawer-panel, .sheet.is-open .sheet-panel { transform: none; }\n.d-head { display: flex; align-items: center; gap: 4px; height: 56px; padding: 0 16px; border-bottom: 1px solid var(--line); flex: none; }\n.d-head bdi.key { font-size: var(--fs-sm); margin-inline-end: 8px; }\n.d-head > b { font-size: var(--fs-lg); margin-inline-end: 8px; }\n.d-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 24px; }\n.d-scroll > * { flex: none; }\n.d-hero { display: grid; gap: 12px; }\n.d-badges { display: flex; gap: 6px; flex-wrap: wrap; }\n.d-hero h2 { font-size: var(--fs-xl); font-weight: 700; line-height: 1.6; unicode-bidi: plaintext; text-align: start; }\n.follow-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }\n.watchers { display: flex; align-items: center; font-size: var(--fs-xs); }\n.watchers .av { margin-inline-start: -6px; }\n.watchers .av:first-child { margin-inline-start: 0; }\n.watchers .muted { margin-inline-start: 8px; }\n.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; }\n.fact { background: var(--surface); padding: 10px 12px; display: grid; gap: 2px; min-width: 0; }\n.fact:last-child:nth-child(odd) { grid-column: 1 / -1; }\n.fact dt { font-size: var(--fs-xs); color: var(--ink-3); }\n.fact dd { font-size: var(--fs-sm); font-weight: 500; overflow-wrap: anywhere; }\n.fact .select { width: 100%; margin-top: 2px; }\n.fact .select select { flex: 1; max-width: none; }\n.d-section { display: grid; gap: 12px; }\n.d-section h3 { display: flex; align-items: center; gap: 8px; font-size: var(--fs-lg); font-weight: 700; }\n.rich { font-size: var(--fs-md); line-height: 1.85; color: var(--ink); overflow-wrap: anywhere; }\n.rich p, .rich li { unicode-bidi: plaintext; text-align: start; }\n.rich p + p { margin-top: 8px; }\n.rich ul, .rich ol { padding-inline-start: 20px; list-style: revert; }\n.rich img { max-width: 100%; height: auto; border-radius: 8px; }\n.rich pre, .rich code { font-family: ui-monospace, Menlo, monospace; font-size: 12px; background: var(--surface-2); border-radius: 6px; padding: 2px 4px; direction: ltr; unicode-bidi: isolate; }\n.rich pre { padding: 8px; overflow-x: auto; }\n.rich table { border-collapse: collapse; font-size: var(--fs-sm); }\n.rich th, .rich td { border: 1px solid var(--line-2); padding: 4px 8px; }\n.rich blockquote { border-inline-start: 3px solid var(--line-2); padding-inline-start: 12px; color: var(--ink-2); margin: 0; }\n.rich.clamp { max-height: 168px; overflow: hidden; mask-image: linear-gradient(#000 60%, transparent); }\n.thread { display: grid; gap: 16px; }\n.comment { display: flex; gap: 10px; align-items: flex-start; }\n.bubble { flex: 1; min-width: 0; background: var(--surface-2); border-radius: 4px var(--r-card) var(--r-card) var(--r-card); padding: 10px 14px; }\n.comment.is-mine .bubble { background: color-mix(in srgb, var(--accent) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent); }\n.c-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 2px; font-size: var(--fs-xs); }\n.c-head b { font-size: var(--fs-sm); }\n.c-head time { color: var(--ink-3); }\n\n/* composer */\n.composer { flex: none; display: grid; gap: 8px; padding: 12px 16px 16px; border-top: 1px solid var(--line); background: var(--surface); }\n.templates { display: flex; gap: 6px; flex-wrap: wrap; }\n.field { position: relative; }\n.field textarea {\n  display: block; width: 100%; min-height: 84px; max-height: 240px; resize: vertical; padding: 10px 12px;\n  border-radius: var(--r-card); border: 1px solid var(--line-2); background: var(--surface); outline: 0;\n  font-size: var(--fs-md); line-height: 1.8; unicode-bidi: plaintext;\n  transition: border-color var(--t-fast), box-shadow var(--t-fast);\n}\n.field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }\n.mention-pop {\n  position: absolute; inset-inline-start: 8px; bottom: calc(100% + 6px); width: 300px; padding: 6px;\n  background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); box-shadow: var(--shadow-overlay); z-index: 2;\n}\n.composer-foot { display: flex; align-items: center; gap: 8px; }\n.hint { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-xs); }\n\n/* lists used by sheet / dashboard */\n.mini-list { display: grid; }\n.mini-list li {\n  display: flex; align-items: center; gap: 10px; padding: 10px 4px; border-bottom: 1px solid var(--line); cursor: pointer;\n  font-size: var(--fs-sm); border-radius: 6px;\n}\n.mini-list li:hover { background: var(--surface-2); }\n.mini-list li span[dir] { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; unicode-bidi: plaintext; text-align: start; }\n.mini-list li small { color: var(--ink-3); font-size: var(--fs-xs); white-space: nowrap; }\n.mini-list.big { overflow-y: auto; padding: 8px 16px 16px; }\n\n/* ---------- following / inbox ---------- */\n.inbox { max-width: 960px; margin: 0 auto; padding: 28px 20px 48px; display: grid; gap: 20px; }\n.inbox-head { display: flex; align-items: flex-end; gap: 16px; }\n.inbox-head h2 { font-size: var(--fs-xl); font-weight: 800; line-height: 1.4; }\n.inbox-head p { font-size: var(--fs-sm); max-width: 560px; }\n.inbox-list { display: grid; gap: 8px; }\n.inbox-item {\n  position: relative; display: flex; gap: 16px; padding: 14px 16px; border-radius: var(--r-card);\n  background: var(--surface); border: 1px solid var(--line); cursor: pointer; transition: all var(--t-fast);\n}\n.inbox-item:hover { border-color: var(--line-2); box-shadow: var(--shadow-lift); }\n.inbox-item.has-news { border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }\n.inbox-item > .news-dot { position: absolute; inset-inline-start: -4px; top: 20px; }\n.ii-main { flex: 1; min-width: 0; display: grid; gap: 6px; }\n.ii-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }\n.ii-main h3 .tag { font-size: 11px; height: 20px; vertical-align: middle; font-weight: 500; }\n.ii-main h3 { font-size: var(--fs-md); font-weight: 700; line-height: 1.6; unicode-bidi: plaintext; text-align: start; }\n.ii-last { display: flex; align-items: center; gap: 6px; font-size: var(--fs-sm); color: var(--ink-2); min-width: 0; }\n.ii-last span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; unicode-bidi: plaintext; }\n.ii-last b { white-space: nowrap; font-weight: 600; }\n.ii-side { display: grid; justify-items: end; align-content: space-between; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); }\n.inbox .switch { justify-self: start; }\n\n/* empty */\n.empty { display: grid; justify-items: center; gap: 6px; padding: 48px 16px; color: var(--ink-3); text-align: center; }\n.empty b { color: var(--ink); font-size: var(--fs-lg); }\n.empty p { font-size: var(--fs-sm); max-width: 360px; }\n\n/* ---------- dashboard ---------- */\n.dash { max-width: 1400px; margin: 0 auto; padding: 20px 20px 48px; display: grid; gap: 16px; }\n.dash-filters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: var(--fs-sm); }\n.dash-filters .switch { flex-wrap: wrap; }\n.dash-filters > .muted { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-xs); }\n.loading-note { display: flex; align-items: center; gap: 8px; color: var(--ink-3); }\n.kpis { display: grid; grid-template-columns: minmax(280px, 1fr) 2fr; gap: 12px; }\n.hero {\n  display: grid; gap: 6px; align-content: center; padding: 20px 24px; border-radius: var(--r-panel);\n  background: var(--surface); border: 1px solid var(--line);\n}\n.hero > span { font-size: var(--fs-sm); color: var(--ink-2); font-weight: 600; }\n.hero > b { font-size: var(--fs-hero); font-weight: 800; line-height: 1.15; }\n.hero small { font-size: var(--fs-xs); color: var(--ink-3); }\n.meter { height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--s-done) 14%, var(--surface-2)); overflow: hidden; }\n.meter i { display: block; height: 100%; background: var(--s-done); border-radius: 4px; transition: width 600ms var(--ease); }\n.tile-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }\n.tile {\n  display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 4px 8px; padding: 14px 16px; text-align: start;\n  border-radius: var(--r-panel); background: var(--surface); border: 1px solid var(--line); transition: all var(--t-fast);\n}\n.tile:hover { border-color: var(--line-2); box-shadow: var(--shadow-lift); }\n.tile .ic { color: var(--ink-3); }\n.tile span { font-size: var(--fs-sm); color: var(--ink-2); font-weight: 500; }\n.tile b { grid-column: 1 / -1; font-size: var(--fs-xl); font-weight: 800; line-height: 1.3; }\n.dash-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }\n.viz-card {\n  display: flex; flex-direction: column; gap: 12px; padding: 16px 18px 18px; min-width: 0;\n  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-panel);\n}\n.viz-card.wide { grid-column: span 2; }\n.viz-card.tall { grid-row: span 2; }\n.viz-card.full { grid-column: 1 / -1; }\n.viz-body { grid-template-columns: minmax(0, 1fr); }\n.mini-list { grid-template-columns: minmax(0, 1fr); }\n\n/* delayed table */\n.dtable-wrap { overflow-x: auto; margin-inline: -4px; }\n.dtable { width: 100%; border-collapse: separate; border-spacing: 0; font-size: var(--fs-sm); }\n.dtable th { text-align: start; font-size: var(--fs-xs); font-weight: 600; color: var(--ink-3); padding: 0 8px 8px; border-bottom: 1px solid var(--line-2); white-space: nowrap; }\n.dtable td { padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; white-space: nowrap; }\n.dtable tbody tr { cursor: pointer; transition: background var(--t-fast); }\n.dtable tbody tr:hover { background: var(--surface-2); }\n.dtable tbody tr:last-child td { border-bottom: 0; }\n.dtable .dt-title { white-space: normal; width: 44%; min-width: 280px; }\n.dtable .dt-title > span { display: block; font-weight: 600; line-height: 1.6; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 560px; }\n.dtable .dt-title small { display: flex; align-items: center; gap: 4px; margin-top: 2px; }\n.dtable .dt-title small .tag { height: 20px; font-size: 11px; margin: 0; }\n.dtable .dt-fn { color: var(--ink-2); max-width: 200px; overflow: hidden; text-overflow: ellipsis; }\n.dtable .tag { margin: 0; }\n.viz-card .more { margin-top: 4px; }\n.viz-card > header { display: flex; align-items: flex-start; gap: 8px; }\n.viz-card > header > div { flex: 1; }\n.viz-card h3 { font-size: var(--fs-lg); font-weight: 700; line-height: 1.4; }\n.viz-card header p { font-size: var(--fs-xs); color: var(--ink-3); }\n.viz-body { flex: 1; min-height: 0; display: grid; gap: 12px; align-content: start; }\n.viz-table { display: none; overflow: auto; max-height: 420px; }\n.viz-card.show-table .viz-table { display: block; }\n.viz-card.show-table .viz-plot, .viz-card.show-table .hbars, .viz-card.show-table .donut-wrap, .viz-card.show-table .legend { display: none; }\n.viz-table table { width: 100%; border-collapse: collapse; font-size: var(--fs-xs); }\n.viz-table th, .viz-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: start; white-space: nowrap; }\n.viz-table th { color: var(--ink-3); font-weight: 600; position: sticky; top: 0; background: var(--surface); }\n.skel-card { min-height: 280px; background: linear-gradient(90deg, var(--surface), var(--surface-2), var(--surface)); background-size: 200% 100%; animation: shimmer 1.4s infinite; }\n\n/* legend */\n.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: var(--fs-xs); color: var(--ink-2); }\n.legend-item { display: inline-flex; align-items: center; gap: 6px; }\n.legend-item b { color: var(--ink-3); font-weight: 600; }\n.sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; flex: none; }\n\n/* stacked columns (HTML) */\n.viz-plot { position: relative; height: 260px; padding-inline-start: 36px; padding-bottom: 40px; }\n.viz-plot.compact { height: 200px; }\n.grid { position: absolute; inset: 0 0 40px 0; inset-inline-start: 36px; pointer-events: none; }\n.grid-line { position: absolute; inset-inline: 0; border-top: 1px solid var(--grid); }\n.grid-line:first-child { border-top-color: var(--baseline); }\n.grid-line span { position: absolute; inset-inline-start: -36px; width: 30px; transform: translateY(-50%); text-align: end; font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }\n.cols { position: relative; display: flex; height: 100%; }\n.col { flex: 1; display: flex; flex-direction: column; align-items: center; min-width: 0; height: 100%; }\n.col-plot { position: relative; flex: 1; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }\n.col-bar { width: 24px; display: flex; flex-direction: column-reverse; gap: 2px; min-height: 0; transition: height 500ms var(--ease); }\n.col-bar .seg { display: block; width: 100%; min-height: 2px; transition: filter var(--t-fast), opacity var(--t-fast); }\n.col-bar .seg:last-child { border-radius: 4px 4px 0 0; }\n.col-val { font-size: var(--fs-xs); font-weight: 700; color: var(--ink); margin-bottom: 4px; }\n.col-label { position: absolute; top: 100%; inset-inline: 0; height: 40px; padding-top: 6px; display: grid; justify-items: center; align-content: start; line-height: 1.35; font-size: var(--fs-xs); color: var(--ink-2); text-align: center; white-space: nowrap; }\n.col { position: relative; }\n.col-label small { color: var(--ink-3); font-size: 11px; }\n.col.is-current .col-label { color: var(--ink); font-weight: 700; }\n.col.is-current .col-label::before { content: \"\"; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); position: absolute; top: -1px; }\n.cols:hover .seg { opacity: .55; }\n.cols .col:hover .seg { opacity: 1; }\n.seg:hover { filter: brightness(1.08); }\n\n/* donut */\n.donut-wrap { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }\n.donut { width: 168px; height: 168px; flex: none; }\n.donut .arc { cursor: pointer; transition: stroke-width var(--t-fast) var(--ease); outline: none; }\n.donut .arc:hover, .donut .arc:focus { stroke-width: 17; }\n.donut-num { font: 800 22px var(--font); fill: var(--ink); }\n.donut-cap { font: 500 9px var(--font); fill: var(--ink-3); }\n.donut-legend { flex: 1; display: grid; gap: 2px; min-width: 180px; }\n.donut-legend button { display: flex; align-items: center; gap: 8px; width: 100%; padding: 4px 6px; border-radius: 6px; font-size: var(--fs-sm); color: var(--ink-2); }\n.donut-legend button:hover { background: var(--surface-2); color: var(--ink); }\n.donut-legend span { flex: 1; text-align: start; }\n.donut-legend b { color: var(--ink); font-weight: 700; }\n.donut-legend em { font-style: normal; font-size: var(--fs-xs); color: var(--ink-3); min-width: 36px; text-align: end; }\n\n/* horizontal stacked bars */\n.hbars { display: grid; gap: 10px; }\n.hrow { display: grid; grid-template-columns: minmax(96px, 34%) 1fr auto; align-items: center; gap: 10px; }\n.hrow-label { display: flex; align-items: center; gap: 6px; min-width: 0; font-size: var(--fs-sm); color: var(--ink-2); }\n.hrow-label span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.hrow-track { height: 14px; }\n.hrow-bar { display: flex; gap: 2px; height: 100%; min-width: 2px; transition: width 500ms var(--ease); }\n.hrow-bar .seg { height: 100%; min-width: 2px; }\n.hrow-bar .seg:last-child { border-start-end-radius: 0; border-radius: 4px 0 0 4px; }\n.hrow-val { display: grid; justify-items: end; line-height: 1.25; min-width: 64px; }\n.hrow-val b { font-size: var(--fs-sm); }\n.hrow-val small { font-size: 11px; color: var(--ink-3); }\n.hbars:hover .seg { opacity: .55; }\n.hbars .hrow:hover .seg { opacity: 1; }\n\n/* tooltip */\n.tooltip {\n  position: fixed; top: 0; left: 0; z-index: 50; pointer-events: none; max-width: 280px;\n  padding: 8px 10px; border-radius: 10px; background: var(--ink); color: var(--surface);\n  font-size: var(--fs-xs); line-height: 1.6; box-shadow: var(--shadow-overlay); display: grid; gap: 2px;\n}\n.tooltip.is-hint { padding: 4px 8px; }\n.tooltip b { font-size: var(--fs-sm); margin-bottom: 2px; }\n.tt-row { display: flex; align-items: center; gap: 6px; }\n.tt-row i { width: 8px; height: 8px; border-radius: 2px; flex: none; }\n.tt-row em { font-style: normal; font-weight: 700; margin-inline-start: auto; padding-inline-start: 12px; }\n\n/* toasts */\n.toasts { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 60; display: grid; gap: 8px; justify-items: center; }\n.toast {\n  display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 10px 8px 16px; border-radius: 12px;\n  background: var(--ink); color: var(--surface); font-size: var(--fs-sm); box-shadow: var(--shadow-overlay);\n  animation: toast-in var(--t) var(--ease); transition: opacity var(--t), transform var(--t);\n}\n.toast .btn-ghost { color: var(--surface); background: rgba(255,255,255,.12); }\n.toast .btn-ghost:hover { background: rgba(255,255,255,.2); }\n.app[data-theme=\"dark\"] .toast .btn-ghost { color: var(--surface); background: rgba(0,0,0,.08); }\n.toast-error .ic { color: #ff8a80; }\n.toast-ok .ic { color: #5fd38a; }\n.app[data-theme=\"dark\"] .toast-error .ic { color: var(--danger); }\n.app[data-theme=\"dark\"] .toast-ok .ic { color: var(--ok-ink); }\n.toast.out { opacity: 0; transform: translateY(8px); }\n@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } }\n\n/* ---------- launcher (lives outside .app) ---------- */\n.launcher {\n  position: fixed; bottom: 20px; right: 20px; z-index: 2147483000;\n  display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px 0 16px; border: 0; border-radius: 999px;\n  background: #141413; color: #fcfcfb; cursor: pointer;\n  font: 600 14px/1 \"SFR Vazirmatn\", Vazirmatn, Tahoma, sans-serif; letter-spacing: 0;\n  box-shadow: 0 8px 24px rgba(20, 20, 19, .28), 0 0 0 1px rgba(255,255,255,.06) inset;\n  transition: transform 160ms cubic-bezier(.2,0,0,1);\n}\n.launcher:hover { transform: translateY(-2px); }\n.launcher:active { transform: scale(.98); }\n.launcher .ic { color: #ef0d8a; }\n.launcher kbd { font: 500 11px/1 \"SFR Vazirmatn\", sans-serif; color: rgba(252,252,251,.6); border: 1px solid rgba(255,255,255,.18); border-radius: 4px; padding: 3px 4px; background: transparent; }\n.launcher[hidden] { display: none; }\n.launcher:focus-visible { outline: 2px solid #3987e5; outline-offset: 2px; }\n\n/* ---------- responsive ---------- */\n@media (max-width: 1180px) {\n  .dash-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }\n  .kpis { grid-template-columns: 1fr; }\n}\n@media (max-width: 860px) {\n  .tabs button { padding: 0 8px; }\n  .brand-text, .top-actions .btn span, .sync { display: none; }\n  .dash-grid { grid-template-columns: 1fr; }\n  .viz-card.wide { grid-column: auto; }\n  .tile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }\n  .search { min-width: 0; flex: 1 1 100%; }\n  .facts { grid-template-columns: 1fr; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .app *, .app *::before, .app *::after { animation: none !important; transition: none !important; }\n}\n@media (forced-colors: active) {\n  .seg, .sw, .col-dist i, .pill .dot { forced-color-adjust: none; }\n}\n\n/* ==========================================================================\n   Colour layer — «شاداب»\n   Snappfood pink as the accent, seasonal column headers, t-shirt-size scale,\n   status stripe on cards, warm canvas. Status colours (--s-*) stay untouched.\n   ========================================================================== */\n.app {\n  --accent: #d40c78; --accent-soft: rgba(212, 12, 120, .09); --accent-ink: #b80c69;\n  --brand-2: #ff7a3d;\n  --bg: #f7f4f2;\n  /* t-shirt sizes: six distinct hues (validated for colour-blind separation between neighbours) + ascending bars.\n     --sz-* are chart marks; --sz-*-bg / -fg are the filled chip and its readable text. */\n  --sz-xs: #1baf7a; --sz-s: #2a78d6; --sz-m: #eda100; --sz-l: #e87ba4; --sz-xl: #6250d6; --sz-xxl: #eb6834; --sz-na: var(--surface-3);\n  --sz-xs-bg: #1baf7a; --sz-xs-fg: #06150f;\n  --sz-s-bg: #256abf;  --sz-s-fg: #ffffff;\n  --sz-m-bg: #eda100;  --sz-m-fg: #1c1400;\n  --sz-l-bg: #e87ba4;  --sz-l-fg: #2b0a18;\n  --sz-xl-bg: #6250d6; --sz-xl-fg: #ffffff;\n  --sz-xxl-bg: #eb6834; --sz-xxl-fg: #200a02;\n  --s-cat3: #1baf7a; --on-accent: #ffffff;\n  /* heat-map ramp (one blue hue, light → dark = little → much) */\n  --hm1: #cde2fb; --hm2: #9ec5f4; --hm3: #6da7ec; --hm4: #3987e5; --hm5: #256abf; --hm6: #184f95;\n  --hm-ink-lo: #0d2d57; --hm-ink-hi: #ffffff;\n  /* seasons (Jalali): bar colour + readable label ink */\n  --ss-spring: #23a35a; --ss-spring-ink: #1a7a43;\n  --ss-summer: #f59e0b; --ss-summer-ink: #9a5200;\n  --ss-autumn: #d9622b; --ss-autumn-ink: #a8431c;\n  --ss-winter: #3b82d6; --ss-winter-ink: #2a6fc0;\n}\n.app[data-theme=\"dark\"] {\n  --accent: #f45bab; --accent-soft: rgba(244, 91, 171, .14); --accent-ink: #f9a8d4;\n  --bg: #121011;\n  --sz-xs: #199e70; --sz-s: #3987e5; --sz-m: #c98500; --sz-l: #d55181; --sz-xl: #9085e9; --sz-xxl: #d95926;\n  --sz-xs-bg: #199e70; --sz-xs-fg: #03120c;\n  --sz-s-bg: #3987e5;  --sz-s-fg: #04111f;\n  --sz-m-bg: #c98500;  --sz-m-fg: #170f00;\n  --sz-l-bg: #d55181;  --sz-l-fg: #1f0510;\n  --sz-xl-bg: #9085e9; --sz-xl-fg: #0f0b2b;\n  --sz-xxl-bg: #d95926; --sz-xxl-fg: #1c0801;\n  --s-cat3: #199e70; --on-accent: #1f0412;\n  --hm1: #1b3354; --hm2: #1f4a7d; --hm3: #2a62ad; --hm4: #3987e5; --hm5: #6da7ec; --hm6: #9ec5f4;\n  --hm-ink-lo: #0a1a30; --hm-ink-hi: #dbe9fb;\n  --ss-spring: #34c472; --ss-spring-ink: #7ddca3;\n  --ss-summer: #f7b23b; --ss-summer-ink: #f9c870;\n  --ss-autumn: #ef7a45; --ss-autumn-ink: #f6a37c;\n  --ss-winter: #5b9ae6; --ss-winter-ink: #93bdf0;\n}\n\n/* warm canvas with a soft brand glow at the top */\n.app { background:\n  radial-gradient(1200px 260px at 85% -80px, color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%),\n  radial-gradient(900px 220px at 10% -60px, color-mix(in srgb, var(--brand-2) 8%, transparent), transparent 70%),\n  var(--bg); }\n.topbar { position: relative; background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(8px); }\n.topbar::after { content: \"\"; position: absolute; inset-inline: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, var(--brand-2), var(--accent) 60%, #8b5cf6); opacity: .85; }\n.logo { background: linear-gradient(135deg, var(--accent), var(--brand-2)); color: #fff; }\n.logo::after { background: #fff; box-shadow: 0 0 0 2px var(--accent); }\n.tabs button[aria-selected=\"true\"]::after { background: var(--accent); height: 3px; }\n.tabs button[aria-selected=\"true\"] .ic { color: var(--accent); }\n\n/* greeting */\n.greet { display: grid; line-height: 1.35; padding-inline-start: 16px; border-inline-start: 1px solid var(--line); }\n.greet b { font-size: var(--fs-sm); font-weight: 700; }\n.greet small { font-size: var(--fs-xs); color: var(--ink-3); }\n\n/* chips & filters: colour instead of black */\n.chip.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }\n.chip.is-on .count { background: #fff; color: var(--accent-ink); }\n.app[data-theme=\"dark\"] .chip.is-on { color: #1f0412; }\n.chip:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }\n.btn-primary { background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 70%, var(--brand-2))); color: #fff; }\n.app[data-theme=\"dark\"] .btn-primary { color: #1f0412; }\n.sf.is-on { border-color: currentColor; }\n.sf-done.is-on { color: var(--ok-ink); background: color-mix(in srgb, var(--s-done) 10%, var(--surface)); }\n.sf-devdone.is-on { background: color-mix(in srgb, var(--s-devdone) 12%, var(--surface)); }\n.sf-progress.is-on { background: color-mix(in srgb, var(--s-progress) 10%, var(--surface)); }\n.sf-pending.is-on { background: color-mix(in srgb, var(--s-pending) 14%, var(--surface)); }\n.sf-todo.is-on { background: color-mix(in srgb, var(--s-todo) 10%, var(--surface)); }\n.sf-canceled.is-on { background: color-mix(in srgb, var(--s-canceled) 10%, var(--surface)); }\n\n/* t-shirt sizes: filled chip + ascending bars (order without colour) */\n.size { display: inline-flex; align-items: center; flex: none; white-space: nowrap; gap: 5px; height: 22px; padding: 0 8px 0 7px; border: 0; border-radius: 7px; font-size: 12px; font-weight: 800; letter-spacing: .01em; background: var(--surface-3); color: var(--ink-2); }\n.size .bars { flex: none; fill: currentColor; }\n.size-xs { background: var(--sz-xs-bg); color: var(--sz-xs-fg); }\n.size-s { background: var(--sz-s-bg); color: var(--sz-s-fg); }\n.size-m { background: var(--sz-m-bg); color: var(--sz-m-fg); }\n.size-l { background: var(--sz-l-bg); color: var(--sz-l-fg); }\n.size-xl { background: var(--sz-xl-bg); color: var(--sz-xl-fg); }\n.size-xxl { background: var(--sz-xxl-bg); color: var(--sz-xxl-fg); }\n\n/* seasonal columns */\n.column { position: relative; overflow: hidden; }\n.column::before { content: \"\"; position: absolute; inset-inline: 0; top: 0; height: 4px; background: var(--season, transparent); }\n.column.ss-spring { --season: var(--ss-spring); --season-ink: var(--ss-spring-ink); }\n.column.ss-summer { --season: var(--ss-summer); --season-ink: var(--ss-summer-ink); }\n.column.ss-autumn { --season: var(--ss-autumn); --season-ink: var(--ss-autumn-ink); }\n.column.ss-winter { --season: var(--ss-winter); --season-ink: var(--ss-winter-ink); }\n.column[class*=\"ss-\"] { background: color-mix(in srgb, var(--season) 5%, var(--surface-2)); }\n.season { display: inline-flex; align-items: center; gap: 4px; align-self: center; height: 20px; padding: 0 7px; border-radius: 999px; font-size: 11px; font-weight: 700;\n  color: var(--season-ink); background: color-mix(in srgb, var(--season) 14%, transparent); }\n.season .ic { stroke-width: 2; }\n.column.is-current { border-color: color-mix(in srgb, var(--accent) 45%, transparent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent); }\n.now { color: #fff; background: var(--accent); }\n.app[data-theme=\"dark\"] .now { color: #1f0412; }\n\n/* cards: status stripe on the start edge + livelier hover */\n.card { border-inline-start: 3px solid var(--stripe, var(--line)); }\n.card.st-done { --stripe: var(--s-done); }\n.card.st-devdone { --stripe: var(--s-devdone); }\n.card.st-progress { --stripe: var(--s-progress); }\n.card.st-pending { --stripe: var(--s-pending); }\n.card.st-todo { --stripe: var(--s-todo); }\n.card.st-canceled { --stripe: var(--s-canceled); }\n.card:hover { box-shadow: 0 2px 4px rgba(20,20,19,.05), 0 10px 28px color-mix(in srgb, var(--stripe, var(--accent)) 16%, transparent); }\n.card-tags bdi { background: color-mix(in srgb, var(--accent) 7%, var(--surface-2)); color: var(--ink-2); }\n.star.is-on { color: #f59e0b; }\n\n/* initials avatars get a friendly colour */\n.av.c0 { background: #ffe4ef; color: #a10c5c; } .av.c1 { background: #ffedd5; color: #9a3412; }\n.av.c2 { background: #dcfce7; color: #166534; } .av.c3 { background: #dbeafe; color: #1e40af; }\n.av.c4 { background: #ede9fe; color: #5b21b6; } .av.c5 { background: #cffafe; color: #155e75; }\n.av.c6 { background: #fef9c3; color: #854d0e; } .av.c7 { background: #fce7f3; color: #9d174d; }\n\n/* dashboard */\n.hero { background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, var(--surface)), var(--surface) 60%); }\n.hero > b { background: linear-gradient(90deg, var(--accent), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }\n.tile .ic { width: 28px; height: 28px; padding: 6px; border-radius: 8px; color: var(--tile, var(--ink-3)); background: color-mix(in srgb, var(--tile, var(--ink-3)) 12%, transparent); }\n.tile { grid-template-columns: auto 1fr; }\n.tile.t-all { --tile: var(--accent); } .tile.t-picked { --tile: #8b5cf6; } .tile.t-progress { --tile: var(--s-progress); }\n.tile.t-pending { --tile: var(--s-pending); } .tile.t-late { --tile: var(--danger); } .tile.t-done { --tile: var(--s-done); }\n.tile:hover { border-color: color-mix(in srgb, var(--tile, var(--accent)) 40%, var(--line)); }\n.viz-card > header h3::before { content: \"\"; display: inline-block; width: 8px; height: 8px; border-radius: 3px; margin-inline-end: 8px; vertical-align: middle; background: linear-gradient(135deg, var(--accent), var(--brand-2)); }\n\n/* following inbox */\n.inbox-head h2 { background: linear-gradient(90deg, var(--ink), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }\n.inbox-item { border-inline-start: 3px solid var(--stripe, var(--line)); }\n.inbox-item.has-news { box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 8%, transparent); }\n\n.launcher { background: linear-gradient(135deg, #d40c78, #ff7a3d); }\n.launcher .ic { color: #fff; }\n\n@media (max-width: 860px) { .greet { display: none; } }\n\n/* ==========================================================================\n   Game layer — «بازی‌وار»\n   Player chip, quests, achievements, boss cards, delivery journey, new analyses.\n   Animations only ever animate *from* a state (keyframes with `from`), so a reduced-motion\n   user simply sees the finished picture.\n   ========================================================================== */\n@keyframes rise { from { opacity: 0; transform: translateY(8px); } }\n@keyframes grow-y { from { transform: scaleY(0); } }\n@keyframes grow-x { from { transform: scaleX(0); } }\n@keyframes draw { from { stroke-dasharray: 100; stroke-dashoffset: 100; } }\n@keyframes arc-in { from { stroke-dasharray: 0 400; } }\n@keyframes fade-in { from { opacity: 0; } }\n@keyframes halo { 0%, 100% { opacity: .55; transform: scale(.92); } 50% { opacity: .15; transform: scale(1.08); } }\n@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }\n@keyframes xp-rise { 0% { opacity: 0; transform: translate(-50%, 6px) scale(.8); } 15% { opacity: 1; transform: translate(-50%, 0) scale(1.08); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -46px) scale(1); } }\n@keyframes bump { 0% { transform: scale(1); } 30% { transform: scale(1.06); } 100% { transform: scale(1); } }\n@keyframes boss-glow { 0%, 100% { box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--brand-2) 55%, transparent), 0 0 0 0 color-mix(in srgb, var(--brand-2) 30%, transparent); } 50% { box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--brand-2) 80%, transparent), 0 0 18px 2px color-mix(in srgb, var(--brand-2) 28%, transparent); } }\n@keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0); } 50% { transform: scale(1.25) rotate(12deg); } }\n@keyframes col-pop { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); } 100% { box-shadow: 0 0 0 16px transparent; } }\n@keyframes sheen { to { background-position: -200% 0; } }\n\n/* ----- fx layer ----- */\n.fx { position: fixed; inset: 0; z-index: 70; pointer-events: none; overflow: hidden; }\n.fx canvas { position: absolute; inset: 0; }\n.xp-pop {\n  position: fixed; padding: 2px 12px; border-radius: 999px; font-weight: 800; font-size: 14px; white-space: nowrap;\n  color: var(--accent-ink); background: var(--surface); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);\n  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 25%, transparent); animation: xp-rise 1.5s var(--ease) both;\n}\n.xp-pop.xp-quest { color: var(--on-accent); background: linear-gradient(135deg, var(--accent), var(--brand-2)); border: 0; margin-top: 30px; }\n\n/* ----- player chip ----- */\n.player {\n  position: relative; display: grid; grid-template-columns: 44px auto auto; align-items: center; column-gap: 10px;\n  height: 52px; padding: 0 14px 0 6px; margin-inline-start: 6px; border-radius: 999px;\n  background: var(--surface); border: 1px solid var(--line); cursor: pointer; transition: border-color var(--t-fast), box-shadow var(--t-fast);\n}\n.player:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 14%, transparent); }\n.player.bump { animation: bump .5s var(--ease); }\n.lv-ring { grid-area: 1 / 1; place-self: center; }\n.player-av { grid-area: 1 / 1; place-self: center; display: inline-flex; }\n.lv-track { stroke: var(--surface-3); }\n.lv-arc { stroke: var(--accent); transition: stroke-dasharray .8s var(--ease); }\n.player-text { display: grid; line-height: 1.35; text-align: start; }\n.player-text b { font-size: var(--fs-sm); font-weight: 800; white-space: nowrap; }\n.player-text b i { font-style: normal; font-weight: 600; color: var(--accent-ink); margin-inline-start: 6px; }\n.player-text small { font-size: 11px; color: var(--ink-3); white-space: nowrap; }\n.streak { display: inline-flex; align-items: center; gap: 3px; padding: 3px 9px 3px 7px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); font-size: var(--fs-sm); }\n.streak b { font-weight: 800; color: var(--ink); }\n.streak .ic { color: var(--ink-3); }\n.streak.is-hot { background: color-mix(in srgb, var(--brand-2) 16%, transparent); }\n.streak.is-hot .ic { color: var(--brand-2); fill: color-mix(in srgb, var(--brand-2) 35%, transparent); }\n@media (max-width: 1180px) { .player-text { display: none; } .player { grid-template-columns: 44px auto; } }\n\n/* ----- player panel ----- */\n.popover.pop-player { width: 380px; }\n.pp { display: grid; gap: 14px; padding: 18px; overflow-y: auto; }\n.pp-head { display: flex; align-items: center; gap: 16px; }\n.pp-ring { position: relative; width: 72px; height: 72px; flex: none; }\n.pp-lv { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; line-height: 1.1; }\n.pp-lv b { font-size: 24px; font-weight: 800; }\n.pp-lv small { font-size: 10px; color: var(--ink-3); }\n.pp-id { flex: 1; display: grid; gap: 4px; min-width: 0; }\n.pp-id b { font-size: var(--fs-xl); font-weight: 800; }\n.pp-id small { font-size: var(--fs-xs); color: var(--ink-3); }\n.pp-split { display: flex; flex-wrap: wrap; gap: 6px; }\n.pp-split span { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; background: var(--surface-2); font-size: var(--fs-xs); color: var(--ink-2); }\n.pp-split span b { color: var(--ink); font-weight: 800; }\n.pp h4 { display: flex; align-items: baseline; gap: 8px; font-size: var(--fs-md); font-weight: 800; }\n.pp h4 small { font-size: var(--fs-xs); color: var(--ink-3); font-weight: 500; }\n.quests { display: grid; gap: 6px; }\n.quests li { display: grid; grid-template-columns: 32px 1fr auto; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 12px; background: var(--surface-2); border: 1px solid transparent; transition: background var(--t); }\n.quests li b { display: block; font-size: var(--fs-sm); font-weight: 600; line-height: 1.5; }\n.quests li small { display: block; font-size: 11px; color: var(--ink-3); }\n.quests li .meter { margin-top: 5px; height: 5px; }\n.quests li em { font-style: normal; font-weight: 800; font-size: var(--fs-sm); color: var(--accent-ink); }\n.q-ic { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent-ink); }\n.quests li.is-done { background: color-mix(in srgb, var(--s-done) 9%, var(--surface)); border-color: color-mix(in srgb, var(--s-done) 25%, transparent); }\n.quests li.is-done .q-ic { background: var(--s-done); color: #fff; }\n.quests li.is-done b { color: var(--ink-2); text-decoration: line-through; text-decoration-color: var(--line-2); }\n.quests li.is-done em { color: var(--ok-ink); }\n.meter i { background: linear-gradient(90deg, var(--accent), var(--brand-2)); }\n.medals { display: flex; flex-wrap: wrap; gap: 8px; }\n.pp-note { font-size: 11px; color: var(--ink-3); line-height: 1.7; }\n\n/* ----- medals & achievement cards ----- */\n.medal { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; flex: none; background: var(--surface-2); color: var(--ink-3); border: 1px dashed var(--line-2); }\n.medal.is-on { background: linear-gradient(135deg, var(--accent), var(--brand-2)); color: var(--on-accent); border: 0; box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 30%, transparent); }\n.badge-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }\n.badge-card { display: grid; justify-items: start; gap: 6px; padding: 14px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); position: relative; overflow: hidden; }\n.badge-card .medal { width: 46px; height: 46px; margin-bottom: 4px; }\n.badge-card b { font-size: var(--fs-md); font-weight: 800; }\n.badge-card p { font-size: var(--fs-xs); color: var(--ink-3); line-height: 1.7; min-height: 40px; }\n.badge-card .meter { width: 100%; height: 5px; }\n.badge-card small { font-size: 11px; color: var(--ink-3); }\n.badge-card:not(.is-on) { background: var(--surface); }\n.badge-card:not(.is-on) b { color: var(--ink-2); }\n.badge-card.is-on { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 7%, var(--surface)), var(--surface) 70%); }\n.badge-card.is-on::after { content: \"\"; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 35%, color-mix(in srgb, #fff 45%, transparent) 50%, transparent 65%); background-size: 200% 100%; background-position: 120% 0; pointer-events: none; transition: background-position .9s var(--ease); }\n.badge-card.is-on:hover::after { background-position: -40% 0; }\n.badge-card.is-on small { color: var(--ok-ink); font-weight: 700; }\n.badge-card.is-team .medal.is-on { background: linear-gradient(135deg, var(--s-cat1), var(--s-cat3)); box-shadow: 0 4px 12px color-mix(in srgb, var(--s-cat1) 30%, transparent); }\n\n/* ----- board: boss cards, wins, month rings ----- */\n.pill-boss { background: linear-gradient(135deg, var(--brand-2), var(--accent)); color: #fff; font-weight: 700; }\n.app[data-theme=\"dark\"] .pill-boss { color: #1f0412; }\n.pill-boss .ic { stroke-width: 2.2; }\n.card.boss { box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--brand-2) 55%, transparent), var(--shadow-card); animation: boss-glow 2.8s ease-in-out infinite; }\n.card.boss.is-slain { animation: none; box-shadow: 0 0 0 1.5px #eda100, var(--shadow-card); background: linear-gradient(160deg, color-mix(in srgb, #eda100 8%, var(--surface)), var(--surface) 60%); }\n.card.boss.is-slain .pill-boss { background: #eda100; color: #231800; }\n.spark { display: inline-flex; color: #eda100; animation: twinkle 2.4s ease-in-out infinite; }\n.card.win { background: linear-gradient(160deg, color-mix(in srgb, var(--s-done) 6%, var(--surface)), var(--surface) 55%); }\n.kanban.enter .card { animation: card-in 440ms var(--ease) both; animation-delay: calc(var(--i, 0) * 34ms); }\n.kanban.enter .column { animation: rise 420ms var(--ease) both; }\n.column.pop { animation: col-pop 650ms var(--ease); }\n.col-done { display: flex; align-items: center; gap: 6px; }\n.mini-ring { flex: none; }\n.mr-track { fill: none; stroke: var(--surface-3); stroke-width: 3; }\n.mr-arc { fill: none; stroke: var(--s-done); stroke-width: 3; stroke-linecap: round; }\n.clear-tag { display: inline-flex; align-items: center; gap: 3px; margin-inline-start: auto; padding: 0 7px; height: 20px; border-radius: 999px; font-style: normal; font-size: 11px; font-weight: 700; color: #6b4600; background: color-mix(in srgb, #eda100 24%, transparent); }\n.app[data-theme=\"dark\"] .clear-tag { color: #f6c453; }\n.column.is-clear::before { background: linear-gradient(90deg, #eda100, #ff7a3d, #eda100); background-size: 200% 100%; animation: sheen 3.2s linear infinite; }\n\n/* ----- dashboard: structure ----- */\n.dash-sec { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 12px; margin-top: 14px; }\n.dash-sec h2 { font-size: var(--fs-xl); font-weight: 800; white-space: nowrap; }\n.dash-sec p { font-size: var(--fs-sm); color: var(--ink-3); white-space: nowrap; }\n.dash-sec::after { content: \"\"; flex: 1; height: 1px; background: var(--line); align-self: center; order: 3; }\n.switch-sm button { padding: 3px 12px; font-size: var(--fs-xs); }\n.viz-card > header .switch { flex: none; }\n\n/* ----- dashboard: journey ----- */\n.journey-card { gap: 14px; background: radial-gradient(900px 220px at 100% 0, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%), radial-gradient(700px 200px at 0 100%, color-mix(in srgb, var(--brand-2) 6%, transparent), transparent 70%), var(--surface); }\n.jstats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }\n.jstat { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 14px; background: color-mix(in srgb, var(--ink) 4%, transparent); min-width: 0; }\n.jstat-ic { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; flex: none; color: var(--accent-ink); background: color-mix(in srgb, var(--accent) 13%, transparent); }\n.jstat.is-main .jstat-ic { color: var(--on-accent); background: linear-gradient(135deg, var(--accent), var(--brand-2)); }\n.jstat small { display: block; font-size: var(--fs-xs); color: var(--ink-3); }\n.jstat b { display: block; font-size: var(--fs-xl); font-weight: 800; line-height: 1.35; white-space: nowrap; }\n.jstat b em { font-style: normal; font-size: var(--fs-sm); font-weight: 500; color: var(--ink-3); }\n.jstat > div { min-width: 0; }\n.jmeter { display: block; height: 4px; margin-top: 3px; border-radius: 2px; background: var(--surface-3); overflow: hidden; }\n.jmeter u { display: block; height: 100%; text-decoration: none; background: linear-gradient(90deg, var(--accent), var(--brand-2)); }\n.journey-scroll { overflow-x: auto; padding-bottom: 4px; }\n.journey-svg { display: block; width: 100%; height: auto; overflow: visible; }\n.journey .jr-road { fill: none; stroke: var(--line-2); stroke-width: 7; stroke-linecap: round; stroke-dasharray: .1 13; }\n.journey .jr-trail { fill: none; stroke: url(#jgrad); stroke-width: 7; stroke-linecap: round; }\n.journey.is-fresh .jr-trail { animation: draw 1.5s var(--ease) .25s both; }\n.journey.is-fresh .jn { animation: fade-in .5s var(--ease) both; animation-delay: calc(var(--i) * 70ms + 200ms); }\n.jn { cursor: pointer; }\n.jn-base { fill: var(--surface); stroke: var(--line-2); stroke-width: 1.5; transition: stroke var(--t-fast); }\n.jn-track { fill: none; stroke: var(--surface-3); stroke-width: 6; }\n.jn-arc { fill: none; stroke: url(#jgrad); stroke-width: 6; stroke-linecap: round; }\n.jn-num { font: 800 13px var(--font); fill: var(--ink); }\n.jn-num.is-dim { fill: var(--ink-3); font-weight: 500; }\n.jn-label { font: 700 13px var(--font); fill: var(--ink); }\n.jn-sub { font: 500 11px var(--font); fill: var(--ink-3); }\n.jn-check { color: var(--s-done); stroke-width: 3; }\n.jn.is-full .jn-arc { stroke: var(--s-done); }\n.jn.is-full .jn-base { fill: color-mix(in srgb, var(--s-done) 12%, var(--surface)); }\n.jn.is-now .jn-base { stroke: var(--accent); stroke-width: 2.5; }\n.jn.is-empty .jn-base { stroke-dasharray: 3 3; }\n.jn.is-empty .jn-label { fill: var(--ink-3); font-weight: 500; }\n.jn.is-future .jn-label { fill: var(--ink-2); }\n.jn:hover .jn-base, .jn:focus-within .jn-base { stroke: var(--accent); }\n.jn-halo { fill: color-mix(in srgb, var(--accent) 22%, transparent); transform-box: fill-box; transform-origin: center; animation: halo 2.4s ease-in-out infinite; pointer-events: none; }\n.jn-pin { animation: bob 2.2s ease-in-out infinite; pointer-events: none; }\n.jn-pin rect, .jn-pin path { fill: var(--accent); }\n.jn-pin text { font: 700 12px var(--font); fill: var(--on-accent); }\n.jn-boss { pointer-events: none; color: #fff; }\n.jn-boss circle { fill: var(--brand-2); stroke: var(--surface); stroke-width: 2; }\n.jn-boss .ic { stroke-width: 2.2; }\n.jn-boss.is-dead { color: #3a2600; }\n.jn-boss.is-dead circle { fill: #eda100; }\n.jn-late { pointer-events: none; }\n.jn-late circle { fill: var(--danger); stroke: var(--surface); stroke-width: 2; }\n.jn-late text { font: 800 11px var(--font); fill: #fff; }\n.app[data-theme=\"dark\"] .jn-late text { fill: #1f0412; }\n.jn-hit { fill: transparent; outline: none; }\n.jn-hit:focus-visible { stroke: var(--accent); stroke-width: 2; }\n.viz-card.show-table .journey-scroll { display: none; }\n\n/* ----- dashboard: tiles (six across) ----- */\n.tile-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }\n.tile b { font-size: 26px; }\n@media (max-width: 1100px) { .tile-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .jstats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }\n\n/* ----- dashboard: heat map ----- */\n.heat { display: grid; gap: 4px; }\n.hm-row { display: grid; grid-template-columns: minmax(90px, 150px) repeat(var(--hm-cols), minmax(0, 1fr)) 40px; gap: 4px; align-items: center; }\n.hm-head span { font-size: 11px; color: var(--ink-3); text-align: center; padding-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.hm-head span.is-now { color: var(--ink); font-weight: 800; }\n.hm-label { font-size: var(--fs-sm); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.hm-sum { text-align: center; font-size: var(--fs-xs); color: var(--ink-3); font-variant-numeric: tabular-nums; }\n.hm-cell { position: relative; display: grid; place-items: center; height: 30px; border: 0; border-radius: 7px; font-size: var(--fs-xs); transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast); }\n.hm-cell b { font-weight: 800; font-variant-numeric: tabular-nums; }\n.hm-cell.h0 { background: color-mix(in srgb, var(--ink) 4.5%, transparent); }\n.hm-cell.h1 { background: var(--hm1); color: var(--hm-ink-lo); } .hm-cell.h2 { background: var(--hm2); color: var(--hm-ink-lo); }\n.hm-cell.h3 { background: var(--hm3); color: var(--hm-ink-lo); } .hm-cell.h4 { background: var(--hm4); color: var(--hm-ink-lo); }\n.hm-cell.h5 { background: var(--hm5); color: var(--hm-ink-hi); } .hm-cell.h6 { background: var(--hm6); color: var(--hm-ink-hi); }\n.app[data-theme=\"dark\"] .hm-cell.h4, .app[data-theme=\"dark\"] .hm-cell.h5, .app[data-theme=\"dark\"] .hm-cell.h6 { color: var(--hm-ink-lo); }\n.app[data-theme=\"dark\"] .hm-cell.h1, .app[data-theme=\"dark\"] .hm-cell.h2, .app[data-theme=\"dark\"] .hm-cell.h3 { color: var(--hm-ink-hi); }\n.hm-cell.is-now { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 60%, transparent); }\nbutton.hm-cell { cursor: pointer; }\nbutton.hm-cell:hover { transform: scale(1.12); z-index: 1; box-shadow: 0 4px 14px rgba(0, 0, 0, .22); }\n.hm-dot { position: absolute; top: 3px; inset-inline-end: 3px; width: 7px; height: 7px; border-radius: 50%; background: var(--danger); box-shadow: 0 0 0 1.5px var(--surface); }\n.hm-scale { display: flex; align-items: center; gap: 4px; margin-top: 10px; font-size: 11px; color: var(--ink-3); }\n.hm-scale i { width: 22px; height: 10px; border-radius: 3px; }\n.hm-scale i.h1 { background: var(--hm1); } .hm-scale i.h2 { background: var(--hm2); } .hm-scale i.h3 { background: var(--hm3); }\n.hm-scale i.h4 { background: var(--hm4); } .hm-scale i.h5 { background: var(--hm5); } .hm-scale i.h6 { background: var(--hm6); }\n.hm-scale em { margin-inline-start: auto; font-style: normal; display: inline-flex; align-items: center; gap: 4px; }\n.hm-scale em .ic { color: var(--danger); fill: var(--danger); }\n.viz-card.show-table .heat { display: none; }\n.is-fresh .hm-cell { animation: fade-in .6s var(--ease) both; }\n\n/* ----- dashboard: burn-up ----- */\n.burn { display: block; width: 100%; height: auto; overflow: visible; }\n.bu-grid { stroke: var(--grid); stroke-width: 1; }\n.bu-grid.is-base { stroke: var(--baseline); }\n.bu-tick { font: 500 11px var(--font); fill: var(--ink-3); }\n.bu-cat { font: 500 11px var(--font); fill: var(--ink-2); }\n.bu-cat.is-now { font-weight: 800; fill: var(--ink); }\n.bu-line { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }\n.bu-line.p { stroke: var(--s-cat1); } .bu-line.d { stroke: var(--s-cat3); }\n.bu-dot { stroke: var(--surface); stroke-width: 2; } .bu-dot.p { fill: var(--s-cat1); } .bu-dot.d { fill: var(--s-cat3); }\n.bu-gap { fill: color-mix(in srgb, var(--danger) 9%, transparent); }\n.sw.gap { background: color-mix(in srgb, var(--danger) 28%, transparent); }\n.bu-now { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 3 4; }\n.bu-nowlbl { font: 700 11px var(--font); fill: var(--accent-ink); }\n.bu-end { font: 800 12px var(--font); fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 4px; }\n.bu-hit { fill: transparent; }\n.bu-hit:hover { fill: color-mix(in srgb, var(--ink) 4%, transparent); }\n.is-fresh .bu-line { animation: draw 1.4s var(--ease) .15s both; }\n.viz-card.show-table .viz-plot-wrap { display: none; }\n\n/* ----- dashboard: vitals ----- */\n.vitals { display: grid; gap: 14px; }\n.vt-gauge { display: grid; justify-items: center; gap: 8px; --tone: var(--s-done); }\n.vt-gauge.warn { --tone: var(--s-pending); } .vt-gauge.bad { --tone: var(--danger); }\n.vt-gauge svg, .vt-gtext { grid-area: 1 / 1; }\n.vt-gtrack { fill: none; stroke: var(--surface-3); stroke-width: 9; }\n.vt-garc { fill: none; stroke: var(--tone); stroke-width: 9; stroke-linecap: round; }\n.is-fresh .vt-garc { animation: arc-in 1.1s var(--ease) both; }\n.vt-gtext { display: grid; place-content: center; text-align: center; line-height: 1.1; }\n.vt-gtext b { font-size: 30px; font-weight: 800; }\n.vt-gtext small { font-size: 11px; color: var(--ink-3); }\n.vt-tier { grid-row: 2; display: inline-flex; align-items: center; gap: 6px; padding: 3px 12px; border-radius: 999px; font-size: var(--fs-sm); font-weight: 700; background: color-mix(in srgb, var(--tone) 14%, transparent); }\n.vt-tier .ic { color: var(--tone); }\n.vt-list { display: grid; gap: 6px; }\n.vt { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; padding: 8px 12px; border-radius: 12px; text-align: start; background: var(--surface-2); border: 1px solid transparent; transition: border-color var(--t-fast); --tone: var(--s-done); }\n.vt.warn { --tone: var(--s-pending); } .vt.bad { --tone: var(--danger); }\n.vt:hover { border-color: var(--line-2); }\n.vt-l { display: flex; align-items: center; gap: 6px; font-size: var(--fs-sm); font-weight: 600; }\n.vt-l .ic { color: var(--tone); }\n.vt-v { font-weight: 800; font-size: var(--fs-md); }\n.vt-bar { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--surface-3); overflow: hidden; }\n.vt-bar i { display: block; height: 100%; border-radius: 3px; background: var(--tone); transform-origin: right center; }\n.is-fresh .vt-bar i { animation: grow-x .9s var(--ease) .2s both; }\n.vt small { grid-column: 1 / -1; font-size: 11px; color: var(--ink-3); }\n\n/* ----- dashboard: podium ----- */\n.podium { display: grid; gap: 12px; }\n.pd-stand { display: flex; justify-content: center; align-items: flex-end; gap: 10px; padding-top: 6px; }\n.pd { display: grid; justify-items: center; gap: 3px; flex: 1; max-width: 118px; min-width: 0; text-align: center; border-radius: 12px; }\n.pd .av { width: 48px; height: 48px; font-size: 15px; box-shadow: 0 0 0 2.5px var(--surface), 0 0 0 4.5px var(--pd-ring, var(--line-2)); }\n.pd-1 { --pd-ring: var(--accent); }\n.pd b { font-size: var(--fs-sm); font-weight: 700; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 6px; }\n.pd-xp { font-size: 11px; color: var(--ink-3); }\n.pd-xp em { font-style: normal; font-weight: 800; font-size: var(--fs-md); color: var(--ink); }\n.pd-crown { color: #eda100; animation: bob 2.4s ease-in-out infinite; line-height: 0; }\n.pd-crown .ic { fill: color-mix(in srgb, #eda100 35%, transparent); }\n.pd-block { width: 100%; display: grid; place-items: start center; padding-top: 8px; border-radius: 12px 12px 4px 4px; background: var(--surface-3); font-style: normal; transform-origin: bottom; }\n.pd-block i { font-style: normal; font-weight: 800; font-size: var(--fs-lg); color: var(--ink-2); }\n.pd-1 .pd-block { height: 88px; background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 60%, var(--brand-2))); }\n.pd-1 .pd-block i { color: var(--on-accent); }\n.pd-2 .pd-block { height: 64px; } .pd-3 .pd-block { height: 48px; }\n.is-fresh .pd-block { animation: grow-y .9s var(--ease) .2s both; }\n.pd:hover .av { --pd-ring: var(--accent); }\n.pd-list { display: grid; gap: 2px; }\n.pd-row { display: grid; grid-template-columns: 18px 22px minmax(70px, 1fr) minmax(40px, 1fr) 40px; gap: 8px; align-items: center; padding: 4px 6px; border-radius: 8px; font-size: var(--fs-sm); color: var(--ink-2); text-align: start; }\n.pd-row:hover { background: var(--surface-2); }\n.pd-n { color: var(--ink-3); font-size: var(--fs-xs); }\n.pd-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.pd-track { height: 6px; border-radius: 3px; background: var(--surface-3); overflow: hidden; }\n.pd-track i { display: block; height: 100%; border-radius: 3px; background: var(--s-cat1); }\n.pd-row b { color: var(--ink); text-align: end; }\n.viz-card.show-table .podium > :not(.viz-table) { display: none; }\n\n/* ----- dashboard: stale list ----- */\n.stale-list li { grid-template-columns: 52px minmax(0, 1fr) auto; }\n.stale-list .days { display: grid; justify-items: center; line-height: 1.1; padding: 3px 0; border-radius: 9px; background: color-mix(in srgb, var(--s-pending) 18%, transparent); font-weight: 800; font-size: var(--fs-md); }\n.stale-list .days small { font-size: 10px; font-weight: 500; color: var(--ink-2); }\n\n/* ----- animations on first showing of the dashboard ----- */\n.is-fresh .col-bar { animation: grow-y .8s var(--ease) both; transform-origin: bottom; }\n.is-fresh .hrow-bar { animation: grow-x .8s var(--ease) both; transform-origin: right center; }\n.is-fresh .donut .arc { animation: arc-in .9s var(--ease) both; }\n.is-fresh .tile, .is-fresh .jstat { animation: rise .5s var(--ease) both; }\n.is-fresh .tile:nth-child(2) { animation-delay: .05s; } .is-fresh .tile:nth-child(3) { animation-delay: .1s; }\n.is-fresh .tile:nth-child(4) { animation-delay: .15s; } .is-fresh .tile:nth-child(5) { animation-delay: .2s; } .is-fresh .tile:nth-child(6) { animation-delay: .25s; }\n.is-fresh .jstat:nth-child(2) { animation-delay: .08s; } .is-fresh .jstat:nth-child(3) { animation-delay: .16s; } .is-fresh .jstat:nth-child(4) { animation-delay: .24s; }\n.badge-card.is-on .medal { transition: transform .4s var(--ease); }\n.badge-card.is-on:hover .medal { transform: rotate(-8deg) scale(1.08); }\n\n/* ----- extras ----- */\n.viz-card.wide .cols-chart:not(.compact) { height: 340px; }\n.viz-card.wide .cols-chart.compact { height: 280px; }\n.viz-card.show-table .xp-key { display: none; }\n.xp-key { display: grid; gap: 8px; padding-top: 12px; border-top: 1px solid var(--line); }\n.xp-key h4 { font-size: var(--fs-sm); font-weight: 700; }\n.xp-key > div { display: flex; flex-wrap: wrap; gap: 8px 14px; }\n.xp-key > div span { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); }\n.xp-key > div span b { font-weight: 800; }\n.xp-key p { font-size: 11px; color: var(--ink-3); line-height: 1.8; }\n\n.card-top { flex-wrap: wrap; row-gap: 4px; }\nbdi.key { white-space: nowrap; }\n\n/* ---- size report ---- */\n.tool-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }\n.viz-card > header .tool-row .switch { flex: none; }\n.srep-wrap { overflow-x: auto; margin-top: 4px; }\n.srep { width: 100%; border-collapse: separate; border-spacing: 0 3px; font-variant-numeric: tabular-nums; }\n.srep th { font-weight: 500; font-size: 11px; color: var(--ink-3); padding: 2px 3px 6px; text-align: center; white-space: nowrap; vertical-align: bottom; }\n.srep th .size { font-size: 11px; }\n.srep .srep-rl { text-align: start; min-width: 150px; padding-inline-end: 8px; }\n.srep td { padding: 0 2px; height: 36px; text-align: center; }\n.sr-na { font-size: 11px; color: var(--ink-3); }\n.sr-row { display: inline-flex; align-items: center; gap: 8px; max-width: 220px; border: 0; background: none; padding: 4px 6px; margin-inline-start: -6px; border-radius: 8px; color: var(--ink); font-size: var(--fs-sm); font-weight: 600; text-align: start; cursor: pointer; }\n.sr-row span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.sr-row:hover { background: color-mix(in srgb, var(--ink) 6%, transparent); }\n.sr-dot { flex: none; width: 9px; height: 9px; border-radius: 50%; }\n.sr-cell { display: grid; place-items: center; width: 100%; min-width: 42px; height: 34px; border: 0; border-radius: 8px; font-size: var(--fs-sm); font-weight: 700; color: var(--ink);\n  background: color-mix(in oklab, var(--c) var(--a), transparent); cursor: pointer; transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast); }\n.sr-cell:hover { transform: translateY(-1px); box-shadow: 0 0 0 2px color-mix(in srgb, var(--c) 75%, transparent); }\n.sr-cell.is-zero { background: none; color: var(--ink-4, var(--ink-3)); font-weight: 400; cursor: default; opacity: .6; }\n.sr-cell.is-foot { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--c) 70%, transparent); background: none; }\n.srep th.sr-sum, .srep td.sr-sum { padding-inline: 10px; min-width: 70px; }\n.srep td.sr-sum b { font-size: var(--fs-md, 15px); font-weight: 800; }\n.sr-mix { min-width: 150px; width: 22%; }\n.mixbar { display: flex; gap: 2px; height: 12px; border-radius: 6px; overflow: hidden; }\n.mixbar i { display: block; min-width: 2px; border-radius: 2px; }\n.srep-foot td, .srep-foot th { border-top: 1px solid var(--line, var(--hairline)); padding-top: 2px; }\n.is-fresh .sr-cell { animation: fade-in .5s var(--ease) both; }\n.is-fresh .mixbar i { animation: grow-x .8s var(--ease) .2s both; transform-origin: right center; }\n@media (max-width: 720px) { .sr-mix { display: none; } .srep .srep-rl { min-width: 110px; } }\n\n/* ---- size report: filters, stats, definition row, wide labelled bars ---- */\n.sr-filters { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }\n.sr-stats { display: flex; flex-wrap: wrap; gap: 8px 28px; padding: 2px 0 14px; }\n.sr-stat { display: grid; gap: 1px; }\n.sr-stat small { font-size: var(--fs-xs); color: var(--ink-3); }\n.sr-stat b { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }\n.sr-stat b i { font-style: normal; font-size: var(--fs-sm); font-weight: 500; color: var(--ink-3); }\n.sr-def { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-top: 48px; padding-top: 12px; border-top: 1px solid var(--line); font-size: var(--fs-sm); color: var(--ink-2); }\n.sr-def > span { display: inline-flex; align-items: center; gap: 6px; }\n.sr-def em { font-style: normal; }\n.sr-def small { margin-inline-start: auto; color: var(--ink-3); font-size: var(--fs-xs); }\n.cols-chart.wide-bars .col-bar { width: 46px; }\n.cols-chart.wide-bars .col-bar .seg { display: grid; place-items: center; }\n.seg-n { font-size: 12px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; pointer-events: none; }\n.app[data-theme=\"dark\"] .seg[data-s=\"todo\"] .seg-n { color: #15131f; }\n.xp-key small { color: var(--ink-3); font-size: var(--fs-xs); }\n.jn-year { font-weight: 500; font-size: 11px; fill: var(--ink-3); }\n.pd-card > header { flex-wrap: wrap; }\n.pd-card > header .switch { order: 3; flex: 1 1 100%; display: flex; margin-top: 6px; }\n.pd-card > header .switch button { flex: 1; }\n.jstat { align-items: flex-start; }\n.jdesc { margin: 3px 0 0; font-size: 11px; line-height: 1.55; color: var(--ink-3); white-space: normal; }\n.journey-card > header .switch { flex: none; }\n\n/* ==========================================================================\n   SIF tab — funnel, bottlenecks, value, idea → delivery\n   ========================================================================== */\n.app {\n  /* stages read as a sequence: one blue ramp, then the status colours for the side states */\n  --sf-strategy: var(--hm2); --sf-product: var(--hm3); --sf-tech: var(--hm4);\n  --sf-dispatched: var(--s-done); --sf-approval: var(--hm5); --sf-ready: var(--s-devdone);\n  --sf-review: var(--s-pending); --sf-hold: var(--ink-3); --sf-rejected: var(--danger);\n}\n.sif-filters .select select { max-width: 200px; }\n.dash-sec h2 em { font-style: normal; display: inline-grid; place-items: center; width: 26px; height: 26px; margin-inline-end: 8px; border-radius: 8px; font-size: var(--fs-sm); font-weight: 800; color: var(--on-accent); background: linear-gradient(135deg, var(--accent), var(--brand-2)); vertical-align: 2px; }\n\n.sif-tiles { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }\n.sif-tile { display: grid; gap: 2px; text-align: start; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); box-shadow: var(--shadow-card); cursor: pointer; transition: transform var(--t-fast) var(--ease), border-color var(--t-fast), box-shadow var(--t-fast); position: relative; overflow: hidden; }\n.sif-tile::before { content: \"\"; position: absolute; inset-inline-start: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 3px; background: var(--line-2); }\n.sif-tile.is-flow::before { background: var(--sf-tech); } .sif-tile.is-ok::before { background: var(--s-done); } .sif-tile.is-warn::before { background: var(--s-pending); }\n.sif-tile:hover { transform: translateY(-2px); border-color: var(--line-2); box-shadow: var(--shadow-lift); }\n.sif-tile small { font-size: var(--fs-xs); color: var(--ink-3); }\n.sif-tile b { font-size: 28px; font-weight: 800; line-height: 1.2; font-variant-numeric: tabular-nums; }\n.sif-tile em { font-style: normal; font-size: 11px; color: var(--ink-3); }\n.is-fresh .sif-tile { animation: rise .5s var(--ease) both; }\n.is-fresh .sif-tile:nth-child(2) { animation-delay: .04s; } .is-fresh .sif-tile:nth-child(3) { animation-delay: .08s; }\n.is-fresh .sif-tile:nth-child(4) { animation-delay: .12s; } .is-fresh .sif-tile:nth-child(5) { animation-delay: .16s; } .is-fresh .sif-tile:nth-child(6) { animation-delay: .2s; }\n\n.sif-mine { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: var(--r-card); border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); background: var(--accent-soft); }\n.sif-mine > .ic { color: var(--accent-ink); flex: none; }\n.sif-mine div { flex: 1; display: grid; }\n.sif-mine small { color: var(--ink-3); font-size: var(--fs-xs); }\n.sif-wait { display: flex; align-items: center; gap: 8px; padding: 8px 12px; margin-bottom: 8px; border-radius: var(--r-control); background: var(--surface-2); color: var(--ink-3); font-size: var(--fs-sm); }\n.sif-wait b { margin-inline-start: auto; font-variant-numeric: tabular-nums; color: var(--ink-2); }\n\n.sf-pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px 2px 8px; border-radius: var(--r-pill); font-size: var(--fs-xs); white-space: nowrap; background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--ink); }\n.sf-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }\n.sf-link { display: flex; align-items: center; gap: 8px; min-width: 0; color: inherit; text-decoration: none; }\n.sf-link:hover span[dir] { text-decoration: underline; }\n.dt-title .sf-link { display: grid; gap: 2px; }\n.dt-title .sf-link > span[dir] { max-width: 420px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; unicode-bidi: plaintext; text-align: start; }\n\n/* funnel rows (also used for the idea → delivery steps) */\n.fn { display: grid; gap: 6px; }\n.fn-row { display: grid; grid-template-columns: 170px minmax(0, 1fr) 84px 118px 74px; align-items: center; gap: 10px; padding: 4px 6px; border-radius: var(--r-control); }\n.fn-row.pl-row { grid-template-columns: 190px minmax(0, 1fr) 84px 60px; }\n.fn-row.is-leaky { background: color-mix(in srgb, var(--s-pending) 9%, transparent); }\n.fn-label { display: grid; line-height: 1.3; min-width: 0; }\n.fn-label b { font-size: var(--fs-sm); }\n.fn-label small { font-size: 11px; color: var(--ink-3); text-align: end; }\n.fn-track { height: 30px; display: flex; align-items: center; background: none; border: 0; padding: 0; cursor: pointer; border-radius: 6px; }\n.fn-track:hover .fn-bar { filter: brightness(1.06) saturate(1.1); }\n.fn-bar { display: block; height: 100%; min-width: 3px; border-radius: 4px 0 0 4px; background: color-mix(in srgb, var(--c) 38%, var(--surface-2)); overflow: hidden; transition: width 500ms var(--ease), filter var(--t-fast); }\n.fn-bar { border-start-end-radius: 0; border-radius: 4px 0 0 4px; }\n.fn-now { display: block; height: 100%; background: var(--c); border-radius: 4px 0 0 4px; }\n.is-fresh .fn-bar { animation: grow-x .8s var(--ease) both; transform-origin: right center; }\n.fn-val { display: grid; justify-items: end; line-height: 1.25; }\n.fn-val b { font-size: var(--fs-md); font-variant-numeric: tabular-nums; }\n.fn-val small { font-size: 11px; color: var(--ink-3); }\n.fn-conv { display: grid; gap: 1px; justify-items: start; }\n.conv { font-size: var(--fs-xs); font-weight: 700; padding: 2px 8px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink-2); }\n.conv.is-start { font-weight: 500; color: var(--ink-3); }\n.fn-conv em { font-style: normal; font-size: 11px; color: var(--ink-2); }\n.lost { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 2px 8px; border-radius: var(--r-pill); border: 1px solid color-mix(in srgb, var(--danger) 35%, transparent); background: var(--danger-soft); color: var(--danger); cursor: pointer; }\n.fn-key { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 8px; font-size: var(--fs-xs); color: var(--ink-3); }\n.fn-key i { width: 14px; height: 8px; border-radius: 3px; }\n.fn-key .k1 { background: color-mix(in srgb, var(--sf-tech) 38%, var(--surface-2)); } .fn-key .k2 { background: var(--sf-tech); margin-inline-start: 10px; }\n.pl-notes { line-height: 1.8; }\n.viz-card.show-table .sif-plot { display: none; }\n\n.side-list { display: grid; gap: 8px; }\n.side-row { display: grid; grid-template-columns: 6px 1fr auto auto; align-items: center; gap: 10px; padding: 10px 12px; text-align: start; border: 1px solid var(--line); border-radius: var(--r-control); background: var(--surface); cursor: pointer; transition: background var(--t-fast), transform var(--t-fast) var(--ease); }\n.side-row:hover { background: var(--surface-2); transform: translateX(-2px); }\n.side-row i { align-self: stretch; border-radius: 3px; }\n.side-row span { display: grid; line-height: 1.3; } .side-row small { color: var(--ink-3); font-size: 11px; }\n.side-row strong { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }\n.side-row em { font-style: normal; font-size: var(--fs-xs); color: var(--ink-3); min-width: 40px; text-align: end; }\n\n/* time in stage */\n.dur { display: grid; gap: 4px; }\n.dur-row { display: grid; grid-template-columns: 190px minmax(0, 1fr) 190px; align-items: center; gap: 12px; padding: 6px 8px; background: none; border: 0; border-radius: var(--r-control); text-align: start; cursor: pointer; }\n.dur-row:hover { background: var(--surface-2); }\n.dur-track { position: relative; height: 16px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }\n.dur-track i { position: absolute; inset-block: 0; inset-inline-start: 0; border-radius: 0 4px 4px 0; }\n.dur-p75 { background: color-mix(in srgb, var(--ink-3) 20%, transparent); }\n.dur-med { height: 100%; }\n.is-fresh .dur-track i { animation: grow-x .8s var(--ease) both; transform-origin: right center; }\n.dur-val { display: grid; line-height: 1.3; } .dur-val b { font-variant-numeric: tabular-nums; } .dur-val small { font-size: 11px; color: var(--ink-3); }\n\n.stuck-list { display: grid; }\n.stuck-list li { display: flex; align-items: center; gap: 8px; padding: 8px 4px; border-bottom: 1px solid var(--line); }\n.stuck-list li > a { flex: 1; min-width: 0; display: grid; gap: 3px; }\n.stuck-list .sl-title { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: var(--fs-sm); }\n.stuck-list .sl-title span { unicode-bidi: plaintext; }\n.stuck-list small { display: flex; align-items: center; gap: 6px; }\n.sl-age { font-size: var(--fs-xs); font-weight: 700; padding: 2px 8px; border-radius: var(--r-pill); background: var(--danger-soft); color: var(--danger); white-space: nowrap; }\n.hrow-val small .late { color: var(--danger); font-weight: 600; }\n\n/* value */\n.q-list { display: grid; gap: 8px; }\n.q-row { display: grid; grid-template-columns: 96px minmax(0, 1fr) 44px; grid-template-areas: \"l t b\" \". s s\"; align-items: center; gap: 2px 10px; padding: 6px 4px; text-align: start; background: none; border: 0; cursor: pointer; border-radius: var(--r-control); font-size: var(--fs-sm); }\n.q-row:hover { background: var(--surface-2); }\n.q-row > span:first-child { grid-area: l; color: var(--ink-2); } .q-track { grid-area: t; height: 10px; border-radius: 5px; background: var(--surface-2); overflow: hidden; }\n.q-track i { display: block; height: 100%; background: var(--sf-tech); border-radius: 0 5px 5px 0; }\n.is-fresh .q-track i { animation: grow-x .8s var(--ease) both; transform-origin: right center; }\n.q-row b { grid-area: b; text-align: end; font-variant-numeric: tabular-nums; } .q-row small { grid-area: s; color: var(--ink-3); font-size: 11px; }\n.q-all { display: flex; align-items: center; gap: 10px; margin-top: 4px; padding: 10px 12px; text-align: start; border: 1px dashed var(--line-2); border-radius: var(--r-control); background: none; cursor: pointer; font-size: var(--fs-xs); color: var(--ink-2); }\n.q-all b { font-size: 22px; font-weight: 800; color: var(--ink); } .q-all u { text-decoration: none; color: var(--ink); font-weight: 600; }\n.rel { display: inline-block; width: 90px; height: 8px; border-radius: 4px; background: var(--surface-2); vertical-align: middle; overflow: hidden; margin-inline-end: 8px; }\n.rel i { display: block; height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; }\n.tag.is-warn { background: color-mix(in srgb, var(--s-pending) 18%, transparent); }\n\n.lead { display: grid; gap: 14px; }\n.lead-stat { display: grid; gap: 2px; padding: 12px 14px; border-radius: var(--r-control); background: var(--surface-2); }\n.lead-stat small { font-size: var(--fs-xs); color: var(--ink-3); } .lead-stat b { font-size: 30px; font-weight: 800; line-height: 1.2; }\n.lead-stat em { font-style: normal; font-size: var(--fs-xs); color: var(--ink-2); } .lead-stat i { font-style: normal; font-size: 11px; color: var(--ink-3); margin-top: 4px; }\n\n.sif-sheet li > a { flex: 1; min-width: 0; }\n.sif-sheet .sl-t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.sif-sheet .sl-t span { unicode-bidi: plaintext; }\n\n@media (max-width: 1100px) {\n  .sif-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }\n  .fn-row { grid-template-columns: 130px minmax(0, 1fr) 70px 96px; } .fn-lost { display: none; }\n  .dur-row { grid-template-columns: 150px minmax(0, 1fr); } .dur-val { display: none; }\n}\n.app[data-theme=\"dark\"] { --sf-strategy: var(--hm3); --sf-product: var(--hm4); --sf-tech: var(--hm5); --sf-approval: var(--hm6); }\n\n/* ==========================================================================\n   Issue drawer — «کارت اینیشیتیو»: Persian star-lattice hero, timeline, editable facts\n   ========================================================================== */\n.drawer-panel { width: min(680px, 100vw); }\n.d-scroll { gap: 16px; background: color-mix(in srgb, var(--bg) 60%, var(--surface)); }\n.d-head .ro { display: inline-flex; align-items: center; gap: 4px; margin-inline-end: 6px; padding: 2px 10px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink-3); font-size: var(--fs-xs); }\n\n.d-hero { --st: var(--s-todo); position: relative; overflow: hidden; gap: 12px; padding: 20px 22px; border-radius: var(--r-panel); border: 1px solid color-mix(in srgb, var(--st) 28%, var(--line));\n  background: linear-gradient(135deg, color-mix(in srgb, var(--st) 11%, var(--surface)), var(--surface) 62%); box-shadow: var(--shadow-card); }\n.d-hero.st-done { --st: var(--s-done); } .d-hero.st-devdone { --st: var(--s-devdone); } .d-hero.st-progress { --st: var(--s-progress); }\n.d-hero.st-pending { --st: var(--s-pending); } .d-hero.st-todo { --st: var(--s-todo); } .d-hero.st-canceled { --st: var(--s-canceled); }\n.d-hero::before { content: \"\"; position: absolute; inset-block: 0; inset-inline-end: 0; width: 62%; pointer-events: none;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpath d='M22.0 5.0 L25.6 13.2 L34.0 10.0 L30.8 18.4 L39.0 22.0 L30.8 25.6 L34.0 34.0 L25.6 30.8 L22.0 39.0 L18.4 30.8 L10.0 34.0 L13.2 25.6 L5.0 22.0 L13.2 18.4 L10.0 10.0 L18.4 13.2 Z' fill='none' stroke='%23d40c78' stroke-opacity='.30' stroke-width='1.1'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23d40c78' fill-opacity='.22'/%3E%3Ccircle cx='44' cy='44' r='2' fill='%23d40c78' fill-opacity='.22'/%3E%3C/svg%3E\"); background-size: 44px 44px; opacity: .4;\n  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 85%); mask-image: linear-gradient(to left, #000 0%, transparent 85%); }\n.app[data-theme=\"dark\"] .d-hero::before { background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpath d='M22.0 5.0 L25.6 13.2 L34.0 10.0 L30.8 18.4 L39.0 22.0 L30.8 25.6 L34.0 34.0 L25.6 30.8 L22.0 39.0 L18.4 30.8 L10.0 34.0 L13.2 25.6 L5.0 22.0 L13.2 18.4 L10.0 10.0 L18.4 13.2 Z' fill='none' stroke='%23f45bab' stroke-opacity='.30' stroke-width='1.1'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23f45bab' fill-opacity='.22'/%3E%3Ccircle cx='44' cy='44' r='2' fill='%23f45bab' fill-opacity='.22'/%3E%3C/svg%3E\"); opacity: .7; }\n.d-hero::after { content: \"\"; position: absolute; inset-inline: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--brand-2), var(--accent) 60%, #8b5cf6); }\n.d-hero > * { position: relative; }\n.d-hero h2 { font-size: 22px; font-weight: 800; line-height: 1.7; }\n.d-hero .fact.is-title { grid-column: auto; }\n\n.pen { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-inline-start: 6px; border: 0; border-radius: 8px; background: transparent; color: var(--ink-3); cursor: pointer; vertical-align: middle; opacity: .4; transition: opacity var(--t-fast), background var(--t-fast), color var(--t-fast); }\n.pen:hover, .fact:hover .pen, .dt:hover .pen, h2:hover .pen, .d-section h3:hover .pen, .prog:hover .pen, .pen:focus-visible { opacity: 1; background: var(--accent-soft); color: var(--accent-ink); }\n.unset { color: var(--ink-3); font-weight: 400; font-style: normal; }\n\n.d-card { display: grid; gap: 14px; padding: 16px 18px; border-radius: var(--r-panel); border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow-card); }\n.d-card > header { display: flex; align-items: center; gap: 10px; }\n.d-card > header h3 { flex: 1; display: flex; align-items: center; gap: 8px; font-size: var(--fs-lg); font-weight: 800; }\n.d-card > header h3 .ic { color: var(--accent); }\n\n.st-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink-2); font-size: var(--fs-xs); font-weight: 600; white-space: nowrap; }\n.st-chip.is-ok { background: color-mix(in srgb, var(--s-done) 13%, transparent); color: var(--ok-ink); }\n.st-chip.is-soon { background: color-mix(in srgb, var(--s-pending) 20%, transparent); color: var(--ink); }\n.st-chip.is-late { background: var(--danger-soft); color: var(--danger); }\n\n/* timeline */\n.tl { padding: 26px 10px 2px; }\n.tl-track { position: relative; height: 10px; border-radius: 6px; background: var(--surface-3); }\n.tl-fill { position: absolute; top: 0; bottom: 0; border-radius: 6px; background: linear-gradient(to left, var(--brand-2), var(--accent)); }\n.tl-m { position: absolute; top: 50%; width: 16px; height: 16px; margin-inline-start: -8px; margin-top: -8px; display: grid; place-items: center; }\n.tl-m.is-start { border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--surface); }\n.tl-m.is-end { width: 22px; height: 22px; margin-inline-start: -11px; margin-top: -11px; border-radius: 50%; background: var(--ink); color: var(--surface); box-shadow: 0 0 0 3px var(--surface); }\n.tl-m.is-est { background: var(--s-pending); transform: rotate(45deg) scale(.78); border-radius: 3px; box-shadow: 0 0 0 3px var(--surface); }\n.tl-m.is-today { width: 2px; margin-inline-start: -1px; height: 28px; margin-top: -14px; background: var(--ink); border-radius: 2px; }\n.tl-m.is-today::after { content: \"امروز\"; position: absolute; bottom: calc(100% + 3px); left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; color: var(--ink); white-space: nowrap; }\n.tl-key { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 14px; font-size: 11px; color: var(--ink-3); }\n.tl-key span { display: inline-flex; align-items: center; gap: 5px; }\n.tl-key i { width: 9px; height: 9px; display: inline-block; }\n.k-start { border-radius: 50%; background: var(--accent); } .k-today { width: 2px !important; height: 11px !important; background: var(--ink); } .k-est { background: var(--s-pending); transform: rotate(45deg) scale(.85); border-radius: 2px; }\n.is-fresh .tl-fill { animation: grow-x .9s var(--ease) .25s both; transform-origin: right center; }\n\n.dates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }\n.dt { position: relative; display: grid; align-content: start; gap: 3px; padding: 12px 14px; border-radius: var(--r-card); border: 1px solid var(--line); background: var(--surface-2); overflow: hidden; }\n.dt::before { content: \"\"; position: absolute; inset-inline: 0; top: 0; height: 3px; background: var(--c, var(--line-2)); }\n.dt.tone-start { --c: var(--accent); } .dt.tone-end { --c: var(--ink); } .dt.tone-est { --c: var(--s-pending); }\n.dt.is-editing { border-color: var(--accent); background: var(--accent-soft); }\n.dt-top { display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); }\n.dt-top .pen { margin-inline-start: auto; }\n.dt-ic { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 7px; background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--ink); }\n.dt-date { font-size: var(--fs-md); font-weight: 800; line-height: 1.5; }\n.dt-date.is-empty { color: var(--ink-3); }\n.dt small { color: var(--ink-3); font-size: 11px; line-height: 1.5; }\n.dt .st-chip { justify-self: start; margin-top: 4px; }\n\n.time-foot { display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap; }\n.mv { display: flex; align-items: center; gap: 8px; font-size: var(--fs-xs); color: var(--ink-3); }\n.mv > span:first-child { display: inline-flex; align-items: center; gap: 4px; }\n.prog { flex: 1; min-width: 220px; display: flex; align-items: center; gap: 8px; font-size: var(--fs-xs); color: var(--ink-3); }\n.prog-bar { flex: 1; height: 8px; border-radius: 4px; background: var(--surface-3); overflow: hidden; }\n.prog-bar i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(to left, var(--brand-2), var(--accent)); }\n.prog b { color: var(--ink); font-variant-numeric: tabular-nums; }\n\n/* facts */\n.d-card .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; background: none; border: 0; border-radius: 0; overflow: visible; }\n.d-card .fact { background: none; padding: 0; gap: 4px; }\n.d-card .fact.is-wide, .d-card .fact.is-editing { grid-column: 1 / -1; }\n.d-card .fact dt { display: flex; align-items: center; font-size: var(--fs-xs); color: var(--ink-3); }\n.d-card .fact dd { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: var(--fs-sm); font-weight: 600; }\n.d-card .fact dd a { display: inline-flex; align-items: center; gap: 4px; }\n.fact.is-editing { padding: 12px; border-radius: var(--r-card); background: var(--accent-soft) !important; border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }\n\n/* editors */\n.ed { display: grid; gap: 8px; margin-top: 6px; width: 100%; font-weight: 400; }\n.ed-input { display: block; width: 100%; padding: 9px 12px; border-radius: var(--r-control); border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); outline: 0; font-size: var(--fs-md); unicode-bidi: plaintext; transition: border-color var(--t-fast), box-shadow var(--t-fast); }\n.ed-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }\n.ed-area { min-height: 180px; resize: vertical; line-height: 1.9; }\n.ed-chips { display: flex; flex-wrap: wrap; gap: 6px; }\n.ed-opt { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: var(--r-pill); border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-size: var(--fs-sm); cursor: pointer; transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast) var(--ease); }\n.ed-opt:hover { border-color: var(--accent); transform: translateY(-1px); }\n.ed-opt.is-on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 700; }\n.ed-opt.is-clear { color: var(--ink-3); border-style: dashed; }\n.ed-opt.is-busy { opacity: .6; pointer-events: none; }\n.ed-foot { display: flex; align-items: center; gap: 8px; }\n.ed-err { color: var(--danger); font-size: var(--fs-xs); }\n.ed-results { display: grid; max-height: 220px; overflow-y: auto; }\n.ed-none { padding: 8px; }\n.ed .hint { color: var(--ink-3); }\n.btn.is-busy { opacity: .6; }\n\n/* Jalali calendar */\n.cal-wrap { display: grid; }\n.cal { width: min(340px, 100%); justify-self: center; padding: 12px; border-radius: var(--r-card); border: 1px solid var(--line-2); background: var(--surface); box-shadow: var(--shadow-lift); animation: pop-in .18s var(--ease) both; }\n.cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }\n.cal-head b { font-size: var(--fs-md); font-weight: 800; }\n.cal-wd, .cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; text-align: center; }\n.cal-wd { margin-bottom: 4px; font-size: var(--fs-xs); color: var(--ink-3); font-weight: 700; }\n.cal-wd .is-fri { color: var(--danger); }\n.cd { aspect-ratio: 1; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; color: var(--ink); font-size: var(--fs-sm); font-variant-numeric: tabular-nums; cursor: pointer; transition: background var(--t-fast), transform var(--t-fast) var(--ease); }\n.cd:hover { background: var(--accent-soft); transform: scale(1.08); }\n.cd.is-fri { color: var(--danger); }\n.cd.is-today { box-shadow: inset 0 0 0 1.5px var(--accent); font-weight: 800; }\n.cd.is-sel { background: var(--accent); color: var(--on-accent); font-weight: 800; }\n.cal-foot { display: flex; align-items: center; gap: 6px; margin-top: 10px; }\n\n/* entrance: once per opened card, not on every edit */\n.d-scroll.is-fresh > * { animation: rise .45s var(--ease) both; }\n.d-scroll.is-fresh > :nth-child(2) { animation-delay: .05s; } .d-scroll.is-fresh > :nth-child(3) { animation-delay: .1s; }\n.d-scroll.is-fresh > :nth-child(4) { animation-delay: .15s; } .d-scroll.is-fresh > :nth-child(n+5) { animation-delay: .2s; }\n\n@media (max-width: 640px) { .dates { grid-template-columns: 1fr; } .d-card .facts { grid-template-columns: 1fr; } }\n.d-card .fact { align-content: start; }\n.composer.is-locked { display: flex; align-items: center; gap: 8px; justify-content: center; padding: 16px; color: var(--ink-3); font-size: var(--fs-sm); border-top: 1px solid var(--line); background: var(--surface); }\n\n/* ==========================================================================\n   SIF lists — side sheet + filterable «گیرکرده‌ها»\n   ========================================================================== */\n.sheet.is-sif .sheet-panel { width: min(760px, 100vw); }\n.sd-tools { display: grid; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 55%, var(--surface)); flex: none; }\n.sd-card .sd-tools { padding: 0 0 12px; background: none; border-bottom: 1px solid var(--line); margin-bottom: 4px; }\n.sd-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }\n.sd-top .search { flex: 1 1 220px; min-width: 0; margin: 0; }\n.sd-top .select select { max-width: 190px; }\n.sd-chips, .sd-flags, .sd-sels { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }\n.sd-chip, .sd-flag { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px 0 10px; border-radius: var(--r-pill); border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font-size: var(--fs-xs); font-family: inherit; cursor: pointer; transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast); }\n.sd-chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }\n.sd-chip em, .sd-flag em { font-style: normal; font-weight: 700; color: var(--ink); background: var(--surface-2); padding: 0 7px; border-radius: var(--r-pill); min-width: 22px; text-align: center; line-height: 20px; }\n.sd-chip:hover, .sd-flag:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); color: var(--ink); }\n.sd-chip[data-zero]:not(.is-on) { opacity: .45; }\n.sd-chip.is-on { background: color-mix(in srgb, var(--c) 16%, var(--surface)); border-color: var(--c); color: var(--ink); font-weight: 700; }\n.sd-flag.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }\n.sd-flag.is-on em { background: #fff; color: var(--accent-ink); }\n.app[data-theme=\"dark\"] .sd-flag.is-on { color: #1f0412; }\n.sd-sels .select select { max-width: 170px; }\n.sd-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 4px 16px 20px; }\n.sd-group { display: grid; }\n.sd-gh { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 4px; margin-top: 8px; border: 0; border-bottom: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-family: inherit; font-size: var(--fs-sm); cursor: pointer; }\n.sd-gh .ic { color: var(--ink-3); transition: transform var(--t-fast); }\n.sd-gh.is-closed .ic { transform: rotate(90deg); }\n.sd-gh small { color: var(--ink-3); font-size: var(--fs-xs); }\n.sd-gh em { font-style: normal; font-weight: 700; font-size: var(--fs-xs); background: var(--surface-2); padding: 1px 9px; border-radius: var(--r-pill); }\n.sd-list { display: grid; }\n.sd-row { display: flex; align-items: center; gap: 12px; padding: 10px 6px; border-bottom: 1px solid var(--line); border-radius: var(--r-control); transition: background var(--t-fast); }\n.sd-row:hover { background: var(--surface-2); }\n.sd-row.is-late { box-shadow: inset 3px 0 0 var(--danger); }\n.sd-row > a { flex: 1; min-width: 0; display: grid; gap: 6px; }\n.sd-t { font-weight: 600; line-height: 1.6; text-align: start; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; unicode-bidi: plaintext; }\n.sd-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: var(--fs-xs); color: var(--ink-3); }\n.sd-meta .tag { height: 20px; font-size: 11px; margin: 0; }\n.sd-meta .who { gap: 4px; color: var(--ink-2); }\n.sd-nobody { color: var(--danger); font-weight: 600; }\n.sd-back { display: inline-flex; align-items: center; gap: 3px; color: var(--ink-3); }\n.sd-age { display: grid; justify-items: end; gap: 1px; flex: none; min-width: 84px; text-align: end; }\n.sd-age b { font-size: var(--fs-sm); font-weight: 700; }\n.sd-age small { font-size: 11px; color: var(--ink-3); }\n.sd-age.is-late b { color: var(--danger); }\n.sd-age.is-late small { color: var(--danger); }\n.sd-summary { display: flex; align-items: center; gap: 8px; padding: 10px 2px; font-size: var(--fs-sm); color: var(--ink-2); }\n.sd-summary b { font-size: 22px; color: var(--ink); }\n.th-sort { display: inline-flex; align-items: center; gap: 4px; border: 0; background: none; padding: 0; font: inherit; color: inherit; cursor: pointer; }\n.th-sort:hover, .th-sort.is-on { color: var(--accent-ink); }\n.ratio { font-weight: 700; color: var(--ink-2); }\n.ratio.is-hot { color: var(--danger); }\n.sd-table .who { display: inline-flex; margin-inline-end: 6px; }\n.sd-table td .sd-nobody { font-size: var(--fs-xs); }\n@media (max-width: 640px) { .sd-age { min-width: 70px; } .sd-top .select select { max-width: 130px; } }\n.sd-sels { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px; }\n.sd-sels .select { width: 100%; height: 34px; }\n.sd-sels .select select { flex: 1; max-width: none; min-width: 0; text-overflow: ellipsis; }\n.sd-sels .chip { justify-self: start; }\n.sd-top .select { height: 34px; }\n.sd-top .select select { max-width: 150px; text-overflow: ellipsis; }\n.sd-tools { gap: 8px; padding: 10px 16px; }\n.sd-chip, .sd-flag { height: 28px; }\n.sd-sels[hidden] { display: none; }\n.sd-adv { margin-inline-start: auto; } .sd-flags .chip-sm { height: 28px; }\n.sd-adv .ic { color: var(--ink-3); }\n.sd-adv.is-open { border-color: var(--accent); color: var(--accent-ink); }\n" };
+globalThis.SFR = { BUILD: 27, VERSION: "2.27", CSS: "/* ==========================================================================\n   Roadmap Lens — design system «نقشه‌راه»\n   Persian-first, RTL-native. Tokens → atoms → layout → views.\n   Type scale (6): 12 · 13 · 14 · 16 · 20 · 48   |  Spacing: 4px grid\n   Radius: control 8 · card 12 · panel 16          |  Motion: 160–240ms\n   Data marks use the validated status palette (--s-*); text never wears it.\n   ========================================================================== */\n\n:host { all: initial; }\n\n/* ---------- tokens ---------- */\n.app, .launcher {\n  --font: \"SFR Vazirmatn\", Vazirmatn, Tahoma, system-ui, sans-serif;\n  --fs-xs: 12px; --fs-sm: 13px; --fs-md: 14px; --fs-lg: 16px; --fs-xl: 20px; --fs-hero: 48px;\n  --r-control: 8px; --r-card: 12px; --r-panel: 16px; --r-pill: 999px;\n  --ease: cubic-bezier(.2, 0, 0, 1); --t-fast: 160ms; --t: 220ms;\n\n  --bg: #f6f5f2;\n  --surface: #fcfcfb;\n  --surface-2: #f1f0ec;\n  --surface-3: #e8e6e0;\n  --ink: #141413;\n  --ink-2: #52514e;\n  --ink-3: #6b6a64;\n  --line: rgba(11, 11, 11, .09);\n  --line-2: rgba(11, 11, 11, .16);\n  --grid: #e1e0d9;\n  --baseline: #c3c2b7;\n  --primary: #141413; --primary-ink: #fcfcfb;\n  --accent: #2a78d6; --accent-soft: rgba(42, 120, 214, .10); --accent-ink: #1c5cab;\n  --brand: #ef0d8a;\n  --danger: #d03b3b; --danger-soft: rgba(208, 59, 59, .10);\n  --ok-ink: #006300;\n  --focus: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);\n  --shadow-card: 0 1px 2px rgba(20, 20, 19, .05);\n  --shadow-lift: 0 2px 4px rgba(20, 20, 19, .06), 0 8px 24px rgba(20, 20, 19, .08);\n  --shadow-overlay: 0 24px 64px -16px rgba(20, 20, 19, .28), 0 2px 8px rgba(20, 20, 19, .08);\n  --scrim: rgba(20, 20, 19, .28);\n\n  /* status palette — validated (light): CVD ΔE ≥ 9.6, normal-vision ΔE ≥ 15.6 adjacent */\n  --s-done: #008300; --s-devdone: #1baf7a; --s-progress: #2a78d6;\n  --s-pending: #eda100; --s-todo: #6250d6; --s-canceled: #e34948;\n  --s-cat1: #2a78d6;\n}\n.app[data-theme=\"dark\"], .launcher.dark {\n  --bg: #0f0f0e;\n  --surface: #1a1a19;\n  --surface-2: #232321;\n  --surface-3: #2d2d2a;\n  --ink: #f0efec;\n  --ink-2: #c3c2b7;\n  --ink-3: #9d9b92;\n  --line: rgba(255, 255, 255, .09);\n  --line-2: rgba(255, 255, 255, .16);\n  --grid: #2c2c2a;\n  --baseline: #383835;\n  --primary: #f0efec; --primary-ink: #141413;\n  --accent: #3987e5; --accent-soft: rgba(57, 135, 229, .16); --accent-ink: #86b6ef;\n  --danger: #e66767; --danger-soft: rgba(230, 103, 103, .14);\n  --ok-ink: #0ca30c;\n  --shadow-card: none;\n  --shadow-lift: 0 0 0 1px rgba(255, 255, 255, .06), 0 8px 24px rgba(0, 0, 0, .4);\n  --shadow-overlay: 0 24px 64px -12px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .06);\n  --scrim: rgba(0, 0, 0, .5);\n  /* dark steps — validated as a set against #1a1a19 */\n  --s-done: #008300; --s-devdone: #1baf7a; --s-progress: #3987e5;\n  --s-pending: #c98500; --s-todo: #9085e9; --s-canceled: #e66767;\n  --s-cat1: #3987e5;\n}\n\n/* ---------- base ---------- */\n.app {\n  position: fixed; inset: 0;\n  display: grid; grid-template-rows: 56px 1fr;\n  background: var(--bg); color: var(--ink);\n  font: 400 var(--fs-md)/1.7 var(--font);\n  letter-spacing: 0;\n  -webkit-font-smoothing: antialiased;\n  color-scheme: light;\n  direction: rtl; text-align: start;\n  animation: app-in var(--t) var(--ease);\n}\n.app[data-theme=\"dark\"] { color-scheme: dark; }\n@keyframes app-in { from { opacity: 0; transform: scale(.995); } }\n.app *, .app *::before, .app *::after { box-sizing: border-box; }\n:where(.app) button, :where(.app) input, :where(.app) select, :where(.app) textarea { font: inherit; color: inherit; letter-spacing: 0; }\n:where(.app) button { cursor: pointer; background: none; border: 0; padding: 0; }\n.app :focus-visible { outline: none; box-shadow: var(--focus); border-radius: var(--r-control); }\n.app [hidden] { display: none !important; }\n:where(.app) a { color: var(--accent-ink); text-decoration: none; }\n:where(.app) a:hover { text-decoration: underline; }\n:where(.app) :where(h1, h2, h3, h4, p, ul, ol, dl, dd) { margin: 0; padding: 0; }\n:where(.app) :where(ul, ol) { list-style: none; }\n.grow { flex: 1 1 auto; }\n.muted { color: var(--ink-3); }\n.center { display: flex; justify-content: center; }\n.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n.ic { flex: none; display: inline-block; vertical-align: middle; stroke-width: 1.75; }\n.flip-x { transform: scaleX(-1); }\n.flip-y { transform: scaleY(-1); }\n.spin { animation: spin 1s linear infinite; }\n@keyframes spin { to { transform: rotate(360deg); } }\nkbd {\n  font: 500 11px/1 var(--font); color: var(--ink-3);\n  border: 1px solid var(--line-2); border-bottom-width: 2px; border-radius: 4px; padding: 2px 4px;\n  background: var(--surface);\n}\nbdi.key { font: 500 var(--fs-xs)/1 ui-monospace, \"SF Mono\", Menlo, monospace; color: var(--ink-3); unicode-bidi: isolate; }\n.app ::-webkit-scrollbar { width: 10px; height: 10px; }\n.app ::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; }\n.app ::-webkit-scrollbar-thumb:hover { background-color: var(--line-2); }\n\n/* ---------- atoms: buttons ---------- */\n.btn {\n  display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px;\n  border-radius: var(--r-control); font-weight: 600; font-size: var(--fs-sm); white-space: nowrap;\n  transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), border-color var(--t-fast);\n}\n.btn:active { transform: scale(.98); }\n.btn-primary { background: var(--primary); color: var(--primary-ink); }\n.btn-primary:hover { opacity: .9; }\n.btn-outline { border: 1px solid var(--line-2); background: var(--surface); }\n.btn-outline:hover, .btn-ghost:hover { background: var(--surface-2); }\n.btn-outline.is-active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-ink); }\n.btn-ghost { color: var(--ink-2); }\n.btn-ghost.is-active { color: var(--ink); background: var(--surface-2); }\n.btn-soft { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); }\n.btn-soft.is-active .ic { color: var(--ok-ink); }\n.btn-sm { height: 32px; padding: 0 10px; }\n.btn-xs { height: 28px; padding: 0 8px; font-size: var(--fs-xs); }\n.btn.is-busy { opacity: .6; pointer-events: none; }\n.icon-btn {\n  display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: var(--r-control); color: var(--ink-2);\n  transition: background var(--t-fast);\n}\n.icon-btn:hover { background: var(--surface-2); color: var(--ink); text-decoration: none; }\n.icon-btn.is-busy .ic { animation: spin 1s linear infinite; }\n.link { color: var(--accent-ink); font-weight: 600; font-size: var(--fs-sm); }\n.link:hover { text-decoration: underline; }\n\n/* ---------- atoms: chips, pills, counts, tags ---------- */\n.chip {\n  display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px;\n  border-radius: var(--r-pill); border: 1px solid var(--line); background: var(--surface);\n  font-size: var(--fs-sm); font-weight: 500; color: var(--ink-2); white-space: nowrap;\n  transition: all var(--t-fast) var(--ease);\n}\n.chip:hover { border-color: var(--line-2); color: var(--ink); }\n.chip.is-on { background: var(--ink); border-color: var(--ink); color: var(--surface); }\n.chip.is-on .av { box-shadow: 0 0 0 1.5px var(--ink); }\n.chip-sm { height: 28px; padding: 0 10px; font-size: var(--fs-xs); }\n.count {\n  display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px;\n  border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink-2);\n  font-size: var(--fs-xs); font-weight: 600; line-height: 1;\n}\n.btn-outline.is-active .count, .chip.is-on .count { background: var(--accent); color: #fff; }\n.pill {\n  display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 8px;\n  border-radius: var(--r-pill); font-size: var(--fs-xs); font-weight: 600; color: var(--ink-2); white-space: nowrap;\n  background: var(--surface-2);\n}\n.pill .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }\n.pill-done .dot { background: var(--s-done); } .pill-devdone .dot { background: var(--s-devdone); }\n.pill-progress .dot { background: var(--s-progress); } .pill-pending .dot { background: var(--s-pending); }\n.pill-todo .dot { background: var(--s-todo); } .pill-canceled .dot { background: var(--s-canceled); }\n.pill-done { background: color-mix(in srgb, var(--s-done) 11%, transparent); }\n.pill-devdone { background: color-mix(in srgb, var(--s-devdone) 13%, transparent); }\n.pill-progress { background: color-mix(in srgb, var(--s-progress) 11%, transparent); }\n.pill-pending { background: color-mix(in srgb, var(--s-pending) 15%, transparent); }\n.pill-todo { background: color-mix(in srgb, var(--s-todo) 10%, transparent); }\n.pill-canceled { background: color-mix(in srgb, var(--s-canceled) 10%, transparent); }\n.pill-late { background: var(--danger-soft); color: var(--danger); gap: 4px; }\n.pill-plain { background: var(--surface-2); }\n.tag {\n  display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px; border-radius: 6px;\n  background: var(--surface-2); color: var(--ink-2); font-size: var(--fs-xs); font-weight: 500; margin-inline-end: 4px;\n}\n.size {\n  display: inline-grid; place-items: center; height: 20px; min-width: 24px; padding: 0 6px; border-radius: 6px;\n  border: 1px solid var(--line-2); font: 600 11px/1 var(--font); color: var(--ink-2); direction: ltr;\n}\n\n/* ---------- atoms: avatars ---------- */\n.av {\n  display: inline-grid; place-items: center; flex: none; border-radius: 50%; object-fit: cover;\n  background: var(--surface-3); color: var(--ink-2); font-weight: 700; overflow: hidden;\n  box-shadow: 0 0 0 1.5px var(--surface);\n}\n.av-xs { width: 20px; height: 20px; font-size: 9px; }\n.av-sm { width: 28px; height: 28px; font-size: 11px; }\n.av-md { width: 32px; height: 32px; font-size: 12px; }\n.av-empty { background: var(--surface-2); color: var(--ink-3); }\n\n/* ---------- atoms: inputs ---------- */\n.search {\n  display: flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; min-width: 300px;\n  border: 1px solid var(--line-2); border-radius: var(--r-control); background: var(--surface); color: var(--ink-3);\n  transition: border-color var(--t-fast), box-shadow var(--t-fast);\n}\n.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }\n.search input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; color: var(--ink); font-size: var(--fs-sm); }\n.search input::placeholder { color: var(--ink-3); }\n.search input:focus-visible { box-shadow: none; }\n.search.sm { height: 32px; min-width: 0; margin: 0 16px 8px; }\n.select {\n  position: relative; display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 10px;\n  border: 1px solid var(--line-2); border-radius: var(--r-control); background: var(--surface); color: var(--ink-3);\n}\n.select select { appearance: none; border: 0; outline: 0; background: none; color: var(--ink); font-size: var(--fs-sm); padding-inline-end: 4px; max-width: 260px; cursor: pointer; }\n.select:focus-within { border-color: var(--accent); }\n\n/* segmented switch */\n.switch { display: inline-flex; padding: 3px; gap: 2px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }\n.switch button {\n  display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border-radius: 7px;\n  font-size: var(--fs-sm); font-weight: 500; color: var(--ink-2); white-space: nowrap; transition: all var(--t-fast);\n}\n.switch button:hover { color: var(--ink); }\n.switch button[aria-selected=\"true\"] { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 0 0 1px var(--line); }\n.switch.big button { height: 34px; padding: 0 14px; }\n\n/* ---------- top bar ---------- */\n.topbar {\n  display: flex; align-items: center; gap: 24px; padding: 0 20px;\n  background: var(--surface); border-bottom: 1px solid var(--line);\n}\n.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }\n.logo {\n  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px;\n  background: var(--ink); color: var(--surface); position: relative;\n}\n.logo::after { content: \"\"; position: absolute; inset-block-start: -2px; inset-inline-start: -2px; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 2px var(--surface); }\n.brand-text { display: grid; line-height: 1.3; }\n.brand-text b { font-size: var(--fs-md); font-weight: 700; }\n.brand-text small { font-size: var(--fs-xs); color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }\n.tabs { display: flex; gap: 4px; align-self: stretch; }\n.tabs button {\n  position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 0 14px;\n  font-weight: 500; color: var(--ink-2); transition: color var(--t-fast);\n}\n.tabs button:hover { color: var(--ink); }\n.tabs button[aria-selected=\"true\"] { color: var(--ink); font-weight: 700; }\n.tabs button[aria-selected=\"true\"]::after {\n  content: \"\"; position: absolute; inset-inline: 10px; bottom: -1px; height: 2px; border-radius: 2px 2px 0 0; background: var(--ink);\n}\n.badge {\n  display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px;\n  background: var(--brand); color: #fff; font-size: 11px; font-weight: 700; line-height: 1;\n}\n.top-actions { display: flex; align-items: center; gap: 4px; margin-inline-start: auto; }\n.sync { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); margin-inline-end: 8px; }\n.me { margin-inline-start: 8px; display: inline-flex; }\n\n/* ---------- main & state ---------- */\n.main { position: relative; min-height: 0; overflow: hidden; }\n.view { height: 100%; min-height: 0; }\n.view[data-view=\"board\"] { display: flex; flex-direction: column; }\n.view[data-view=\"following\"], .view[data-view=\"dashboard\"], .view[data-view=\"sif\"], .view[data-view=\"capacity\"] { overflow-y: auto; }\n.state-screen { height: 100%; padding-top: 72px; }\n.state-screen .kanban { padding-top: 0; }\n\n/* ---------- board toolbar ---------- */\n.toolbar { padding: 16px 20px 12px; display: grid; gap: 12px; }\n.tb-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }\n.seg-group { display: flex; gap: 6px; flex-wrap: wrap; }\n.facepile { display: flex; align-items: center; }\n.face { margin-inline-start: -6px; border-radius: 50%; transition: transform var(--t-fast) var(--ease); }\n.face:first-child { margin-inline-start: 0; }\n.face:hover { transform: translateY(-2px); z-index: 1; }\n.face.is-on .av { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); }\n.face.more { display: grid; place-items: center; width: 32px; height: 32px; background: var(--surface-2); border: 1px dashed var(--line-2); color: var(--ink-2); margin-inline-start: 4px; }\n.status-filter { display: flex; gap: 4px; flex-wrap: wrap; }\n.sf {\n  display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: var(--r-pill);\n  font-size: var(--fs-sm); color: var(--ink-2); border: 1px solid transparent; transition: all var(--t-fast);\n}\n.sf .dot { width: 8px; height: 8px; border-radius: 50%; }\n.sf b { font-weight: 600; color: var(--ink-3); font-size: var(--fs-xs); }\n.sf:hover { background: var(--surface-2); }\n.sf.is-on { background: var(--surface); border-color: var(--line-2); color: var(--ink); font-weight: 600; box-shadow: var(--shadow-card); }\n.sf-done .dot { background: var(--s-done); } .sf-devdone .dot { background: var(--s-devdone); } .sf-progress .dot { background: var(--s-progress); }\n.sf-pending .dot { background: var(--s-pending); } .sf-todo .dot { background: var(--s-todo); } .sf-canceled .dot { background: var(--s-canceled); }\n.active-chips { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; padding-inline-start: 12px; border-inline-start: 1px solid var(--line); }\n.active-chips .chip { height: 28px; padding: 0 10px; font-size: var(--fs-xs); }\n.result-count { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); color: var(--ink-3); }\n\n/* ---------- kanban ---------- */\n.kanban {\n  flex: 1; min-height: 0; display: flex; gap: 12px; padding: 4px 20px 20px; overflow-x: auto; overflow-y: hidden;\n  scroll-snap-type: x proximity; overscroll-behavior-x: contain;\n}\n.column {\n  flex: 0 0 296px; width: 296px; min-width: 0; display: flex; flex-direction: column; min-height: 0; max-height: 100%;\n  background: var(--surface-2); border-radius: var(--r-panel); border: 1px solid transparent;\n  scroll-snap-align: start; transition: border-color var(--t-fast), background var(--t-fast);\n}\n.column.is-backlog { flex-basis: 312px; width: 312px; }\n.column.is-current { background: color-mix(in srgb, var(--accent) 6%, var(--surface-2)); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }\n.column.is-over { border-color: var(--accent); border-style: dashed; background: var(--accent-soft); }\n.column.rail {\n  flex: 0 0 48px; align-items: center; gap: 12px; padding: 16px 0; color: var(--ink-2); cursor: pointer;\n}\n.column.rail span { writing-mode: vertical-rl; font-weight: 700; }\n.column.rail b { font-size: var(--fs-xs); color: var(--ink-3); }\n.column.rail:hover { background: var(--surface-3); }\n.col-head { padding: 12px 14px 10px; display: grid; gap: 8px; }\n.col-title { display: flex; align-items: baseline; gap: 8px; }\n.col-title b { font-size: var(--fs-lg); font-weight: 700; line-height: 1.3; }\n.col-title small { font-size: var(--fs-xs); color: var(--ink-3); }\n.now { font-size: 11px; font-weight: 700; color: var(--accent-ink); background: var(--accent-soft); padding: 1px 8px; border-radius: var(--r-pill); align-self: center; }\n.col-dist { display: flex; gap: 2px; height: 6px; border-radius: 3px; overflow: hidden; }\n.col-dist i { display: block; height: 100%; min-width: 2px; }\n.col-dist.is-none { background: var(--surface-3); }\n.col-done { font-size: var(--fs-xs); color: var(--ink-3); line-height: 1; }\n.col-body { flex: 1; min-height: 0; overflow-y: auto; padding: 2px 8px 10px; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 8px; }\n.col-empty { display: grid; justify-items: center; gap: 4px; padding: 24px 0; color: var(--ink-3); font-size: var(--fs-sm); }\n.more {\n  width: 100%; height: 36px; border-radius: var(--r-control); border: 1px dashed var(--line-2);\n  color: var(--ink-2); font-size: var(--fs-xs); font-weight: 600;\n}\n.more:hover { background: var(--surface); color: var(--ink); }\n\n/* card */\n.card {\n  position: relative; display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 8px; padding: 12px; border-radius: var(--r-card);\n  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-card);\n  cursor: pointer; transition: box-shadow var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), border-color var(--t-fast);\n}\n@keyframes card-in { from { opacity: 0; transform: translateY(10px) scale(.985); } }\n.card:hover { box-shadow: var(--shadow-lift); border-color: var(--line-2); transform: translateY(-1px); }\n.card.is-dragging { opacity: .4; transform: rotate(-1.5deg); }\n.card.st-canceled .card-title { color: var(--ink-3); text-decoration: line-through; text-decoration-color: var(--line-2); }\n.card.st-done { background: color-mix(in srgb, var(--s-done) 3%, var(--surface)); }\n.card-top { display: flex; align-items: center; gap: 6px; min-height: 24px; }\n.card-title {\n  font-size: var(--fs-md); font-weight: 600; line-height: 1.65; color: var(--ink);\n  unicode-bidi: plaintext; text-align: start;\n  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;\n}\n.card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: -2px; }\n.card-tags bdi { display: inline-block; max-width: 100%; height: 20px; padding: 0 6px; border-radius: 5px; background: var(--surface-2); color: var(--ink-2); font-size: 11px; font-weight: 500; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.card-epic {\n  display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); line-height: 1.5;\n  unicode-bidi: plaintext;\n}\n.card-epic span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.card-foot { display: flex; align-items: center; gap: 6px; padding-top: 8px; border-top: 1px solid var(--line); font-size: var(--fs-xs); color: var(--ink-2); }\n.owner { max-width: 110px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.meta { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-3); font-weight: 500; }\n.meta.is-new { color: var(--ink); font-weight: 700; }\n.star { display: inline-grid; place-items: center; width: 28px; height: 28px; margin: -4px; border-radius: 8px; color: var(--ink-3); opacity: 0; transition: all var(--t-fast); }\n.card:hover .star, .card:focus-within .star, .star.is-on, tr:hover .star, .inbox-item .star { opacity: 1; }\n.star:hover { background: var(--surface-2); color: var(--ink); }\n.star.is-on { color: #e4a400; }\n.star.is-on .ic { fill: currentColor; }\n.news-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 20%, transparent); flex: none; }\n.card.has-news { border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }\n\n/* skeletons */\n.skel { pointer-events: none; animation: none; }\n.skel i, .skel-line, .skel-block { display: block; height: 12px; border-radius: 6px; background: linear-gradient(90deg, var(--surface-2), var(--surface-3), var(--surface-2)); background-size: 200% 100%; animation: shimmer 1.4s infinite; }\n.skel i.short { width: 55%; }\n.skel-line { width: 60%; height: 16px; }\n.skel-block { height: 56px; border-radius: 10px; margin-bottom: 8px; }\n@keyframes shimmer { to { background-position: -200% 0; } }\n\n/* ---------- table ---------- */\n.table-wrap { flex: 1; min-height: 0; overflow: auto; margin: 0 20px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-panel); }\n.grid-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: var(--fs-sm); }\n.grid-table th { position: sticky; top: 0; z-index: 1; background: var(--surface); text-align: start; border-bottom: 1px solid var(--line-2); padding: 0; }\n.grid-table th button { display: flex; align-items: center; gap: 4px; width: 100%; height: 40px; padding: 0 12px; font-weight: 600; color: var(--ink-2); font-size: var(--fs-xs); }\n.grid-table th[aria-sort=\"ascending\"] button, .grid-table th[aria-sort=\"descending\"] button { color: var(--ink); }\n.grid-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; white-space: nowrap; }\n.grid-table td.t-title { white-space: normal; min-width: 320px; max-width: 520px; font-weight: 500; unicode-bidi: plaintext; text-align: right; }\n.grid-table tbody tr { cursor: pointer; transition: background var(--t-fast); }\n.grid-table tbody tr:hover { background: var(--surface-2); }\n.grid-table tr.has-news td:first-child { box-shadow: inset -3px 0 0 var(--brand); }\n.num { font-variant-numeric: tabular-nums; }\n.who { display: inline-flex; align-items: center; gap: 6px; }\n\n/* ---------- popover ---------- */\n.popover {\n  position: fixed; z-index: 30; display: flex; flex-direction: column; width: 360px; max-height: min(72vh, 640px);\n  background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-panel); box-shadow: var(--shadow-overlay);\n  animation: pop-in var(--t-fast) var(--ease);\n}\n.popover.pop-filters { width: 560px; }\n@keyframes pop-in { from { opacity: 0; transform: translateY(-4px) scale(.99); } }\n.pop-head { display: flex; align-items: baseline; gap: 12px; padding: 16px 16px 10px; }\n.pop-head b { font-size: var(--fs-lg); }\n.pop-head .muted { font-size: var(--fs-xs); }\n.pop-body { overflow-y: auto; padding: 0 16px 12px; display: grid; gap: 16px; }\n.pop-foot { display: flex; justify-content: space-between; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line); }\n.fgroup h4 { display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs); font-weight: 700; color: var(--ink-3); margin-bottom: 8px; }\n.fgroup h4 small { color: var(--accent-ink); }\n.fgroup .chips { display: flex; flex-wrap: wrap; gap: 6px; }\n.pop-body.people { gap: 2px; }\n.person {\n  display: flex; align-items: center; gap: 10px; width: 100%; padding: 6px 8px; border-radius: var(--r-control);\n  text-align: start; font-size: var(--fs-sm);\n}\n.person span { flex: 1; }\n.person b, .person small { font-size: var(--fs-xs); color: var(--ink-3); font-weight: 500; }\n.person:hover, .person.is-on { background: var(--surface-2); }\n.person.is-on span { font-weight: 700; }\n\n/* ---------- drawer & sheet ---------- */\n.drawer, .sheet { position: fixed; inset: 0; z-index: 20; pointer-events: none; }\n.scrim { position: absolute; inset: 0; background: var(--scrim); opacity: 0; transition: opacity var(--t) var(--ease); }\n.drawer-panel, .sheet-panel {\n  position: absolute; inset-block: 0; inset-inline-end: 0; width: min(640px, 100vw);\n  display: flex; flex-direction: column; background: var(--surface); box-shadow: var(--shadow-overlay);\n  transform: translateX(-104%); transition: transform 260ms var(--ease);\n  border-start-end-radius: 0; border-end-end-radius: 0;\n}\n.sheet-panel { width: min(520px, 100vw); }\n.drawer.is-open, .sheet.is-open { pointer-events: auto; }\n.drawer.is-open .scrim, .sheet.is-open .scrim { opacity: 1; }\n.drawer.is-open .drawer-panel, .sheet.is-open .sheet-panel { transform: none; }\n.d-head { display: flex; align-items: center; gap: 4px; height: 56px; padding: 0 16px; border-bottom: 1px solid var(--line); flex: none; }\n.d-head bdi.key { font-size: var(--fs-sm); margin-inline-end: 8px; }\n.d-head > b { font-size: var(--fs-lg); margin-inline-end: 8px; }\n.d-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 24px; }\n.d-scroll > * { flex: none; }\n.d-hero { display: grid; gap: 12px; }\n.d-badges { display: flex; gap: 6px; flex-wrap: wrap; }\n.d-hero h2 { font-size: var(--fs-xl); font-weight: 700; line-height: 1.6; unicode-bidi: plaintext; text-align: right; }\n.follow-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }\n.watchers { display: flex; align-items: center; font-size: var(--fs-xs); }\n.watchers .av { margin-inline-start: -6px; }\n.watchers .av:first-child { margin-inline-start: 0; }\n.watchers .muted { margin-inline-start: 8px; }\n.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; }\n.fact { background: var(--surface); padding: 10px 12px; display: grid; gap: 2px; min-width: 0; }\n.fact:last-child:nth-child(odd) { grid-column: 1 / -1; }\n.fact dt { font-size: var(--fs-xs); color: var(--ink-3); }\n.fact dd { font-size: var(--fs-sm); font-weight: 500; overflow-wrap: anywhere; }\n.fact .select { width: 100%; margin-top: 2px; }\n.fact .select select { flex: 1; max-width: none; }\n.d-section { display: grid; gap: 12px; }\n.d-section h3 { display: flex; align-items: center; gap: 8px; font-size: var(--fs-lg); font-weight: 700; }\n.rich { font-size: var(--fs-md); line-height: 1.85; color: var(--ink); overflow-wrap: anywhere; }\n.rich p, .rich li { unicode-bidi: plaintext; text-align: right; }\n.rich p + p { margin-top: 8px; }\n.rich ul, .rich ol { padding-inline-start: 20px; list-style: revert; }\n.rich img { max-width: 100%; height: auto; border-radius: 8px; }\n.rich pre, .rich code { font-family: ui-monospace, Menlo, monospace; font-size: 12px; background: var(--surface-2); border-radius: 6px; padding: 2px 4px; direction: ltr; unicode-bidi: isolate; }\n.rich pre { padding: 8px; overflow-x: auto; }\n.rich table { border-collapse: collapse; font-size: var(--fs-sm); }\n.rich th, .rich td { border: 1px solid var(--line-2); padding: 4px 8px; }\n.rich blockquote { border-inline-start: 3px solid var(--line-2); padding-inline-start: 12px; color: var(--ink-2); margin: 0; }\n.rich.clamp { max-height: 168px; overflow: hidden; mask-image: linear-gradient(#000 60%, transparent); }\n.thread { display: grid; gap: 16px; }\n.comment { display: flex; gap: 10px; align-items: flex-start; }\n.bubble { flex: 1; min-width: 0; background: var(--surface-2); border-radius: 4px var(--r-card) var(--r-card) var(--r-card); padding: 10px 14px; }\n.comment.is-mine .bubble { background: color-mix(in srgb, var(--accent) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent); }\n.c-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 2px; font-size: var(--fs-xs); }\n.c-head b { font-size: var(--fs-sm); }\n.c-head time { color: var(--ink-3); }\n\n/* composer */\n.composer { flex: none; display: grid; gap: 8px; padding: 12px 16px 16px; border-top: 1px solid var(--line); background: var(--surface); }\n.templates { display: flex; gap: 6px; flex-wrap: wrap; }\n.field { position: relative; }\n.field textarea {\n  display: block; width: 100%; min-height: 84px; max-height: 240px; resize: vertical; padding: 10px 12px;\n  border-radius: var(--r-card); border: 1px solid var(--line-2); background: var(--surface); outline: 0;\n  font-size: var(--fs-md); line-height: 1.8; unicode-bidi: plaintext;\n  transition: border-color var(--t-fast), box-shadow var(--t-fast);\n}\n.field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }\n.mention-pop {\n  position: absolute; inset-inline-start: 8px; bottom: calc(100% + 6px); width: 300px; padding: 6px;\n  background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); box-shadow: var(--shadow-overlay); z-index: 2;\n}\n.composer-foot { display: flex; align-items: center; gap: 8px; }\n.hint { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-xs); }\n\n/* lists used by sheet / dashboard */\n.mini-list { display: grid; }\n.mini-list li {\n  display: flex; align-items: center; gap: 10px; padding: 10px 4px; border-bottom: 1px solid var(--line); cursor: pointer;\n  font-size: var(--fs-sm); border-radius: 6px;\n}\n.mini-list li:hover { background: var(--surface-2); }\n.mini-list li span[dir] { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; unicode-bidi: plaintext; text-align: right; }\n.mini-list li small { color: var(--ink-3); font-size: var(--fs-xs); white-space: nowrap; }\n.mini-list.big { overflow-y: auto; padding: 8px 16px 16px; }\n\n/* ---------- following / inbox ---------- */\n.inbox { max-width: 960px; margin: 0 auto; padding: 28px 20px 48px; display: grid; gap: 20px; }\n.inbox-head { display: flex; align-items: flex-end; gap: 16px; }\n.inbox-head h2 { font-size: var(--fs-xl); font-weight: 800; line-height: 1.4; }\n.inbox-head p { font-size: var(--fs-sm); max-width: 560px; }\n.inbox-list { display: grid; gap: 8px; }\n.inbox-item {\n  position: relative; display: flex; gap: 16px; padding: 14px 16px; border-radius: var(--r-card);\n  background: var(--surface); border: 1px solid var(--line); cursor: pointer; transition: all var(--t-fast);\n}\n.inbox-item:hover { border-color: var(--line-2); box-shadow: var(--shadow-lift); }\n.inbox-item.has-news { border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }\n.inbox-item > .news-dot { position: absolute; inset-inline-start: -4px; top: 20px; }\n.ii-main { flex: 1; min-width: 0; display: grid; gap: 6px; }\n.ii-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }\n.ii-main h3 .tag { font-size: 11px; height: 20px; vertical-align: middle; font-weight: 500; }\n.ii-main h3 { font-size: var(--fs-md); font-weight: 700; line-height: 1.6; unicode-bidi: plaintext; text-align: right; }\n.ii-last { display: flex; align-items: center; gap: 6px; font-size: var(--fs-sm); color: var(--ink-2); min-width: 0; }\n.ii-last span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; unicode-bidi: plaintext; }\n.ii-last b { white-space: nowrap; font-weight: 600; }\n.ii-side { display: grid; justify-items: end; align-content: space-between; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); }\n.inbox .switch { justify-self: start; }\n\n/* empty */\n.empty { display: grid; justify-items: center; gap: 6px; padding: 48px 16px; color: var(--ink-3); text-align: center; }\n.empty b { color: var(--ink); font-size: var(--fs-lg); }\n.empty p { font-size: var(--fs-sm); max-width: 360px; }\n\n/* ---------- dashboard ---------- */\n.dash { max-width: 1400px; margin: 0 auto; padding: 20px 20px 48px; display: grid; gap: 16px; }\n.dash-filters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: var(--fs-sm); }\n.dash-filters .switch { flex-wrap: wrap; }\n.dash-filters > .muted { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-xs); }\n.loading-note { display: flex; align-items: center; gap: 8px; color: var(--ink-3); }\n.kpis { display: grid; grid-template-columns: minmax(280px, 1fr) 2fr; gap: 12px; }\n.hero {\n  display: grid; gap: 6px; align-content: center; padding: 20px 24px; border-radius: var(--r-panel);\n  background: var(--surface); border: 1px solid var(--line);\n}\n.hero > span { font-size: var(--fs-sm); color: var(--ink-2); font-weight: 600; }\n.hero > b { font-size: var(--fs-hero); font-weight: 800; line-height: 1.15; }\n.hero small { font-size: var(--fs-xs); color: var(--ink-3); }\n.meter { height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--s-done) 14%, var(--surface-2)); overflow: hidden; }\n.meter i { display: block; height: 100%; background: var(--s-done); border-radius: 4px; transition: width 600ms var(--ease); }\n.tile-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }\n.tile {\n  display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 4px 8px; padding: 14px 16px; text-align: start;\n  border-radius: var(--r-panel); background: var(--surface); border: 1px solid var(--line); transition: all var(--t-fast);\n}\n.tile:hover { border-color: var(--line-2); box-shadow: var(--shadow-lift); }\n.tile .ic { color: var(--ink-3); }\n.tile span { font-size: var(--fs-sm); color: var(--ink-2); font-weight: 500; }\n.tile b { grid-column: 1 / -1; font-size: var(--fs-xl); font-weight: 800; line-height: 1.3; }\n.dash-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }\n.viz-card {\n  display: flex; flex-direction: column; gap: 12px; padding: 16px 18px 18px; min-width: 0;\n  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-panel);\n}\n.viz-card.wide { grid-column: span 2; }\n.viz-card.tall { grid-row: span 2; }\n.viz-card.full { grid-column: 1 / -1; }\n.viz-body { grid-template-columns: minmax(0, 1fr); }\n.mini-list { grid-template-columns: minmax(0, 1fr); }\n\n/* delayed table */\n.dtable-wrap { overflow-x: auto; margin-inline: -4px; }\n.dtable { width: 100%; border-collapse: separate; border-spacing: 0; font-size: var(--fs-sm); }\n.dtable th { text-align: start; font-size: var(--fs-xs); font-weight: 600; color: var(--ink-3); padding: 0 8px 8px; border-bottom: 1px solid var(--line-2); white-space: nowrap; }\n.dtable td { padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; white-space: nowrap; }\n.dtable tbody tr { cursor: pointer; transition: background var(--t-fast); }\n.dtable tbody tr:hover { background: var(--surface-2); }\n.dtable tbody tr:last-child td { border-bottom: 0; }\n.dtable .dt-title { white-space: normal; width: 44%; min-width: 280px; }\n.dtable .dt-title > span { display: block; font-weight: 600; line-height: 1.6; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 560px; }\n.dtable .dt-title small { display: flex; align-items: center; gap: 4px; margin-top: 2px; }\n.dtable .dt-title small .tag { height: 20px; font-size: 11px; margin: 0; }\n.dtable .dt-fn { color: var(--ink-2); max-width: 200px; overflow: hidden; text-overflow: ellipsis; }\n.dtable .tag { margin: 0; }\n.viz-card .more { margin-top: 4px; }\n.viz-card > header { display: flex; align-items: flex-start; gap: 8px; }\n.viz-card > header > div { flex: 1; }\n.viz-card h3 { font-size: var(--fs-lg); font-weight: 700; line-height: 1.4; }\n.viz-card header p { font-size: var(--fs-xs); color: var(--ink-3); }\n.viz-body { flex: 1; min-height: 0; display: grid; gap: 12px; align-content: start; }\n.viz-table { display: none; overflow: auto; max-height: 420px; }\n.viz-card.show-table .viz-table { display: block; }\n.viz-card.show-table .viz-plot, .viz-card.show-table .hbars, .viz-card.show-table .donut-wrap, .viz-card.show-table .legend { display: none; }\n.viz-table table { width: 100%; border-collapse: collapse; font-size: var(--fs-xs); }\n.viz-table th, .viz-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: start; white-space: nowrap; }\n.viz-table th { color: var(--ink-3); font-weight: 600; position: sticky; top: 0; background: var(--surface); }\n.skel-card { min-height: 280px; background: linear-gradient(90deg, var(--surface), var(--surface-2), var(--surface)); background-size: 200% 100%; animation: shimmer 1.4s infinite; }\n\n/* legend */\n.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: var(--fs-xs); color: var(--ink-2); }\n.legend-item { display: inline-flex; align-items: center; gap: 6px; }\n.legend-item b { color: var(--ink-3); font-weight: 600; }\n.sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; flex: none; }\n\n/* stacked columns (HTML) */\n.viz-plot { position: relative; height: 260px; padding-inline-start: 36px; padding-bottom: 40px; }\n.viz-plot.compact { height: 200px; }\n.grid { position: absolute; inset: 0 0 40px 0; inset-inline-start: 36px; pointer-events: none; }\n.grid-line { position: absolute; inset-inline: 0; border-top: 1px solid var(--grid); }\n.grid-line:first-child { border-top-color: var(--baseline); }\n.grid-line span { position: absolute; inset-inline-start: -36px; width: 30px; transform: translateY(-50%); text-align: end; font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }\n.cols { position: relative; display: flex; height: 100%; }\n.col { flex: 1; display: flex; flex-direction: column; align-items: center; min-width: 0; height: 100%; }\n.col-plot { position: relative; flex: 1; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }\n.col-bar { width: 24px; display: flex; flex-direction: column-reverse; gap: 2px; min-height: 0; transition: height 500ms var(--ease); }\n.col-bar .seg { display: block; width: 100%; min-height: 2px; transition: filter var(--t-fast), opacity var(--t-fast); }\n.col-bar .seg:last-child { border-radius: 4px 4px 0 0; }\n.col-val { font-size: var(--fs-xs); font-weight: 700; color: var(--ink); margin-bottom: 4px; }\n.col-label { position: absolute; top: 100%; inset-inline: 0; height: 40px; padding-top: 6px; display: grid; justify-items: center; align-content: start; line-height: 1.35; font-size: var(--fs-xs); color: var(--ink-2); text-align: center; white-space: nowrap; }\n.col { position: relative; }\n.col-label small { color: var(--ink-3); font-size: 11px; }\n.col.is-current .col-label { color: var(--ink); font-weight: 700; }\n.col.is-current .col-label::before { content: \"\"; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); position: absolute; top: -1px; }\n.cols:hover .seg { opacity: .55; }\n.cols .col:hover .seg { opacity: 1; }\n.seg:hover { filter: brightness(1.08); }\n\n/* donut */\n.donut-wrap { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }\n.donut { width: 168px; height: 168px; flex: none; }\n.donut .arc { cursor: pointer; transition: stroke-width var(--t-fast) var(--ease); outline: none; }\n.donut .arc:hover, .donut .arc:focus { stroke-width: 17; }\n.donut-num { font: 800 22px var(--font); fill: var(--ink); }\n.donut-cap { font: 500 9px var(--font); fill: var(--ink-3); }\n.donut-legend { flex: 1; display: grid; gap: 2px; min-width: 180px; }\n.donut-legend button { display: flex; align-items: center; gap: 8px; width: 100%; padding: 4px 6px; border-radius: 6px; font-size: var(--fs-sm); color: var(--ink-2); }\n.donut-legend button:hover { background: var(--surface-2); color: var(--ink); }\n.donut-legend span { flex: 1; text-align: start; }\n.donut-legend b { color: var(--ink); font-weight: 700; }\n.donut-legend em { font-style: normal; font-size: var(--fs-xs); color: var(--ink-3); min-width: 36px; text-align: end; }\n\n/* horizontal stacked bars */\n.hbars { display: grid; gap: 10px; }\n.hrow { display: grid; grid-template-columns: minmax(96px, 34%) 1fr auto; align-items: center; gap: 10px; }\n.hrow-label { display: flex; align-items: center; gap: 6px; min-width: 0; font-size: var(--fs-sm); color: var(--ink-2); }\n.hrow-label span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.hrow-track { height: 14px; }\n.hrow-bar { display: flex; gap: 2px; height: 100%; min-width: 2px; transition: width 500ms var(--ease); }\n.hrow-bar .seg { height: 100%; min-width: 2px; }\n.hrow-bar .seg:last-child { border-start-end-radius: 0; border-radius: 4px 0 0 4px; }\n.hrow-val { display: grid; justify-items: end; line-height: 1.25; min-width: 64px; }\n.hrow-val b { font-size: var(--fs-sm); }\n.hrow-val small { font-size: 11px; color: var(--ink-3); }\n.hbars:hover .seg { opacity: .55; }\n.hbars .hrow:hover .seg { opacity: 1; }\n\n/* tooltip */\n.tooltip {\n  position: fixed; top: 0; left: 0; z-index: 50; pointer-events: none; max-width: 280px;\n  padding: 8px 10px; border-radius: 10px; background: var(--ink); color: var(--surface);\n  font-size: var(--fs-xs); line-height: 1.6; box-shadow: var(--shadow-overlay); display: grid; gap: 2px;\n}\n.tooltip.is-hint { padding: 4px 8px; }\n.tooltip b { font-size: var(--fs-sm); margin-bottom: 2px; }\n.tt-row { display: flex; align-items: center; gap: 6px; }\n.tt-row i { width: 8px; height: 8px; border-radius: 2px; flex: none; }\n.tt-row em { font-style: normal; font-weight: 700; margin-inline-start: auto; padding-inline-start: 12px; }\n\n/* toasts */\n.toasts { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 60; display: grid; gap: 8px; justify-items: center; }\n.toast {\n  display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 10px 8px 16px; border-radius: 12px;\n  background: var(--ink); color: var(--surface); font-size: var(--fs-sm); box-shadow: var(--shadow-overlay);\n  animation: toast-in var(--t) var(--ease); transition: opacity var(--t), transform var(--t);\n}\n.toast .btn-ghost { color: var(--surface); background: rgba(255,255,255,.12); }\n.toast .btn-ghost:hover { background: rgba(255,255,255,.2); }\n.app[data-theme=\"dark\"] .toast .btn-ghost { color: var(--surface); background: rgba(0,0,0,.08); }\n.toast-error .ic { color: #ff8a80; }\n.toast-ok .ic { color: #5fd38a; }\n.app[data-theme=\"dark\"] .toast-error .ic { color: var(--danger); }\n.app[data-theme=\"dark\"] .toast-ok .ic { color: var(--ok-ink); }\n.toast.out { opacity: 0; transform: translateY(8px); }\n@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } }\n\n/* ---------- launcher (lives outside .app) ---------- */\n.launcher {\n  position: fixed; bottom: 20px; right: 20px; z-index: 2147483000;\n  display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px 0 16px; border: 0; border-radius: 999px;\n  background: #141413; color: #fcfcfb; cursor: pointer;\n  font: 600 14px/1 \"SFR Vazirmatn\", Vazirmatn, Tahoma, sans-serif; letter-spacing: 0;\n  box-shadow: 0 8px 24px rgba(20, 20, 19, .28), 0 0 0 1px rgba(255,255,255,.06) inset;\n  transition: transform 160ms cubic-bezier(.2,0,0,1);\n}\n.launcher:hover { transform: translateY(-2px); }\n.launcher:active { transform: scale(.98); }\n.launcher .ic { color: #ff9a3d; }\n.launcher kbd { font: 500 11px/1 \"SFR Vazirmatn\", sans-serif; color: rgba(252,252,251,.6); border: 1px solid rgba(255,255,255,.18); border-radius: 4px; padding: 3px 4px; background: transparent; }\n.launcher[hidden] { display: none; }\n.launcher:focus-visible { outline: 2px solid #3987e5; outline-offset: 2px; }\n\n/* ---------- responsive ---------- */\n@media (max-width: 1180px) {\n  .dash-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }\n  .kpis { grid-template-columns: 1fr; }\n}\n@media (max-width: 860px) {\n  .tabs button { padding: 0 8px; }\n  .brand-text, .top-actions .btn span, .sync { display: none; }\n  .dash-grid { grid-template-columns: 1fr; }\n  .viz-card.wide { grid-column: auto; }\n  .tile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }\n  .search { min-width: 0; flex: 1 1 100%; }\n  .facts { grid-template-columns: 1fr; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .app *, .app *::before, .app *::after { animation: none !important; transition: none !important; }\n}\n@media (forced-colors: active) {\n  .seg, .sw, .col-dist i, .pill .dot { forced-color-adjust: none; }\n}\n\n/* ==========================================================================\n   Colour layer — «شاداب»\n   Snappfood pink as the accent, seasonal column headers, t-shirt-size scale,\n   status stripe on cards, warm canvas. Status colours (--s-*) stay untouched.\n   ========================================================================== */\n.app {\n  --accent: #d40c78; --accent-soft: rgba(212, 12, 120, .09); --accent-ink: #b80c69;\n  --brand-2: #ff7a3d;\n  --bg: #f7f4f2;\n  /* t-shirt sizes: six distinct hues (validated for colour-blind separation between neighbours) + ascending bars.\n     --sz-* are chart marks; --sz-*-bg / -fg are the filled chip and its readable text. */\n  --sz-xs: #1baf7a; --sz-s: #2a78d6; --sz-m: #eda100; --sz-l: #e87ba4; --sz-xl: #6250d6; --sz-xxl: #eb6834; --sz-na: var(--surface-3);\n  --sz-xs-bg: #1baf7a; --sz-xs-fg: #06150f;\n  --sz-s-bg: #256abf;  --sz-s-fg: #ffffff;\n  --sz-m-bg: #eda100;  --sz-m-fg: #1c1400;\n  --sz-l-bg: #e87ba4;  --sz-l-fg: #2b0a18;\n  --sz-xl-bg: #6250d6; --sz-xl-fg: #ffffff;\n  --sz-xxl-bg: #eb6834; --sz-xxl-fg: #200a02;\n  --s-cat3: #1baf7a; --on-accent: #ffffff;\n  /* heat-map ramp (one blue hue, light → dark = little → much) */\n  --hm1: #cde2fb; --hm2: #9ec5f4; --hm3: #6da7ec; --hm4: #3987e5; --hm5: #256abf; --hm6: #184f95;\n  --hm-ink-lo: #0d2d57; --hm-ink-hi: #ffffff;\n  /* seasons (Jalali): bar colour + readable label ink */\n  --ss-spring: #23a35a; --ss-spring-ink: #1a7a43;\n  --ss-summer: #f59e0b; --ss-summer-ink: #9a5200;\n  --ss-autumn: #d9622b; --ss-autumn-ink: #a8431c;\n  --ss-winter: #3b82d6; --ss-winter-ink: #2a6fc0;\n}\n.app[data-theme=\"dark\"] {\n  --accent: #f45bab; --accent-soft: rgba(244, 91, 171, .14); --accent-ink: #f9a8d4;\n  --bg: #121011;\n  --sz-xs: #199e70; --sz-s: #3987e5; --sz-m: #c98500; --sz-l: #d55181; --sz-xl: #9085e9; --sz-xxl: #d95926;\n  --sz-xs-bg: #199e70; --sz-xs-fg: #03120c;\n  --sz-s-bg: #3987e5;  --sz-s-fg: #04111f;\n  --sz-m-bg: #c98500;  --sz-m-fg: #170f00;\n  --sz-l-bg: #d55181;  --sz-l-fg: #1f0510;\n  --sz-xl-bg: #9085e9; --sz-xl-fg: #0f0b2b;\n  --sz-xxl-bg: #d95926; --sz-xxl-fg: #1c0801;\n  --s-cat3: #199e70; --on-accent: #1f0412;\n  --hm1: #1b3354; --hm2: #1f4a7d; --hm3: #2a62ad; --hm4: #3987e5; --hm5: #6da7ec; --hm6: #9ec5f4;\n  --hm-ink-lo: #0a1a30; --hm-ink-hi: #dbe9fb;\n  --ss-spring: #34c472; --ss-spring-ink: #7ddca3;\n  --ss-summer: #f7b23b; --ss-summer-ink: #f9c870;\n  --ss-autumn: #ef7a45; --ss-autumn-ink: #f6a37c;\n  --ss-winter: #5b9ae6; --ss-winter-ink: #93bdf0;\n}\n\n/* warm canvas with a soft brand glow at the top */\n.app { background:\n  radial-gradient(1200px 260px at 85% -80px, color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%),\n  radial-gradient(900px 220px at 10% -60px, color-mix(in srgb, var(--brand-2) 8%, transparent), transparent 70%),\n  var(--bg); }\n.topbar { position: relative; background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(8px); }\n.topbar::after { content: \"\"; position: absolute; inset-inline: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, var(--brand-2), var(--accent) 60%, #8b5cf6); opacity: .85; }\n.logo { background: linear-gradient(135deg, var(--accent), var(--brand-2)); color: #fff; }\n.logo::after { background: #fff; box-shadow: 0 0 0 2px var(--accent); }\n.tabs button[aria-selected=\"true\"]::after { background: var(--accent); height: 3px; }\n.tabs button[aria-selected=\"true\"] .ic { color: var(--accent); }\n\n/* greeting */\n.greet { display: grid; line-height: 1.35; padding-inline-start: 16px; border-inline-start: 1px solid var(--line); }\n.greet b { font-size: var(--fs-sm); font-weight: 700; }\n.greet small { font-size: var(--fs-xs); color: var(--ink-3); }\n\n/* chips & filters: colour instead of black */\n.chip.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }\n.chip.is-on .count { background: #fff; color: var(--accent-ink); }\n.app[data-theme=\"dark\"] .chip.is-on { color: #1f0412; }\n.chip:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }\n.btn-primary { background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 70%, var(--brand-2))); color: #fff; }\n.app[data-theme=\"dark\"] .btn-primary { color: #1f0412; }\n.sf.is-on { border-color: currentColor; }\n.sf-done.is-on { color: var(--ok-ink); background: color-mix(in srgb, var(--s-done) 10%, var(--surface)); }\n.sf-devdone.is-on { background: color-mix(in srgb, var(--s-devdone) 12%, var(--surface)); }\n.sf-progress.is-on { background: color-mix(in srgb, var(--s-progress) 10%, var(--surface)); }\n.sf-pending.is-on { background: color-mix(in srgb, var(--s-pending) 14%, var(--surface)); }\n.sf-todo.is-on { background: color-mix(in srgb, var(--s-todo) 10%, var(--surface)); }\n.sf-canceled.is-on { background: color-mix(in srgb, var(--s-canceled) 10%, var(--surface)); }\n\n/* t-shirt sizes: filled chip + ascending bars (order without colour) */\n.size { display: inline-flex; align-items: center; flex: none; white-space: nowrap; gap: 5px; height: 22px; padding: 0 8px 0 7px; border: 0; border-radius: 7px; font-size: 12px; font-weight: 800; letter-spacing: .01em; background: var(--surface-3); color: var(--ink-2); }\n.size .bars { flex: none; fill: currentColor; }\n.size-xs { background: var(--sz-xs-bg); color: var(--sz-xs-fg); }\n.size-s { background: var(--sz-s-bg); color: var(--sz-s-fg); }\n.size-m { background: var(--sz-m-bg); color: var(--sz-m-fg); }\n.size-l { background: var(--sz-l-bg); color: var(--sz-l-fg); }\n.size-xl { background: var(--sz-xl-bg); color: var(--sz-xl-fg); }\n.size-xxl { background: var(--sz-xxl-bg); color: var(--sz-xxl-fg); }\n\n/* seasonal columns */\n.column { position: relative; overflow: hidden; }\n.column::before { content: \"\"; position: absolute; inset-inline: 0; top: 0; height: 4px; background: var(--season, transparent); }\n.column.ss-spring { --season: var(--ss-spring); --season-ink: var(--ss-spring-ink); }\n.column.ss-summer { --season: var(--ss-summer); --season-ink: var(--ss-summer-ink); }\n.column.ss-autumn { --season: var(--ss-autumn); --season-ink: var(--ss-autumn-ink); }\n.column.ss-winter { --season: var(--ss-winter); --season-ink: var(--ss-winter-ink); }\n.column[class*=\"ss-\"] { background: color-mix(in srgb, var(--season) 5%, var(--surface-2)); }\n.season { display: inline-flex; align-items: center; gap: 4px; align-self: center; height: 20px; padding: 0 7px; border-radius: 999px; font-size: 11px; font-weight: 700;\n  color: var(--season-ink); background: color-mix(in srgb, var(--season) 14%, transparent); }\n.season .ic { stroke-width: 2; }\n.column.is-current { border-color: color-mix(in srgb, var(--accent) 45%, transparent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent); }\n.now { color: #fff; background: var(--accent); }\n.app[data-theme=\"dark\"] .now { color: #1f0412; }\n\n/* cards: status stripe on the start edge + livelier hover */\n.card { border-inline-start: 3px solid var(--stripe, var(--line)); }\n.card.st-done { --stripe: var(--s-done); }\n.card.st-devdone { --stripe: var(--s-devdone); }\n.card.st-progress { --stripe: var(--s-progress); }\n.card.st-pending { --stripe: var(--s-pending); }\n.card.st-todo { --stripe: var(--s-todo); }\n.card.st-canceled { --stripe: var(--s-canceled); }\n.card:hover { box-shadow: 0 2px 4px rgba(20,20,19,.05), 0 10px 28px color-mix(in srgb, var(--stripe, var(--accent)) 16%, transparent); }\n.card-tags bdi { background: color-mix(in srgb, var(--accent) 7%, var(--surface-2)); color: var(--ink-2); }\n.star.is-on { color: #f59e0b; }\n\n/* initials avatars get a friendly colour */\n.av.c0 { background: #ffe4ef; color: #a10c5c; } .av.c1 { background: #ffedd5; color: #9a3412; }\n.av.c2 { background: #dcfce7; color: #166534; } .av.c3 { background: #dbeafe; color: #1e40af; }\n.av.c4 { background: #ede9fe; color: #5b21b6; } .av.c5 { background: #cffafe; color: #155e75; }\n.av.c6 { background: #fef9c3; color: #854d0e; } .av.c7 { background: #fce7f3; color: #9d174d; }\n\n/* dashboard */\n.hero { background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, var(--surface)), var(--surface) 60%); }\n.hero > b { background: linear-gradient(90deg, var(--accent), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }\n.tile .ic { width: 28px; height: 28px; padding: 6px; border-radius: 8px; color: var(--tile, var(--ink-3)); background: color-mix(in srgb, var(--tile, var(--ink-3)) 12%, transparent); }\n.tile { grid-template-columns: auto 1fr; }\n.tile.t-all { --tile: var(--accent); } .tile.t-picked { --tile: #8b5cf6; } .tile.t-progress { --tile: var(--s-progress); }\n.tile.t-pending { --tile: var(--s-pending); } .tile.t-late { --tile: var(--danger); } .tile.t-done { --tile: var(--s-done); }\n.tile:hover { border-color: color-mix(in srgb, var(--tile, var(--accent)) 40%, var(--line)); }\n.viz-card > header h3::before { content: \"\"; display: inline-block; width: 8px; height: 8px; border-radius: 3px; margin-inline-end: 8px; vertical-align: middle; background: linear-gradient(135deg, var(--accent), var(--brand-2)); }\n\n/* following inbox */\n.inbox-head h2 { background: linear-gradient(90deg, var(--ink), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }\n.inbox-item { border-inline-start: 3px solid var(--stripe, var(--line)); }\n.inbox-item.has-news { box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 8%, transparent); }\n\n.launcher { background: linear-gradient(135deg, #d40c78, #ff7a3d); }\n.launcher .ic { color: #fff; }\n\n@media (max-width: 860px) { .greet { display: none; } }\n\n/* ==========================================================================\n   Game layer — «بازی‌وار»\n   Player chip, quests, achievements, boss cards, delivery journey, new analyses.\n   Animations only ever animate *from* a state (keyframes with `from`), so a reduced-motion\n   user simply sees the finished picture.\n   ========================================================================== */\n@keyframes rise { from { opacity: 0; transform: translateY(8px); } }\n@keyframes grow-y { from { transform: scaleY(0); } }\n@keyframes grow-x { from { transform: scaleX(0); } }\n@keyframes draw { from { stroke-dasharray: 100; stroke-dashoffset: 100; } }\n@keyframes arc-in { from { stroke-dasharray: 0 400; } }\n@keyframes fade-in { from { opacity: 0; } }\n@keyframes halo { 0%, 100% { opacity: .55; transform: scale(.92); } 50% { opacity: .15; transform: scale(1.08); } }\n@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }\n@keyframes xp-rise { 0% { opacity: 0; transform: translate(-50%, 6px) scale(.8); } 15% { opacity: 1; transform: translate(-50%, 0) scale(1.08); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -46px) scale(1); } }\n@keyframes bump { 0% { transform: scale(1); } 30% { transform: scale(1.06); } 100% { transform: scale(1); } }\n@keyframes boss-glow { 0%, 100% { box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--brand-2) 55%, transparent), 0 0 0 0 color-mix(in srgb, var(--brand-2) 30%, transparent); } 50% { box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--brand-2) 80%, transparent), 0 0 18px 2px color-mix(in srgb, var(--brand-2) 28%, transparent); } }\n@keyframes twinkle { 0%, 100% { transform: scale(1) rotate(0); } 50% { transform: scale(1.25) rotate(12deg); } }\n@keyframes col-pop { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); } 100% { box-shadow: 0 0 0 16px transparent; } }\n@keyframes sheen { to { background-position: -200% 0; } }\n\n/* ----- fx layer ----- */\n.fx { position: fixed; inset: 0; z-index: 70; pointer-events: none; overflow: hidden; }\n.fx canvas { position: absolute; inset: 0; }\n.xp-pop {\n  position: fixed; padding: 2px 12px; border-radius: 999px; font-weight: 800; font-size: 14px; white-space: nowrap;\n  color: var(--accent-ink); background: var(--surface); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);\n  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 25%, transparent); animation: xp-rise 1.5s var(--ease) both;\n}\n.xp-pop.xp-quest { color: var(--on-accent); background: linear-gradient(135deg, var(--accent), var(--brand-2)); border: 0; margin-top: 30px; }\n\n/* ----- player chip ----- */\n.player {\n  position: relative; display: grid; grid-template-columns: 44px auto auto; align-items: center; column-gap: 10px;\n  height: 52px; padding: 0 14px 0 6px; margin-inline-start: 6px; border-radius: 999px;\n  background: var(--surface); border: 1px solid var(--line); cursor: pointer; transition: border-color var(--t-fast), box-shadow var(--t-fast);\n}\n.player:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 14%, transparent); }\n.player.bump { animation: bump .5s var(--ease); }\n.lv-ring { grid-area: 1 / 1; place-self: center; }\n.player-av { grid-area: 1 / 1; place-self: center; display: inline-flex; }\n.lv-track { stroke: var(--surface-3); }\n.lv-arc { stroke: var(--accent); transition: stroke-dasharray .8s var(--ease); }\n.player-text { display: grid; line-height: 1.35; text-align: start; }\n.player-text b { font-size: var(--fs-sm); font-weight: 800; white-space: nowrap; }\n.player-text b i { font-style: normal; font-weight: 600; color: var(--accent-ink); margin-inline-start: 6px; }\n.player-text small { font-size: 11px; color: var(--ink-3); white-space: nowrap; }\n.streak { display: inline-flex; align-items: center; gap: 3px; padding: 3px 9px 3px 7px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); font-size: var(--fs-sm); }\n.streak b { font-weight: 800; color: var(--ink); }\n.streak .ic { color: var(--ink-3); }\n.streak.is-hot { background: color-mix(in srgb, var(--brand-2) 16%, transparent); }\n.streak.is-hot .ic { color: var(--brand-2); fill: color-mix(in srgb, var(--brand-2) 35%, transparent); }\n@media (max-width: 1180px) { .player-text { display: none; } .player { grid-template-columns: 44px auto; } }\n\n/* ----- player panel ----- */\n.popover.pop-player { width: 380px; }\n.pp { display: grid; gap: 14px; padding: 18px; overflow-y: auto; }\n.pp-head { display: flex; align-items: center; gap: 16px; }\n.pp-ring { position: relative; width: 72px; height: 72px; flex: none; }\n.pp-lv { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; line-height: 1.1; }\n.pp-lv b { font-size: 24px; font-weight: 800; }\n.pp-lv small { font-size: 10px; color: var(--ink-3); }\n.pp-id { flex: 1; display: grid; gap: 4px; min-width: 0; }\n.pp-id b { font-size: var(--fs-xl); font-weight: 800; }\n.pp-id small { font-size: var(--fs-xs); color: var(--ink-3); }\n.pp-split { display: flex; flex-wrap: wrap; gap: 6px; }\n.pp-split span { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; background: var(--surface-2); font-size: var(--fs-xs); color: var(--ink-2); }\n.pp-split span b { color: var(--ink); font-weight: 800; }\n.pp h4 { display: flex; align-items: baseline; gap: 8px; font-size: var(--fs-md); font-weight: 800; }\n.pp h4 small { font-size: var(--fs-xs); color: var(--ink-3); font-weight: 500; }\n.quests { display: grid; gap: 6px; }\n.quests li { display: grid; grid-template-columns: 32px 1fr auto; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 12px; background: var(--surface-2); border: 1px solid transparent; transition: background var(--t); }\n.quests li b { display: block; font-size: var(--fs-sm); font-weight: 600; line-height: 1.5; }\n.quests li small { display: block; font-size: 11px; color: var(--ink-3); }\n.quests li .meter { margin-top: 5px; height: 5px; }\n.quests li em { font-style: normal; font-weight: 800; font-size: var(--fs-sm); color: var(--accent-ink); }\n.q-ic { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent-ink); }\n.quests li.is-done { background: color-mix(in srgb, var(--s-done) 9%, var(--surface)); border-color: color-mix(in srgb, var(--s-done) 25%, transparent); }\n.quests li.is-done .q-ic { background: var(--s-done); color: #fff; }\n.quests li.is-done b { color: var(--ink-2); text-decoration: line-through; text-decoration-color: var(--line-2); }\n.quests li.is-done em { color: var(--ok-ink); }\n.meter i { background: linear-gradient(90deg, var(--accent), var(--brand-2)); }\n.medals { display: flex; flex-wrap: wrap; gap: 8px; }\n.pp-note { font-size: 11px; color: var(--ink-3); line-height: 1.7; }\n\n/* ----- medals & achievement cards ----- */\n.medal { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; flex: none; background: var(--surface-2); color: var(--ink-3); border: 1px dashed var(--line-2); }\n.medal.is-on { background: linear-gradient(135deg, var(--accent), var(--brand-2)); color: var(--on-accent); border: 0; box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 30%, transparent); }\n.badge-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }\n.badge-card { display: grid; justify-items: start; gap: 6px; padding: 14px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); position: relative; overflow: hidden; }\n.badge-card .medal { width: 46px; height: 46px; margin-bottom: 4px; }\n.badge-card b { font-size: var(--fs-md); font-weight: 800; }\n.badge-card p { font-size: var(--fs-xs); color: var(--ink-3); line-height: 1.7; min-height: 40px; }\n.badge-card .meter { width: 100%; height: 5px; }\n.badge-card small { font-size: 11px; color: var(--ink-3); }\n.badge-card:not(.is-on) { background: var(--surface); }\n.badge-card:not(.is-on) b { color: var(--ink-2); }\n.badge-card.is-on { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 7%, var(--surface)), var(--surface) 70%); }\n.badge-card.is-on::after { content: \"\"; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 35%, color-mix(in srgb, #fff 45%, transparent) 50%, transparent 65%); background-size: 200% 100%; background-position: 120% 0; pointer-events: none; transition: background-position .9s var(--ease); }\n.badge-card.is-on:hover::after { background-position: -40% 0; }\n.badge-card.is-on small { color: var(--ok-ink); font-weight: 700; }\n.badge-card.is-team .medal.is-on { background: linear-gradient(135deg, var(--s-cat1), var(--s-cat3)); box-shadow: 0 4px 12px color-mix(in srgb, var(--s-cat1) 30%, transparent); }\n\n/* ----- board: boss cards, wins, month rings ----- */\n.pill-boss { background: linear-gradient(135deg, var(--brand-2), var(--accent)); color: #fff; font-weight: 700; }\n.app[data-theme=\"dark\"] .pill-boss { color: #1f0412; }\n.pill-boss .ic { stroke-width: 2.2; }\n.card.boss { box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--brand-2) 55%, transparent), var(--shadow-card); animation: boss-glow 2.8s ease-in-out infinite; }\n.card.boss.is-slain { animation: none; box-shadow: 0 0 0 1.5px #eda100, var(--shadow-card); background: linear-gradient(160deg, color-mix(in srgb, #eda100 8%, var(--surface)), var(--surface) 60%); }\n.card.boss.is-slain .pill-boss { background: #eda100; color: #231800; }\n.spark { display: inline-flex; color: #eda100; animation: twinkle 2.4s ease-in-out infinite; }\n.card.win { background: linear-gradient(160deg, color-mix(in srgb, var(--s-done) 6%, var(--surface)), var(--surface) 55%); }\n.kanban.enter .card { animation: card-in 440ms var(--ease) both; animation-delay: calc(var(--i, 0) * 34ms); }\n.kanban.enter .column { animation: rise 420ms var(--ease) both; }\n.column.pop { animation: col-pop 650ms var(--ease); }\n.col-done { display: flex; align-items: center; gap: 6px; }\n.mini-ring { flex: none; }\n.mr-track { fill: none; stroke: var(--surface-3); stroke-width: 3; }\n.mr-arc { fill: none; stroke: var(--s-done); stroke-width: 3; stroke-linecap: round; }\n.clear-tag { display: inline-flex; align-items: center; gap: 3px; margin-inline-start: auto; padding: 0 7px; height: 20px; border-radius: 999px; font-style: normal; font-size: 11px; font-weight: 700; color: #6b4600; background: color-mix(in srgb, #eda100 24%, transparent); }\n.app[data-theme=\"dark\"] .clear-tag { color: #f6c453; }\n.column.is-clear::before { background: linear-gradient(90deg, #eda100, #ff7a3d, #eda100); background-size: 200% 100%; animation: sheen 3.2s linear infinite; }\n\n/* ----- dashboard: structure ----- */\n.dash-sec { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 12px; margin-top: 14px; }\n.dash-sec h2 { font-size: var(--fs-xl); font-weight: 800; white-space: nowrap; }\n.dash-sec p { font-size: var(--fs-sm); color: var(--ink-3); white-space: nowrap; }\n.dash-sec::after { content: \"\"; flex: 1; height: 1px; background: var(--line); align-self: center; order: 3; }\n.switch-sm button { padding: 3px 12px; font-size: var(--fs-xs); }\n.viz-card > header .switch { flex: none; }\n\n/* ----- dashboard: journey ----- */\n.journey-card { gap: 14px; background: radial-gradient(900px 220px at 100% 0, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%), radial-gradient(700px 200px at 0 100%, color-mix(in srgb, var(--brand-2) 6%, transparent), transparent 70%), var(--surface); }\n.jstats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }\n.jstat { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 14px; background: color-mix(in srgb, var(--ink) 4%, transparent); min-width: 0; }\n.jstat-ic { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; flex: none; color: var(--accent-ink); background: color-mix(in srgb, var(--accent) 13%, transparent); }\n.jstat.is-main .jstat-ic { color: var(--on-accent); background: linear-gradient(135deg, var(--accent), var(--brand-2)); }\n.jstat small { display: block; font-size: var(--fs-xs); color: var(--ink-3); }\n.jstat b { display: block; font-size: var(--fs-xl); font-weight: 800; line-height: 1.35; white-space: nowrap; }\n.jstat b em { font-style: normal; font-size: var(--fs-sm); font-weight: 500; color: var(--ink-3); }\n.jstat > div { min-width: 0; }\n.jmeter { display: block; height: 4px; margin-top: 3px; border-radius: 2px; background: var(--surface-3); overflow: hidden; }\n.jmeter u { display: block; height: 100%; text-decoration: none; background: linear-gradient(90deg, var(--accent), var(--brand-2)); }\n.journey-scroll { overflow-x: auto; padding-bottom: 4px; }\n.journey-svg { display: block; width: 100%; height: auto; overflow: visible; }\n.journey .jr-road { fill: none; stroke: var(--line-2); stroke-width: 7; stroke-linecap: round; stroke-dasharray: .1 13; }\n.journey .jr-trail { fill: none; stroke: url(#jgrad); stroke-width: 7; stroke-linecap: round; }\n.journey.is-fresh .jr-trail { animation: draw 1.5s var(--ease) .25s both; }\n.journey.is-fresh .jn { animation: fade-in .5s var(--ease) both; animation-delay: calc(var(--i) * 70ms + 200ms); }\n.jn { cursor: pointer; }\n.jn-base { fill: var(--surface); stroke: var(--line-2); stroke-width: 1.5; transition: stroke var(--t-fast); }\n.jn-track { fill: none; stroke: var(--surface-3); stroke-width: 6; }\n.jn-arc { fill: none; stroke: url(#jgrad); stroke-width: 6; stroke-linecap: round; }\n.jn-num { font: 800 13px var(--font); fill: var(--ink); }\n.jn-num.is-dim { fill: var(--ink-3); font-weight: 500; }\n.jn-label { font: 700 13px var(--font); fill: var(--ink); }\n.jn-sub { font: 500 11px var(--font); fill: var(--ink-3); }\n.jn-check { color: var(--s-done); stroke-width: 3; }\n.jn.is-full .jn-arc { stroke: var(--s-done); }\n.jn.is-full .jn-base { fill: color-mix(in srgb, var(--s-done) 12%, var(--surface)); }\n.jn.is-now .jn-base { stroke: var(--accent); stroke-width: 2.5; }\n.jn.is-empty .jn-base { stroke-dasharray: 3 3; }\n.jn.is-empty .jn-label { fill: var(--ink-3); font-weight: 500; }\n.jn.is-future .jn-label { fill: var(--ink-2); }\n.jn:hover .jn-base, .jn:focus-within .jn-base { stroke: var(--accent); }\n.jn-halo { fill: color-mix(in srgb, var(--accent) 22%, transparent); transform-box: fill-box; transform-origin: center; animation: halo 2.4s ease-in-out infinite; pointer-events: none; }\n.jn-pin { animation: bob 2.2s ease-in-out infinite; pointer-events: none; }\n.jn-pin rect, .jn-pin path { fill: var(--accent); }\n.jn-pin text { font: 700 12px var(--font); fill: var(--on-accent); }\n.jn-boss { pointer-events: none; color: #fff; }\n.jn-boss circle { fill: var(--brand-2); stroke: var(--surface); stroke-width: 2; }\n.jn-boss .ic { stroke-width: 2.2; }\n.jn-boss.is-dead { color: #3a2600; }\n.jn-boss.is-dead circle { fill: #eda100; }\n.jn-late { pointer-events: none; }\n.jn-late circle { fill: var(--danger); stroke: var(--surface); stroke-width: 2; }\n.jn-late text { font: 800 11px var(--font); fill: #fff; }\n.app[data-theme=\"dark\"] .jn-late text { fill: #1f0412; }\n.jn-hit { fill: transparent; outline: none; }\n.jn-hit:focus-visible { stroke: var(--accent); stroke-width: 2; }\n.viz-card.show-table .journey-scroll { display: none; }\n\n/* ----- dashboard: tiles (six across) ----- */\n.tile-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }\n.tile b { font-size: 26px; }\n@media (max-width: 1100px) { .tile-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .jstats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }\n\n/* ----- dashboard: heat map ----- */\n.heat { display: grid; gap: 4px; }\n.hm-row { display: grid; grid-template-columns: minmax(90px, 150px) repeat(var(--hm-cols), minmax(0, 1fr)) 40px; gap: 4px; align-items: center; }\n.hm-head span { font-size: 11px; color: var(--ink-3); text-align: center; padding-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.hm-head span.is-now { color: var(--ink); font-weight: 800; }\n.hm-label { font-size: var(--fs-sm); color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.hm-sum { text-align: center; font-size: var(--fs-xs); color: var(--ink-3); font-variant-numeric: tabular-nums; }\n.hm-cell { position: relative; display: grid; place-items: center; height: 30px; border: 0; border-radius: 7px; font-size: var(--fs-xs); transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast); }\n.hm-cell b { font-weight: 800; font-variant-numeric: tabular-nums; }\n.hm-cell.h0 { background: color-mix(in srgb, var(--ink) 4.5%, transparent); }\n.hm-cell.h1 { background: var(--hm1); color: var(--hm-ink-lo); } .hm-cell.h2 { background: var(--hm2); color: var(--hm-ink-lo); }\n.hm-cell.h3 { background: var(--hm3); color: var(--hm-ink-lo); } .hm-cell.h4 { background: var(--hm4); color: var(--hm-ink-lo); }\n.hm-cell.h5 { background: var(--hm5); color: var(--hm-ink-hi); } .hm-cell.h6 { background: var(--hm6); color: var(--hm-ink-hi); }\n.app[data-theme=\"dark\"] .hm-cell.h4, .app[data-theme=\"dark\"] .hm-cell.h5, .app[data-theme=\"dark\"] .hm-cell.h6 { color: var(--hm-ink-lo); }\n.app[data-theme=\"dark\"] .hm-cell.h1, .app[data-theme=\"dark\"] .hm-cell.h2, .app[data-theme=\"dark\"] .hm-cell.h3 { color: var(--hm-ink-hi); }\n.hm-cell.is-now { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 60%, transparent); }\nbutton.hm-cell { cursor: pointer; }\nbutton.hm-cell:hover { transform: scale(1.12); z-index: 1; box-shadow: 0 4px 14px rgba(0, 0, 0, .22); }\n.hm-dot { position: absolute; top: 3px; inset-inline-end: 3px; width: 7px; height: 7px; border-radius: 50%; background: var(--danger); box-shadow: 0 0 0 1.5px var(--surface); }\n.hm-scale { display: flex; align-items: center; gap: 4px; margin-top: 10px; font-size: 11px; color: var(--ink-3); }\n.hm-scale i { width: 22px; height: 10px; border-radius: 3px; }\n.hm-scale i.h1 { background: var(--hm1); } .hm-scale i.h2 { background: var(--hm2); } .hm-scale i.h3 { background: var(--hm3); }\n.hm-scale i.h4 { background: var(--hm4); } .hm-scale i.h5 { background: var(--hm5); } .hm-scale i.h6 { background: var(--hm6); }\n.hm-scale em { margin-inline-start: auto; font-style: normal; display: inline-flex; align-items: center; gap: 4px; }\n.hm-scale em .ic { color: var(--danger); fill: var(--danger); }\n.viz-card.show-table .heat { display: none; }\n.is-fresh .hm-cell { animation: fade-in .6s var(--ease) both; }\n\n/* ----- dashboard: burn-up ----- */\n.burn { display: block; width: 100%; height: auto; overflow: visible; }\n.bu-grid { stroke: var(--grid); stroke-width: 1; }\n.bu-grid.is-base { stroke: var(--baseline); }\n.bu-tick { font: 500 11px var(--font); fill: var(--ink-3); }\n.bu-cat { font: 500 11px var(--font); fill: var(--ink-2); }\n.bu-cat.is-now { font-weight: 800; fill: var(--ink); }\n.bu-line { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }\n.bu-line.p { stroke: var(--s-cat1); } .bu-line.d { stroke: var(--s-cat3); }\n.bu-dot { stroke: var(--surface); stroke-width: 2; } .bu-dot.p { fill: var(--s-cat1); } .bu-dot.d { fill: var(--s-cat3); }\n.bu-gap { fill: color-mix(in srgb, var(--danger) 9%, transparent); }\n.sw.gap { background: color-mix(in srgb, var(--danger) 28%, transparent); }\n.bu-now { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 3 4; }\n.bu-nowlbl { font: 700 11px var(--font); fill: var(--accent-ink); }\n.bu-end { font: 800 12px var(--font); fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 4px; }\n.bu-hit { fill: transparent; }\n.bu-hit:hover { fill: color-mix(in srgb, var(--ink) 4%, transparent); }\n.is-fresh .bu-line { animation: draw 1.4s var(--ease) .15s both; }\n.viz-card.show-table .viz-plot-wrap { display: none; }\n\n/* ----- dashboard: vitals ----- */\n.vitals { display: grid; gap: 14px; }\n.vt-gauge { display: grid; justify-items: center; gap: 8px; --tone: var(--s-done); }\n.vt-gauge.warn { --tone: var(--s-pending); } .vt-gauge.bad { --tone: var(--danger); }\n.vt-gauge svg, .vt-gtext { grid-area: 1 / 1; }\n.vt-gtrack { fill: none; stroke: var(--surface-3); stroke-width: 9; }\n.vt-garc { fill: none; stroke: var(--tone); stroke-width: 9; stroke-linecap: round; }\n.is-fresh .vt-garc { animation: arc-in 1.1s var(--ease) both; }\n.vt-gtext { display: grid; place-content: center; text-align: center; line-height: 1.1; }\n.vt-gtext b { font-size: 30px; font-weight: 800; }\n.vt-gtext small { font-size: 11px; color: var(--ink-3); }\n.vt-tier { grid-row: 2; display: inline-flex; align-items: center; gap: 6px; padding: 3px 12px; border-radius: 999px; font-size: var(--fs-sm); font-weight: 700; background: color-mix(in srgb, var(--tone) 14%, transparent); }\n.vt-tier .ic { color: var(--tone); }\n.vt-list { display: grid; gap: 6px; }\n.vt { display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; padding: 8px 12px; border-radius: 12px; text-align: start; background: var(--surface-2); border: 1px solid transparent; transition: border-color var(--t-fast); --tone: var(--s-done); }\n.vt.warn { --tone: var(--s-pending); } .vt.bad { --tone: var(--danger); }\n.vt:hover { border-color: var(--line-2); }\n.vt-l { display: flex; align-items: center; gap: 6px; font-size: var(--fs-sm); font-weight: 600; }\n.vt-l .ic { color: var(--tone); }\n.vt-v { font-weight: 800; font-size: var(--fs-md); }\n.vt-bar { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--surface-3); overflow: hidden; }\n.vt-bar i { display: block; height: 100%; border-radius: 3px; background: var(--tone); transform-origin: right center; }\n.is-fresh .vt-bar i { animation: grow-x .9s var(--ease) .2s both; }\n.vt small { grid-column: 1 / -1; font-size: 11px; color: var(--ink-3); }\n\n/* ----- dashboard: podium ----- */\n.podium { display: grid; gap: 12px; }\n.pd-stand { display: flex; justify-content: center; align-items: flex-end; gap: 10px; padding-top: 6px; }\n.pd { display: grid; justify-items: center; gap: 3px; flex: 1; max-width: 118px; min-width: 0; text-align: center; border-radius: 12px; }\n.pd .av { width: 48px; height: 48px; font-size: 15px; box-shadow: 0 0 0 2.5px var(--surface), 0 0 0 4.5px var(--pd-ring, var(--line-2)); }\n.pd-1 { --pd-ring: var(--accent); }\n.pd b { font-size: var(--fs-sm); font-weight: 700; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 6px; }\n.pd-xp { font-size: 11px; color: var(--ink-3); }\n.pd-xp em { font-style: normal; font-weight: 800; font-size: var(--fs-md); color: var(--ink); }\n.pd-crown { color: #eda100; animation: bob 2.4s ease-in-out infinite; line-height: 0; }\n.pd-crown .ic { fill: color-mix(in srgb, #eda100 35%, transparent); }\n.pd-block { width: 100%; display: grid; place-items: start center; padding-top: 8px; border-radius: 12px 12px 4px 4px; background: var(--surface-3); font-style: normal; transform-origin: bottom; }\n.pd-block i { font-style: normal; font-weight: 800; font-size: var(--fs-lg); color: var(--ink-2); }\n.pd-1 .pd-block { height: 88px; background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 60%, var(--brand-2))); }\n.pd-1 .pd-block i { color: var(--on-accent); }\n.pd-2 .pd-block { height: 64px; } .pd-3 .pd-block { height: 48px; }\n.is-fresh .pd-block { animation: grow-y .9s var(--ease) .2s both; }\n.pd:hover .av { --pd-ring: var(--accent); }\n.pd-list { display: grid; gap: 2px; }\n.pd-row { display: grid; grid-template-columns: 18px 22px minmax(70px, 1fr) minmax(40px, 1fr) 40px; gap: 8px; align-items: center; padding: 4px 6px; border-radius: 8px; font-size: var(--fs-sm); color: var(--ink-2); text-align: start; }\n.pd-row:hover { background: var(--surface-2); }\n.pd-n { color: var(--ink-3); font-size: var(--fs-xs); }\n.pd-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.pd-track { height: 6px; border-radius: 3px; background: var(--surface-3); overflow: hidden; }\n.pd-track i { display: block; height: 100%; border-radius: 3px; background: var(--s-cat1); }\n.pd-row b { color: var(--ink); text-align: end; }\n.viz-card.show-table .podium > :not(.viz-table) { display: none; }\n\n/* ----- dashboard: stale list ----- */\n.stale-list li { grid-template-columns: 52px minmax(0, 1fr) auto; }\n.stale-list .days { display: grid; justify-items: center; line-height: 1.1; padding: 3px 0; border-radius: 9px; background: color-mix(in srgb, var(--s-pending) 18%, transparent); font-weight: 800; font-size: var(--fs-md); }\n.stale-list .days small { font-size: 10px; font-weight: 500; color: var(--ink-2); }\n\n/* ----- animations on first showing of the dashboard ----- */\n.is-fresh .col-bar { animation: grow-y .8s var(--ease) both; transform-origin: bottom; }\n.is-fresh .hrow-bar { animation: grow-x .8s var(--ease) both; transform-origin: right center; }\n.is-fresh .donut .arc { animation: arc-in .9s var(--ease) both; }\n.is-fresh .tile, .is-fresh .jstat { animation: rise .5s var(--ease) both; }\n.is-fresh .tile:nth-child(2) { animation-delay: .05s; } .is-fresh .tile:nth-child(3) { animation-delay: .1s; }\n.is-fresh .tile:nth-child(4) { animation-delay: .15s; } .is-fresh .tile:nth-child(5) { animation-delay: .2s; } .is-fresh .tile:nth-child(6) { animation-delay: .25s; }\n.is-fresh .jstat:nth-child(2) { animation-delay: .08s; } .is-fresh .jstat:nth-child(3) { animation-delay: .16s; } .is-fresh .jstat:nth-child(4) { animation-delay: .24s; }\n.badge-card.is-on .medal { transition: transform .4s var(--ease); }\n.badge-card.is-on:hover .medal { transform: rotate(-8deg) scale(1.08); }\n\n/* ----- extras ----- */\n.viz-card.wide .cols-chart:not(.compact) { height: 340px; }\n.viz-card.wide .cols-chart.compact { height: 280px; }\n.viz-card.show-table .xp-key { display: none; }\n.xp-key { display: grid; gap: 8px; padding-top: 12px; border-top: 1px solid var(--line); }\n.xp-key h4 { font-size: var(--fs-sm); font-weight: 700; }\n.xp-key > div { display: flex; flex-wrap: wrap; gap: 8px 14px; }\n.xp-key > div span { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); }\n.xp-key > div span b { font-weight: 800; }\n.xp-key p { font-size: 11px; color: var(--ink-3); line-height: 1.8; }\n\n.card-top { flex-wrap: wrap; row-gap: 4px; }\nbdi.key { white-space: nowrap; }\n\n/* ---- size report ---- */\n.tool-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }\n.viz-card > header .tool-row .switch { flex: none; }\n.srep-wrap { overflow-x: auto; margin-top: 4px; }\n.srep { width: 100%; border-collapse: separate; border-spacing: 0 3px; font-variant-numeric: tabular-nums; }\n.srep th { font-weight: 500; font-size: 11px; color: var(--ink-3); padding: 2px 3px 6px; text-align: center; white-space: nowrap; vertical-align: bottom; }\n.srep th .size { font-size: 11px; }\n.srep .srep-rl { text-align: start; min-width: 150px; padding-inline-end: 8px; }\n.srep td { padding: 0 2px; height: 36px; text-align: center; }\n.sr-na { font-size: 11px; color: var(--ink-3); }\n.sr-row { display: inline-flex; align-items: center; gap: 8px; max-width: 220px; border: 0; background: none; padding: 4px 6px; margin-inline-start: -6px; border-radius: 8px; color: var(--ink); font-size: var(--fs-sm); font-weight: 600; text-align: start; cursor: pointer; }\n.sr-row span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.sr-row:hover { background: color-mix(in srgb, var(--ink) 6%, transparent); }\n.sr-dot { flex: none; width: 9px; height: 9px; border-radius: 50%; }\n.sr-cell { display: grid; place-items: center; width: 100%; min-width: 42px; height: 34px; border: 0; border-radius: 8px; font-size: var(--fs-sm); font-weight: 700; color: var(--ink);\n  background: color-mix(in oklab, var(--c) var(--a), transparent); cursor: pointer; transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast); }\n.sr-cell:hover { transform: translateY(-1px); box-shadow: 0 0 0 2px color-mix(in srgb, var(--c) 75%, transparent); }\n.sr-cell.is-zero { background: none; color: var(--ink-4, var(--ink-3)); font-weight: 400; cursor: default; opacity: .6; }\n.sr-cell.is-foot { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--c) 70%, transparent); background: none; }\n.srep th.sr-sum, .srep td.sr-sum { padding-inline: 10px; min-width: 70px; }\n.srep td.sr-sum b { font-size: var(--fs-md, 15px); font-weight: 800; }\n.sr-mix { min-width: 150px; width: 22%; }\n.mixbar { display: flex; gap: 2px; height: 12px; border-radius: 6px; overflow: hidden; }\n.mixbar i { display: block; min-width: 2px; border-radius: 2px; }\n.srep-foot td, .srep-foot th { border-top: 1px solid var(--line, var(--hairline)); padding-top: 2px; }\n.is-fresh .sr-cell { animation: fade-in .5s var(--ease) both; }\n.is-fresh .mixbar i { animation: grow-x .8s var(--ease) .2s both; transform-origin: right center; }\n@media (max-width: 720px) { .sr-mix { display: none; } .srep .srep-rl { min-width: 110px; } }\n\n/* ---- size report: filters, stats, definition row, wide labelled bars ---- */\n.sr-filters { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }\n.sr-stats { display: flex; flex-wrap: wrap; gap: 8px 28px; padding: 2px 0 14px; }\n.sr-stat { display: grid; gap: 1px; }\n.sr-stat small { font-size: var(--fs-xs); color: var(--ink-3); }\n.sr-stat b { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }\n.sr-stat b i { font-style: normal; font-size: var(--fs-sm); font-weight: 500; color: var(--ink-3); }\n.sr-def { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-top: 48px; padding-top: 12px; border-top: 1px solid var(--line); font-size: var(--fs-sm); color: var(--ink-2); }\n.sr-def > span { display: inline-flex; align-items: center; gap: 6px; }\n.sr-def em { font-style: normal; }\n.sr-def small { margin-inline-start: auto; color: var(--ink-3); font-size: var(--fs-xs); }\n.cols-chart.wide-bars .col-bar { width: 46px; }\n.cols-chart.wide-bars .col-bar .seg { display: grid; place-items: center; }\n.seg-n { font-size: 12px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; pointer-events: none; }\n.app[data-theme=\"dark\"] .seg[data-s=\"todo\"] .seg-n { color: #15131f; }\n.xp-key small { color: var(--ink-3); font-size: var(--fs-xs); }\n.jn-year { font-weight: 500; font-size: 11px; fill: var(--ink-3); }\n.pd-card > header { flex-wrap: wrap; }\n.pd-card > header .switch { order: 3; flex: 1 1 100%; display: flex; margin-top: 6px; }\n.pd-card > header .switch button { flex: 1; }\n.jstat { align-items: flex-start; }\n.jdesc { margin: 3px 0 0; font-size: 11px; line-height: 1.55; color: var(--ink-3); white-space: normal; }\n.journey-card > header .switch { flex: none; }\n\n/* ==========================================================================\n   SIF tab — funnel, bottlenecks, value, idea → delivery\n   ========================================================================== */\n.app {\n  /* stages read as a sequence: one blue ramp, then the status colours for the side states */\n  --sf-strategy: var(--hm2); --sf-product: var(--hm3); --sf-tech: var(--hm4);\n  --sf-dispatched: var(--s-done); --sf-approval: var(--hm5); --sf-ready: var(--s-devdone);\n  --sf-review: var(--s-pending); --sf-hold: var(--ink-3); --sf-rejected: var(--danger);\n}\n.sif-filters .select select { max-width: 200px; }\n.dash-sec h2 em { font-style: normal; display: inline-grid; place-items: center; width: 26px; height: 26px; margin-inline-end: 8px; border-radius: 8px; font-size: var(--fs-sm); font-weight: 800; color: var(--on-accent); background: linear-gradient(135deg, var(--accent), var(--brand-2)); vertical-align: 2px; }\n\n.sif-tiles { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }\n.sif-tile { display: grid; gap: 2px; text-align: start; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); box-shadow: var(--shadow-card); cursor: pointer; transition: transform var(--t-fast) var(--ease), border-color var(--t-fast), box-shadow var(--t-fast); position: relative; overflow: hidden; }\n.sif-tile::before { content: \"\"; position: absolute; inset-inline-start: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 3px; background: var(--line-2); }\n.sif-tile.is-flow::before { background: var(--sf-tech); } .sif-tile.is-ok::before { background: var(--s-done); } .sif-tile.is-warn::before { background: var(--s-pending); }\n.sif-tile:hover { transform: translateY(-2px); border-color: var(--line-2); box-shadow: var(--shadow-lift); }\n.sif-tile small { font-size: var(--fs-xs); color: var(--ink-3); }\n.sif-tile b { font-size: 28px; font-weight: 800; line-height: 1.2; font-variant-numeric: tabular-nums; }\n.sif-tile em { font-style: normal; font-size: 11px; color: var(--ink-3); }\n.is-fresh .sif-tile { animation: rise .5s var(--ease) both; }\n.is-fresh .sif-tile:nth-child(2) { animation-delay: .04s; } .is-fresh .sif-tile:nth-child(3) { animation-delay: .08s; }\n.is-fresh .sif-tile:nth-child(4) { animation-delay: .12s; } .is-fresh .sif-tile:nth-child(5) { animation-delay: .16s; } .is-fresh .sif-tile:nth-child(6) { animation-delay: .2s; }\n\n.sif-mine { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: var(--r-card); border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); background: var(--accent-soft); }\n.sif-mine > .ic { color: var(--accent-ink); flex: none; }\n.sif-mine div { flex: 1; display: grid; }\n.sif-mine small { color: var(--ink-3); font-size: var(--fs-xs); }\n.sif-wait { display: flex; align-items: center; gap: 8px; padding: 8px 12px; margin-bottom: 8px; border-radius: var(--r-control); background: var(--surface-2); color: var(--ink-3); font-size: var(--fs-sm); }\n.sif-wait b { margin-inline-start: auto; font-variant-numeric: tabular-nums; color: var(--ink-2); }\n\n.sf-pill { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px 2px 8px; border-radius: var(--r-pill); font-size: var(--fs-xs); white-space: nowrap; background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--ink); }\n.sf-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }\n.sf-link { display: flex; align-items: center; gap: 8px; min-width: 0; color: inherit; text-decoration: none; }\n.sf-link:hover span[dir] { text-decoration: underline; }\n.dt-title .sf-link { display: grid; gap: 2px; }\n.dt-title .sf-link > span[dir] { max-width: 420px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; unicode-bidi: plaintext; text-align: right; }\n\n/* funnel rows (also used for the idea → delivery steps) */\n.fn { display: grid; gap: 6px; }\n.fn-row { display: grid; grid-template-columns: 170px minmax(0, 1fr) 84px 118px 74px; align-items: center; gap: 10px; padding: 4px 6px; border-radius: var(--r-control); }\n.fn-row.pl-row { grid-template-columns: 190px minmax(0, 1fr) 84px 60px; }\n.fn-row.is-leaky { background: color-mix(in srgb, var(--s-pending) 9%, transparent); }\n.fn-label { display: grid; line-height: 1.3; min-width: 0; }\n.fn-label b { font-size: var(--fs-sm); }\n.fn-label small { font-size: 11px; color: var(--ink-3); text-align: end; }\n.fn-track { height: 30px; display: flex; align-items: center; background: none; border: 0; padding: 0; cursor: pointer; border-radius: 6px; }\n.fn-track:hover .fn-bar { filter: brightness(1.06) saturate(1.1); }\n.fn-bar { display: block; height: 100%; min-width: 3px; border-radius: 4px 0 0 4px; background: color-mix(in srgb, var(--c) 38%, var(--surface-2)); overflow: hidden; transition: width 500ms var(--ease), filter var(--t-fast); }\n.fn-bar { border-start-end-radius: 0; border-radius: 4px 0 0 4px; }\n.fn-now { display: block; height: 100%; background: var(--c); border-radius: 4px 0 0 4px; }\n.is-fresh .fn-bar { animation: grow-x .8s var(--ease) both; transform-origin: right center; }\n.fn-val { display: grid; justify-items: end; line-height: 1.25; }\n.fn-val b { font-size: var(--fs-md); font-variant-numeric: tabular-nums; }\n.fn-val small { font-size: 11px; color: var(--ink-3); }\n.fn-conv { display: grid; gap: 1px; justify-items: start; }\n.conv { font-size: var(--fs-xs); font-weight: 700; padding: 2px 8px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink-2); }\n.conv.is-start { font-weight: 500; color: var(--ink-3); }\n.fn-conv em { font-style: normal; font-size: 11px; color: var(--ink-2); }\n.lost { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; padding: 2px 8px; border-radius: var(--r-pill); border: 1px solid color-mix(in srgb, var(--danger) 35%, transparent); background: var(--danger-soft); color: var(--danger); cursor: pointer; }\n.fn-key { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 8px; font-size: var(--fs-xs); color: var(--ink-3); }\n.fn-key i { width: 14px; height: 8px; border-radius: 3px; }\n.fn-key .k1 { background: color-mix(in srgb, var(--sf-tech) 38%, var(--surface-2)); } .fn-key .k2 { background: var(--sf-tech); margin-inline-start: 10px; }\n.pl-notes { line-height: 1.8; }\n.viz-card.show-table .sif-plot { display: none; }\n\n.side-list { display: grid; gap: 8px; }\n.side-row { display: grid; grid-template-columns: 6px 1fr auto auto; align-items: center; gap: 10px; padding: 10px 12px; text-align: start; border: 1px solid var(--line); border-radius: var(--r-control); background: var(--surface); cursor: pointer; transition: background var(--t-fast), transform var(--t-fast) var(--ease); }\n.side-row:hover { background: var(--surface-2); transform: translateX(-2px); }\n.side-row i { align-self: stretch; border-radius: 3px; }\n.side-row span { display: grid; line-height: 1.3; } .side-row small { color: var(--ink-3); font-size: 11px; }\n.side-row strong { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }\n.side-row em { font-style: normal; font-size: var(--fs-xs); color: var(--ink-3); min-width: 40px; text-align: end; }\n\n/* time in stage */\n.dur { display: grid; gap: 4px; }\n.dur-row { display: grid; grid-template-columns: 190px minmax(0, 1fr) 190px; align-items: center; gap: 12px; padding: 6px 8px; background: none; border: 0; border-radius: var(--r-control); text-align: start; cursor: pointer; }\n.dur-row:hover { background: var(--surface-2); }\n.dur-track { position: relative; height: 16px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }\n.dur-track i { position: absolute; inset-block: 0; inset-inline-start: 0; border-radius: 0 4px 4px 0; }\n.dur-p75 { background: color-mix(in srgb, var(--ink-3) 20%, transparent); }\n.dur-med { height: 100%; }\n.is-fresh .dur-track i { animation: grow-x .8s var(--ease) both; transform-origin: right center; }\n.dur-val { display: grid; line-height: 1.3; } .dur-val b { font-variant-numeric: tabular-nums; } .dur-val small { font-size: 11px; color: var(--ink-3); }\n\n.stuck-list { display: grid; }\n.stuck-list li { display: flex; align-items: center; gap: 8px; padding: 8px 4px; border-bottom: 1px solid var(--line); }\n.stuck-list li > a { flex: 1; min-width: 0; display: grid; gap: 3px; }\n.stuck-list .sl-title { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: var(--fs-sm); }\n.stuck-list .sl-title span { unicode-bidi: plaintext; }\n.stuck-list small { display: flex; align-items: center; gap: 6px; }\n.sl-age { font-size: var(--fs-xs); font-weight: 700; padding: 2px 8px; border-radius: var(--r-pill); background: var(--danger-soft); color: var(--danger); white-space: nowrap; }\n.hrow-val small .late { color: var(--danger); font-weight: 600; }\n\n/* value */\n.q-list { display: grid; gap: 8px; }\n.q-row { display: grid; grid-template-columns: 96px minmax(0, 1fr) 44px; grid-template-areas: \"l t b\" \". s s\"; align-items: center; gap: 2px 10px; padding: 6px 4px; text-align: start; background: none; border: 0; cursor: pointer; border-radius: var(--r-control); font-size: var(--fs-sm); }\n.q-row:hover { background: var(--surface-2); }\n.q-row > span:first-child { grid-area: l; color: var(--ink-2); } .q-track { grid-area: t; height: 10px; border-radius: 5px; background: var(--surface-2); overflow: hidden; }\n.q-track i { display: block; height: 100%; background: var(--sf-tech); border-radius: 0 5px 5px 0; }\n.is-fresh .q-track i { animation: grow-x .8s var(--ease) both; transform-origin: right center; }\n.q-row b { grid-area: b; text-align: end; font-variant-numeric: tabular-nums; } .q-row small { grid-area: s; color: var(--ink-3); font-size: 11px; }\n.q-all { display: flex; align-items: center; gap: 10px; margin-top: 4px; padding: 10px 12px; text-align: start; border: 1px dashed var(--line-2); border-radius: var(--r-control); background: none; cursor: pointer; font-size: var(--fs-xs); color: var(--ink-2); }\n.q-all b { font-size: 22px; font-weight: 800; color: var(--ink); } .q-all u { text-decoration: none; color: var(--ink); font-weight: 600; }\n.rel { display: inline-block; width: 90px; height: 8px; border-radius: 4px; background: var(--surface-2); vertical-align: middle; overflow: hidden; margin-inline-end: 8px; }\n.rel i { display: block; height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; }\n.tag.is-warn { background: color-mix(in srgb, var(--s-pending) 18%, transparent); }\n\n.lead { display: grid; gap: 14px; }\n.lead-stat { display: grid; gap: 2px; padding: 12px 14px; border-radius: var(--r-control); background: var(--surface-2); }\n.lead-stat small { font-size: var(--fs-xs); color: var(--ink-3); } .lead-stat b { font-size: 30px; font-weight: 800; line-height: 1.2; }\n.lead-stat em { font-style: normal; font-size: var(--fs-xs); color: var(--ink-2); } .lead-stat i { font-style: normal; font-size: 11px; color: var(--ink-3); margin-top: 4px; }\n\n.sif-sheet li > a { flex: 1; min-width: 0; }\n.sif-sheet .sl-t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.sif-sheet .sl-t span { unicode-bidi: plaintext; }\n\n@media (max-width: 1100px) {\n  .sif-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }\n  .fn-row { grid-template-columns: 130px minmax(0, 1fr) 70px 96px; } .fn-lost { display: none; }\n  .dur-row { grid-template-columns: 150px minmax(0, 1fr); } .dur-val { display: none; }\n}\n.app[data-theme=\"dark\"] { --sf-strategy: var(--hm3); --sf-product: var(--hm4); --sf-tech: var(--hm5); --sf-approval: var(--hm6); }\n\n/* ==========================================================================\n   Issue drawer — «کارت اینیشیتیو»: Persian star-lattice hero, timeline, editable facts\n   ========================================================================== */\n.drawer-panel { width: min(680px, 100vw); }\n.d-scroll { gap: 16px; background: color-mix(in srgb, var(--bg) 60%, var(--surface)); }\n.d-head .ro { display: inline-flex; align-items: center; gap: 4px; margin-inline-end: 6px; padding: 2px 10px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink-3); font-size: var(--fs-xs); }\n\n.d-hero { --st: var(--s-todo); position: relative; overflow: hidden; gap: 12px; padding: 20px 22px; border-radius: var(--r-panel); border: 1px solid color-mix(in srgb, var(--st) 28%, var(--line));\n  background: linear-gradient(135deg, color-mix(in srgb, var(--st) 11%, var(--surface)), var(--surface) 62%); box-shadow: var(--shadow-card); }\n.d-hero.st-done { --st: var(--s-done); } .d-hero.st-devdone { --st: var(--s-devdone); } .d-hero.st-progress { --st: var(--s-progress); }\n.d-hero.st-pending { --st: var(--s-pending); } .d-hero.st-todo { --st: var(--s-todo); } .d-hero.st-canceled { --st: var(--s-canceled); }\n.d-hero::before { content: \"\"; position: absolute; inset-block: 0; inset-inline-end: 0; width: 62%; pointer-events: none;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpath d='M22.0 5.0 L25.6 13.2 L34.0 10.0 L30.8 18.4 L39.0 22.0 L30.8 25.6 L34.0 34.0 L25.6 30.8 L22.0 39.0 L18.4 30.8 L10.0 34.0 L13.2 25.6 L5.0 22.0 L13.2 18.4 L10.0 10.0 L18.4 13.2 Z' fill='none' stroke='%23d40c78' stroke-opacity='.30' stroke-width='1.1'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23d40c78' fill-opacity='.22'/%3E%3Ccircle cx='44' cy='44' r='2' fill='%23d40c78' fill-opacity='.22'/%3E%3C/svg%3E\"); background-size: 44px 44px; opacity: .4;\n  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 85%); mask-image: linear-gradient(to left, #000 0%, transparent 85%); }\n.app[data-theme=\"dark\"] .d-hero::before { background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpath d='M22.0 5.0 L25.6 13.2 L34.0 10.0 L30.8 18.4 L39.0 22.0 L30.8 25.6 L34.0 34.0 L25.6 30.8 L22.0 39.0 L18.4 30.8 L10.0 34.0 L13.2 25.6 L5.0 22.0 L13.2 18.4 L10.0 10.0 L18.4 13.2 Z' fill='none' stroke='%23f45bab' stroke-opacity='.30' stroke-width='1.1'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%23f45bab' fill-opacity='.22'/%3E%3Ccircle cx='44' cy='44' r='2' fill='%23f45bab' fill-opacity='.22'/%3E%3C/svg%3E\"); opacity: .7; }\n.d-hero::after { content: \"\"; position: absolute; inset-inline: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--brand-2), var(--accent) 60%, #8b5cf6); }\n.d-hero > * { position: relative; }\n.d-hero h2 { font-size: 22px; font-weight: 800; line-height: 1.7; }\n.d-hero .fact.is-title { grid-column: auto; }\n\n.pen { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-inline-start: 6px; border: 0; border-radius: 8px; background: transparent; color: var(--ink-3); cursor: pointer; vertical-align: middle; opacity: .4; transition: opacity var(--t-fast), background var(--t-fast), color var(--t-fast); }\n.pen:hover, .fact:hover .pen, .dt:hover .pen, h2:hover .pen, .d-section h3:hover .pen, .prog:hover .pen, .pen:focus-visible { opacity: 1; background: var(--accent-soft); color: var(--accent-ink); }\n.unset { color: var(--ink-3); font-weight: 400; font-style: normal; }\n\n.d-card { display: grid; gap: 14px; padding: 16px 18px; border-radius: var(--r-panel); border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow-card); }\n.d-card > header { display: flex; align-items: center; gap: 10px; }\n.d-card > header h3 { flex: 1; display: flex; align-items: center; gap: 8px; font-size: var(--fs-lg); font-weight: 800; }\n.d-card > header h3 .ic { color: var(--accent); }\n\n.st-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--ink-2); font-size: var(--fs-xs); font-weight: 600; white-space: nowrap; }\n.st-chip.is-ok { background: color-mix(in srgb, var(--s-done) 13%, transparent); color: var(--ok-ink); }\n.st-chip.is-soon { background: color-mix(in srgb, var(--s-pending) 20%, transparent); color: var(--ink); }\n.st-chip.is-late { background: var(--danger-soft); color: var(--danger); }\n\n/* timeline */\n.tl { padding: 26px 10px 2px; }\n.tl-track { position: relative; height: 10px; border-radius: 6px; background: var(--surface-3); }\n.tl-fill { position: absolute; top: 0; bottom: 0; border-radius: 6px; background: linear-gradient(to left, var(--brand-2), var(--accent)); }\n.tl-m { position: absolute; top: 50%; width: 16px; height: 16px; margin-inline-start: -8px; margin-top: -8px; display: grid; place-items: center; }\n.tl-m.is-start { border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--surface); }\n.tl-m.is-end { width: 22px; height: 22px; margin-inline-start: -11px; margin-top: -11px; border-radius: 50%; background: var(--ink); color: var(--surface); box-shadow: 0 0 0 3px var(--surface); }\n.tl-m.is-est { background: var(--s-pending); transform: rotate(45deg) scale(.78); border-radius: 3px; box-shadow: 0 0 0 3px var(--surface); }\n.tl-m.is-today { width: 2px; margin-inline-start: -1px; height: 28px; margin-top: -14px; background: var(--ink); border-radius: 2px; }\n.tl-m.is-today::after { content: \"امروز\"; position: absolute; bottom: calc(100% + 3px); left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; color: var(--ink); white-space: nowrap; }\n.tl-key { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 14px; font-size: 11px; color: var(--ink-3); }\n.tl-key span { display: inline-flex; align-items: center; gap: 5px; }\n.tl-key i { width: 9px; height: 9px; display: inline-block; }\n.k-start { border-radius: 50%; background: var(--accent); } .k-today { width: 2px !important; height: 11px !important; background: var(--ink); } .k-est { background: var(--s-pending); transform: rotate(45deg) scale(.85); border-radius: 2px; }\n.is-fresh .tl-fill { animation: grow-x .9s var(--ease) .25s both; transform-origin: right center; }\n\n.dates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }\n.dt { position: relative; display: grid; align-content: start; gap: 3px; padding: 12px 14px; border-radius: var(--r-card); border: 1px solid var(--line); background: var(--surface-2); overflow: hidden; }\n.dt::before { content: \"\"; position: absolute; inset-inline: 0; top: 0; height: 3px; background: var(--c, var(--line-2)); }\n.dt.tone-start { --c: var(--accent); } .dt.tone-end { --c: var(--ink); } .dt.tone-est { --c: var(--s-pending); }\n.dt.is-editing { border-color: var(--accent); background: var(--accent-soft); }\n.dt-top { display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); }\n.dt-top .pen { margin-inline-start: auto; }\n.dt-ic { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 7px; background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--ink); }\n.dt-date { font-size: var(--fs-md); font-weight: 800; line-height: 1.5; }\n.dt-date.is-empty { color: var(--ink-3); }\n.dt small { color: var(--ink-3); font-size: 11px; line-height: 1.5; }\n.dt .st-chip { justify-self: start; margin-top: 4px; }\n\n.time-foot { display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap; }\n.mv { display: flex; align-items: center; gap: 8px; font-size: var(--fs-xs); color: var(--ink-3); }\n.mv > span:first-child { display: inline-flex; align-items: center; gap: 4px; }\n.prog { flex: 1; min-width: 220px; display: flex; align-items: center; gap: 8px; font-size: var(--fs-xs); color: var(--ink-3); }\n.prog-bar { flex: 1; height: 8px; border-radius: 4px; background: var(--surface-3); overflow: hidden; }\n.prog-bar i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(to left, var(--brand-2), var(--accent)); }\n.prog b { color: var(--ink); font-variant-numeric: tabular-nums; }\n\n/* facts */\n.d-card .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; background: none; border: 0; border-radius: 0; overflow: visible; }\n.d-card .fact { background: none; padding: 0; gap: 4px; }\n.d-card .fact.is-wide, .d-card .fact.is-editing { grid-column: 1 / -1; }\n.d-card .fact dt { display: flex; align-items: center; font-size: var(--fs-xs); color: var(--ink-3); }\n.d-card .fact dd { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: var(--fs-sm); font-weight: 600; }\n.d-card .fact dd a { display: inline-flex; align-items: center; gap: 4px; }\n.fact.is-editing { padding: 12px; border-radius: var(--r-card); background: var(--accent-soft) !important; border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }\n\n/* editors */\n.ed { display: grid; gap: 8px; margin-top: 6px; width: 100%; font-weight: 400; }\n.ed-input { display: block; width: 100%; padding: 9px 12px; border-radius: var(--r-control); border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); outline: 0; font-size: var(--fs-md); unicode-bidi: plaintext; transition: border-color var(--t-fast), box-shadow var(--t-fast); }\n.ed-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }\n.ed-area { min-height: 180px; resize: vertical; line-height: 1.9; }\n.ed-chips { display: flex; flex-wrap: wrap; gap: 6px; }\n.ed-opt { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: var(--r-pill); border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-size: var(--fs-sm); cursor: pointer; transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast) var(--ease); }\n.ed-opt:hover { border-color: var(--accent); transform: translateY(-1px); }\n.ed-opt.is-on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 700; }\n.ed-opt.is-clear { color: var(--ink-3); border-style: dashed; }\n.ed-opt.is-busy { opacity: .6; pointer-events: none; }\n.ed-foot { display: flex; align-items: center; gap: 8px; }\n.ed-err { color: var(--danger); font-size: var(--fs-xs); }\n.ed-results { display: grid; max-height: 220px; overflow-y: auto; }\n.ed-none { padding: 8px; }\n.ed .hint { color: var(--ink-3); }\n.btn.is-busy { opacity: .6; }\n\n/* Jalali calendar */\n.cal-wrap { display: grid; }\n.cal { width: min(340px, 100%); justify-self: center; padding: 12px; border-radius: var(--r-card); border: 1px solid var(--line-2); background: var(--surface); box-shadow: var(--shadow-lift); animation: pop-in .18s var(--ease) both; }\n.cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }\n.cal-head b { font-size: var(--fs-md); font-weight: 800; }\n.cal-wd, .cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; text-align: center; }\n.cal-wd { margin-bottom: 4px; font-size: var(--fs-xs); color: var(--ink-3); font-weight: 700; }\n.cal-wd .is-fri { color: var(--danger); }\n.cd { aspect-ratio: 1; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; color: var(--ink); font-size: var(--fs-sm); font-variant-numeric: tabular-nums; cursor: pointer; transition: background var(--t-fast), transform var(--t-fast) var(--ease); }\n.cd:hover { background: var(--accent-soft); transform: scale(1.08); }\n.cd.is-fri { color: var(--danger); }\n.cd.is-today { box-shadow: inset 0 0 0 1.5px var(--accent); font-weight: 800; }\n.cd.is-sel { background: var(--accent); color: var(--on-accent); font-weight: 800; }\n.cal-foot { display: flex; align-items: center; gap: 6px; margin-top: 10px; }\n\n/* entrance: once per opened card, not on every edit */\n.d-scroll.is-fresh > * { animation: rise .45s var(--ease) both; }\n.d-scroll.is-fresh > :nth-child(2) { animation-delay: .05s; } .d-scroll.is-fresh > :nth-child(3) { animation-delay: .1s; }\n.d-scroll.is-fresh > :nth-child(4) { animation-delay: .15s; } .d-scroll.is-fresh > :nth-child(n+5) { animation-delay: .2s; }\n\n@media (max-width: 640px) { .dates { grid-template-columns: 1fr; } .d-card .facts { grid-template-columns: 1fr; } }\n.d-card .fact { align-content: start; }\n.composer.is-locked { display: flex; align-items: center; gap: 8px; justify-content: center; padding: 16px; color: var(--ink-3); font-size: var(--fs-sm); border-top: 1px solid var(--line); background: var(--surface); }\n\n/* ==========================================================================\n   SIF lists — side sheet + filterable «گیرکرده‌ها»\n   ========================================================================== */\n.sheet.is-sif .sheet-panel { width: min(760px, 100vw); }\n.sd-tools { display: grid; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 55%, var(--surface)); flex: none; }\n.sd-card .sd-tools { padding: 0 0 12px; background: none; border-bottom: 1px solid var(--line); margin-bottom: 4px; }\n.sd-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }\n.sd-top .search { flex: 1 1 220px; min-width: 0; margin: 0; }\n.sd-top .select select { max-width: 190px; }\n.sd-chips, .sd-flags, .sd-sels { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }\n.sd-chip, .sd-flag { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px 0 10px; border-radius: var(--r-pill); border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font-size: var(--fs-xs); font-family: inherit; cursor: pointer; transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast); }\n.sd-chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }\n.sd-chip em, .sd-flag em { font-style: normal; font-weight: 700; color: var(--ink); background: var(--surface-2); padding: 0 7px; border-radius: var(--r-pill); min-width: 22px; text-align: center; line-height: 20px; }\n.sd-chip:hover, .sd-flag:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); color: var(--ink); }\n.sd-chip[data-zero]:not(.is-on) { opacity: .45; }\n.sd-chip.is-on { background: color-mix(in srgb, var(--c) 16%, var(--surface)); border-color: var(--c); color: var(--ink); font-weight: 700; }\n.sd-flag.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }\n.sd-flag.is-on em { background: #fff; color: var(--accent-ink); }\n.app[data-theme=\"dark\"] .sd-flag.is-on { color: #1f0412; }\n.sd-sels .select select { max-width: 170px; }\n.sd-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 4px 16px 20px; }\n.sd-group { display: grid; }\n.sd-gh { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 4px; margin-top: 8px; border: 0; border-bottom: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-family: inherit; font-size: var(--fs-sm); cursor: pointer; }\n.sd-gh .ic { color: var(--ink-3); transition: transform var(--t-fast); }\n.sd-gh.is-closed .ic { transform: rotate(90deg); }\n.sd-gh small { color: var(--ink-3); font-size: var(--fs-xs); }\n.sd-gh em { font-style: normal; font-weight: 700; font-size: var(--fs-xs); background: var(--surface-2); padding: 1px 9px; border-radius: var(--r-pill); }\n.sd-list { display: grid; }\n.sd-row { display: flex; align-items: center; gap: 12px; padding: 10px 6px; border-bottom: 1px solid var(--line); border-radius: var(--r-control); transition: background var(--t-fast); }\n.sd-row:hover { background: var(--surface-2); }\n.sd-row.is-late { box-shadow: inset 3px 0 0 var(--danger); }\n.sd-row > a { flex: 1; min-width: 0; display: grid; gap: 6px; }\n.sd-t { font-weight: 600; line-height: 1.6; text-align: start; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; unicode-bidi: plaintext; }\n.sd-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: var(--fs-xs); color: var(--ink-3); }\n.sd-meta .tag { height: 20px; font-size: 11px; margin: 0; }\n.sd-meta .who { gap: 4px; color: var(--ink-2); }\n.sd-nobody { color: var(--danger); font-weight: 600; }\n.sd-back { display: inline-flex; align-items: center; gap: 3px; color: var(--ink-3); }\n.sd-age { display: grid; justify-items: end; gap: 1px; flex: none; min-width: 84px; text-align: end; }\n.sd-age b { font-size: var(--fs-sm); font-weight: 700; }\n.sd-age small { font-size: 11px; color: var(--ink-3); }\n.sd-age.is-late b { color: var(--danger); }\n.sd-age.is-late small { color: var(--danger); }\n.sd-summary { display: flex; align-items: center; gap: 8px; padding: 10px 2px; font-size: var(--fs-sm); color: var(--ink-2); }\n.sd-summary b { font-size: 22px; color: var(--ink); }\n.th-sort { display: inline-flex; align-items: center; gap: 4px; border: 0; background: none; padding: 0; font: inherit; color: inherit; cursor: pointer; }\n.th-sort:hover, .th-sort.is-on { color: var(--accent-ink); }\n.ratio { font-weight: 700; color: var(--ink-2); }\n.ratio.is-hot { color: var(--danger); }\n.sd-table .who { display: inline-flex; margin-inline-end: 6px; }\n.sd-table td .sd-nobody { font-size: var(--fs-xs); }\n@media (max-width: 640px) { .sd-age { min-width: 70px; } .sd-top .select select { max-width: 130px; } }\n.sd-sels { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px; }\n.sd-sels .select { width: 100%; height: 34px; }\n.sd-sels .select select { flex: 1; max-width: none; min-width: 0; text-overflow: ellipsis; }\n.sd-sels .chip { justify-self: start; }\n.sd-top .select { height: 34px; }\n.sd-top .select select { max-width: 150px; text-overflow: ellipsis; }\n.sd-tools { gap: 8px; padding: 10px 16px; }\n.sd-chip, .sd-flag { height: 28px; }\n.sd-sels[hidden] { display: none; }\n.sd-adv { margin-inline-start: auto; } .sd-flags .chip-sm { height: 28px; }\n.sd-adv .ic { color: var(--ink-3); }\n.sd-adv.is-open { border-color: var(--accent); color: var(--accent-ink); }\n\n/* ---------- ظرفیت (capacity) ---------- */\n.cp-months { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: var(--fs-sm); }\n.cp-months b { font-weight: 600; color: var(--ink-2); margin-inline-end: 2px; }\n.cp-months small { color: var(--ink-3); font-size: var(--fs-xs); margin-inline-start: 4px; }\n.cp-months .chip.is-on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }\n.cp-verdict { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: var(--r-card); background: var(--accent-soft); color: var(--ink); line-height: 1.8; }\n.cp-verdict .ic { color: var(--accent); flex: none; }\n.cp-tile { cursor: default; }\n.cp-tile[role=\"button\"] { cursor: pointer; }\n.cp-tile:not([role=\"button\"]):hover { transform: none; box-shadow: var(--shadow-card); }\n.cp-tile b { font-size: 24px; }\n.cp-tile b i { font-style: normal; font-size: var(--fs-xs); font-weight: 500; color: var(--ink-3); }\n.cp-tile em { line-height: 1.6; }\n.cp-state { display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px; border-radius: var(--r-pill); font-size: 11px; font-weight: 700; color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); white-space: nowrap; vertical-align: middle; }\n.cp-low { display: inline-flex; align-items: center; height: 20px; padding: 0 7px; margin-inline-start: 4px; border-radius: var(--r-pill); font-size: 11px; color: var(--s-pending); border: 1px dashed currentColor; white-space: nowrap; vertical-align: middle; }\n.cp-plot { display: grid; gap: 4px; margin-top: 6px; }\n.cp-row { display: grid; grid-template-columns: minmax(130px, 190px) minmax(0, 1fr) 118px 190px; align-items: center; gap: 12px; padding: 8px 4px; border-bottom: 1px solid var(--line); }\n.cp-row:last-child { border-bottom: 0; }\n.cp-label { display: grid; min-width: 0; }\n.cp-label b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.cp-label small, .cp-num small { font-size: 11px; color: var(--ink-3); }\n.cp-track { position: relative; display: flex; height: 22px; border-radius: 6px; background: var(--surface-2); overflow: visible; }\n.cp-seg { height: 100%; border: 0; padding: 0; background: var(--c); cursor: pointer; transition: filter var(--t-fast); min-width: 2px; }\n.cp-seg:first-child { border-start-start-radius: 6px; border-end-start-radius: 6px; }\n.cp-seg:last-of-type { border-start-end-radius: 6px; border-end-end-radius: 6px; }\n.cp-seg:hover { filter: brightness(1.12); }\n.cp-est { position: absolute; inset-block: 0; pointer-events: none; background: repeating-linear-gradient(135deg, rgba(255,255,255,.55) 0 4px, transparent 4px 8px); border-radius: 6px; }\n.cp-over { position: absolute; inset-block: -3px; pointer-events: none; border: 2px solid var(--danger); border-radius: 6px; background: color-mix(in srgb, var(--danger) 10%, transparent); }\n.cp-cap { position: absolute; inset-block: -6px; width: 0; border-inline-start: 2px dashed var(--ink); pointer-events: auto; }\n.cp-num { display: grid; text-align: end; }\n.cp-num b { font-weight: 800; font-variant-numeric: tabular-nums; }\n.cp-num b i { font-style: normal; font-weight: 500; font-size: var(--fs-xs); color: var(--ink-3); }\n.cp-st { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }\n.cp-room { font-size: 11px; color: var(--ink-3); width: 100%; }\n.cp-room.is-over { color: var(--danger); font-weight: 600; }\n.cp-legend .k-est { background: repeating-linear-gradient(135deg, var(--ink-3) 0 3px, transparent 3px 6px); }\n.cp-legend .k-cap { width: 0; height: 14px; border-radius: 0; border-inline-start: 2px dashed var(--ink); }\n.cp-table td, .cp-table th { text-align: center; }\n.cp-table th[scope=\"row\"], .cp-table thead th:first-child, .cp-table tfoot th { text-align: start; }\n.cp-table th[scope=\"row\"] { font-size: var(--fs-sm); color: var(--ink); font-weight: 600; padding: 8px; border-bottom: 1px solid var(--line); }\n.cp-table th small, .cp-table th em { display: block; font-style: normal; font-weight: 400; font-size: 11px; color: var(--ink-3); }\n.cp-table thead th.is-now { color: var(--accent-ink); }\n.cp-table thead th.is-now em { color: var(--accent); font-weight: 700; }\n.cp-table tbody tr { cursor: default; }\n.cp-table tfoot td, .cp-table tfoot th { padding: 10px 8px; border-top: 1px solid var(--line-2); }\n.cp-table td.num small { display: block; font-size: 11px; color: var(--ink-3); }\n.cp-table td { padding: 4px; }\n.cp-cell { display: grid; place-items: center; width: 100%; min-width: 62px; min-height: 44px; border: 0; border-radius: 8px; font-family: inherit; color: var(--ink); cursor: pointer; --k: var(--accent); background: color-mix(in srgb, var(--k) calc(var(--a) * 100%), var(--surface-2)); transition: transform var(--t-fast); }\n.cp-cell.free { --k: var(--s-done); } .cp-cell.ok { --k: var(--accent); } .cp-cell.over { --k: var(--danger); }\n.cp-cell:not(:disabled):hover { transform: scale(1.04); }\n.cp-cell:disabled { cursor: default; background: transparent; color: var(--ink-3); }\n.cp-cell b { font-weight: 700; font-variant-numeric: tabular-nums; }\n.cp-cell small { font-size: 10px; opacity: .8; }\n.cp-trend td { text-align: start; }\n.cp-trend td b { font-weight: 700; margin-inline-end: 4px; }\n.cp-trend td small { display: block; font-size: 11px; color: var(--ink-3); }\n.cp-mini { display: block; width: 72px; height: 5px; border-radius: 3px; background: var(--surface-2); margin-bottom: 3px; overflow: hidden; }\n.cp-mini i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }\n.cp-dir { font-size: var(--fs-xs); color: var(--ink-3); }\n.cp-dir .ic { vertical-align: middle; margin-inline-end: 3px; }\n.cp-dir.up { color: var(--s-done); } .cp-dir.down { color: var(--danger); }\n.cp-card[data-card=\"cap-scen\"] { grid-column: 1 / -1; }\n.cp-scen { display: grid; gap: 12px; }\n.cp-scen-in { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }\n.cp-scen p { line-height: 2; }\n.cp-n { width: 56px; border: 0; outline: 0; background: none; color: var(--ink); font: inherit; font-size: var(--fs-sm); }\n.cp-meter { position: relative; display: flex; height: 14px; border-radius: 7px; background: var(--surface-2); }\n.cp-meter i { display: block; height: 100%; background: var(--accent); }\n.cp-meter i:first-child { border-start-start-radius: 7px; border-end-start-radius: 7px; }\n.cp-meter i.add { background: repeating-linear-gradient(135deg, var(--c) 0 5px, color-mix(in srgb, var(--c) 55%, transparent) 5px 10px); border-start-end-radius: 7px; border-end-end-radius: 7px; }\n.cp-meter b { position: absolute; inset-block: -5px; width: 0; border-inline-start: 2px dashed var(--ink); }\n.cp-how { display: grid; gap: 8px; padding-inline-start: 18px; line-height: 1.9; font-size: var(--fs-sm); color: var(--ink-2); }\n.cp-how b { color: var(--ink); }\n.cp-list .cp-phase { display: flex; align-items: center; gap: 8px; padding: 12px 4px 6px; font-size: var(--fs-sm); font-weight: 700; color: var(--ink); border-bottom: 1px solid var(--line-2); }\n.cp-list .cp-phase i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); }\n.cp-list .sd-row { cursor: pointer; }\n.cp-list .sd-row > .sf-link { flex: 1; min-width: 0; display: grid; gap: 6px; }\n@media (max-width: 1100px) { .cp-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }\n@media (max-width: 860px) {\n  .cp-row { grid-template-columns: minmax(0, 1fr) auto; }\n  .cp-track { grid-column: 1 / -1; order: 3; }\n  .cp-st { grid-column: 1 / -1; order: 4; }\n}\n@media (max-width: 560px) { .cp-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }\n.cp-sum { padding: 12px 16px; border-bottom: 1px solid var(--line); flex: none; }\n\n/* ---------- board: Gantt ---------- */\n.gt-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 0 20px 8px; font-size: var(--fs-sm); }\n.gt-tools > .muted { font-size: var(--fs-xs); }\n.gt-key { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); }\n.gt-key i { width: 16px; height: 8px; border-radius: 4px; margin-inline-start: 6px; }\n.gt-key .k-bar { background: var(--s-progress); }\n.gt-key .k-est { height: 12px; border: 1.5px dashed var(--s-pending); background: color-mix(in srgb, var(--s-pending) 10%, transparent); }\n.gt-key .k-late { background: var(--surface); border: 2px solid var(--danger); }\n.gt-late-n { color: var(--danger); font-weight: 700; }\n.gt-help { display: flex; align-items: center; gap: 6px; margin: 0 20px 8px; font-size: var(--fs-xs); color: var(--ink-3); }\n.gantt { flex: 1; min-height: 0; overflow: auto; margin: 0 20px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-panel); position: relative; overscroll-behavior: contain; }\n.gt-inner { position: relative; min-width: 100%; }\n.gt-head { position: sticky; top: 0; z-index: 4; display: flex; background: var(--surface); border-bottom: 1px solid var(--line-2); }\n.gt-corner { position: sticky; inset-inline-start: 0; z-index: 2; flex: none; width: var(--gl); display: flex; align-items: flex-end; padding: 8px 14px; font-size: var(--fs-xs); color: var(--ink-3); background: var(--surface); border-inline-end: 1px solid var(--line-2); }\n.gt-axis { position: relative; flex: none; }\n.gt-ms { position: relative; height: 30px; }\n.gt-m { position: absolute; top: 0; height: 100%; display: flex; align-items: center; padding-inline-start: 8px; font-size: var(--fs-sm); font-weight: 700; white-space: nowrap; overflow: clip; border-inline-start: 1px solid var(--line-2); }\n.gt-m small { font-weight: 400; color: var(--ink-3); margin-inline-start: 4px; font-size: var(--fs-xs); }\n.gt-m.is-now { color: var(--accent-ink); background: var(--accent-soft); }\n.gt-ticks { position: relative; height: 20px; border-top: 1px solid var(--line); }\n.gt-tick { position: absolute; top: 0; height: 100%; padding-inline-start: 3px; font-size: 10px; color: var(--ink-3); border-inline-start: 1px solid var(--line); white-space: nowrap; line-height: 20px; }\n.gt-body { position: relative; }\n.gt-vl { position: absolute; top: 0; bottom: 0; width: 0; border-inline-start: 1px solid var(--line); pointer-events: none; z-index: 0; }\n.gt-now { position: absolute; top: 0; bottom: 0; width: 0; border-inline-start: 2px solid var(--danger); z-index: 2; pointer-events: none; }\n.gt-now b { position: sticky; top: 4px; display: inline-block; transform: translateX(50%); margin-top: 4px; padding: 0 6px; border-radius: var(--r-pill); background: var(--danger); color: #fff; font-size: 10px; line-height: 18px; }\n.gt-row { display: flex; min-height: 44px; border-bottom: 1px solid var(--line); position: relative; }\n.gt-row:not(.gt-group):hover { background: color-mix(in srgb, var(--surface-2) 70%, transparent); }\n.gt-row:not(.gt-group):hover .gt-label { background: var(--surface-2); }\n.gt-row[data-key] { cursor: pointer; }\n.gt-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }\n.gt-label { position: sticky; inset-inline-start: 0; z-index: 3; flex: none; width: var(--gl); display: grid; align-content: center; gap: 3px; padding: 6px 14px; background: var(--surface); border-inline-end: 1px solid var(--line-2); min-width: 0; }\n.gt-t { font-size: var(--fs-sm); font-weight: 600; line-height: 1.5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; unicode-bidi: plaintext; text-align: right; }\n.gt-sub { display: flex; align-items: center; gap: 6px; font-size: 11px; min-width: 0; overflow: hidden; }\n.gt-sub .pill, .gt-sub .key { height: 20px; font-size: 11px; }\n.gt-sub small { font-size: 11px; white-space: nowrap; }\n.gt-lane { position: relative; flex: none; }\n.gt-group { min-height: 38px; background: color-mix(in srgb, var(--bg) 60%, var(--surface)); }\n.gt-gh { display: flex; align-items: center; gap: 8px; border: 0; border-inline-end: 1px solid var(--line-2); font-family: inherit; font-size: var(--fs-sm); color: var(--ink); cursor: pointer; background: color-mix(in srgb, var(--bg) 60%, var(--surface)); text-align: start; grid-auto-flow: column; }\n.gt-gh b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.gt-gh em { font-style: normal; font-weight: 700; font-size: var(--fs-xs); background: var(--surface-2); padding: 1px 9px; border-radius: var(--r-pill); }\n.gt-gh small { color: var(--ink-3); font-size: 11px; }\n.gt-gh .gt-late-n { font-size: 11px; }\n.gt-gh .ic { color: var(--ink-3); transition: transform var(--t-fast); flex: none; }\n.gt-gh.is-closed .ic { transform: rotate(90deg); }\n.gt-span { position: absolute; top: 50%; height: 6px; margin-top: -3px; border-radius: 3px; background: color-mix(in srgb, var(--ink-3) 30%, transparent); }\n.gt-est { position: absolute; top: 6px; bottom: 6px; border: 1.5px dashed var(--s-pending); border-radius: 6px; background: color-mix(in srgb, var(--s-pending) 9%, transparent); z-index: 1; }\n.gt-bar { position: absolute; top: 50%; height: 22px; margin-top: -11px; border-radius: 6px; background: var(--c); z-index: 2; cursor: grab; display: flex; align-items: center; justify-content: center; touch-action: none; box-shadow: 0 1px 2px rgba(0,0,0,.12); transition: box-shadow var(--t-fast); }\n.gt-bar:hover { box-shadow: 0 0 0 2px color-mix(in srgb, var(--c) 35%, transparent), 0 2px 6px rgba(0,0,0,.18); }\n.gt-bar.st-todo { background: color-mix(in srgb, var(--c) 75%, var(--surface)); }\n.gt-bar.st-canceled { background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--c) 45%, var(--surface)) 0 5px, color-mix(in srgb, var(--c) 25%, var(--surface)) 5px 10px); }\n.gt-bar.is-late { box-shadow: 0 0 0 2px var(--danger); }\n.gt-bar.cut-s { border-start-start-radius: 0; border-end-start-radius: 0; }\n.gt-bar.cut-e { border-start-end-radius: 0; border-end-end-radius: 0; }\n.gt-bt { font-size: 10px; color: #fff; white-space: nowrap; overflow: hidden; padding: 0 10px; pointer-events: none; text-shadow: 0 1px 1px rgba(0,0,0,.25); }\n.gt-h { position: absolute; top: 0; bottom: 0; width: 8px; cursor: ew-resize; border-radius: 6px; }\n.gt-h[data-h=\"s\"] { inset-inline-start: 0; } .gt-h[data-h=\"e\"] { inset-inline-end: 0; }\n.gt-bar:hover .gt-h { background: rgba(255,255,255,.35); }\n.gt-pt { position: absolute; top: 50%; width: 12px; height: 12px; margin-top: -6px; transform: rotate(45deg); border-radius: 2px; background: var(--c); z-index: 2; cursor: grab; touch-action: none; }\n.gt-pt.is-late { box-shadow: 0 0 0 2px var(--danger); }\n.gt-bar.is-dragging, .gt-pt.is-dragging { cursor: grabbing; opacity: .9; box-shadow: 0 0 0 2px var(--accent), 0 6px 16px rgba(0,0,0,.2); }\n.gt-bar.is-dragging::after { content: attr(data-live); position: absolute; bottom: calc(100% + 6px); inset-inline-start: 0; padding: 2px 8px; border-radius: 6px; background: var(--ink); color: var(--surface); font-size: 11px; white-space: nowrap; }\n.gt-bar.is-ro, .gt-pt.is-ro { cursor: not-allowed; }\n.gt-bar.is-pending, .gt-pt.is-pending { outline: 2px dashed var(--accent); outline-offset: 3px; }\n.gt-empty { padding: 40px; position: sticky; inset-inline-start: 0; width: min(100%, 700px); }\n.gt-row .more { margin: 4px 0; }\n.gt-confirm { position: absolute; inset-inline: 40px; bottom: 28px; z-index: 20; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: var(--r-card); background: var(--surface); border: 1px solid var(--accent); box-shadow: var(--shadow-lift); animation: rise .25s var(--ease) both; }\n.gt-confirm > .ic { color: var(--accent); flex: none; }\n.gt-cf-t { display: grid; gap: 2px; min-width: 0; font-size: var(--fs-sm); }\n.gt-cf-t > b { display: flex; align-items: center; gap: 6px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }\n.gt-cf-t > span { color: var(--ink-2); font-size: var(--fs-xs); }\n.view[data-view=\"board\"] { position: relative; }\n.tt-row.is-late { color: var(--danger); font-weight: 700; }\n.gt-mt { position: sticky; inset-inline-start: calc(var(--gl) + 8px); white-space: nowrap; }\n.d-hero .fact.is-status { margin-top: 10px; padding: 10px 12px; border-radius: var(--r-card); background: var(--surface); border: 1px solid var(--line); }\n.d-hero .fact.is-status dt { font-size: var(--fs-xs); color: var(--ink-3); margin-bottom: 6px; }\n.ed-opt .pill { pointer-events: none; }\n.d-badges .pen { margin-inline-start: 0; }\n.is-status .ed-opt.is-on { background: var(--surface); color: var(--ink); border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }\n.cp-n-wrap span { font-size: var(--fs-sm); color: var(--ink-3); }\n.cp-sc-months { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: var(--fs-sm); }\n.cp-sc-months > b { font-weight: 600; color: var(--ink-2); margin-inline-end: 4px; }\n.cp-sc-months .chip small { font-size: 10px; color: var(--ink-3); margin-inline-start: 4px; }\n.cp-sc-months .chip.is-on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }\n.cp-sc-months .chip:disabled { opacity: .45; cursor: not-allowed; text-decoration: line-through; }\n.cp-answer { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border-radius: var(--r-card); background: var(--accent-soft); line-height: 2; }\n.cp-answer > .ic { color: var(--accent); flex: none; margin-top: 6px; }\n.cp-big { font-size: 1.15em; color: var(--accent-ink); }\n.cp-calc { display: grid; gap: 4px; padding-inline-start: 22px; font-size: var(--fs-sm); color: var(--ink-2); line-height: 1.9; }\n.cp-calc b { color: var(--ink); font-variant-numeric: tabular-nums; }\n.cp-sm { display: grid; gap: 8px; }\n.cp-sm-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) 200px 64px; align-items: center; gap: 12px; font-size: var(--fs-sm); }\n.cp-sm-m { font-weight: 600; }\n.cp-sm-m em { font-style: normal; font-size: 10px; color: var(--accent); margin-inline-start: 6px; }\n.cp-sm-n { color: var(--ink-3); font-size: var(--fs-xs); font-variant-numeric: tabular-nums; }\n.cp-sm-n b { color: var(--ink); }\n.cp-scen-none { display: flex; align-items: center; gap: 8px; color: var(--ink-2); }\n@media (max-width: 860px) { .cp-sm-row { grid-template-columns: 80px minmax(0, 1fr) 56px; } .cp-sm-n { grid-column: 1 / -1; } }\n.cp-sm .k-add { background: repeating-linear-gradient(135deg, var(--ink-3) 0 3px, transparent 3px 6px); }\n.cp-sm .k-cap { width: 0; height: 14px; border-radius: 0; border-inline-start: 2px dashed var(--ink); }\n.cp-calc { list-style: persian; }\n\n/* ---------- drawer: linked issues ---------- */\n.d-links .lk-block + .lk-block { margin-top: 14px; }\n.lk-block h4 { display: flex; align-items: baseline; gap: 8px; font-size: var(--fs-sm); font-weight: 700; margin-bottom: 6px; }\n.lk-block h4 small { font-weight: 400; color: var(--ink-3); font-size: var(--fs-xs); }\n.lk-list { display: grid; gap: 6px; list-style: none; padding: 0; margin: 0; }\n.lk-row { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r-control); background: var(--surface); transition: background var(--t-fast), border-color var(--t-fast); }\n.lk-row[data-key], .lk-row a { cursor: pointer; color: inherit; text-decoration: none; }\n.lk-row:hover { background: var(--surface-2); }\n.lk-row.tone-bad { border-inline-start: 3px solid var(--danger); }\n.lk-row.tone-warn { border-inline-start: 3px solid var(--s-pending); }\n.lk-row.tone-ok { border-inline-start: 3px solid var(--s-done); }\n.lk-main { flex: 1; min-width: 0; display: grid; gap: 4px; }\n.lk-t { font-weight: 600; font-size: var(--fs-sm); line-height: 1.6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; unicode-bidi: plaintext; text-align: right; }\n.lk-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: var(--fs-xs); color: var(--ink-3); }\n.lk-meta .tag, .lk-meta .pill { height: 20px; font-size: 11px; margin: 0; }\n.lk-meta .who { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-2); }\n.lk-end { font-size: 11px; color: var(--ink-3); }\n.lk-end.is-late { color: var(--s-pending); font-weight: 600; }\n.lk-when { flex: none; display: grid; justify-items: end; gap: 3px; text-align: end; font-size: var(--fs-xs); }\n.lk-when b { font-size: var(--fs-sm); }\n.lk-v { font-weight: 700; font-size: 11px; padding: 1px 8px; border-radius: var(--r-pill); }\n.lk-v.tone-bad { background: var(--danger-soft); color: var(--danger); }\n.lk-v.tone-warn { background: color-mix(in srgb, var(--s-pending) 20%, transparent); color: var(--ink); }\n.lk-v.tone-ok { background: color-mix(in srgb, var(--s-done) 13%, transparent); color: var(--ok-ink); }\n.lk-v.tone-mute { background: var(--surface-2); color: var(--ink-3); }\n\n/* ---------- «میز کار امروز» (opened from the greeting) ---------- */\n.greet:has(.desk-btn) { padding-inline-start: 12px; }\n.desk-btn { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; padding: 4px 10px 4px 8px; font: inherit; color: var(--ink); cursor: pointer; text-align: start; transition: box-shadow var(--t-fast), border-color var(--t-fast); }\n.desk-btn:hover, .desk-btn.is-open { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }\n.desk-btn > span:nth-child(2) { display: grid; line-height: 1.35; }\n.desk-btn b { font-size: var(--fs-sm); font-weight: 700; white-space: nowrap; }\n.desk-btn small { font-size: var(--fs-xs); color: var(--ink-3); white-space: nowrap; }\n.desk-btn > .ic { color: var(--ink-3); }\n.desk-ring { --p: 50; flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(#ff7a3d calc(var(--p) * 1%), var(--surface-2) 0); }\n.desk-ring b { width: 26px; height: 26px; border-radius: 50%; background: var(--surface); display: grid; place-items: center; font-size: 9px; font-weight: 800; }\n.desk-ring.big { width: 76px; height: 76px; } .desk-ring.big b { width: 62px; height: 62px; font-size: 18px; }\n.desk-wrap { position: fixed; inset: 0; z-index: 30; display: none; }\n.desk-wrap.is-open { display: block; }\n.desk-wrap > .scrim { position: absolute; inset: 0; background: rgba(20, 20, 19, .18); }\n.desk-panel { position: absolute; top: 64px; inset-inline-start: max(16px, calc(50% - 470px)); width: min(940px, calc(100vw - 32px)); max-height: calc(100vh - 84px); display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 60px rgba(0, 0, 0, .2); overflow: hidden; animation: rise .22s var(--ease) both; }\n.desk-head { display: flex; align-items: flex-start; gap: 12px; padding: 16px 18px 10px; }\n.desk-score { flex: 1; display: flex; align-items: center; gap: 16px; min-width: 0; }\n.desk-score > div { display: grid; gap: 4px; }\n.desk-score b { font-size: var(--fs-lg); font-weight: 800; }\n.desk-score small { color: var(--ink-3); font-size: var(--fs-xs); }\n.desk-prog { display: block; width: min(300px, 100%); height: 6px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }\n.desk-prog i { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, #ff7a3d, var(--accent)); }\n.desk-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }\n.desk-tools .select select { max-width: 170px; }\n.desk-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 6px 18px 14px; overflow: auto; min-height: 0; align-items: start; }\n.desk-cols > div { display: flex; flex-direction: column; gap: 8px; min-width: 0; }\n.desk-cols h4 { display: flex; align-items: center; gap: 6px; font-size: var(--fs-sm); color: var(--ink-2); margin-bottom: 2px; }\n.desk-g { flex: none; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); overflow: hidden; }\n.desk-gh { display: flex; align-items: center; gap: 8px; width: 100%; padding: 9px 12px; border: 0; font: inherit; font-size: var(--fs-sm); color: var(--ink); cursor: pointer; text-align: start; background: color-mix(in srgb, var(--c) 7%, var(--surface)); border-inline-start: 3px solid var(--c); }\n.desk-gh > .ic:first-child { color: var(--c); }\n.desk-gh em { font-style: normal; font-weight: 700; font-size: var(--fs-xs); background: var(--c); color: #fff; padding: 0 8px; border-radius: 999px; line-height: 20px; }\n.desk-gh[aria-expanded=\"false\"] > .ic:last-child { transform: rotate(90deg); }\n.desk-g ul { list-style: none; margin: 0; padding: 0; }\n.desk-item { padding: 10px 12px; border-top: 1px solid var(--line); display: grid; gap: 8px; }\n.desk-item.is-acting { background: color-mix(in srgb, var(--accent) 4%, var(--surface)); }\n.desk-it { display: grid; gap: 3px; cursor: pointer; min-width: 0; }\n.desk-it b { font-size: var(--fs-sm); font-weight: 600; text-align: right; unicode-bidi: plaintext; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.desk-it:hover b { color: var(--accent-ink); }\n.desk-it > span { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-3); }\n.desk-it em { font-style: normal; }\n.desk-it .who { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-2); }\n.desk-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }\n.desk-act { height: 28px; padding: 0 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font: inherit; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }\n.desk-act:hover { border-color: var(--accent); color: var(--ink); }\n.desk-act.is-main { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }\n.app[data-theme=\"dark\"] .desk-act.is-main { color: #1f0412; }\n.desk-act:disabled { opacity: .6; cursor: progress; }\n.desk-act .pill { pointer-events: none; }\n.desk-size { border: 0; background: none; padding: 0; cursor: pointer; }\n.desk-later { margin-inline-start: auto; border: 0; background: none; color: var(--ink-3); font: inherit; font-size: 11px; cursor: pointer; }\n.desk-later:hover { color: var(--ink); text-decoration: underline; }\n.desk-more { width: 100%; border: 0; border-top: 1px dashed var(--line); background: none; padding: 7px; color: var(--accent-ink); font: inherit; font-size: 12px; cursor: pointer; }\n.desk-form { display: grid; gap: 8px; font-size: var(--fs-sm); }\n.desk-form p { line-height: 1.9; }\n.desk-form label { display: grid; gap: 4px; font-size: var(--fs-xs); color: var(--ink-2); }\n.desk-input { width: 100%; border: 1px solid var(--line-2); border-radius: 8px; padding: 8px 10px; font: inherit; font-size: var(--fs-sm); color: var(--ink); background: var(--surface); resize: vertical; line-height: 1.8; }\n.desk-input:focus { outline: 2px solid var(--accent); outline-offset: 0; }\n.desk-check { display: flex !important; align-items: center; gap: 6px; }\n.desk-err { color: var(--danger); font-size: var(--fs-xs); font-weight: 600; }\n.desk-empty { display: flex; align-items: center; gap: 8px; padding: 14px; border: 1px dashed var(--line); border-radius: 12px; color: var(--ink-3); font-size: var(--fs-sm); }\n.desk-empty .ic { color: var(--s-done); }\n.desk-foot { display: flex; align-items: center; gap: 6px; padding: 10px 18px; border-top: 1px solid var(--line); background: var(--surface-2); font-size: var(--fs-xs); color: var(--ink-3); }\n@media (max-width: 900px) { .desk-cols { grid-template-columns: 1fr; } .desk-head { flex-wrap: wrap; } }\n\n/* BRD — VibeFarsi composition adapted to Fanoos tokens; no UI dependency. */\n.view[data-view=\"brd\"] { overflow: auto; }\n.app:has(.view[data-view=\"brd\"]:not([hidden])) { grid-template-columns: minmax(0,1fr); }\n.app:has(.view[data-view=\"brd\"]:not([hidden])) .topbar { min-inline-size: 0; overflow-x: auto; }\n.brd-page { --brd-success: var(--ok-ink); --brd-warning: var(--danger); max-inline-size: 1440px; margin-inline: auto; padding: 32px; min-inline-size: 0; letter-spacing: 0; }\n.brd-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-block-end: 28px; }\n.brd-heading h1 { font-size: var(--fs-xl); line-height: 1.5; margin-block: 8px; }\n.brd-eyebrow { color: var(--accent-ink); font-size: var(--fs-xs); font-weight: 600; margin: 0; }\n.brd-muted { color: var(--ink-3); font-size: var(--fs-sm); line-height: 1.9; }\n.brd-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-block: 24px 16px; }\n.brd-stat { padding: 20px; text-align: start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; transition: border-color var(--t), transform var(--t); }\n.brd-stat strong { font-size: var(--fs-hero); font-weight: 550; font-variant-numeric: tabular-nums; line-height: 1.2; }\n.brd-stat-copy { display: grid; gap: 8px; }\n.brd-stat-copy small { color: var(--ink-3); font-size: var(--fs-xs); }\n.brd-stat:hover { border-color: var(--line-2); }\n.brd-stat.is-selected { border-color: var(--accent); background: var(--accent-soft); }\n.brd-stat:active { transform: scale(.98); }\n.brd-chip { display: inline-flex; align-items: center; color: var(--ink-2); font-size: var(--fs-xs); font-weight: 600; white-space: nowrap; line-height: 1.8; }\n.brd-excellent { color: var(--brd-success); }\n.brd-suitable { color: var(--accent-ink); }\n.brd-weak { color: var(--brd-warning); }\n.brd-queue { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--ink-3); font-size: var(--fs-xs); padding-block: 4px 16px; }\n.brd-queue-filter { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; min-block-size: 44px; border: 1px solid var(--line); border-radius: var(--r-control); }\n.brd-queue-filter:hover,.brd-queue-filter.is-on { color: var(--accent-ink); background: var(--accent-soft); border-color: var(--accent); }\n.brd-queue-filter b { color: var(--ink); font-variant-numeric: tabular-nums; }\n.brd-connection { margin-inline-start: auto; }\n.brd-toolbar { display: flex; align-items: end; gap: 12px; flex-wrap: wrap; margin-block: 8px 24px; padding: 16px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); }\n.brd-toolbar .switch { align-self: end; }\n.brd-toolbar .switch button { min-block-size: 40px; }\n.brd-toolbar label,.brd-input label { display: grid; gap: 8px; color: var(--ink-2); font-size: var(--fs-xs); }\n.brd-toolbar input,.brd-toolbar select,.brd-input textarea { background: var(--surface); color: var(--ink); border: 1px solid var(--line-2); border-radius: var(--r-control); padding: 10px 12px; font: inherit; min-block-size: 44px; max-inline-size: 100%; }\n.brd-search { flex: 1; min-inline-size: 180px; }\n.brd-workspace { display: grid; grid-template-columns: minmax(300px,.9fr) minmax(360px,1.1fr); gap: 24px; align-items: start; }\n.brd-list,.brd-detail { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-panel); min-inline-size: 0; }\n.brd-list { overflow: hidden; }\n.brd-list-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 16px 20px; border-block-end: 1px solid var(--line); font-size: var(--fs-sm); font-weight: 600; }\n.brd-row { inline-size: 100%; display: grid; gap: 12px; text-align: start; background: transparent; padding: 20px; border: 0; border-inline-start: 3px solid transparent; border-block-end: 1px solid var(--line); cursor: pointer; color: var(--ink); transition: background var(--t); }\n.brd-row:last-child { border-block-end: 0; }\n.brd-row:hover { background: var(--surface-2); }\n.brd-row.is-selected { background: var(--accent-soft); border-inline-start-color: var(--accent); }\n.brd-row b { font-size: var(--fs-md); line-height: 1.9; font-weight: 550; overflow-wrap: anywhere; }\n.brd-row-meta,.brd-detail-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }\n.brd-row-meta bdi,.brd-detail-top bdi { font-size: var(--fs-xs); color: var(--ink-3); }\n.brd-detail { padding: 24px; position: sticky; inset-block-start: 16px; }\n.brd-detail h2 { font-size: var(--fs-xl); line-height: 1.8; margin-block: 16px 8px; }\n.brd-detail h3 { font-size: var(--fs-md); margin-block: 16px 8px; }\n.brd-detail p,.brd-detail li { line-height: 1.9; }\n.brd-verdict>p,.brd-verdict li { font-size: var(--fs-lg); }\n.brd-detail ul { padding-inline-start: 20px; }\n.brd-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-block: 20px; }\n.brd-actions .btn,.brd-page>.brd-heading .btn,.brd-detail>.btn { min-block-size: 44px; height: auto; }\n.brd-verdict { border-block: 1px solid var(--line); padding-block: 20px; margin-block: 20px; }\n.brd-note { padding: 16px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: var(--r-card); font-size: var(--fs-sm); line-height: 1.9; margin-block: 16px; }\n.brd-error { color: var(--danger); line-height: 1.9; font-size: var(--fs-sm); }\n.brd-input { margin-block: 20px; }\n.brd-input summary { cursor: pointer; font-size: var(--fs-sm); color: var(--accent-ink); min-block-size: 44px; display: list-item; align-content: center; }\n.brd-input textarea { inline-size: 100%; resize: vertical; box-sizing: border-box; line-height: 1.9; }\n.brd-empty { padding: 32px 24px; color: var(--ink-3); line-height: 1.9; }\n.brd-loading { min-block-size: 420px; display: grid; align-content: start; gap: 20px; color: var(--ink-3); }\n.brd-skeleton { block-size: 96px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-card); }\n.brd-page button:focus-visible,.brd-page a:focus-visible,.brd-page input:focus-visible,.brd-page select:focus-visible,.brd-page textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }\n@media(max-width:1100px) { .app:has(.view[data-view=\"brd\"]:not([hidden])) .brand-text,.app:has(.view[data-view=\"brd\"]:not([hidden])) .greet { display: none; } .app:has(.view[data-view=\"brd\"]:not([hidden])) .tabs button { white-space: nowrap; } }\n@media(max-width:900px) { .brd-workspace { grid-template-columns: 1fr; } .brd-detail { position: static; } .brd-toolbar .switch { inline-size: 100%; } .brd-toolbar .switch button { flex: 1; justify-content: center; } }\n@media(max-width:600px) { .brd-page { padding: 16px; } .brd-heading { align-items: start; flex-direction: column; gap: 12px; } .brd-stats { gap: 8px; } .brd-stat { padding: 12px; flex-direction: column; align-items: start; } .brd-stat strong { font-size: 28px; } .brd-stat-copy small { display: none; } .brd-stat .brd-chip { font-size: var(--fs-xs); } .brd-toolbar { padding: 12px; } .brd-toolbar label { inline-size: 100%; } .brd-connection { margin-inline-start: 0; } }\n@media(prefers-reduced-motion:reduce) { .brd-page * { transition: none !important; animation: none !important; } }\n@supports(-webkit-touch-callout:none) { .brd-page input,.brd-page select,.brd-page textarea { font-size: 16px; } }\n.brd-batch { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; padding: 20px; margin-block: 20px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); }\n.brd-batch label { display: grid; gap: 8px; color: var(--ink-2); font-size: var(--fs-sm); }\n.brd-batch input { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-control); min-block-size: 44px; padding: 8px 12px; inline-size: 180px; }\n.brd-batch .btn { min-block-size: 44px; height: auto; }\n.brd-batch>p,.brd-progress { flex-basis: 100%; margin: 0; }\n.brd-progress { display: grid; gap: 8px; font-size: var(--fs-sm); line-height: 1.9; }\n.brd-progress progress { inline-size: 100%; block-size: 8px; accent-color: var(--accent); }\n@media(max-width:600px) { .brd-batch { padding: 16px; } .brd-batch label,.brd-batch input { inline-size: 100%; box-sizing: border-box; } .brd-batch .btn-primary { inline-size: 100%; } }\n" };
 /* app/util.js */
 /* Roadmap Lens — helpers shared by every module (isolated content-script world). */
 (() => {
@@ -328,10 +328,12 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
  "arrow-down-wide-narrow": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"m3 16 4 4 4-4\" /><path d=\"M7 20V4\" /><path d=\"M11 4h10\" /><path d=\"M11 8h7\" /><path d=\"M11 12h4\" /></svg>",
  "arrow-up": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"m5 12 7-7 7 7\" /><path d=\"M12 19V5\" /></svg>",
  "at-sign": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><circle cx=\"12\" cy=\"12\" r=\"4\" /><path d=\"M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8\" /></svg>",
+ "bell": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M10.268 21a2 2 0 0 0 3.464 0\" /><path d=\"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326\" /></svg>",
  "bell-dot": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M10.268 21a2 2 0 0 0 3.464 0\" /><path d=\"M11.68 2.009A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673c-.824-.85-1.678-1.731-2.21-3.348\" /><circle cx=\"18\" cy=\"5\" r=\"3\" /></svg>",
  "calendar": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M8 2v3\" /><path d=\"M16 2v3\" /><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" /><path d=\"M3 9h18\" /></svg>",
  "calendar-days": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M8 2v3\" /><path d=\"M16 2v3\" /><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" /><path d=\"M3 9h18\" /><path d=\"M8 13h.01\" /><path d=\"M12 13h.01\" /><path d=\"M16 13h.01\" /><path d=\"M8 17h.01\" /><path d=\"M12 17h.01\" /><path d=\"M16 17h.01\" /></svg>",
  "chart-column": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M3 3v16a2 2 0 0 0 2 2h16\" /><path d=\"M18 17V9\" /><path d=\"M13 17V5\" /><path d=\"M8 17v-3\" /></svg>",
+ "chart-gantt": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M10 6h8\" /><path d=\"M12 16h6\" /><path d=\"M3 3v16a2 2 0 0 0 2 2h16\" /><path d=\"M8 11h7\" /></svg>",
  "chart-pie": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z\" /><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\" /></svg>",
  "check": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M20 6 9 17l-5-5\" /></svg>",
  "check-check": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M18 6 7 17l-5-5\" /><path d=\"m22 10-7.5 7.5L13 16\" /></svg>",
@@ -341,8 +343,11 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
  "circle": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><circle cx=\"12\" cy=\"12\" r=\"10\" /></svg>",
  "circle-check": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><circle cx=\"12\" cy=\"12\" r=\"10\" /><path d=\"m16 9-5.5 5.5L8 12\" /></svg>",
  "circle-dashed": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M10.1 2.182a10 10 0 0 1 3.8 0\" /><path d=\"M13.9 21.818a10 10 0 0 1-3.8 0\" /><path d=\"M17.609 3.721a10 10 0 0 1 2.69 2.7\" /><path d=\"M2.182 13.9a10 10 0 0 1 0-3.8\" /><path d=\"M20.279 17.609a10 10 0 0 1-2.7 2.69\" /><path d=\"M21.818 10.1a10 10 0 0 1 0 3.8\" /><path d=\"M3.721 6.391a10 10 0 0 1 2.7-2.69\" /><path d=\"M6.391 20.279a10 10 0 0 1-2.69-2.7\" /></svg>",
+ "circle-help": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><circle cx=\"12\" cy=\"12\" r=\"10\" /><path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\" /><path d=\"M12 17h.01\" /></svg>",
  "clock": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><circle cx=\"12\" cy=\"12\" r=\"10\" /><path d=\"M12 6v6l4 2\" /></svg>",
  "copy": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\" /><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\" /></svg>",
+ "cross": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M4 9a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a1 1 0 0 1 1 1v4a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-4a1 1 0 0 1 1-1h4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-4a1 1 0 0 1-1-1V4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4a1 1 0 0 1-1 1z\" /></svg>",
+ "crosshair": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><circle cx=\"12\" cy=\"12\" r=\"10\" /><line x1=\"22\" x2=\"18\" y1=\"12\" y2=\"12\" /><line x1=\"6\" x2=\"2\" y1=\"12\" y2=\"12\" /><line x1=\"12\" x2=\"12\" y1=\"6\" y2=\"2\" /><line x1=\"12\" x2=\"12\" y1=\"22\" y2=\"18\" /></svg>",
  "crown": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z\" /><path d=\"M5 21h14\" /></svg>",
  "external-link": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M15 3h6v6\" /><path d=\"M10 14 21 3\" /><path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\" /></svg>",
  "eye": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0\" /><circle cx=\"12\" cy=\"12\" r=\"3\" /></svg>",
@@ -371,18 +376,23 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
  "log-out": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"m16 17 5-5-5-5\" /><path d=\"M21 12H9\" /><path d=\"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4\" /></svg>",
  "medal": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15\" /><path d=\"M11 12 5.12 2.2\" /><path d=\"m13 12 5.88-9.8\" /><path d=\"M8 7h8\" /><circle cx=\"12\" cy=\"17\" r=\"5\" /><path d=\"M12 18v-2h-.5\" /></svg>",
  "message-square": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z\" /></svg>",
+ "minus": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M5 12h14\" /></svg>",
  "monitor": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect width=\"20\" height=\"14\" x=\"2\" y=\"3\" rx=\"2\" /><line x1=\"8\" x2=\"16\" y1=\"21\" y2=\"21\" /><line x1=\"12\" x2=\"12\" y1=\"17\" y2=\"21\" /></svg>",
  "moon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401\" /></svg>",
  "move": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M12 2v20\" /><path d=\"m15 19-3 3-3-3\" /><path d=\"m19 9 3 3-3 3\" /><path d=\"M2 12h20\" /><path d=\"m5 9-3 3 3 3\" /><path d=\"m9 5 3-3 3 3\" /></svg>",
  "octagon-alert": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M12 16h.01\" /><path d=\"M12 8v4\" /><path d=\"M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z\" /></svg>",
  "option": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M14 3h7\" /><path d=\"M3 3h5.28a1 1 0 0 1 .948.684l5.544 16.632a1 1 0 0 0 .949.684H21\" /></svg>",
+ "pause": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect x=\"14\" y=\"3\" width=\"5\" height=\"18\" rx=\"1\" /><rect x=\"5\" y=\"3\" width=\"5\" height=\"18\" rx=\"1\" /></svg>",
  "pencil": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\" /><path d=\"m15 5 4 4\" /></svg>",
  "play": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z\" /></svg>",
+ "plus": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M5 12h14\" /><path d=\"M12 5v14\" /></svg>",
  "podium": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M12 6V2h-1\" /><path d=\"M9 15a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1\" /><path d=\"M9 21V11a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v10\" /></svg>",
  "ratio": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><rect width=\"12\" height=\"20\" x=\"6\" y=\"2\" rx=\"2\" /><rect width=\"20\" height=\"12\" x=\"2\" y=\"6\" rx=\"2\" /></svg>",
  "refresh-cw": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8\" /><path d=\"M21 3v5h-5\" /><path d=\"M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16\" /><path d=\"M8 16H3v5\" /></svg>",
+ "reply": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M20 18v-2a4 4 0 0 0-4-4H4\" /><path d=\"m9 17-5-5 5-5\" /></svg>",
  "rocket": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5\" /><path d=\"M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09\" /><path d=\"M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z\" /><path d=\"M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05\" /></svg>",
  "rotate-ccw": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\" /><path d=\"M3 3v5h5\" /></svg>",
+ "ruler": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z\" /><path d=\"m14.5 12.5 2-2\" /><path d=\"m11.5 9.5 2-2\" /><path d=\"m8.5 6.5 2-2\" /><path d=\"m17.5 15.5 2-2\" /></svg>",
  "scroll": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M19 17V5a2 2 0 0 0-2-2H4\" /><path d=\"M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3\" /></svg>",
  "scroll-text": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M15 12h-5\" /><path d=\"M15 8h-5\" /><path d=\"M19 17V5a2 2 0 0 0-2-2H4\" /><path d=\"M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3\" /></svg>",
  "search": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"m21 21-4.34-4.34\" /><circle cx=\"11\" cy=\"11\" r=\"8\" /></svg>",
@@ -404,6 +414,8 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
  "table-2": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M3 9h18\" /><path d=\"M9 3v18\" /><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" /></svg>",
  "target": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><circle cx=\"12\" cy=\"12\" r=\"10\" /><circle cx=\"12\" cy=\"12\" r=\"6\" /><circle cx=\"12\" cy=\"12\" r=\"2\" /></svg>",
  "text": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M21 5H3\" /><path d=\"M15 12H3\" /><path d=\"M17 19H3\" /></svg>",
+ "trending-down": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M16 17h6v-6\" /><path d=\"m22 17-8.5-8.5-5 5L2 7\" /></svg>",
+ "trending-up": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M16 7h6v6\" /><path d=\"m22 7-8.5 8.5-5-5L2 17\" /></svg>",
  "triangle-alert": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3\" /><path d=\"M12 9v4\" /><path d=\"M12 17h.01\" /></svg>",
  "trophy": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2\" /><path d=\"M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2\" /><path d=\"M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3\" /><path d=\"M4 22h16\" /><path d=\"M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z\" /><path d=\"M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3\" /></svg>",
  "user": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" ><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\" /><circle cx=\"12\" cy=\"7\" r=\"4\" /></svg>",
@@ -470,7 +482,7 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     prd: 'customfield_16106',
   };
   SFR.FIELDS = FIELDS;
-  const LIST_FIELDS = ['summary', 'issuetype', 'status', 'assignee', 'labels', 'comment', 'watches', 'created', 'updated', ...Object.values(FIELDS)].join(',');
+  const LIST_FIELDS = ['summary', 'issuetype', 'status', 'assignee', 'labels', 'comment', 'watches', 'created', 'updated', 'issuelinks', ...Object.values(FIELDS)].join(',');
 
   /* The SIF project (strategy initiative funnel): one Story per initiative. */
   const SIF = {
@@ -559,6 +571,9 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     editmeta: (key) => req(`/rest/api/2/issue/${q(key)}/editmeta`),
     /** What the signed-in user may do on this issue (EDIT_ISSUES, ADD_COMMENTS). */
     perms: (key) => req(`/rest/api/2/mypermissions?issueKey=${q(key)}&permissions=EDIT_ISSUES,ADD_COMMENTS`),
+    issuePropertyKeys: (key) => req(`/rest/api/2/issue/${q(key)}/properties`),
+    issueProperty: (key, property) => req(`/rest/api/2/issue/${q(key)}/properties/${q(property)}`),
+    setIssueProperty: (key, property, value) => req(`/rest/api/2/issue/${q(key)}/properties/${q(property)}`, { method: 'PUT', body: value, raw: true }),
     update: (key, fields) => req(`/rest/api/2/issue/${q(key)}`, { method: 'PUT', body: { fields }, raw: true }),
     issue: (key) => req(`/rest/api/2/issue/${q(key)}?expand=renderedFields&fields=${LIST_FIELDS},description`),
     comments: (key) => req(`/rest/api/2/issue/${q(key)}/comment?expand=renderedBody&orderBy=created`),
@@ -612,11 +627,54 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
       end: typeof f[F.end] === 'string' ? f[F.end].slice(0, 10) : '',
       progress: opt(f[F.progress]),
       estimation: opt(f[F.estimation]),
+      // linked issues as Jira sends them (the other side's key, title, workflow status and type)
+      links: (f.issuelinks || [])
+        .map((l) => {
+          const o = l.outwardIssue || l.inwardIssue;
+          return o && { type: l.type?.name || '', label: (l.outwardIssue ? l.type?.outward : l.type?.inward) || '', key: o.key, summary: o.fields?.summary || '', statusName: o.fields?.status?.name || '', typeName: o.fields?.issuetype?.name || '' };
+        })
+        .filter(Boolean),
       prd: typeof f[F.prd] === 'string' ? (f[F.prd].match(/https?:\/\/\S+/) || [''])[0] : '',
       created: f.created,
       updated: f.updated,
     };
   };
+})();
+
+/* app/brd-share.js */
+/* Shared results live on the Jira issue, never in a public repo.
+ * No local fallback: a denied/unavailable read must not become a new evaluation.
+ * Issue properties provide shared persistence, not an atomic distributed lock. */
+(() => {
+  const SFR = globalThis.SFR;
+  const property = 'fanoos.brd.overview.v1';
+  const validKey = key => {
+    if (!/^SIF-\d+$/.test(key || '')) throw new Error('شناسهٔ SIF معتبر نیست.');
+    return key;
+  };
+  const validate = v => {
+    if (v?.schema !== 1 || !['excellent','suitable','weak'].includes(v.level) || typeof v.reason !== 'string' || !v.reason.trim() || v.reason.length > 500 || !Array.isArray(v.suggestions) || v.suggestions.length > 2 || v.suggestions.some(s => typeof s !== 'string' || !s.trim() || s.length > 250) || !Number.isFinite(Date.parse(v.at)) || typeof v.by !== 'string' || !v.by || !/^https:\/\//.test(v.url || '')) throw new Error('نتیجهٔ مشترک معتبر نیست؛ بررسی دستی لازم است.');
+    return { schema: 1, level: v.level, reason: v.reason.trim(), suggestions: v.suggestions.map(s => s.trim()), at: v.at, by: v.by, url: v.url };
+  };
+  async function load(key) {
+    validKey(key);
+    const listing = await SFR.api.issuePropertyKeys(key);
+    if (!Array.isArray(listing?.keys)) throw new Error('خواندن سابقهٔ مشترک از جیرا ممکن نشد.');
+    if (!listing.keys.some(k => k.key === property)) return null;
+    return validate((await SFR.api.issueProperty(key, property))?.value);
+  }
+  async function canSave(key) {
+    validKey(key);
+    const p = await SFR.api.perms(key);
+    if (p?.permissions?.EDIT_ISSUES?.havePermission !== true) throw new Error('اجازهٔ ثبت ارزیابی روی این SIF را ندارید؛ نتیجهٔ ثبت‌شده همچنان قابل مشاهده است.');
+  }
+  async function save(key, value) {
+    validKey(key);
+    const record = validate(value);
+    await SFR.api.setIssueProperty(key, property, record);
+    return record;
+  }
+  SFR.brdShared = { property, validate, load, canSave, save };
 })();
 
 /* app/store.js */
@@ -655,17 +713,19 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
       theme: 'auto',
       sort: { by: 'rank', dir: 1 },
       followTab: 'watching',
+      gantt: { group: 'fn', zoom: 'month' },
     },
     dash: { cycle: '', fn: '', hideCanceled: true, monthBy: 'status', sizeVal: 'n', sizePhase: 'all', podium: 'reliable', measure: 'n', sr: { cycle: '', month: '', fn: '' } },
     sif: { rows: [], ready: false, loaded: 0, total: 0, histDone: 0, histTotal: 0, histReady: false, started: false, error: '', f: { cycle: '', battle: '', focus: '', poc: '', fn: '', strat: '' } },
-    anim: { board: false, dash: false, sif: false },
+    cap: { cycle: '', fn: '', unit: 'w', base: 4, months: {}, scen: { fn: '', size: '', n: 1, months: {} } },
+    anim: { board: false, dash: false, sif: false, cap: false },
     wins: new Set(),
   });
 
   SFR.subscribe = (fn) => (listeners.add(fn), () => listeners.delete(fn));
   SFR.emit = (what = 'all') => listeners.forEach((fn) => fn(what));
 
-  const PERSIST = ['view', 'qf', 'status', 'owner', 'onlyFollowed', 'hideBacklog', 'theme', 'tab'];
+  const PERSIST = ['view', 'qf', 'status', 'owner', 'onlyFollowed', 'hideBacklog', 'theme', 'tab', 'gantt'];
   SFR.saveUi = () => SFR.store.set(`ui:${S.boardId}`, Object.fromEntries(PERSIST.map((k) => [k, S.ui[k]])));
 
   /* ---------- loading ---------- */
@@ -1713,6 +1773,10 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
   const SFR = globalThis.SFR;
   const { esc, fa } = SFR;
 
+  // «فانوس»'s own mark (Lucide has no lantern): handle, cap, glass with a flame, base. Same stroke style as the Lucide set.
+  SFR.ICONS.lantern =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4a2 2 0 0 1 4 0"/><path d="M8 5.5h8l-1.2 2H9.2z"/><rect x="8" y="7.5" width="8" height="10" rx="1.5"/><path d="M12 10.3c1 1.1 1.5 2 1.5 2.8a1.5 1.5 0 0 1-3 0c0-.8.5-1.7 1.5-2.8z" fill="currentColor" stroke="none"/><path d="M7 20.5h10"/><path d="M9 17.5v3M15 17.5v3"/></svg>';
+  SFR.APP_NAME = 'فانوس';
   SFR.icon = (name, size = 16, cls = '') => {
     const svg = SFR.ICONS[name] || '';
     return svg.replace('<svg', `<svg class="ic ${cls}" width="${size}" height="${size}" aria-hidden="true" focusable="false"`);
@@ -2087,7 +2151,7 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
       if (!P) return;
       rollDay();
       const before = G.me().level;
-      let gain = { comment: 15, follow: 5, move: 5, open: 0 }[kind] || 0;
+      let gain = { comment: 15, follow: 5, move: 5, open: 0, fix: 10 }[kind] || 0;
       P.n[kind] = (P.n[kind] || 0) + 1;
       if (kind === 'open') {
         if (!P.day.open.includes(key)) P.day.open.push(key);
@@ -2328,6 +2392,7 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
         <div class="switch" role="tablist" aria-label="نوع نمایش">
           <button role="tab" aria-selected="${u.view === 'kanban'}" data-act="view" data-v="kanban">${icon('square-kanban', 16)}کانبان</button>
           <button role="tab" aria-selected="${u.view === 'table'}" data-act="view" data-v="table">${icon('table-2', 16)}جدول</button>
+          <button role="tab" aria-selected="${u.view === 'gantt'}" data-act="view" data-v="gantt">${icon('chart-gantt', 16)}گانت</button>
         </div>
       </div>
     </div>`;
@@ -2491,14 +2556,17 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
 
   SFR.renderBoard = (el) => {
     if (S.status !== 'ready') return;
+    if (S.ui.view === 'gantt' && SFR.gantt.dragging()) return; // never redraw under a bar being dragged
     const visible = SFR.visibleIssues();
+    const ganttKeep = SFR.ganttScroll(el);
     const scroller = el.querySelector('[data-scroll="kanban"]');
     const keep = scroller ? scroller.scrollLeft : null;
     const colScroll = {};
     el.querySelectorAll('.col-body[data-drop]').forEach((b) => (colScroll[b.dataset.drop] = b.scrollTop));
     const prevSearch = el.querySelector('input[data-bind="search"]');
     const focusSearch = !!prevSearch && prevSearch === el.getRootNode().activeElement;
-    el.innerHTML = toolbar(visible) + (S.ui.view === 'table' ? table(visible) : kanban(visible));
+    el.innerHTML = toolbar(visible) + (S.ui.view === 'table' ? table(visible) : S.ui.view === 'gantt' ? SFR.ganttView(visible) : kanban(visible));
+    if (S.ui.view === 'gantt') SFR.ganttAfter(el, ganttKeep);
     if (S.ui.view === 'kanban') S.anim.board = true;
     S.anim.popCol = null;
     const k = el.querySelector('[data-scroll="kanban"]');
@@ -2533,6 +2601,7 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
   const F = SFR.FIELDS;
   const EDIT = {
     summary: { id: 'summary', kind: 'text', label: 'عنوان' },
+    initStatus: { id: F.initStatus, kind: 'option', label: 'وضعیت' }, // «Initiative Status»: the source of the status label
     description: { id: 'description', kind: 'longtext', label: 'توضیحات' },
     start: { id: F.start, kind: 'date', label: 'تاریخ شروع' },
     end: { id: F.end, kind: 'date', label: 'پایان هدف' },
@@ -2691,13 +2760,15 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
       const cur = String(rawField(fk)?.id ?? '');
       const req = D.meta?.[def.id]?.required;
       const chips = allowed(fk)
+        .filter((v) => fk !== 'initStatus' || !v.disabled || String(v.id) === cur) // Jira keeps retired options (e.g. Removed) switched off
         .map((v) => {
           const label = optLabel(v);
-          const inner = fk === 'size' ? SFR.sizeChip(label, { icon: false }) : fk === 'estimation' ? esc(monthFa(label)) : esc(label);
+          const inner =
+            fk === 'size' ? SFR.sizeChip(label, { icon: false }) : fk === 'estimation' ? esc(monthFa(label)) : fk === 'initStatus' ? SFR.statusPill(SFR.statusOf(label)) : esc(label);
           return `<button class="ed-opt${String(v.id) === cur ? ' is-on' : ''}${busy}" data-act="ed-opt" data-v="${esc(v.id)}">${inner}</button>`;
         })
         .join('');
-      return `<div class="ed"><div class="ed-chips">${chips}${!req && cur ? `<button class="ed-opt is-clear" data-act="ed-opt" data-v="">${icon('x', 12)}بدون مقدار</button>` : ''}</div>
+      return `<div class="ed"><div class="ed-chips">${chips}${!req && cur && fk !== 'initStatus' ? `<button class="ed-opt is-clear" data-act="ed-opt" data-v="">${icon('x', 12)}بدون مقدار</button>` : ''}</div>
         ${D.ed.error ? `<p class="ed-err">${esc(D.ed.error)}</p>` : ''}<div class="ed-foot"><span class="grow"></span><button class="chip chip-sm" data-act="ed-cancel">انصراف</button></div></div>`;
     }
     if (def.kind === 'multi') {
@@ -2780,9 +2851,10 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
       </header>
       <div class="d-scroll">
         <div class="d-hero st-${esc(it.status || 'todo')}">
-          <div class="d-badges">${SFR.statusPill(it.status)}${it.delayed ? `<span class="pill pill-late">${icon('clock', 12)}تأخیر</span>` : ''}${
+          <div class="d-badges">${SFR.statusPill(it.status)}${pen('initStatus')}${it.delayed ? `<span class="pill pill-late">${icon('clock', 12)}تأخیر</span>` : ''}${
             it.strategic ? `<span class="pill pill-plain">${esc(SFR.STRATEGIC[it.strategic] || it.strategic)}</span>` : ''
           }${it.size ? SFR.sizeChip(it.size) : ''}</div>
+          ${D.ed?.f === 'initStatus' ? `<div class="fact is-editing is-status" data-field="initStatus"><dt>وضعیت را انتخاب کنید</dt>${editor('initStatus', it)}</div>` : ''}
           ${
             D.ed?.f === 'summary'
               ? `<div class="fact is-editing is-title" data-field="summary">${editor('summary', it)}</div>`
@@ -2836,6 +2908,8 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
             ${fact('labels', 'برچسب‌ها', (it.labels || []).map((l) => `<span class="tag" dir="ltr">${esc(l)}</span>`).join(''), it)}
           </dl>
         </section>
+
+        ${SFR.linksCard(it)}
 
         <section class="d-card">
           <header><h3>${icon('gem', 18)}اندازه و ارزش</h3></header>
@@ -2905,7 +2979,8 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
   }
   D.render = render;
 
-  SFR.openIssue = async (key) => {
+  /** opts.edit: open that field's editor once Jira says it may be edited; opts.focus: 'comment' or 'links'. */
+  SFR.openIssue = async (key, opts = {}) => {
     D.key = key;
     D.detail = null;
     D.comments = null;
@@ -2916,7 +2991,7 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     D.mentions = new Map();
     D.lastFocus = SFR.root.activeElement;
     render();
-    SFR.root.querySelector('.drawer [data-act="close-drawer"]')?.focus();
+    focusPanel();
     SFR.markSeen(key);
     SFR.game.award('open', key);
     const [det, com, wat, meta, perm] = await Promise.allSettled([SFR.api.issue(key), SFR.api.comments(key), SFR.api.watchers(key), SFR.api.editmeta(key), SFR.api.perms(key)]);
@@ -2930,7 +3005,17 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     D.meta = meta.status === 'fulfilled' && meta.value?.fields && Object.keys(meta.value.fields).length ? meta.value.fields : false;
     if (det.status === 'fulfilled') SFR.patch(key, SFR.enrichFromRest(det.value));
     render();
+    focusPanel();
+    if (opts.edit && canEdit(opts.edit)) (SFR.drawer.acts['ed-open']({ dataset: { f: opts.edit } }), focusPanel());
+    else if (opts.edit) SFR.toast('جیرا اجازهٔ ویرایش این فیلد را به شما نمی‌دهد.', 'error');
+    if (opts.focus === 'comment') SFR.root.querySelector('.drawer textarea[data-bind="comment"]')?.focus();
+    if (opts.focus === 'links') SFR.root.querySelector('.drawer .d-links')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
     SFR.emit('board');
+  };
+  // keyboard focus must live inside the panel (the scrim also carries close-drawer but can't take focus), so Esc reaches the app
+  const focusPanel = () => {
+    const p = SFR.root.querySelector('.drawer-panel');
+    if (p && !p.contains(SFR.root.activeElement)) p.querySelector('button[data-act="close-drawer"]')?.focus({ preventScroll: true });
   };
 
   SFR.closeIssue = () => {
@@ -2955,6 +3040,19 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     const d = cal.parse(iso) || cal.today();
     const { jy, jm } = cal.toJ(d);
     return { jy, jm };
+  };
+
+  /** Shared write path (the Gantt uses it too): send the fields, re-read the card, and refresh every view from what Jira stored.
+   *  Errors are thrown to the caller, which decides what to tell the user. */
+  SFR.saveIssueFields = async (key, fields) => {
+    await SFR.api.update(key, fields);
+    const det = await SFR.api.issue(key);
+    SFR.patch(key, SFR.enrichFromRest(det));
+    if (D.key === key) {
+      D.detail = det;
+      render();
+    }
+    return det;
   };
 
   /** Sends one field to Jira, then re-reads the card so every view shows what Jira really stored. */
@@ -3013,6 +3111,7 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
   D.cancelEdit = () => {
     D.ed = null;
     render();
+    focusPanel(); // the editor that had focus is gone; keep Esc working
   };
 
   D.acts = {
@@ -3154,6 +3253,972 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
       btn.disabled = false;
       btn.classList.remove('is-busy');
     }
+  };
+})();
+
+/* app/views/links.js */
+/* Roadmap Lens — linked issues in the drawer.
+ * «باید هم‌زمان تمام شوند» (Jira link type "Gantt End to End") are the cross-function partners: for each one we show its
+ * function, status and board month, and whether it is picked in time compared with this card. Then the SIF idea it comes
+ * from, then every other link. Read-only: links are shown as Jira has them. */
+(() => {
+  const SFR = globalThis.SFR;
+  const S = SFR.state;
+  const { esc, fa, icon } = SFR;
+
+  const PROJ = { SIF: 'ایده‌ی SIF', CTIL: 'CTI Live', CTIA: 'CTI Archive', OT: 'Order', DES: 'Design', IR24H2: 'نقشه‌راه' };
+  const LABEL = [
+    [/relates to/i, 'مرتبط با'],
+    [/is blocked by/i, 'مسدود شده توسط'],
+    [/^blocks/i, 'مسدود می‌کند'],
+    [/is cloned by/i, 'کپی‌شده در'],
+    [/^clones/i, 'کپیِ'],
+    [/child of/i, 'زیرمجموعه‌ی'],
+    [/parent of/i, 'والدِ'],
+    [/is duplicated by/i, 'تکرارشده در'],
+    [/duplicates/i, 'تکرارِ'],
+    [/cannot start until linked/i, 'شروعش بعد از پایان این'],
+    [/linked issue cannot start/i, 'پیش‌نیازِ'],
+  ];
+  const faLabel = (l) => LABEL.find(([re]) => re.test(l.label))?.[1] || l.label;
+  const isTogether = (l) => /gantt end to end|finished together/i.test(`${l.type} ${l.label}`) && l.key.startsWith('IR24H2-');
+  const proj = (key) => key.split('-')[0];
+  const bl = () => S.columns.find((c) => SFR.monthKey(c.name) === 'backlog')?.id;
+
+  /** Board column of a card: from the loaded card if we have it, else from the link's workflow status (= the month). */
+  function colOf(key, statusName) {
+    const r = S.rest.get(key) || S.board.find((b) => b.key === key);
+    const id = r?.statusId ? S.colOfStatus[r.statusId] : null;
+    if (id) return S.columns.find((c) => c.id === id) || null;
+    const mk = SFR.monthKey(statusName);
+    return mk ? S.columns.find((c) => SFR.monthKey(c.name) === mk) || null : null;
+  }
+  const idx = (col) => (col && col.id !== bl() ? S.columns.indexOf(col) : null);
+  const monthName = (col) => (!col ? '—' : col.id === bl() ? 'پیک‌نشده (بک‌لاگ)' : SFR.monthLabel(col.name)[0]);
+
+  /** Is the partner in step with this card? */
+  function verdict(me, myCol, p, pCol) {
+    const mi = idx(myCol);
+    const pi = idx(pCol);
+    if (p.status === 'canceled') return { tone: 'mute', text: 'لغو شده' };
+    if (p.status === 'done' || p.status === 'devdone') return { tone: 'ok', text: 'تحویل شده' };
+    if (pi == null && mi != null) return { tone: 'bad', text: 'پیک نشده' };
+    if (pi == null && mi == null) return { tone: 'mute', text: 'هیچ‌کدام پیک نشده' };
+    if (mi == null) return { tone: 'warn', text: 'طرف مقابل پیک شده، این کارت نه' };
+    if (pi > mi) return { tone: 'warn', text: `${fa(pi - mi)} ماه دیرتر` };
+    if (pi < mi) return { tone: 'ok', text: `${fa(mi - pi)} ماه زودتر` };
+    return { tone: 'ok', text: 'هم‌ماه' };
+  }
+
+  function partnerRow(it, myCol, l) {
+    const r = S.rest.get(l.key);
+    const p = r || { key: l.key, summary: l.summary, status: SFR.statusOf(l.typeName), fn: [], poc: null, end: '' };
+    const pCol = colOf(l.key, l.statusName);
+    const v = verdict(it, myCol, p, pCol);
+    const t = SFR.splitTitle(p.summary || l.summary);
+    let endNote = '';
+    const a = SFR.cal.parse(it.end);
+    const b = SFR.cal.parse(p.end);
+    if (a && b && v.tone !== 'mute' && p.status !== 'done' && p.status !== 'devdone') {
+      const d = SFR.cal.diff(b, a);
+      if (d > 0) endNote = `<small class="lk-end is-late">پایان هدفش ${fa(d)} روز بعد از این کارت</small>`;
+    }
+    return {
+      v,
+      html: `<li class="lk-row tone-${v.tone}" data-key="${esc(l.key)}" tabindex="0">
+        <span class="lk-main"><span class="lk-t" dir="auto">${esc(t.title)}</span>
+          <span class="lk-meta">${SFR.keyChip(l.key)}${p.fn?.[0] ? `<bdi class="tag" dir="auto">${esc(p.fn[0])}</bdi>` : ''}${SFR.statusPill(p.status, { short: true })}${p.poc ? `<span class="who">${SFR.avatar(p.poc, 'xs')}${esc(SFR.firstName(p.poc.display))}</span>` : ''}</span>
+          ${endNote}</span>
+        <span class="lk-when"><b>${esc(monthName(pCol))}</b><span class="lk-v tone-${v.tone}">${esc(v.text)}</span></span>
+      </li>`,
+    };
+  }
+
+  function sifRow(l) {
+    const st = SFR.sif?.stOf ? SFR.sif.stOf(l.statusName) : 'other';
+    const pill = SFR.sifui?.pill && st !== 'other' ? SFR.sifui.pill(st) : `<span class="tag" dir="ltr">${esc(l.statusName)}</span>`;
+    return `<li class="lk-row"><a class="lk-main" href="/browse/${encodeURIComponent(l.key)}" target="_blank" rel="noopener"><span class="lk-t" dir="auto">${esc(l.summary)}</span>
+      <span class="lk-meta">${SFR.keyChip(l.key)}<span class="muted">${esc(faLabel(l))}</span></span></a><span class="lk-when">${pill}</span></li>`;
+  }
+  function otherRow(l) {
+    const inApp = proj(l.key) === 'IR24H2';
+    const tag = inApp ? `data-key="${esc(l.key)}" tabindex="0"` : '';
+    const body = `<span class="lk-t" dir="auto">${esc(l.summary)}</span><span class="lk-meta">${SFR.keyChip(l.key)}<span class="muted">${esc(faLabel(l))} · ${esc(PROJ[proj(l.key)] || proj(l.key))}</span></span>`;
+    return `<li class="lk-row" ${tag}>${inApp ? `<span class="lk-main">${body}</span>` : `<a class="lk-main" href="/browse/${encodeURIComponent(l.key)}" target="_blank" rel="noopener">${body}</a>`}<span class="lk-when"><span class="tag" dir="ltr">${esc(l.statusName)}</span></span></li>`;
+  }
+
+  /** Partners that need attention (used by the drawer and, later, the to-do panel). */
+  SFR.linkIssues = (it) => {
+    const myCol = colOf(it.key, '');
+    return (it.links || []).filter(isTogether).map((l) => ({ l, ...partnerRow(it, myCol, l) })).filter((x) => x.v.tone === 'bad' || x.v.tone === 'warn');
+  };
+
+  SFR.linksCard = (it) => {
+    const links = it.links || [];
+    if (!links.length) return '';
+    const myCol = colOf(it.key, '');
+    const RANK = { bad: 0, warn: 1, ok: 2, mute: 3 };
+    const together = links
+      .filter(isTogether)
+      .map((l) => partnerRow(it, myCol, l))
+      .sort((x, y) => RANK[x.v.tone] - RANK[y.v.tone]);
+    const sif = links.filter((l) => proj(l.key) === 'SIF' && !isTogether(l));
+    const other = links.filter((l) => !isTogether(l) && proj(l.key) !== 'SIF');
+    const bad = together.filter((x) => x.v.tone === 'bad').length;
+    const warn = together.filter((x) => x.v.tone === 'warn').length;
+    const sum = bad ? `<span class="st-chip is-late">${fa(bad)} وابستگی پیک‌نشده</span>` : warn ? `<span class="st-chip is-soon">${fa(warn)} وابستگی دیرتر</span>` : together.length ? '<span class="st-chip is-ok">وابستگی‌ها هم‌گام‌اند</span>' : '';
+    const block = (title, sub, rows) => (rows ? `<div class="lk-block"><h4>${title}${sub ? `<small>${sub}</small>` : ''}</h4><ul class="lk-list">${rows}</ul></div>` : '');
+    return `<section class="d-card d-links">
+      <header><h3>${icon('link', 18)}کارهای مرتبط</h3>${sum}</header>
+      ${block(
+        'باید هم‌زمان تمام شوند',
+        `ماهِ این کارت: ${esc(monthName(myCol))}`,
+        together.map((x) => x.html).join('')
+      )}
+      ${block('ایده‌ی SIF', '', sif.map(sifRow).join(''))}
+      ${block('لینک‌های دیگر', '', other.map(otherRow).join(''))}
+    </section>`;
+  };
+})();
+
+/* app/views/desk.js */
+/* Roadmap Lens — «میز کار امروز»: the person's to-do list built from the board's own rules (late, due soon, new
+ * comments, unpicked cross-function partners, missing size / dates / PRD, stale «Pend»), opened from the greeting.
+ * Every write asks once and goes through Jira with the person's own access; nothing is written otherwise. */
+(() => {
+  const SFR = globalThis.SFR;
+  const S = SFR.state;
+  const { esc, fa, icon, cal } = SFR;
+  const F = SFR.FIELDS;
+  const DAY = 864e5;
+
+  const D = { open: false, mode: null, who: '', fold: new Set(), more: {}, act: null, busy: false, meta: new Map(), saved: { snooze: {}, fixes: [] }, loaded: false };
+  const save = () => SFR.store.set('desk', D.saved);
+  const load = async () => {
+    if (D.loaded) return;
+    D.loaded = true;
+    D.saved = { snooze: {}, fixes: [], ...(await SFR.store.get('desk', {})) };
+    const now = Date.now();
+    Object.keys(D.saved.snooze).forEach((k) => D.saved.snooze[k] < now && delete D.saved.snooze[k]);
+    D.saved.fixes = D.saved.fixes.filter((t) => now - t < 7 * DAY);
+  };
+
+  /* ---------- the rules ---------- */
+  const isOpen = (i) => !['done', 'devdone', 'canceled'].includes(i.status);
+  const blId = () => S.columns.find((c) => SFR.monthKey(c.name) === 'backlog')?.id;
+  const colOf = (i) => S.columns.find((c) => c.id === S.colOfStatus[i.statusId]);
+  const monthOf = (i) => {
+    const c = colOf(i);
+    return c && c.id !== blId() ? SFR.monthIdx(c.name) : null;
+  };
+  const monthFa = (i) => (colOf(i) ? SFR.monthLabel(colOf(i).name)[0] : '');
+  const soonMonths = () => [new Date().getMonth(), (new Date().getMonth() + 1) % 12];
+  const today = () => cal.today();
+  const daysTo = (iso) => cal.diff(cal.parse(iso), today());
+  const mine = (i) => i.poc?.name && i.poc.name === S.me?.name;
+  const talkNew = (i) => {
+    if (SFR.hasNews(i)) return true;
+    const lc = i.lastComment;
+    if (!mine(i) || !lc || lc.author === S.me?.name) return false;
+    return new Date(lc.created) > new Date(S.seen[i.key] || S.seenBaseline);
+  };
+  const snippet = (t) => {
+    const s = String(t || '').replace(/\[~[^\]]+\]/g, '@').replace(/[{}*_#|[\]]/g, '').replace(/\s+/g, ' ').trim();
+    return s.length > 70 ? `${s.slice(0, 70)}…` : s;
+  };
+
+  const RULES = [
+    { id: 'late', col: 'now', tone: 'bad', ic: 'clock', t: 'از پایان هدف گذشته',
+      test: (i) => isOpen(i) && i.status !== 'pending' && i.end && daysTo(i.end) < 0,
+      why: (i) => `${fa(-daysTo(i.end))} روز از پایان هدف (${cal.short(i.end)}) گذشته · ${SFR.statusMeta(i.status).label}`,
+      acts: ['finish', 'pend', 'date', 'delay'] },
+    { id: 'soon', col: 'now', tone: 'warn', ic: 'hourglass', t: 'نزدیک موعد (۷ روز)',
+      test: (i) => isOpen(i) && i.status !== 'pending' && i.end && daysTo(i.end) >= 0 && daysTo(i.end) <= 7,
+      why: (i) => (daysTo(i.end) ? `${fa(daysTo(i.end))} روز مانده تا ${cal.short(i.end)}` : `موعدش امروز است (${cal.short(i.end)})`) + ' · بلاکر دارد؟',
+      acts: ['fine', 'blocker', 'date'] },
+    { id: 'talk', col: 'now', tone: 'accent', ic: 'message-square', t: 'گفت‌وگوی تازه', meOnly: true,
+      test: talkNew,
+      why: (i) => `${i.lastComment.authorName || i.lastComment.author}: «${snippet(i.lastComment.body)}» · ${SFR.ago(i.lastComment.created)}`,
+      acts: ['reply', 'seen'] },
+    { id: 'cross', col: 'tidy', tone: 'bad', ic: 'link', t: 'وابستگیِ پیک‌نشده',
+      test: (i) => isOpen(i) && monthOf(i) != null && SFR.linkIssues(i).some((x) => x.v.tone === 'bad'),
+      why: (i) => {
+        const bad = SFR.linkIssues(i).filter((x) => x.v.tone === 'bad');
+        const fns = [...new Set(bad.map((x) => S.rest.get(x.l.key)?.fn?.[0] || x.l.key))];
+        return `${fns.join('، ')} هنوز پیکش نکرده${bad.length > 1 ? ` (${fa(bad.length)} کارت)` : ''} · این کارت: ${monthFa(i)}`;
+      },
+      acts: ['remind', 'links'] },
+    { id: 'size', col: 'tidy', tone: 'info', ic: 'ruler', t: 'بی‌سایز (این ماه و ماه بعد)',
+      test: (i) => isOpen(i) && soonMonths().includes(monthOf(i)) && !SFR.sizeKey(i.size),
+      why: (i) => `${monthFa(i)} · سایز ندارد`, acts: ['sizes'] },
+    { id: 'dates', col: 'tidy', tone: 'info', ic: 'calendar', t: 'بی‌تاریخ (این ماه و ماه بعد)',
+      test: (i) => isOpen(i) && soonMonths().includes(monthOf(i)) && (!i.start || !i.end),
+      why: (i) => `${monthFa(i)} · ${!i.start && !i.end ? 'شروع و پایان هدف ندارد' : !i.start ? 'تاریخ شروع ندارد' : 'پایان هدف ندارد'}`,
+      acts: ['setdate'] },
+    { id: 'pend', col: 'tidy', tone: 'warn', ic: 'pause', t: 'معلقِ بی‌خبر (بیش از ۷ روز)',
+      test: (i) => i.status === 'pending' && SFR.daysSince(i.updated) > 7,
+      why: (i) => `${fa(SFR.daysSince(i.updated))} روز بی‌خبر · معلق`, acts: ['weekly', 'resume'] },
+    { id: 'prd', col: 'tidy', tone: 'info', ic: 'file-text', t: 'پلن‌شده بدون PRD',
+      test: (i) => isOpen(i) && monthOf(i) != null && !i.prd,
+      why: (i) => `${monthFa(i)} · لینک PRD ندارد`, acts: ['prd'] },
+  ];
+  const TONE = { bad: 'var(--danger)', warn: 'var(--s-pending)', info: 'var(--s-todo)', accent: 'var(--accent)' };
+
+  /** All open items for the chosen people (memoised for a moment: the greeting repaints on every render). */
+  let memo = null;
+  function model() {
+    const sig = `${D.mode}|${D.who}|${S.rest.size}|${S.board.length}|${Object.keys(D.saved.snooze).length}|${D.saved.fixes.length}`;
+    if (memo && memo.sig === sig && Date.now() - memo.t < 1500 && !D.dirty) return memo.v;
+    D.dirty = false;
+    memo = { sig, t: Date.now(), v: build() };
+    return memo.v;
+  }
+  function build() {
+    const rows = SFR.boardRows().filter((i) => !i.isEpic);
+    const me = !!S.me && rows.some(mine);
+    const mode = D.mode || (me ? 'me' : 'team');
+    const scope = rows.filter((i) => (mode === 'me' ? mine(i) || talkNew(i) : !D.who || i.poc?.name === D.who));
+    const now = Date.now();
+    const groups = RULES.filter((r) => !(r.meOnly && mode !== 'me')).map((r) => ({
+      r,
+      items: scope.filter((i) => r.test(i) && !(D.saved.snooze[`${i.key}:${r.id}`] > now)).sort((a, b) => (a.end || '9') < (b.end || '9') ? -1 : 1),
+    }));
+    // health: open cards of these people that hit no rule (new comments don't count against it)
+    const owned = scope.filter((i) => isOpen(i) && (mode !== 'me' || mine(i)));
+    const sick = new Set(groups.filter((g) => g.r.id !== 'talk').flatMap((g) => g.items.map((i) => i.key)));
+    const healthy = owned.filter((i) => !sick.has(i.key)).length;
+    const total = groups.reduce((a, g) => a + g.items.length, 0);
+    const people = mode === 'team' ? [...new Map(rows.filter((i) => i.poc).map((i) => [i.poc.name, i.poc])).values()].sort((a, b) => a.display.localeCompare(b.display)) : [];
+    return { mode, me, groups, total, owned: owned.length, healthy, pct: owned.length ? Math.round((healthy / owned.length) * 100) : 100, people };
+  }
+
+  /* ---------- greeting button ---------- */
+  SFR.paintGreet = (el) => {
+    if (!S.me || !el) return;
+    if (!D.loaded) load().then(() => SFR.render());
+    const hi = `${SFR.greeting()}، ${esc(SFR.firstName(S.me.display))}`;
+    if (!S.restReady) {
+      el.innerHTML = `<b>${hi}</b><small>${SFR.today()}</small>`;
+      return;
+    }
+    const m = model();
+    const sub = m.mode === 'me' ? (m.total ? `${fa(m.total)} کار منتظر توست` : 'همه‌چیز مرتب است') : `تیم: ${fa(m.total)} مورد`;
+    el.innerHTML = `<button class="desk-btn${D.open ? ' is-open' : ''}" data-act="desk" aria-haspopup="dialog" aria-expanded="${D.open}">${ring(m.pct)}<span><b>${hi}</b><small>${sub}</small></span>${icon('chevron-down', 14)}</button>`;
+  };
+  const ring = (p, big = false) => `<span class="desk-ring${big ? ' big' : ''}" style="--p:${p}" role="img" aria-label="${fa(p)}٪ سالم"><b>${fa(p)}٪</b></span>`;
+
+  /* ---------- the panel ---------- */
+  const ACTS = {
+    finish: ['تحویل شد', 'check'],
+    pend: ['معلق شد', 'pause'],
+    date: ['تاریخ جدید', 'calendar'],
+    delay: ['کامنت تأخیر', 'message-square'],
+    fine: ['روبه‌راه است', 'check'],
+    blocker: ['کامنت بلاکر', 'message-square'],
+    reply: ['جواب دادن', 'message-square'],
+    seen: ['دیدم', 'check'],
+    remind: ['یادآوری به فانکشن مقابل', 'bell'],
+    links: ['دیدن وابستگی', 'link'],
+    setdate: ['ثبت تاریخ', 'calendar'],
+    weekly: ['به‌روزرسانی هفتگی', 'message-square'],
+    resume: ['از تعلیق درآمد', 'play'],
+    prd: ['افزودن لینک PRD', 'file-text'],
+  };
+  const TEMPLATE = {
+    delay: (i) => `⏰ به‌روزرسانی تأخیر «${SFR.splitTitle(i.summary).title}»:\nدلیل تأخیر: \nبلاکر (اگر هست): \nتاریخ تحویل جدید: `,
+    blocker: () => 'بلاکر این کار: \nاز چه کسی کمک لازم است: ',
+    weekly: () => 'به‌روزرسانی هفتگی (معلق): \nدلیل تعلیق: \nکی دوباره شروع می‌شود: ',
+  };
+
+  function item(r, i, mode) {
+    const a = D.act && D.act.key === i.key && D.act.rule === r.id ? D.act : null;
+    const t = SFR.splitTitle(i.summary);
+    const acts = r.acts
+      .map((k, n) =>
+        k === 'sizes'
+          ? SFR.SIZES.map((s) => `<button class="desk-size" data-act="desk-do" data-a="size" data-v="${s}" data-key="${esc(i.key)}" data-rule="${r.id}" aria-label="سایز ${s}">${SFR.sizeChip(s, { icon: false })}</button>`).join('')
+          : `<button class="desk-act${n === 0 ? ' is-main' : ''}" data-act="desk-do" data-a="${k}" data-key="${esc(i.key)}" data-rule="${r.id}">${icon(ACTS[k][1], 13)}${k === 'remind' ? remindLabel(i) : ACTS[k][0]}</button>`
+      )
+      .join('');
+    return `<li class="desk-item${a ? ' is-acting' : ''}">
+      <div class="desk-it" data-key="${esc(i.key)}" tabindex="0"><b dir="auto">${esc(t.title)}</b>
+        <span>${SFR.keyChip(i.key)}${mode === 'team' && i.poc ? `<span class="who">${SFR.avatar(i.poc, 'xs')}${esc(SFR.firstName(i.poc.display))}</span>` : ''}<em>${esc(r.why(i))}</em></span></div>
+      ${a ? form(a, i) : `<div class="desk-acts">${acts}<button class="desk-later" data-act="desk-do" data-a="later" data-key="${esc(i.key)}" data-rule="${r.id}" data-hint="تا ۳ روز نشان داده نشود">بعداً</button></div>`}
+    </li>`;
+  }
+  function remindLabel(i) {
+    const bad = SFR.linkIssues(i).filter((x) => x.v.tone === 'bad');
+    const fn = S.rest.get(bad[0]?.l.key)?.fn?.[0];
+    return fn ? `یادآوری به ${esc(fn)}` : 'یادآوری به فانکشن مقابل';
+  }
+
+  /* the inline "ask once" area */
+  function form(a, i) {
+    const busy = D.busy ? ' disabled' : '';
+    const go = (label) => `<button class="desk-act is-main" data-act="desk-go"${busy}>${D.busy ? icon('refresh-cw', 13, 'spin') : icon('check', 13)}${label}</button>`;
+    const cancel = `<button class="desk-act" data-act="desk-cancel"${busy}>انصراف</button>`;
+    const err = a.error ? `<p class="desk-err">${esc(a.error)}</p>` : '';
+    if (a.a === 'finish')
+      return `<div class="desk-form"><p>وضعیت این کارت عوض شود به:</p><div class="desk-acts">${['devdone', 'done']
+        .map((k) => `<button class="desk-act${a.value === k ? ' is-main' : ''}" data-act="desk-pick" data-v="${k}">${SFR.statusPill(k)}</button>`)
+        .join('')}</div><div class="desk-acts">${go('ذخیره در جیرا')}${cancel}</div>${err}</div>`;
+    if (a.a === 'pend' || a.a === 'resume')
+      return `<div class="desk-form"><p>وضعیت از ${SFR.statusPill(i.status)} به ${SFR.statusPill(a.a === 'pend' ? 'pending' : 'progress')} عوض شود؟</p><div class="desk-acts">${go('ذخیره در جیرا')}${cancel}</div>${err}</div>`;
+    if (a.a === 'size')
+      return `<div class="desk-form"><p>سایز ${SFR.sizeChip(a.value)} (${esc(SFR.SIZE_META[a.value].fa)}) برای این کارت ثبت شود؟</p><div class="desk-acts">${go('ذخیره در جیرا')}${cancel}</div>${err}</div>`;
+    if (a.a === 'prd')
+      return `<div class="desk-form"><label>لینک سند PRD<input class="desk-input" data-bind="desk-text" dir="ltr" placeholder="https://docs.google.com/…" value="${esc(a.text || '')}"></label><div class="desk-acts">${go('ذخیره در جیرا')}${cancel}</div>${err}</div>`;
+    if (a.a === 'remind')
+      return `<div class="desk-form"><p>این دیدگاه روی ${a.targets.map((x) => SFR.keyChip(x.key)).join(' و ')} ثبت می‌شود${a.targets.some((x) => x.owner) ? ' و مسئولش با @ خبردار می‌شود' : ''}:</p><textarea class="desk-input" data-bind="desk-text" rows="5" dir="auto">${esc(a.text)}</textarea><div class="desk-acts">${go('ارسال دیدگاه')}${cancel}</div>${err}</div>`;
+    // comment forms: delay / blocker / weekly
+    return `<div class="desk-form"><textarea class="desk-input" data-bind="desk-text" rows="5" dir="auto">${esc(a.text)}</textarea>${
+      a.a === 'delay' ? `<label class="desk-check"><input type="checkbox" data-bind="desk-label"${a.label ? ' checked' : ''}${(i.labels || []).some((l) => /^delayed$/i.test(l)) ? ' disabled' : ''}>برچسب Delayed هم اضافه شود${(i.labels || []).some((l) => /^delayed$/i.test(l)) ? ' (از قبل دارد)' : ''}</label>` : ''
+    }<div class="desk-acts">${go('ارسال دیدگاه')}${cancel}</div>${err}</div>`;
+  }
+
+  function group(g, mode) {
+    if (!g.items.length) return '';
+    const k = `${mode}:${g.r.id}`;
+    const closed = D.fold.has(k);
+    const lim = D.more[k] || 3;
+    return `<section class="desk-g" style="--c:${TONE[g.r.tone]}"><button class="desk-gh" data-act="desk-fold" data-v="${k}" aria-expanded="${!closed}">${icon(g.r.ic, 16)}<b>${g.r.t}</b><em>${fa(g.items.length)}</em><span class="grow"></span>${icon('chevron-down', 14)}</button>${
+      closed ? '' : `<ul>${g.items.slice(0, lim).map((i) => item(g.r, i, mode)).join('')}</ul>${g.items.length > lim ? `<button class="desk-more" data-act="desk-more" data-v="${k}">${fa(Math.min(10, g.items.length - lim))} مورد دیگر · ${fa(g.items.length - lim)} باقی‌مانده</button>` : ''}`
+    }</section>`;
+  }
+
+  function render() {
+    D.dirty = true;
+    const host = SFR.root?.querySelector('.desk-wrap');
+    if (!host) return;
+    host.classList.toggle('is-open', D.open);
+    const g = SFR.root.querySelector('[data-greet]');
+    if (g) SFR.paintGreet(g);
+    if (!D.open) return void (host.querySelector('.desk-panel').innerHTML = '');
+    const m = model();
+    const panel = host.querySelector('.desk-panel');
+    const keep = panel.querySelector('.desk-cols')?.scrollTop || 0;
+    const fixes = D.saved.fixes.length;
+    const nowCol = m.groups.filter((x) => x.r.col === 'now');
+    const tidyCol = m.groups.filter((x) => x.r.col === 'tidy');
+    const empty = (txt) => `<div class="desk-empty">${icon('circle-check', 18)}${txt}</div>`;
+    panel.innerHTML = `
+      <header class="desk-head">
+        <div class="desk-score">${ring(m.pct, true)}<div>
+          <b>میز کار امروز</b>
+          <small>${m.owned ? `${fa(m.healthy)} از ${fa(m.owned)} کارت${m.mode === 'me' ? 'ت' : ''} سالم است. با درست کردن هر مورد +۱۰ امتیاز می‌گیری.` : m.mode === 'me' ? 'کارتی به اسم تو (مسئول محصول) روی بورد نیست؛ «تیم» را ببین.' : 'کارتی برای این فیلتر نیست.'}</small>
+          <span class="desk-prog"><i style="width:${Math.min(100, (fixes / Math.max(1, fixes + m.total)) * 100)}%"></i></span>
+          <small>${fixes ? `این هفته ${fa(fixes)} مورد را از همین‌جا درست کردی 🔥` : 'هنوز این هفته موردی از اینجا درست نشده'}</small>
+        </div></div>
+        <div class="desk-tools">
+          <div class="switch switch-sm" role="tablist" aria-label="برای چه کسی"><button role="tab" aria-selected="${m.mode === 'me'}" data-act="desk-mode" data-v="me">کارهای من</button><button role="tab" aria-selected="${m.mode === 'team'}" data-act="desk-mode" data-v="team">تیم</button></div>
+          ${m.mode === 'team' ? `<label class="select">${icon('users', 14)}<select data-bind="desk-who" aria-label="مسئول"><option value="">همه‌ی مسئول‌ها</option>${m.people.map((p) => `<option value="${esc(p.name)}"${D.who === p.name ? ' selected' : ''}>${esc(p.display)}</option>`).join('')}</select>${icon('chevron-down', 14)}</label>` : ''}
+          <button class="icon-btn" data-act="desk-close" aria-label="بستن">${icon('x', 18)}</button>
+        </div>
+      </header>
+      <div class="desk-cols">
+        <div><h4>${icon('flame', 14)}فوری</h4>${nowCol.map((x) => group(x, m.mode)).join('') || empty('مورد فوری‌ای نیست')}</div>
+        <div><h4>${icon('sparkles', 14)}مرتب کردن کارت‌ها</h4>${tidyCol.map((x) => group(x, m.mode)).join('') || empty('کارت‌ها مرتب‌اند')}</div>
+      </div>
+      <footer class="desk-foot">${icon('info', 13)}قبل از هر تغییر در جیرا تأیید گرفته می‌شود و فقط کارهایی ممکن است که جیرا به خودتان اجازه می‌دهد. «بعداً» مورد را تا ۳ روز پنهان می‌کند.</footer>`;
+    panel.querySelector('.desk-cols').scrollTop = keep;
+    const inp = panel.querySelector('.desk-form .desk-input');
+    if (inp && D.act?.focus) {
+      inp.focus();
+      D.act.focus = false;
+    }
+  }
+  SFR.renderDesk = render;
+
+  /* ---------- writing ---------- */
+  async function metaOf(key) {
+    if (!D.meta.has(key)) {
+      D.meta.set(
+        key,
+        Promise.allSettled([SFR.api.editmeta(key), SFR.api.perms(key)]).then(([m, p]) => {
+          const P = p.status === 'fulfilled' ? p.value?.permissions : null;
+          const fields = m.status === 'fulfilled' ? m.value?.fields || {} : {};
+          const edit = !(P && P.EDIT_ISSUES?.havePermission === false);
+          return {
+            fields,
+            can: (id) => edit && !!fields[id] && (!Array.isArray(fields[id].operations) || fields[id].operations.includes('set')),
+            comment: !(P && P.ADD_COMMENTS?.havePermission === false),
+          };
+        })
+      );
+    }
+    return D.meta.get(key);
+  }
+  const optionId = (meta, fieldId, test) => (meta.fields[fieldId]?.allowedValues || []).find((v) => !v.disabled && test(String(v.value ?? v.name ?? '')))?.id;
+  const STATUS_VALUE = { devdone: /dev\s*done/i, done: /^done$/i, pending: /^pend/i, progress: /in\s*progress/i };
+
+  async function fixed(key, rule, msg, snoozeDays = 0) {
+    D.saved.fixes.push(Date.now());
+    if (snoozeDays) D.saved.snooze[`${key}:${rule}`] = Date.now() + snoozeDays * DAY;
+    save();
+    SFR.game.award('fix', key);
+    SFR.toast(msg, 'ok');
+  }
+
+  async function go() {
+    const a = D.act;
+    if (!a || D.busy) return;
+    const it = SFR.issue(a.key);
+    D.busy = true;
+    a.error = '';
+    render();
+    try {
+      if (['finish', 'pend', 'resume', 'size'].includes(a.a)) {
+        const meta = await metaOf(a.key);
+        const fid = a.a === 'size' ? F.size : F.initStatus;
+        if (!meta.can(fid)) throw Object.assign(new Error('جیرا اجازهٔ این تغییر را به شما نمی‌دهد.'), { quiet: true });
+        const want = a.a === 'size' ? new RegExp(`^${a.value}$`, 'i') : STATUS_VALUE[a.a === 'finish' ? a.value : a.a === 'pend' ? 'pending' : 'progress'];
+        const id = optionId(meta, fid, (v) => want.test(v));
+        if (!id) throw Object.assign(new Error('این گزینه در جیرا پیدا نشد.'), { quiet: true });
+        await SFR.saveIssueFields(a.key, { [fid]: { id } });
+        await fixed(a.key, a.rule, a.a === 'size' ? `سایز ${a.value} ثبت شد.` : 'وضعیت در جیرا عوض شد.');
+      } else if (a.a === 'prd') {
+        const url = (a.text || '').trim();
+        if (!/^https?:\/\/\S+$/i.test(url)) throw Object.assign(new Error('یک لینک کامل (با https://) بنویسید.'), { quiet: true });
+        const meta = await metaOf(a.key);
+        if (!meta.can(F.prd)) throw Object.assign(new Error('جیرا اجازهٔ ویرایش PRD این کارت را به شما نمی‌دهد.'), { quiet: true });
+        await SFR.saveIssueFields(a.key, { [F.prd]: url });
+        await fixed(a.key, a.rule, 'لینک PRD ثبت شد.');
+      } else if (a.a === 'remind') {
+        const text = (a.text || '').trim();
+        if (!text) throw Object.assign(new Error('متن یادآوری خالی است.'), { quiet: true });
+        for (const t of a.targets) {
+          const meta = await metaOf(t.key);
+          if (!meta.comment) throw Object.assign(new Error(`جیرا اجازهٔ ثبت دیدگاه روی ${t.key} را به شما نمی‌دهد.`), { quiet: true });
+        }
+        for (const t of a.targets) await SFR.postComment(t.key, text, t.owner ? new Map([[t.owner.display, t.owner.name]]) : new Map());
+        await fixed(a.key, a.rule, `یادآوری روی ${a.targets.map((t) => t.key).join('، ')} ثبت شد.`, 7);
+      } else {
+        // delay / blocker / weekly: a comment on this card (and maybe the Delayed label)
+        const text = (a.text || '').trim();
+        if (!text) throw Object.assign(new Error('متن دیدگاه خالی است.'), { quiet: true });
+        const meta = await metaOf(a.key);
+        if (!meta.comment) throw Object.assign(new Error('جیرا اجازهٔ ثبت دیدگاه روی این کارت را به شما نمی‌دهد.'), { quiet: true });
+        if (a.a === 'delay' && a.label && !(it.labels || []).some((l) => /^delayed$/i.test(l)) && !meta.can('labels'))
+          throw Object.assign(new Error('جیرا اجازهٔ افزودن برچسب را به شما نمی‌دهد؛ تیک برچسب را بردارید.'), { quiet: true });
+        await SFR.postComment(a.key, text, new Map());
+        if (a.a === 'delay' && a.label && !(it.labels || []).some((l) => /^delayed$/i.test(l))) await SFR.saveIssueFields(a.key, { labels: [...(it.labels || []), 'Delayed'] });
+        if (a.a === 'weekly') SFR.patch(a.key, { updated: new Date().toISOString() });
+        await fixed(a.key, a.rule, 'دیدگاه ثبت شد.', a.a === 'weekly' ? 0 : 7);
+      }
+      D.act = null;
+    } catch (e) {
+      a.error = e.quiet ? e.message : e.status === 401 || e.status === 403 ? 'جیرا اجازهٔ این کار را به شما نمی‌دهد.' : `جیرا نپذیرفت: ${e.message}`;
+    }
+    D.busy = false;
+    render();
+  }
+
+  function start(b) {
+    const key = b.dataset.key;
+    const rule = b.dataset.rule;
+    const a = b.dataset.a;
+    const it = SFR.issue(key);
+    if (!it) return;
+    const openCard = (opts) => {
+      close();
+      SFR.openIssue(key, opts);
+    };
+    if (a === 'later') {
+      D.saved.snooze[`${key}:${rule}`] = Date.now() + 3 * DAY;
+      save();
+      return render();
+    }
+    if (a === 'fine') {
+      D.saved.snooze[`${key}:${rule}`] = Date.now() + 7 * DAY;
+      save();
+      SFR.toast('تا یک هفته‌ی دیگر یادآوری نمی‌شود.', 'info');
+      return render();
+    }
+    if (a === 'seen') {
+      SFR.markSeen(key);
+      return render();
+    }
+    if (a === 'date') return openCard({ edit: 'end' });
+    if (a === 'setdate') return openCard({ edit: !it.start ? 'start' : 'end' });
+    if (a === 'reply') return openCard({ focus: 'comment' });
+    if (a === 'links') return openCard({ focus: 'links' });
+    D.act = { key, rule, a, value: a === 'size' ? b.dataset.v : a === 'finish' ? 'devdone' : '', focus: true, label: true };
+    if (TEMPLATE[a]) D.act.text = TEMPLATE[a](it);
+    if (a === 'remind') {
+      const bad = SFR.linkIssues(it).filter((x) => x.v.tone === 'bad');
+      D.act.targets = bad.map((x) => ({ key: x.l.key, owner: S.rest.get(x.l.key)?.poc || null }));
+      const owners = D.act.targets.filter((t) => t.owner).map((t) => `@${t.owner.display}`);
+      const partners = bad.map((x) => `${x.l.key} «${SFR.splitTitle(x.l.summary).title}»`).join('، ');
+      D.act.text = `${owners.length ? `${[...new Set(owners)].join(' ')} سلام،\n` : 'سلام،\n'}کارت ${it.key} «${SFR.splitTitle(it.summary).title}»${it.fn?.[0] ? ` (${it.fn[0]})` : ''} برای ${monthFa(it)} پلن شده و باید هم‌زمان با ${partners} تمام شود، ولی این کار هنوز پیک نشده. لطفاً برای برنامه‌ریزی‌اش بررسی کنید. ممنون 🙏`;
+    }
+    render();
+  }
+
+  function close() {
+    D.open = false;
+    D.act = null;
+    render();
+  }
+
+  SFR.desk = {
+    close,
+    isOpen: () => D.open,
+    acting: () => !!D.act,
+    cancel: () => {
+      if (D.act && !D.busy) return ((D.act = null), render(), true);
+      if (D.open) return (close(), true);
+      return false;
+    },
+    acts: {
+      desk: async () => {
+        await load();
+        D.open = !D.open;
+        D.act = null;
+        render();
+        SFR.root.querySelector('.desk-panel [data-act="desk-close"]')?.focus({ preventScroll: true });
+      },
+      'desk-close': close,
+      'desk-mode': (b) => ((D.mode = b.dataset.v), (D.act = null), render()),
+      'desk-fold': (b) => (D.fold.has(b.dataset.v) ? D.fold.delete(b.dataset.v) : D.fold.add(b.dataset.v), render()),
+      'desk-more': (b) => ((D.more[b.dataset.v] = (D.more[b.dataset.v] || 3) + 10), render()),
+      'desk-do': start,
+      'desk-pick': (b) => D.act && ((D.act.value = b.dataset.v), render()),
+      'desk-go': go,
+      'desk-cancel': () => ((D.act = null), render()),
+    },
+    onInput: (t) => {
+      if (!D.act) return;
+      if (t.dataset.bind === 'desk-text') D.act.text = t.value;
+      if (t.dataset.bind === 'desk-label') D.act.label = t.checked;
+    },
+    onSelect: (t) => ((D.who = t.value), render()),
+    init: load,
+  };
+})();
+
+/* app/views/gantt.js */
+/* Roadmap Lens — board, third view: a Gantt chart of the board cards on a Jalali time axis.
+ * Bar = «تاریخ شروع» → «پایان هدف». The dashed band is «تخمین پایان» (the Estimation field, as is; never computed).
+ * The board filters apply. A bar can be dragged to change its dates only when Jira lets THIS user edit those fields,
+ * and nothing is written before the user confirms. */
+(() => {
+  const SFR = globalThis.SFR;
+  const S = SFR.state;
+  const { esc, fa, icon, cal } = SFR;
+  const F = SFR.FIELDS;
+  const DAY = 864e5;
+  const LABEL_W = 300;
+  const ZOOM = {
+    week: { ppd: 26, label: 'هفته' },
+    month: { ppd: 6, label: 'ماه' },
+    cycle: { ppd: 2.4, label: 'سیکل' },
+  };
+  const GROUPS = [
+    ['fn', 'فانکشن'],
+    ['poc', 'مسئول'],
+    ['month', 'ماه بورد'],
+    ['none', 'بدون گروه'],
+  ];
+  const MON = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+
+  const G = { fold: new Set(['__nodate']), perm: new Map(), drag: null, pending: null, busy: false, scrolled: false, more: 80, suppress: false, geo: null };
+  const opt = () => ({ group: 'fn', zoom: 'month', ...(S.ui.gantt || {}) });
+  const isDelivered = (i) => i.status === 'done' || i.status === 'devdone';
+  const late = (i, e) => e && e < cal.today() && !isDelivered(i) && i.status !== 'canceled';
+  const dayAfter = (d) => cal.add(d, 1);
+
+  /* ---------- who may change what: the same rule as the drawer's pencils ---------- */
+  function permOf(key) {
+    if (!G.perm.has(key)) {
+      G.perm.set(
+        key,
+        Promise.allSettled([SFR.api.editmeta(key), SFR.api.perms(key)]).then(([m, p]) => {
+          const P = p.status === 'fulfilled' ? p.value?.permissions : null;
+          if (P && P.EDIT_ISSUES?.havePermission === false) return { start: false, end: false };
+          const fields = m.status === 'fulfilled' ? m.value?.fields : null;
+          const ok = (id) => !!fields?.[id] && (!Array.isArray(fields[id].operations) || fields[id].operations.includes('set'));
+          return { start: ok(F.start), end: ok(F.end) };
+        })
+      );
+    }
+    return G.perm.get(key);
+  }
+
+  /* ---------- the rows ---------- */
+  function datesOf(i) {
+    const p = G.pending?.key === i.key ? G.pending : null;
+    return { s: cal.parse(p ? p.start : i.start), e: cal.parse(p ? p.end : i.end) };
+  }
+  function estOf(i, ref) {
+    const m = MON[String(i.estimation || '').slice(0, 3).toLowerCase()];
+    if (m == null) return null;
+    const y0 = (ref || cal.today()).getUTCFullYear();
+    const cands = [y0 - 1, y0, y0 + 1].map((y) => [new Date(Date.UTC(y, m, 1, 12)), new Date(Date.UTC(y, m + 1, 1, 12))]);
+    const mid = (r) => (r[0].getTime() + r[1].getTime()) / 2;
+    const r = ref || cal.today();
+    return cands.sort((a, b) => Math.abs(mid(a) - r) - Math.abs(mid(b) - r))[0];
+  }
+  function groupKey(i, by) {
+    if (by === 'fn') return i.fn?.[0] || 'بدون فانکشن';
+    if (by === 'poc') return i.poc?.display || 'بدون مسئول';
+    if (by === 'month') return S.colOfStatus[i.statusId] || '—';
+    return 'all';
+  }
+  const groupTitle = (k, by) => {
+    if (by !== 'month') return k;
+    const c = S.columns.find((x) => x.id === k);
+    return c ? SFR.monthLabel(c.name)[0] : 'بدون ستون';
+  };
+
+  /* ---------- geometry ---------- */
+  function range(items) {
+    const today = cal.today();
+    let lo = today;
+    let hi = today;
+    items.forEach(({ s, e }) => {
+      [s, e].forEach((d) => {
+        if (!d) return;
+        if (d < lo) lo = d;
+        if (d > hi) hi = d;
+      });
+    });
+    lo = new Date(Math.max(lo.getTime(), cal.add(today, -540).getTime()));
+    hi = new Date(Math.min(hi.getTime(), cal.add(today, 450).getTime()));
+    // whole Jalali months, with a little air on both sides
+    const a = cal.toJ(cal.add(lo, -10));
+    const b = cal.toJ(cal.add(hi, 20));
+    const from = cal.fromJ(a.jy, a.jm, 1);
+    const to = b.jm === 12 ? cal.fromJ(b.jy + 1, 1, 1) : cal.fromJ(b.jy, b.jm + 1, 1);
+    return { from, to, days: cal.diff(to, from) };
+  }
+  const xOf = (d, geo) => cal.diff(d, geo.from) * geo.ppd;
+  function place(s, e, geo) {
+    const a = s || e;
+    const b = e || s;
+    let x0 = xOf(a, geo);
+    let x1 = xOf(dayAfter(b), geo);
+    const cutS = x0 < 0;
+    const cutE = x1 > geo.w;
+    x0 = Math.max(0, x0);
+    x1 = Math.min(geo.w, x1);
+    return { x: x0, w: Math.max(x1 - x0, 6), cutS, cutE };
+  }
+
+  function axis(geo) {
+    const months = [];
+    for (let d = geo.from; d < geo.to; ) {
+      const j = cal.toJ(d);
+      const next = j.jm === 12 ? cal.fromJ(j.jy + 1, 1, 1) : cal.fromJ(j.jy, j.jm + 1, 1);
+      months.push({ d, j, x: xOf(d, geo), w: cal.diff(next, d) * geo.ppd });
+      d = next;
+    }
+    const top = months
+      .map((m) => `<span class="gt-m${SFR.cal.toJ(cal.today()).jm === m.j.jm && cal.toJ(cal.today()).jy === m.j.jy ? ' is-now' : ''}" style="inset-inline-start:${m.x}px;width:${m.w}px"><span class="gt-mt">${esc(cal.MONTHS[m.j.jm - 1])}${m.w > 70 ? ` <small>${fa(String(m.j.jy))}</small>` : ''}</span></span>`)
+      .join('');
+    let ticks = '';
+    if (geo.zoom !== 'cycle') {
+      // Saturdays (the start of the Iranian week)
+      let d = geo.from;
+      while (d.getUTCDay() !== 6) d = cal.add(d, 1);
+      for (; d < geo.to; d = cal.add(d, 7)) {
+        const j = cal.toJ(d);
+        ticks += `<span class="gt-tick" style="inset-inline-start:${xOf(d, geo)}px">${geo.zoom === 'week' ? `ش ${fa(j.jd)}` : fa(j.jd)}</span>`;
+      }
+    }
+    const lines = months.map((m) => `<i class="gt-vl" style="inset-inline-start:${LABEL_W + m.x}px"></i>`).join('');
+    return { head: `<div class="gt-axis" style="width:${geo.w}px"><div class="gt-ms">${top}</div>${ticks ? `<div class="gt-ticks">${ticks}</div>` : ''}</div>`, lines };
+  }
+
+  function tip(i, s, e, est) {
+    const row = (k, v) => `<span class="tt-row">${k}<em>${v}</em></span>`;
+    const dur = s && e ? cal.diff(e, s) + 1 : null;
+    const lateBy = late(i, e) ? cal.diff(cal.today(), e) : 0;
+    return (
+      `<b>${esc(SFR.splitTitle(i.summary).title)}</b>` +
+      row('شروع', s ? esc(cal.full(cal.iso(s))) : 'ثبت نشده') +
+      row('پایان هدف', e ? esc(cal.full(cal.iso(e))) : 'ثبت نشده') +
+      (dur ? row('مدت', `${fa(dur)} روز`) : '') +
+      row('تخمین پایان', est ? esc(`${SFR.monthLabel(i.estimation)[0]} (${SFR.monthLabel(i.estimation)[1]})`) : 'ثبت نشده') +
+      row('وضعیت', esc(SFR.statusMeta(i.status).label)) +
+      (lateBy ? `<span class="tt-row is-late">${fa(lateBy)} روز از پایان هدف گذشته</span>` : '')
+    );
+  }
+
+  function rowHtml(i, geo) {
+    const { s, e } = datesOf(i);
+    const est = estOf(i, e || s);
+    const t = SFR.splitTitle(i.summary);
+    const lt = late(i, e);
+    const pend = G.pending?.key === i.key;
+    let lane = '';
+    if (est && est[1] > geo.from && est[0] < geo.to) {
+      const p = place(est[0], cal.add(est[1], -1), geo);
+      lane += `<span class="gt-est" style="inset-inline-start:${p.x}px;width:${p.w}px" data-hint="${esc(`تخمین پایان: ${SFR.monthLabel(i.estimation)[0]}`)}"></span>`;
+    }
+    if (s || e) {
+      const p = place(s, e, geo);
+      const both = s && e;
+      const txt = both && p.w > 120 ? `<span class="gt-bt">${esc(cal.short(cal.iso(s)))} ← ${esc(cal.short(cal.iso(e)))}</span>` : '';
+      lane += both
+        ? `<span class="gt-bar st-${i.status}${lt ? ' is-late' : ''}${p.cutS ? ' cut-s' : ''}${p.cutE ? ' cut-e' : ''}${pend ? ' is-pending' : ''}" style="inset-inline-start:${p.x}px;width:${p.w}px;--c:var(--s-${i.status})" data-tip="${esc(tip(i, s, e, est))}"><i class="gt-h" data-h="s"></i>${txt}<i class="gt-h" data-h="e"></i></span>`
+        : `<span class="gt-pt st-${i.status}${lt ? ' is-late' : ''}${pend ? ' is-pending' : ''}" style="inset-inline-start:${p.x + p.w / 2 - 6}px;--c:var(--s-${i.status})" data-tip="${esc(tip(i, s, e, est))}" data-one="${s ? 's' : 'e'}"></span>`;
+    }
+    return `<div class="gt-row${lt ? ' is-late' : ''}" data-key="${esc(i.key)}" tabindex="0">
+      <div class="gt-label"><span class="gt-t" dir="auto">${esc(t.title)}</span><span class="gt-sub">${SFR.keyChip(i.key)}${SFR.statusPill(i.status, { short: true })}${SFR.avatar(i.poc, 'xs')}${lt ? `<span class="pill pill-late">${icon('clock', 12)}دیر</span>` : ''}${!s && !e ? '<small class="muted">بدون تاریخ</small>' : !s ? '<small class="muted">بی‌شروع</small>' : !e ? '<small class="muted">بی‌پایان</small>' : ''}</span></div>
+      <div class="gt-lane" style="width:${geo.w}px">${lane}</div>
+    </div>`;
+  }
+
+  /* ---------- the view ---------- */
+  SFR.ganttView = (visible) => {
+    const o = opt();
+    const rows = visible.filter((i) => !(S.ui.hideBacklog && SFR.monthKey(S.columns.find((c) => c.id === S.colOfStatus[i.statusId])?.name || '') === 'backlog'));
+    const withD = rows.map((i) => ({ i, ...datesOf(i) }));
+    const dated = withD.filter((x) => x.s || x.e);
+    const none = withD.filter((x) => !x.s && !x.e);
+    const zoom = ZOOM[o.zoom] ? o.zoom : 'month';
+    const r = range(dated);
+    const geo = (G.geo = { ...r, zoom, ppd: ZOOM[zoom].ppd, w: Math.round(r.days * ZOOM[zoom].ppd) });
+    const ax = axis(geo);
+    const lateN = dated.filter((x) => late(x.i, x.e)).length;
+
+    // groups
+    const by = o.group;
+    const groups = new Map();
+    dated.forEach((x) => {
+      const k = groupKey(x.i, by);
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(x);
+    });
+    const order = [...groups.keys()].sort((a, b) =>
+      by === 'month' ? S.columns.findIndex((c) => c.id === a) - S.columns.findIndex((c) => c.id === b) : groups.get(b).length - groups.get(a).length || String(a).localeCompare(String(b), 'fa')
+    );
+    // order by the dates Jira has (not a drag waiting for confirmation), so a row never jumps away from the pointer
+    const k0 = (x) => cal.parse(x.i.start) || cal.parse(x.i.end) || x.s || x.e;
+    const k1 = (x) => cal.parse(x.i.end) || cal.parse(x.i.start) || x.e || x.s;
+    const sortRows = (list) => list.sort((a, b) => k0(a) - k0(b) || k1(a) - k1(b));
+    let body = '';
+    order.forEach((k) => {
+      const list = sortRows(groups.get(k));
+      const closed = G.fold.has(`${by}:${k}`);
+      if (by !== 'none') {
+        const lo = Math.min(...list.map((x) => (x.s || x.e).getTime()));
+        const hi = Math.max(...list.map((x) => (x.e || x.s).getTime()));
+        const p = place(new Date(lo), new Date(hi), geo);
+        const nLate = list.filter((x) => late(x.i, x.e)).length;
+        body += `<div class="gt-row gt-group"><button class="gt-label gt-gh${closed ? ' is-closed' : ''}" data-act="gt-fold" data-v="${esc(`${by}:${k}`)}" aria-expanded="${!closed}">${icon('chevron-down', 14)}<b dir="auto">${esc(groupTitle(k, by))}</b><em>${fa(list.length)}</em>${nLate ? `<span class="gt-late-n">${fa(nLate)} دیر</span>` : ''}</button><div class="gt-lane" style="width:${geo.w}px"><span class="gt-span" style="inset-inline-start:${p.x}px;width:${p.w}px"></span></div></div>`;
+      }
+      if (!closed) body += list.map((x) => rowHtml(x.i, geo)).join('');
+    });
+    if (none.length) {
+      const closed = G.fold.has('__nodate');
+      body += `<div class="gt-row gt-group is-nodate"><button class="gt-label gt-gh${closed ? ' is-closed' : ''}" data-act="gt-fold" data-v="__nodate" aria-expanded="${!closed}">${icon('chevron-down', 14)}<b>بدون تاریخ</b><em>${fa(none.length)}</em><small>شروع و پایان هدف ثبت نشده</small></button><div class="gt-lane" style="width:${geo.w}px"></div></div>`;
+      if (!closed) {
+        body += none.slice(0, G.more).map((x) => rowHtml(x.i, geo)).join('');
+        if (none.length > G.more) body += `<div class="gt-row"><div class="gt-label"><button class="more" data-act="gt-more">نمایش ${fa(Math.min(80, none.length - G.more))} مورد دیگر · ${fa(none.length - G.more)} باقی‌مانده</button></div></div>`;
+      }
+    }
+    const today = cal.today();
+    const todayLine = today >= geo.from && today < geo.to ? `<i class="gt-now" style="inset-inline-start:${LABEL_W + xOf(today, geo) + geo.ppd / 2}px"><b>امروز</b></i>` : '';
+    const seg = (act, cur, list) => list.map(([k, l]) => `<button role="tab" aria-selected="${cur === k}" data-act="${act}" data-v="${k}">${l}</button>`).join('');
+
+    const pend = G.pending;
+    const pIt = pend && SFR.issue(pend.key);
+    const fmt = (iso) => (iso ? cal.full(iso) : 'خالی');
+    const confirm = pend
+      ? `<div class="gt-confirm" role="dialog" aria-label="تأیید تغییر تاریخ" tabindex="-1">
+          ${icon('calendar', 18)}
+          <div class="gt-cf-t"><b>${SFR.keyChip(pend.key)} <span dir="auto">${esc(SFR.splitTitle(pIt?.summary || '').title)}</span></b>
+            <span>${pend.start !== pend.oldStart ? `شروع: ${esc(fmt(pend.oldStart))} ← <b>${esc(fmt(pend.start))}</b>` : ''}${pend.start !== pend.oldStart && pend.end !== pend.oldEnd ? ' · ' : ''}${pend.end !== pend.oldEnd ? `پایان هدف: ${esc(fmt(pend.oldEnd))} ← <b>${esc(fmt(pend.end))}</b>` : ''}</span></div>
+          <span class="grow"></span>
+          <button class="btn btn-ghost btn-sm" data-act="gt-cancel"${G.busy ? ' disabled' : ''}>انصراف</button>
+          <button class="btn btn-primary btn-sm${G.busy ? ' is-busy' : ''}" data-act="gt-save"${G.busy ? ' disabled' : ''}>${G.busy ? `${icon('refresh-cw', 14, 'spin')}در حال ذخیره…` : `${icon('check', 14)}ذخیره در جیرا`}</button>
+        </div>`
+      : '';
+
+    return `<div class="gt-tools">
+        <div class="switch switch-sm" role="tablist" aria-label="گروه‌بندی">${seg('gt-group', by, GROUPS)}</div>
+        <div class="switch switch-sm" role="tablist" aria-label="بزرگنمایی">${seg('gt-zoom', zoom, Object.entries(ZOOM).map(([k, z]) => [k, z.label]))}</div>
+        <button class="btn btn-outline btn-sm" data-act="gt-today">${icon('crosshair', 14)}امروز</button>
+        <span class="grow"></span>
+        <span class="gt-key"><i class="k-bar"></i>شروع ← پایان هدف <i class="k-est"></i>تخمین پایان <i class="k-late"></i>دیر</span>
+        <span class="muted">${fa(dated.length)} با تاریخ${lateN ? ` · <b class="gt-late-n">${fa(lateN)} دیر</b>` : ''} · ${fa(none.length)} بدون تاریخ</span>
+      </div>
+      <p class="gt-help">${icon('info', 14)}روی هر ردیف بزنید تا جزئیات باز شود. برای جابه‌جا کردن تاریخ‌ها میله را بکشید (یا لبه‌اش را برای تغییر فقط شروع یا پایان)؛ اگر جیرا به شما اجازهٔ ویرایش بدهد، قبل از ذخیره تأیید می‌گیریم.</p>
+      <div class="gantt" data-scroll="gantt" style="--gl:${LABEL_W}px">
+        <div class="gt-inner" style="width:${LABEL_W + geo.w}px">
+          <div class="gt-head"><div class="gt-corner">${by === 'none' ? 'کار' : GROUPS.find((g) => g[0] === by)[1]} / کار</div>${ax.head}</div>
+          <div class="gt-body">${ax.lines}${todayLine}${body || `<div class="gt-empty">${SFR.empty('کاری با این فیلترها نیست', '', 'inbox')}</div>`}</div>
+        </div>
+      </div>
+      ${confirm}`;
+  };
+
+  /* ---------- after each render: keep the scroll, first time jump to today, wire the drag ---------- */
+  SFR.ganttAfter = (el, keep) => {
+    const sc = el.querySelector('[data-scroll="gantt"]');
+    if (!sc) return;
+    if (keep) ((sc.scrollLeft = keep.left), (sc.scrollTop = keep.top));
+    else if (!G.scrolled) {
+      G.scrolled = true;
+      scrollToToday(sc);
+    }
+    sc.addEventListener('pointerdown', onDown);
+    sc.addEventListener('pointerover', (e) => {
+      const k = e.target.closest?.('.gt-bar,.gt-pt') && e.target.closest('[data-key]')?.dataset.key;
+      if (k) permOf(k);
+    });
+    sc.addEventListener(
+      'click',
+      (e) => {
+        if (G.suppress) {
+          G.suppress = false;
+          e.stopPropagation();
+          e.preventDefault();
+        }
+      },
+      true
+    );
+  };
+  SFR.ganttScroll = (el) => {
+    const sc = el.querySelector('[data-scroll="gantt"]');
+    return sc ? { left: sc.scrollLeft, top: sc.scrollTop } : null;
+  };
+  function scrollToToday(sc) {
+    const now = sc.querySelector('.gt-now');
+    if (!now) return;
+    const x = parseFloat(now.style.insetInlineStart) - LABEL_W;
+    const rtl = getComputedStyle(sc).direction === 'rtl';
+    const target = Math.max(0, x - (sc.clientWidth - LABEL_W) / 2);
+    sc.scrollLeft = rtl ? -target : target;
+  }
+
+  /* ---------- drag to change dates ---------- */
+  function onDown(e) {
+    if (e.button !== 0 || G.busy) return;
+    const bar = e.target.closest('.gt-bar,.gt-pt');
+    if (!bar) return;
+    const key = bar.closest('[data-key]').dataset.key;
+    if (G.pending && G.pending.key !== key) return SFR.toast('اول تغییرِ قبلی را ذخیره یا لغو کنید.', 'info');
+    const it = SFR.issue(key);
+    if (!it) return;
+    const { s, e: en } = datesOf(it);
+    const h = e.target.closest('.gt-h')?.dataset.h;
+    const mode = h || (bar.classList.contains('gt-pt') ? bar.dataset.one : 'move');
+    e.preventDefault(); // no text selection while dragging; keep keyboard focus inside the app instead
+    bar.closest('.gt-row')?.focus({ preventScroll: true });
+    bar.setPointerCapture?.(e.pointerId);
+    const sc = bar.closest('[data-scroll="gantt"]');
+    G.drag = { key, mode, bar, x0: e.clientX, s0: s, e0: en, ns: s, ne: en, moved: false, sign: getComputedStyle(sc).direction === 'rtl' ? -1 : 1, perm: permOf(key) };
+    G.drag.perm.then((p) => G.drag?.key === key && !(p.start || p.end) && bar.classList.add('is-ro'));
+    bar.addEventListener('pointermove', onMove);
+    bar.addEventListener('pointerup', onUp, { once: true });
+    bar.addEventListener('pointercancel', onCancel, { once: true });
+  }
+  function onMove(e) {
+    const d = G.drag;
+    if (!d) return;
+    const dx = (e.clientX - d.x0) * d.sign;
+    if (Math.abs(dx) > 4) d.moved = true;
+    if (!d.moved) return;
+    const n = Math.round(dx / G.geo.ppd);
+    const sh = (x) => (x ? cal.add(x, n) : x);
+    if (d.mode === 'move') ((d.ns = sh(d.s0)), (d.ne = sh(d.e0)));
+    else if (d.mode === 's') ((d.ns = d.e0 ? new Date(Math.min(sh(d.s0), d.e0)) : sh(d.s0)), (d.ne = d.e0));
+    else ((d.ne = d.s0 ? new Date(Math.max(sh(d.e0), d.s0)) : sh(d.e0)), (d.ns = d.s0));
+    const p = place(d.ns, d.ne, G.geo);
+    if (d.bar.classList.contains('gt-pt')) d.bar.style.insetInlineStart = `${p.x + p.w / 2 - 6}px`;
+    else ((d.bar.style.insetInlineStart = `${p.x}px`), (d.bar.style.width = `${p.w}px`));
+    d.bar.classList.add('is-dragging');
+    d.bar.dataset.live = `${d.ns ? cal.short(cal.iso(d.ns)) : '—'} ← ${d.ne ? cal.short(cal.iso(d.ne)) : '—'}`;
+  }
+  function onCancel() {
+    G.drag = null;
+    SFR.render();
+  }
+  async function onUp() {
+    const d = G.drag;
+    if (!d) return;
+    d.bar.removeEventListener('pointermove', onMove);
+    if (!d.moved) return void (G.drag = null);
+    G.suppress = true;
+    setTimeout(() => (G.suppress = false), 400);
+    const iso = (x) => (x ? cal.iso(x) : null);
+    const it = SFR.issue(d.key);
+    const old = { start: G.pending?.key === d.key ? G.pending.oldStart : it.start || null, end: G.pending?.key === d.key ? G.pending.oldEnd : it.end || null };
+    const next = { start: iso(d.ns), end: iso(d.ne) };
+    d.bar.classList.add('is-checking');
+    const p = await d.perm;
+    G.drag = null;
+    const needS = next.start !== old.start;
+    const needE = next.end !== old.end;
+    if (!needS && !needE) return ((G.pending = null), SFR.render());
+    if ((needS && !p.start) || (needE && !p.end)) {
+      G.pending = null;
+      SFR.render();
+      return SFR.toast(
+        p.start || p.end ? `جیرا فقط اجازهٔ تغییر «${p.start ? 'تاریخ شروع' : 'پایان هدف'}» این کارت را به شما می‌دهد.` : 'جیرا اجازهٔ تغییر تاریخ‌های این کارت را به شما نمی‌دهد.',
+        'error'
+      );
+    }
+    G.pending = { key: d.key, ...next, oldStart: old.start, oldEnd: old.end };
+    SFR.render();
+    SFR.root.querySelector('.gt-confirm')?.focus({ preventScroll: true }); // so Esc can cancel
+  }
+
+  async function save() {
+    const p = G.pending;
+    if (!p || G.busy) return;
+    const fields = {};
+    if (p.start !== p.oldStart) fields[F.start] = p.start;
+    if (p.end !== p.oldEnd) fields[F.end] = p.end;
+    G.busy = true;
+    SFR.render();
+    try {
+      await SFR.saveIssueFields(p.key, fields);
+      G.pending = null;
+      SFR.toast('تاریخ‌ها در جیرا ذخیره شد.', 'ok');
+    } catch (e) {
+      if (e.status === 401 || e.status === 403) {
+        G.perm.set(p.key, Promise.resolve({ start: false, end: false }));
+        G.pending = null;
+        SFR.toast('جیرا اجازهٔ تغییر تاریخ‌های این کارت را به شما نمی‌دهد.', 'error');
+      } else SFR.toast(`جیرا تاریخ‌ها را نپذیرفت: ${e.message}`, 'error');
+    }
+    G.busy = false;
+    SFR.render();
+  }
+
+  const set = (k, v) => {
+    S.ui.gantt = { ...opt(), [k]: v };
+    SFR.saveUi();
+    SFR.render();
+  };
+  SFR.gantt = {
+    dragging: () => !!G.drag,
+    cancel: () => {
+      if (!G.pending || G.busy) return false;
+      G.pending = null;
+      SFR.render();
+      return true;
+    },
+    acts: {
+      'gt-group': (b) => set('group', b.dataset.v),
+      'gt-zoom': (b) => {
+        const sc = SFR.root.querySelector('[data-scroll="gantt"]');
+        set('zoom', b.dataset.v);
+        if (sc) scrollToToday(SFR.root.querySelector('[data-scroll="gantt"]'));
+      },
+      'gt-today': () => scrollToToday(SFR.root.querySelector('[data-scroll="gantt"]')),
+      'gt-fold': (b) => {
+        const k = b.dataset.v;
+        G.fold.has(k) ? G.fold.delete(k) : G.fold.add(k);
+        SFR.render();
+      },
+      'gt-more': () => ((G.more += 80), SFR.render()),
+      'gt-save': save,
+      'gt-cancel': () => SFR.gantt.cancel(),
+    },
   };
 })();
 
@@ -4755,6 +5820,830 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
   };
 })();
 
+/* app/views/capacity.js */
+/* Roadmap Lens — «ظرفیت»: how much each function usually delivers (velocity from finished cycles) against what the current cycle has planned.
+ * Nothing here is written back to Jira. Velocity = delivered work per month, because cycles differ in length. */
+(() => {
+  const SFR = globalThis.SFR;
+  const S = SFR.state;
+  const C = S.cap;
+  const { esc, fa, faPct, icon } = SFR;
+
+  /* ---------- knobs ---------- */
+  const THR = { free: 0.8, over: 1.1 }; // fill < 80% «جا دارد», 80–110% «بهینه», above «اضافه‌بار»
+  const MIN_CYCLES = 3; // fewer finished cycles than this → «دیتای کم»
+  const MONTHS_RULE = { core: 0.9, edgeShare: 0.05, edgeCount: 2 }; // a cycle = the shortest run of months with ≥90% of its cards (+ neighbours holding ≥5%)
+  const STATE = {
+    free: { label: 'جا دارد', color: 'var(--s-done)', icon: 'circle-check' },
+    ok: { label: 'بهینه', color: 'var(--accent)', icon: 'gauge' },
+    over: { label: 'اضافه‌بار', color: 'var(--danger)', icon: 'triangle-alert' },
+    none: { label: 'ظرفیت نامعلوم', color: 'var(--ink-3)', icon: 'circle-help' },
+  };
+  const PHASE = [
+    { key: 'delivered', label: 'تحویل‌شده', color: 'var(--s-done)' },
+    { key: 'progress', label: 'در حال انجام', color: 'var(--s-progress)' },
+    { key: 'planned', label: 'برنامه‌ریزی‌شده', color: 'var(--s-todo)' },
+  ];
+
+  /* ---------- helpers ---------- */
+  const isDone = (i) => i.status === 'done' || i.status === 'devdone';
+  const med = (a) => {
+    if (!a.length) return 0;
+    const s = [...a].sort((x, y) => x - y);
+    const k = s.length >> 1;
+    return s.length % 2 ? s[k] : (s[k - 1] + s[k]) / 2;
+  };
+  const r1 = (n) => Math.round(n * 10) / 10;
+  const fw = (n) => fa(r1(n));
+  const shares = (i) => (i.fn.length ? i.fn.map((f) => [f, 1 / i.fn.length]) : [['نامشخص', 1]]);
+  const backlogId = () => S.columns.find((c) => SFR.monthKey(c.name) === 'backlog')?.id;
+  const colName = (m) => S.columns.find((c) => c.id !== backlogId() && SFR.monthIdx(c.name) === m)?.name;
+  const monthFa = (m) => (colName(m) ? SFR.monthLabel(colName(m))[0] : '');
+  const unitWord = () => (C.unit === 'n' ? 'کار' : 'هفته');
+
+  /* ---------- the model ---------- */
+  let M = null;
+  function build() {
+    const unit = C.unit;
+    const rows = [...S.rest.values()].filter((i) => !i.isEpic && i.status !== 'canceled' && i.cycle.length);
+    const cycles = [...new Set(rows.flatMap((i) => i.cycle))].filter((c) => /^\d{4}C\d$/.test(c)).sort();
+    if (!cycles.length) return null;
+    const cur = cycles.includes(C.cycle) ? C.cycle : cycles[cycles.length - 1];
+    const past = cycles.filter((c) => c < cur).slice(-C.base);
+    const bl = backlogId();
+    const mOf = (i) => {
+      if (!i.statusId || S.colOfStatus[i.statusId] === bl) return null;
+      const col = S.columns.find((c) => c.id === S.colOfStatus[i.statusId]);
+      return col ? SFR.monthIdx(col.name) : null;
+    };
+
+    // the months a cycle covers: the shortest run of calendar months that holds nearly all its planned cards
+    const monthsOf = (c) => {
+      const cnt = new Array(12).fill(0);
+      let total = 0;
+      rows.forEach((i) => {
+        if (!i.cycle.includes(c)) return;
+        const m = mOf(i);
+        if (m != null) (cnt[m]++, total++);
+      });
+      if (!total) return [];
+      // the shortest run of months holding ≥90% of the cycle's cards, then widened by any neighbour month that still holds a real share
+      const sum = (st, len) => Array.from({ length: len }, (_, k) => cnt[(st + k) % 12]).reduce((x, y) => x + y, 0);
+      const need = Math.ceil(total * MONTHS_RULE.core);
+      let start = 0;
+      let len = 12;
+      for (let l = 1; l <= 12 && len === 12; l++) {
+        let best = -1;
+        for (let st = 0; st < 12; st++) if (sum(st, l) >= need && sum(st, l) > best) ((best = sum(st, l)), (start = st));
+        if (best >= 0) len = l;
+      }
+      const real = (m) => cnt[m] >= MONTHS_RULE.edgeCount && cnt[m] / total >= MONTHS_RULE.edgeShare;
+      while (len < 12 && real((start + 11) % 12)) ((start = (start + 11) % 12), len++);
+      while (len < 12 && real((start + len) % 12)) len++;
+      return Array.from({ length: len }, (_, k) => (start + k) % 12);
+    };
+    const auto = monthsOf(cur);
+    const base0 = auto.length ? (auto[0] + 11) % 12 : 0;
+    const ord = (a, b) => ((a - base0 + 12) % 12) - ((b - base0 + 12) % 12);
+    const months = (C.months[cur] || auto).slice().sort(ord);
+    // the detected months plus one either side, so a month can be added by hand
+    const edge = auto.length ? [(auto[0] + 11) % 12, (auto[auto.length - 1] + 1) % 12] : [];
+    const monthList = [...new Set([...auto, ...edge, ...(C.months[cur] || [])])].filter((k) => colName(k)).sort(ord);
+    // where in the cycle we are
+    const now = new Date();
+    let win = null;
+    if (months.length) {
+      const span = (y) => [new Date(y, months[0], 1), new Date(y, months[0] + months.length, 1)];
+      const ys = [now.getFullYear() - 1, now.getFullYear(), now.getFullYear() + 1];
+      const hit = ys.find((y) => now >= span(y)[0] && now < span(y)[1]);
+      const y = hit ?? ys.sort((a, b) => Math.abs(span(a)[0] - now) - Math.abs(span(b)[0] - now))[0];
+      const [a, b] = span(y);
+      win = { a, b, frac: Math.max(0, Math.min(1, (now - a) / (b - a))), inside: !!hit };
+    }
+
+    // typical size of a function's finished work (used for unsized cards and for «room for N more»)
+    const sizedDone = rows.filter((i) => isDone(i) && SFR.sizeKey(i.size));
+    const globalSize = unit === 'n' ? 1 : med(sizedDone.map(SFR.weeksOf)) || 1;
+    const typical = new Map();
+    const typicalOf = (f) => {
+      if (unit === 'n') return 1;
+      if (!typical.has(f)) typical.set(f, med(sizedDone.filter((i) => shares(i).some(([x]) => x === f)).map(SFR.weeksOf)) || globalSize);
+      return typical.get(f);
+    };
+    const wt = (i, f) => (unit === 'n' ? { w: 1, est: false } : SFR.sizeKey(i.size) ? { w: SFR.weeksOf(i), est: false } : { w: typicalOf(f), est: true });
+
+    // velocity of finished cycles
+    const fnSet = new Set();
+    rows.forEach((i) => shares(i).forEach(([f]) => fnSet.add(f)));
+    const pastInfo = past.map((c) => ({ c, months: monthsOf(c).length || 1 }));
+    const hist = new Map(); // fn → cycle → {w,n,any}
+    const slot = (f, c) => {
+      if (!hist.has(f)) hist.set(f, new Map());
+      if (!hist.get(f).has(c)) hist.get(f).set(c, { w: 0, n: 0, any: false });
+      return hist.get(f).get(c);
+    };
+    rows.forEach((i) => {
+      const c = i.cycle[i.cycle.length - 1];
+      if (!past.includes(c)) return;
+      shares(i).forEach(([f, s]) => {
+        const e = slot(f, c);
+        e.any = true;
+        if (isDone(i)) {
+          e.w += s * wt(i, f).w;
+          e.n += s;
+        }
+      });
+    });
+
+    // the plan of the chosen cycle
+    const planned = new Map();
+    const planSlot = (f) => {
+      if (!planned.has(f)) planned.set(f, { delivered: 0, progress: 0, planned: 0, backlog: 0, est: 0, n: 0, estN: 0, byMonth: new Map(), backlogN: 0 });
+      return planned.get(f);
+    };
+    rows
+      .filter((i) => i.cycle.includes(cur))
+      .forEach((i) => {
+        const m = mOf(i);
+        const ph = isDone(i) ? 'delivered' : m == null ? 'backlog' : i.status === 'progress' || i.status === 'pending' ? 'progress' : 'planned';
+        shares(i).forEach(([f, s]) => {
+          const e = planSlot(f);
+          const { w, est } = wt(i, f);
+          e[ph] += s * w;
+          if (ph === 'backlog') return void (e.backlogN += s);
+          e.n += s;
+          if (est) (e.est += s * w, (e.estN += s));
+          const k = months.includes(m) ? m : m == null ? 'x' : 'other';
+          e.byMonth.set(k, (e.byMonth.get(k) || 0) + s * w);
+        });
+      });
+
+    const sizeKeyOf = (w) => SFR.SIZES.reduce((best, k) => (Math.abs(SFR.SIZE_META[k].w - w) < Math.abs(SFR.SIZE_META[best].w - w) ? k : best), SFR.SIZES[0]);
+    const fns = [...fnSet]
+      .map((f) => {
+        const per = pastInfo.map(({ c, months: mc }) => {
+          const e = hist.get(f)?.get(c);
+          return { c, months: mc, any: !!e?.any, w: e?.w || 0, n: e?.n || 0, mv: e?.any ? e.w / mc : null };
+        });
+        const used = per.filter((p) => p.mv != null);
+        const mv = used.length ? med(used.map((p) => p.mv)) : null;
+        const p = planned.get(f) || planSlot(f);
+        const load = p.delivered + p.progress + p.planned;
+        const cap = mv == null ? null : mv * months.length;
+        const fill = cap ? load / cap : null;
+        const state = fill == null ? 'none' : fill < THR.free ? 'free' : fill <= THR.over ? 'ok' : 'over';
+        const t = typicalOf(f);
+        return {
+          f, per, mv, nC: used.length, low: used.length < MIN_CYCLES, cap, fill, state, load, p,
+          free: cap == null ? null : cap - load,
+          room: cap == null || cap - load < t ? 0 : Math.floor((cap - load) / t),
+          typ: t,
+          typKey: unit === 'n' ? '' : sizeKeyOf(t),
+        };
+      })
+      .filter((x) => x.load > 0 || x.p.backlog > 0 || x.mv)
+      .sort((a, b) => (b.cap ?? -1) - (a.cap ?? -1) || b.load - a.load);
+
+    const withCap = fns.filter((x) => x.cap != null);
+    const tot = {
+      cap: withCap.reduce((a, x) => a + x.cap, 0),
+      load: withCap.reduce((a, x) => a + x.load, 0),
+      delivered: withCap.reduce((a, x) => a + x.p.delivered, 0),
+      est: withCap.reduce((a, x) => a + x.p.est, 0),
+      outside: fns.filter((x) => x.cap == null).reduce((a, x) => a + x.load, 0),
+      backlogN: fns.reduce((a, x) => a + x.p.backlogN, 0),
+    };
+    M = { rows, cycles, cur, past, pastInfo, months, auto, monthList, win, fns, tot, unit, mOf, typicalOf, sizeKeyOf };
+    return M;
+  }
+
+  /* ---------- small pieces ---------- */
+  const sel = (bind, ic, value, opts, label) =>
+    `<label class="select">${icon(ic, 14)}<select data-bind="${bind}" aria-label="${esc(label)}">${opts.map(([v, l]) => `<option value="${esc(v)}"${String(value) === String(v) ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select>${icon('chevron-down', 14)}</label>`;
+  const seg = (act, cur, opts, label) =>
+    `<div class="switch switch-sm" role="tablist" aria-label="${label}">${opts.map(([k, l]) => `<button role="tab" aria-selected="${String(cur) === String(k)}" data-act="${act}" data-v="${k}">${l}</button>`).join('')}</div>`;
+  const cd = (o) => `data-cd="${esc(JSON.stringify(o))}"`;
+  const stateChip = (x) => {
+    const s = STATE[x.state];
+    return `<span class="cp-state" style="--c:${s.color}">${icon(s.icon, 13)}${s.label}</span>${x.low && x.cap != null ? '<span class="cp-low" data-hint="کمتر از سه سیکل کامل دیتا دارد؛ عدد تقریبی است">دیتای کم</span>' : ''}`;
+  };
+  const card = (id, title, sub, body, { full = false, tools = '' } = {}) =>
+    `<section class="viz-card${full ? ' full' : ''} cp-card" data-card="${id}"><header><div><h3>${title}</h3>${sub ? `<p>${sub}</p>` : ''}</div>${tools}</header><div class="viz-body">${body}</div></section>`;
+  const section = (title, sub) => `<div class="dash-sec"><h2>${title}</h2>${sub ? `<p>${sub}</p>` : ''}</div>`;
+
+  /* ---------- filter bar ---------- */
+  function filters(m) {
+    const fnOpts = [['', 'همه‌ی فانکشن‌ها'], ...m.fns.map((x) => [x.f, x.f])];
+    const monthChips = m.monthList
+      .map((k) => `<button class="chip chip-sm${m.months.includes(k) ? ' is-on' : ''}" data-act="cap-month" data-v="${k}" aria-pressed="${m.months.includes(k)}">${esc(monthFa(k))}</button>`)
+      .join('');
+    return `<div class="dash-filters cp-filters">
+      ${sel('cap-cycle', 'refresh-cw', m.cur, m.cycles.slice().reverse().map((c) => [c, c]), 'سیکل')}
+      ${sel('cap-fn', 'target', C.fn, fnOpts, 'فانکشن')}
+      ${seg('cap-unit', C.unit, [['w', 'هفته‌ی سایز'], ['n', 'تعداد کار']], 'واحد')}
+      ${seg('cap-base', C.base, [[3, '۳ سیکل آخر'], [4, '۴ سیکل آخر']], 'پایهٔ ولوسیتی')}
+      <span class="grow"></span>
+      <span class="muted">${S.restReady ? '' : `${icon('refresh-cw', 14, 'spin')} کارت‌ها هنوز در حال خواندن‌اند`}</span>
+    </div>
+    <div class="cp-months"><b>ماه‌های این سیکل:</b>${monthChips}<small>${m.months.length ? `${fa(m.months.length)} ماه حساب می‌شود · با زدن روی ماه، آن را کم یا زیاد کنید` : ''}</small></div>`;
+  }
+
+  /* ---------- summary ---------- */
+  function summary(m) {
+    const t = m.tot;
+    const fill = t.cap ? t.load / t.cap : null;
+    const over = m.fns.filter((x) => x.state === 'over');
+    const free = m.fns.filter((x) => x.state === 'free');
+    const exp = m.win && m.win.inside ? t.cap * m.win.frac : null;
+    const tile = (label, value, sub, tone = '', f) =>
+      `<div class="sif-tile cp-tile${tone ? ` is-${tone}` : ''}"${f ? ` ${cd(f)} role="button" tabindex="0"` : ''}><small>${label}</small><b>${value}</b>${sub ? `<em>${sub}</em>` : ''}</div>`;
+    const verdict = fill == null
+      ? 'برای محاسبهٔ ظرفیت، سیکل کامل‌شدهٔ قبلی لازم است.'
+      : `${m.cur}: ${faPct(fill * 100)} از ظرفیتِ معمول پر است. ${over.length ? `${fa(over.length)} فانکشن اضافه‌بار ${over.length > 1 ? 'دارند' : 'دارد'}` : 'هیچ فانکشنی اضافه‌بار ندارد'}${free.length ? ` و ${fa(free.length)} فانکشن هنوز جا ${free.length > 1 ? 'دارند' : 'دارد'}` : ''}.`;
+    return `<div class="cp-verdict">${icon('gauge', 18)}<p>${verdict}</p></div>
+      <div class="sif-tiles cp-tiles">
+        ${tile('ظرفیت معمولِ سیکل', `${fw(t.cap)} <i>${unitWord()}</i>`, `بر پایهٔ ${fa(m.past.length)} سیکل گذشته · ${fa(m.months.length)} ماه`)}
+        ${tile('کارِ برنامه‌ریزی‌شده', `${fw(t.load)} <i>${unitWord()}</i>`, `${fill == null ? '' : faPct(fill * 100) + ' از ظرفیت'}${t.est ? ` · ${fw(t.est)} ${unitWord()} تخمینی` : ''}`, fill != null && fill > THR.over ? 'warn' : '')}
+        ${tile(t.cap - t.load >= 0 ? 'جای خالی' : 'اضافه‌بار', `${fw(Math.abs(t.cap - t.load))} <i>${unitWord()}</i>`, t.cap - t.load >= 0 ? 'ظرفیتی که هنوز پر نشده' : 'بیشتر از ظرفیتِ معمول', t.cap - t.load < 0 ? 'warn' : 'ok')}
+        ${tile('تحویل‌شده تا امروز', `${fw(t.delivered)} <i>${unitWord()}</i>`, exp != null ? `${t.delivered >= exp ? 'جلوتر از' : 'عقب‌تر از'} روند معمول (تا الان ≈ ${fw(exp)})` : '', exp != null && t.delivered < exp * 0.8 ? 'warn' : 'ok', { ph: 'delivered' })}
+        ${tile('گذشتهٔ سیکل', m.win ? faPct(m.win.frac * 100) : '—', m.win ? (m.win.inside ? 'از زمان سیکل گذشته' : 'سیکل در بازهٔ امروز نیست') : '')}
+        ${tile('در بک‌لاگِ همین سیکل', fa(Math.round(t.backlogN)), 'کارِ بی‌ماه؛ در ظرفیت حساب نشده', '', { ph: 'backlog' })}
+      </div>`;
+  }
+
+  /* ---------- main: every function against its capacity ---------- */
+  function mainCard(m) {
+    const list = m.fns.filter((x) => !C.fn || x.f === C.fn);
+    const scale = Math.max(1, ...list.map((x) => Math.max(x.cap || 0, x.load)));
+    const body = list
+      .map((x) => {
+        const p = x.p;
+        const pct = (v) => `${(v / scale) * 100}%`;
+        const seg2 = PHASE.map((ph) => (p[ph.key] > 0 ? `<button class="cp-seg" ${cd({ fn: x.f, ph: ph.key })} style="width:${pct(p[ph.key])};--c:${ph.color}" aria-label="${esc(`${x.f}، ${ph.label}: ${fw(p[ph.key])}`)}"></button>` : '')).join('');
+        const overW = x.cap != null && x.load > x.cap ? `<i class="cp-over" style="inset-inline-start:${pct(x.cap)};width:${pct(x.load - x.cap)}"></i>` : '';
+        const mark = x.cap != null ? `<i class="cp-cap" style="inset-inline-start:${pct(x.cap)}" data-hint="ظرفیت معمول: ${fw(x.cap)}"></i>` : '';
+        const tipTxt = `${x.f}: ${fw(x.load)} از ${x.cap != null ? fw(x.cap) : '؟'}`;
+        const num =
+          x.cap == null
+            ? `<b>${fw(x.load)}</b><small>سابقهٔ تحویل ندارد</small>`
+            : `<b>${fw(x.load)}<i> از ${fw(x.cap)}</i></b><small>${faPct(x.fill * 100)}</small>`;
+        const room =
+          x.cap == null
+            ? ''
+            : x.free >= 0
+            ? `<span class="cp-room">${fw(x.free)} ${unitWord()} جا${x.room && C.unit === 'w' ? ` · ≈ ${fa(x.room)} کار ${x.typKey}` : ''}</span>`
+            : `<span class="cp-room is-over">${fw(-x.free)} ${unitWord()} بیشتر از ظرفیت</span>`;
+        return `<div class="cp-row" data-tip="${esc(tipTxt)}">
+          <div class="cp-label"><b><bdi>${esc(x.f)}</bdi></b><small>${x.mv != null ? `ولوسیتی ${fw(x.mv)} در ماه` : '—'}</small></div>
+          <div class="cp-track">${seg2}${p.est > 0 && C.unit === 'w' ? `<span class="cp-est" style="inset-inline-start:${pct(x.load - p.est)};width:${pct(p.est)}" data-hint="${fw(p.est)} هفته از کارت‌های بی‌سایز حدس زده شده"></span>` : ''}${overW}${mark}</div>
+          <div class="cp-num">${num}</div>
+          <div class="cp-st">${stateChip(x)}${room}</div>
+        </div>`;
+      })
+      .join('');
+    const legend = `<p class="fn-key cp-legend">${PHASE.map((ph) => `<i style="background:${ph.color}"></i>${ph.label}`).join(' ')} <i class="k-est"></i>تخمینی (بی‌سایز) <i class="k-cap"></i>خط ظرفیت معمول</p>`;
+    return card(
+      'cap-main',
+      'هر فانکشن چقدر پر است؟',
+      `کارهای ${m.cur} نسبت به آنچه آن فانکشن معمولاً در یک سیکل تحویل می‌دهد · روی هر رنگ بزنید تا فهرستش باز شود`,
+      list.length ? `${legend}<div class="cp-plot">${body}</div>` : SFR.empty('برای این فیلتر کاری نیست', '', 'inbox'),
+      { full: true }
+    );
+  }
+
+  /* ---------- month × function heat table ---------- */
+  function monthCard(m) {
+    const list = m.fns.filter((x) => (!C.fn || x.f === C.fn) && (x.load > 0 || x.mv));
+    const cols = [...m.months, ...(list.some((x) => x.p.byMonth.get('other')) ? ['other'] : [])];
+    const head = cols
+      .map((k) => {
+        const cur = k !== 'other' && SFR.isCurrentMonth(colName(k) || '');
+        return `<th class="${cur ? 'is-now' : ''}">${k === 'other' ? 'ماه‌های دیگر' : esc(monthFa(k))}${cur ? '<em>الان</em>' : ''}</th>`;
+      })
+      .join('');
+    const cell = (x, k) => {
+      const v = x.p.byMonth.get(k) || 0;
+      const capM = k === 'other' || x.mv == null ? null : x.mv;
+      const ratio = capM ? v / capM : null;
+      const tone = ratio == null ? '' : ratio > THR.over ? 'over' : ratio < THR.free ? 'free' : 'ok';
+      const a = ratio == null ? 0 : Math.min(1, ratio) * 0.55;
+      return `<td><button class="cp-cell ${tone}" style="--a:${a}" ${cd({ fn: x.f, m: k })} ${v ? '' : 'disabled'}>${v ? `<b>${fw(v)}</b>${ratio != null ? `<small>${faPct(ratio * 100)}</small>` : ''}` : '<span>·</span>'}</button></td>`;
+    };
+    const tr = list
+      .map((x) => `<tr><th scope="row" dir="auto">${esc(x.f)}<small>${x.mv != null ? `ظرفیت ماه ${fw(x.mv)}` : ''}</small></th>${cols.map((k) => cell(x, k)).join('')}<td class="num"><b>${fw(x.load)}</b></td></tr>`)
+      .join('');
+    const sum = cols
+      .map((k) => {
+        const v = list.reduce((a, x) => a + (x.p.byMonth.get(k) || 0), 0);
+        const c = k === 'other' ? null : list.reduce((a, x) => a + (x.mv || 0), 0);
+        return `<td class="num"><b>${fw(v)}</b>${c ? `<small>${faPct((v / c) * 100)}</small>` : ''}</td>`;
+      })
+      .join('');
+    return card(
+      'cap-month',
+      'بارِ هر ماه نسبت به ظرفیتِ ماهانه',
+      'عدد بزرگ = کارِ برنامه‌ریزی‌شده در آن ماه (ماهِ ستونِ بورد)؛ عدد کوچک = چند درصدِ ظرفیتِ یک ماهِ همان فانکشن',
+      list.length
+        ? `<div class="dtable-wrap"><table class="dtable cp-table"><thead><tr><th>فانکشن</th>${head}<th class="num">جمع</th></tr></thead><tbody>${tr}</tbody><tfoot><tr><th>همه</th>${sum}<td class="num"><b>${fw(list.reduce((a, x) => a + x.load, 0))}</b></td></tr></tfoot></table></div>
+           <p class="fn-key">کارهایی که ماه ندارند (بک‌لاگ) در این جدول نیستند.</p>`
+        : SFR.empty('برای این فیلتر کاری نیست', '', 'inbox'),
+      { full: true }
+    );
+  }
+
+  /* ---------- velocity history ---------- */
+  function trendCard(m) {
+    const list = m.fns.filter((x) => (!C.fn || x.f === C.fn) && x.per.some((p) => p.any));
+    const maxMv = Math.max(1, ...list.flatMap((x) => x.per.map((p) => p.mv || 0)));
+    const head = m.pastInfo.map(({ c, months }) => `<th>${esc(c)}<em>${fa(months)} ماه</em></th>`).join('');
+    const row = (x) => {
+      const last = x.per[x.per.length - 1]?.mv;
+      const dir = last == null || !x.mv ? 0 : last > x.mv * 1.15 ? 1 : last < x.mv * 0.85 ? -1 : 0;
+      return `<tr><th scope="row" dir="auto">${esc(x.f)}${x.low ? '<span class="cp-low">دیتای کم</span>' : ''}</th>${x.per
+        .map((p) => `<td>${p.mv == null ? '<span class="muted">—</span>' : `<span class="cp-mini"><i style="width:${(p.mv / maxMv) * 100}%"></i></span><b>${fw(p.mv)}</b><small>${fw(p.w)} در ${fa(p.months)} ماه</small>`}</td>`)
+        .join('')}<td class="num"><b>${x.mv != null ? fw(x.mv) : '—'}</b></td><td class="cp-dir ${dir > 0 ? 'up' : dir < 0 ? 'down' : ''}">${dir > 0 ? `${icon('trending-up', 14)}بالا رفته` : dir < 0 ? `${icon('trending-down', 14)}پایین آمده` : x.mv != null ? `${icon('minus', 14)}ثابت` : ''}</td></tr>`;
+    };
+    return card(
+      'cap-trend',
+      'ولوسیتی هر فانکشن در سیکل‌های گذشته',
+      `کارِ تحویل‌شده در هر ماه (${unitWord()} در ماه) · میانهٔ این عددها همان ولوسیتی است · سیکل‌ها طول یکسان ندارند، برای همین بر حسب ماه سنجیده شده`,
+      list.length
+        ? `<div class="dtable-wrap"><table class="dtable cp-table cp-trend"><thead><tr><th>فانکشن</th>${head}<th class="num">ولوسیتی (میانه)</th><th>روند آخرین سیکل</th></tr></thead><tbody>${list.map(row).join('')}</tbody></table></div>`
+        : SFR.empty('سیکل کامل‌شده‌ای برای مقایسه نیست', '', 'inbox'),
+      { full: true }
+    );
+  }
+
+  /* ---------- "what if" ---------- */
+  /* where each cycle month sits in time: past months can't take new work */
+  function monthTimes(m) {
+    if (!m.win || !m.months.length) return [];
+    const y0 = m.win.a.getFullYear();
+    const m0 = m.months[0];
+    const now = new Date();
+    return m.months.map((k) => {
+      const a = new Date(y0, m0 + ((k - m0 + 12) % 12), 1);
+      const b = new Date(a.getFullYear(), a.getMonth() + 1, 1);
+      return { k, a, b, state: now >= b ? 'past' : now >= a ? 'now' : 'next', daysLeft: Math.max(0, Math.ceil((b - now) / 864e5)) };
+    });
+  }
+
+  function scenarioCard(m) {
+    const withCap = m.fns.filter((x) => x.cap != null);
+    const fn = withCap.find((x) => x.f === C.scen.fn) || withCap[0];
+    if (!fn) return '';
+    const size = SFR.SIZES.includes(C.scen.size) ? C.scen.size : fn.typKey || 'M';
+    const n = Math.max(1, Math.min(50, Number(C.scen.n) || 1));
+    const per = m.unit === 'n' ? 1 : SFR.SIZE_META[size].w; // one new card, in the unit shown
+    const what = m.unit === 'n' ? 'کار' : `کار ${size}`;
+    const times = monthTimes(m);
+    const open = times.filter((t) => t.state !== 'past');
+    const inputs = `<div class="cp-scen-in">
+        ${sel('cap-sc-fn', 'target', fn.f, withCap.map((x) => [x.f, x.f]), 'فانکشن')}
+        ${m.unit === 'n' ? '' : sel('cap-sc-size', 'ruler', size, SFR.SIZES.map((k) => [k, `${k} · ${SFR.SIZE_META[k].fa}`]), 'سایز')}
+        <label class="select cp-n-wrap">${icon('plus', 14)}<input class="cp-n" data-bind="cap-sc-n" type="number" min="1" max="50" value="${n}" aria-label="تعداد کار"><span>کار</span></label>
+      </div>`;
+    if (!open.length) {
+      return card('cap-scen', 'اگر کار اضافه کنم؟', '', `<div class="cp-scen">${inputs}<p class="cp-scen-none">${icon('calendar', 16)}همهٔ ماه‌های ${esc(m.cur)} گذشته‌اند و دیگر جایی برای کار تازه ندارند. برای برنامه‌ریزی، سیکل جاری را از بالای صفحه انتخاب کنید.</p></div>`);
+    }
+    C.scen.months ||= {};
+    const chosen = (C.scen.months[m.cur] || open.map((t) => t.k)).filter((k) => open.some((t) => t.k === k));
+    const sel2 = chosen.length ? chosen : open.map((t) => t.k);
+    const inWin = times.filter((t) => sel2.includes(t.k));
+    const names = inWin.map((t) => monthFa(t.k)).join('، ');
+    const capW = fn.mv * inWin.length;
+    const loadW = inWin.reduce((a, t) => a + (fn.p.byMonth.get(t.k) || 0), 0);
+    const freeW = capW - loadW;
+    const fit = freeW > 0 ? Math.floor(freeW / per + 1e-9) : 0;
+    const add = n * per;
+    const afterW = loadW + add;
+    const f2 = capW ? afterW / capW : 0;
+    const st = f2 < THR.free ? 'free' : f2 <= THR.over ? 'ok' : 'over';
+    const chips = times
+      .map((t) => {
+        const on = sel2.includes(t.k) && t.state !== 'past';
+        const tag = t.state === 'past' ? 'گذشته' : t.state === 'now' ? `الان · ${fa(t.daysLeft)} روز مانده` : '';
+        return `<button class="chip chip-sm${on ? ' is-on' : ''}" data-act="cap-sc-month" data-v="${t.k}" aria-pressed="${on}"${t.state === 'past' ? ' disabled' : ''}>${esc(monthFa(t.k))}${tag ? `<small>${tag}</small>` : ''}</button>`;
+      })
+      .join('');
+    // when the chosen size doesn't fit, the biggest size that still does
+    const smaller = m.unit === 'n' ? '' : [...SFR.SIZES].reverse().find((k) => SFR.SIZE_META[k].w <= freeW + 1e-9) || '';
+    const answer =
+      freeW <= 0
+        ? `<b>${esc(names)}</b> برای <b>${esc(fn.f)}</b> همین الان پر است (${faPct((loadW / capW) * 100)} ظرفیت). هر کار تازه در این بازه یعنی اضافه‌بار؛ یا چیزی باید کنار برود یا کار به ماه‌های بعد برود.`
+        : fit > 0
+        ? `در <b>${esc(names)}</b> (${fa(inWin.length)} ماه) برای <b>${esc(fn.f)}</b> حداکثر <b class="cp-big">${fa(fit)} ${what}</b> دیگر جا می‌شود.`
+        : `در <b>${esc(names)}</b> برای <b>${esc(fn.f)}</b> جای یک ${what} کامل نیست؛ فقط <b>${fw(freeW)} ${unitWord()}</b> جای خالی هست${smaller ? ` (یعنی ≈ <b class="cp-big">${fa(Math.floor(freeW / SFR.SIZE_META[smaller].w + 1e-9))} کار ${smaller}</b>)` : ''}.`;
+    // the new work is spread evenly over the chosen months
+    const share = add / inWin.length;
+    const scale = Math.max(fn.mv, ...inWin.map((t) => (fn.p.byMonth.get(t.k) || 0) + share)) || 1;
+    const rows = inWin
+      .map((t) => {
+        const ld = fn.p.byMonth.get(t.k) || 0;
+        const aft = ld + share;
+        const r = aft / fn.mv;
+        const s2 = r < THR.free ? 'free' : r <= THR.over ? 'ok' : 'over';
+        return `<div class="cp-sm-row">
+          <span class="cp-sm-m">${esc(monthFa(t.k))}${t.state === 'now' ? '<em>الان</em>' : ''}</span>
+          <span class="cp-meter"><i style="width:${(ld / scale) * 100}%"></i><i class="add" style="width:${(share / scale) * 100}%;--c:${STATE[s2].color}"></i><b style="inset-inline-start:${(fn.mv / scale) * 100}%"></b></span>
+          <span class="cp-sm-n">${fw(ld)} + ${fw(share)} = <b>${fw(aft)}</b> از ${fw(fn.mv)}</span>
+          <span class="cp-state" style="--c:${STATE[s2].color}">${faPct(r * 100)}</span>
+        </div>`;
+      })
+      .join('');
+    const body = `<div class="cp-scen">
+      ${inputs}
+      <div class="cp-sc-months"><b>در کدام ماه‌ها؟</b>${chips}</div>
+      <p class="cp-answer">${icon(freeW <= 0 ? 'triangle-alert' : 'circle-check', 18)}<span>${answer}</span></p>
+      <ol class="cp-calc">
+        <li>ظرفیت این بازه = ولوسیتی ${esc(fn.f)} (<b>${fw(fn.mv)}</b> ${unitWord()} در ماه) × <b>${fa(inWin.length)}</b> ماه = <b>${fw(capW)}</b> ${unitWord()}</li>
+        <li>کارِ برنامه‌ریزی‌شده در همین ماه‌ها (ستون ماهِ بورد) = <b>${fw(loadW)}</b> ${unitWord()}</li>
+        <li>${freeW >= 0 ? 'جای خالی' : 'کمبود'} = ${fw(capW)} − ${fw(loadW)} = <b><bdi dir="ltr">${fw(freeW)}</bdi></b> ${unitWord()}${freeW > 0 ? ` ← هر ${what} ${m.unit === 'n' ? '' : `${fw(per)} هفته است، پس ≈ <b>${fa(fit)}</b> کار`}` : ''}</li>
+        <li>اگر <b>${fa(n)} ${what}</b> (${fw(add)} ${unitWord()}) اضافه کنید${inWin.length > 1 ? ` و مساوی بین این ${fa(inWin.length)} ماه پخش شود` : ` در ${esc(names)}`}: ${fw(loadW)} + ${fw(add)} = <b>${fw(afterW)}</b> از ${fw(capW)} = <b>${faPct(f2 * 100)}</b> <span class="cp-state" style="--c:${STATE[st].color}">${icon(STATE[st].icon, 13)}${STATE[st].label}</span></li>
+      </ol>
+      <div class="cp-sm"><p class="fn-key"><i style="background:var(--accent)"></i>برنامه‌ریزی‌شده در آن ماه <i class="k-add"></i>کارِ تازه (سهم همان ماه) <i class="k-cap"></i>ظرفیتِ یک ماه</p>${rows}</div>
+      <small class="muted">ماهِ جاری کامل حساب می‌شود (بارِ آن هم شامل کارِ تحویل‌شده در همین ماه است). کارهای بی‌ماه (بک‌لاگ) و ماه‌های بیرون از این بازه حساب نشده‌اند. این فقط یک محاسبه است؛ چیزی در جیرا نوشته نمی‌شود.</small>
+    </div>`;
+    return card('cap-scen', 'اگر کار اضافه کنم؟', 'یک فانکشن و چند ماهِ باقی‌ماندهٔ سیکل را انتخاب کنید تا ببینید چند کارِ دیگر جا می‌شود', body);
+  }
+
+  function methodCard(m) {
+    const unsized = m.fns.reduce((a, x) => a + x.p.estN, 0);
+    return card(
+      'cap-how',
+      'چطور حساب شد؟',
+      '',
+      `<ul class="cp-how">
+        <li><b>ولوسیتی:</b> کارِ تحویل‌شدهٔ هر فانکشن در هر سیکلِ گذشته، تقسیم بر تعداد ماه‌های آن سیکل. میانهٔ این عددها (از ${fa(m.past.length)} سیکلِ آخر: ${m.past.map(esc).join('، ') || '—'}) ولوسیتی ماهانه است.</li>
+        <li><b>ظرفیتِ سیکل:</b> ولوسیتی ماهانه × ${fa(m.months.length)} ماه (${m.months.map(monthFa).join('، ') || '—'}).</li>
+        <li><b>${unitWord() === 'کار' ? 'واحد' : 'هفتهٔ سایز'}:</b> ${m.unit === 'n' ? 'هر کار یکی حساب می‌شود.' : 'هر سایز یک وزن دارد: ' + SFR.SIZES.map((k) => `${k} = ${SFR.SIZE_META[k].fa}`).join('، ') + '.'}</li>
+        <li><b>کارِ سیکل:</b> همهٔ کارهای ${m.cur} که لغو نشده‌اند و ماه دارند (تحویل‌شده + در حال انجام + برنامه‌ریزی‌شده). کارهای بی‌ماه (بک‌لاگ) جدا شمرده می‌شوند.</li>
+        ${m.unit === 'w' ? `<li><b>بی‌سایز:</b> ${fa(Math.round(unsized))} کارِ بدونِ سایز با «سایزِ معمولِ همان فانکشن» (میانهٔ کارهای تحویل‌شده‌اش) حدس زده شد و با راه‌راه نشان داده می‌شود. بهتر است سایز واقعی‌شان ثبت شود.</li>` : ''}
+        <li><b>وضعیت:</b> کمتر از ${faPct(THR.free * 100)} پر = جا دارد · تا ${faPct(THR.over * 100)} = بهینه · بیشتر = اضافه‌بار. کمتر از ${fa(MIN_CYCLES)} سیکل دیتا = «دیتای کم».</li>
+        <li><b>محدودیت:</b> ولوسیتی میانگینِ گذشته است و تعطیلی، مرخصی، یا تغییر اندازهٔ تیم را نمی‌داند.</li>
+      </ul>`,
+      { full: true }
+    );
+  }
+
+  /* ---------- page ---------- */
+  SFR.renderCapacity = (el) => {
+    if (S.status !== 'ready') return;
+    if (!S.rest.size) {
+      el.innerHTML = `<div class="dash"><div class="loading-note">${icon('refresh-cw', 16, 'spin')} در حال خواندن کارت‌ها از جیرا…</div></div>`;
+      return;
+    }
+    const m = build();
+    if (!m) {
+      el.innerHTML = `<div class="dash">${SFR.empty('سیکلی پیدا نشد', 'کارت‌ها فیلد Cycle ندارند.', 'inbox')}</div>`;
+      return;
+    }
+    const fresh = S.restReady && !S.anim.cap;
+    if (S.restReady) S.anim.cap = true;
+    const top = el.scrollTop;
+    el.innerHTML = `<div class="dash cp${fresh ? ' is-fresh' : ''}">
+      ${filters(m)}
+      ${summary(m)}
+      <div class="dash-grid">
+        ${section('ظرفیت و بار', `${m.cur} نسبت به ولوسیتیِ گذشته`)}
+        ${mainCard(m)}
+        ${monthCard(m)}
+        ${section('اگر … چه می‌شود؟')}
+        ${scenarioCard(m)}
+        ${section('تاریخچه', 'ولوسیتی از روی سیکل‌های تمام‌شده')}
+        ${trendCard(m)}
+        ${methodCard(m)}
+      </div>
+    </div>`;
+    el.scrollTop = top;
+    SFR.fx.countUp(el);
+  };
+
+  /* ---------- drill: the cards behind a number ---------- */
+  SFR.openCapDrill = (f) => {
+    if (!M) return;
+    const m = M;
+    const fnRow = f.fn ? m.fns.find((x) => x.f === f.fn) : null;
+    const items = m.rows
+      .filter((i) => i.cycle.includes(m.cur))
+      .map((i) => {
+        const mi = m.mOf(i);
+        const ph = isDone(i) ? 'delivered' : mi == null ? 'backlog' : i.status === 'progress' || i.status === 'pending' ? 'progress' : 'planned';
+        return { i, mi, ph };
+      })
+      .filter(({ i, mi, ph }) => {
+        if (f.fn && !shares(i).some(([x]) => x === f.fn)) return false;
+        if (f.ph && ph !== f.ph) return false;
+        if (f.m != null && f.m !== '') {
+          if (ph === 'backlog') return false;
+          const k = m.months.includes(mi) ? mi : 'other';
+          if (String(k) !== String(f.m)) return false;
+        }
+        if (!f.ph && f.m == null && ph === 'backlog') return false;
+        return true;
+      })
+      .sort((a, b) => PHASE.findIndex((p) => p.key === a.ph) - PHASE.findIndex((p) => p.key === b.ph) || SFR.weeksOf(b.i) - SFR.weeksOf(a.i));
+    const parts = [m.cur, f.fn, f.ph ? (PHASE.find((p) => p.key === f.ph)?.label || 'بک‌لاگ (بی‌ماه)') : '', f.m != null && f.m !== '' ? (f.m === 'other' ? 'ماه‌های دیگر' : monthFa(Number(f.m))) : ''].filter(Boolean);
+    const total = items.reduce((a, { i }) => a + (SFR.sizeKey(i.size) ? SFR.weeksOf(i) : 0), 0);
+    const sheet = SFR.root.querySelector('.sheet');
+    sheet.classList.add('is-sif');
+    let last = '';
+    sheet.querySelector('.sheet-panel').innerHTML = `
+      <header class="d-head"><b>${esc(parts.join(' · '))}</b><span class="count">${fa(items.length)}</span><span class="grow"></span><button class="icon-btn" data-act="close-sheet" aria-label="بستن">${icon('x', 18)}</button></header>
+      <div class="sd-summary cp-sum"><b>${fw(total)}</b><span>هفته‌ی کارِ دارای سایز${items.some(({ i }) => !SFR.sizeKey(i.size)) ? ` · ${fa(items.filter(({ i }) => !SFR.sizeKey(i.size)).length)} کار بی‌سایز` : ''}${fnRow?.cap != null ? ` · ظرفیت ${esc(fnRow.f)}: ${fw(fnRow.cap)}` : ''}</span></div>
+      <div class="sd-scroll"><ul class="sd-list cp-list">${items
+        .slice(0, 300)
+        .map(({ i, mi, ph }) => {
+          const head = ph !== last ? ((last = ph), `<li class="cp-phase" style="--c:${PHASE.find((p) => p.key === ph)?.color || 'var(--ink-3)'}"><i></i>${PHASE.find((p) => p.key === ph)?.label || 'بک‌لاگ (بی‌ماه)'}</li>`) : '';
+          const t = SFR.splitTitle(i.summary);
+          return `${head}<li class="sd-row" data-key="${esc(i.key)}" tabindex="0"><span class="sf-link"><span class="sd-t" dir="auto">${esc(t.title)}</span><span class="sd-meta">${SFR.keyChip(i.key)}${SFR.statusPill(i.status, { short: true })}${SFR.avatar(i.poc, 'xs')}${i.poc ? `<span>${esc(SFR.firstName(i.poc.display))}</span>` : ''}${mi != null ? `<bdi class="tag">${esc(monthFa(mi))}</bdi>` : ''}${i.fn[0] ? `<bdi class="tag" dir="auto">${esc(i.fn[0])}</bdi>` : ''}</span></span><span class="sd-age">${SFR.sizeChip(i.size) || '<small>بی‌سایز</small>'}</span></li>`;
+        })
+        .join('')}</ul></div>`;
+    sheet.classList.add('is-open');
+    sheet.querySelector('[data-act="close-sheet"]').focus();
+  };
+
+  /* ---------- events (wired in app.js) ---------- */
+  const redraw = () => (S.anim.cap = true, SFR.render());
+  SFR.capacity = {
+    acts: {
+      'cap-unit': (b) => ((C.unit = b.dataset.v), redraw()),
+      'cap-base': (b) => ((C.base = Number(b.dataset.v)), redraw()),
+      'cap-sc-month': (b) => {
+        if (!M) return;
+        const open = monthTimes(M).filter((t) => t.state !== 'past').map((t) => t.k);
+        C.scen.months ||= {};
+        const cur = new Set((C.scen.months[M.cur] || open).filter((k) => open.includes(k)));
+        const k = Number(b.dataset.v);
+        cur.has(k) ? cur.delete(k) : cur.add(k);
+        if (cur.size) C.scen.months[M.cur] = [...cur];
+        redraw();
+      },
+      'cap-month': (b) => {
+        if (!M) return;
+        const k = Number(b.dataset.v);
+        const cur = new Set(M.months);
+        cur.has(k) ? cur.delete(k) : cur.add(k);
+        if (cur.size) C.months[M.cur] = [...cur];
+        redraw();
+      },
+    },
+    onSelect: (t) => {
+      const k = t.dataset.bind;
+      if (k === 'cap-cycle') ((C.cycle = t.value), (C.months = C.months || {}));
+      else if (k === 'cap-fn') C.fn = t.value;
+      else if (k === 'cap-sc-fn') C.scen.fn = t.value;
+      else if (k === 'cap-sc-size') C.scen.size = t.value;
+      else if (k === 'cap-sc-n') C.scen.n = t.value;
+      redraw();
+    },
+  };
+})();
+
+/* app/views/brd.js */
+/* BRD review is advisory only. Jira remains the authority for issue access. */
+(() => {
+  const SFR = globalThis.SFR;
+  const { esc, fa, icon } = SFR;
+  const levels = { excellent: 'خیلی خوب', suitable: 'نسبتاً مناسب', weak: 'ضعیف', unreviewed: 'بررسی‌نشده', missing: 'بدون BRD' };
+  const B = { rows: [], loaded: false, loading: false, canAll: false, accessNote: '', scope: 'mine', owner: '', filter: '', query: '', selected: '', busy: '', error: '', results: {}, sharedError: {}, pendingSave: {}, text: {}, draft: {}, stage: '', reviewError: {}, keyReady: false, preview: false, since: '', dateInput: '', dateError: '', batch: { running: false, stop: false, total: 0, done: 0, saved: 0, skipped: 0, failed: 0, message: '' } };
+  // Date-only values are Gregorian internally; input/display are Jalali, at Tehran midnight.
+  const todayISO = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tehran', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  const defaultSince = () => SFR.cal.iso(SFR.cal.add(SFR.cal.parse(todayISO()), -10));
+  const showSince = iso => { const j = SFR.cal.toJ(SFR.cal.parse(iso)); return fa(`${j.jy}/${String(j.jm).padStart(2,'0')}/${String(j.jd).padStart(2,'0')}`); };
+  function initRange() { if (!B.since) { B.since = defaultSince(); B.dateInput = showSince(B.since); } }
+  function parseSince(value) {
+    const digits = String(value).trim().replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+    const m = /^(\d{4})[/-](\d{1,2})[/-](\d{1,2})$/.exec(digits);
+    if (!m || +m[1] < 1300 || +m[1] > 1500 || +m[2] < 1 || +m[2] > 12 || +m[3] < 1 || +m[3] > 31) throw new Error('تاریخ شمسی را به شکل ۱۴۰۵/۰۹/۰۱ وارد کنید.');
+    const date = SFR.cal.fromJ(+m[1],+m[2],+m[3]); const j = SFR.cal.toJ(date);
+    if (j.jy !== +m[1] || j.jm !== +m[2] || j.jd !== +m[3]) throw new Error('این روز در تقویم شمسی وجود ندارد.');
+    const iso = SFR.cal.iso(date);
+    if (iso > todayISO()) throw new Error('تاریخ شروع نمی‌تواند بعد از امروز باشد.');
+    return iso;
+  }
+  const inRange = row => !B.since || !row.updated || Date.parse(row.updated) >= Date.parse(B.since + 'T00:00:00+03:30');
+  const pendingKey = () => `brd-pending:${SFR.state.me.name}`;
+  const persistPending = () => SFR.store.set(pendingKey(), B.pendingSave);
+  const safeUrl = value => { try { const u = new URL(value); return u.protocol === 'https:' ? u.href : ''; } catch { return ''; } };
+  const people = fields => {
+    const p = fields[SFR.SIF_FIELDS.product];
+    const users = (Array.isArray(p) ? p : p ? [p] : []).filter(x => x?.name);
+    return users.length ? users : fields.assignee?.name ? [fields.assignee] : [];
+  };
+  const recordKey = row => row.parent || row.key;
+  const stateOf = row => B.results[recordKey(row)]?.level || (!row.url ? 'missing' : 'unreviewed');
+  const request = (type, fields = {}) => new Promise((resolve, reject) => {
+    const id = crypto.randomUUID();
+    const done = event => {
+      if (event.detail?.id !== id) return;
+      clearTimeout(timer); document.removeEventListener('fanoos:brd-response', done);
+      const r = event.detail.result;
+      r?.error ? reject(new Error(r.error)) : resolve(r || {});
+    };
+    const timer = setTimeout(() => { document.removeEventListener('fanoos:brd-response', done); reject(new Error('ارتباط با افزونه برقرار نشد؛ نسخهٔ محلی جدید را بارگذاری و جیرا را تازه کنید.')); }, type === 'brd:key-status' ? 1500 : type === 'brd:read' ? 30000 : 100000);
+    document.addEventListener('fanoos:brd-response', done);
+    document.dispatchEvent(new CustomEvent('fanoos:brd-request', { detail: { id, type, ...fields } }));
+  });
+  async function ensure(force = false) {
+    if (B.loading || B.busy || B.batch.running || B.preview || (B.loaded && !force)) return;
+    initRange();
+    B.loading = true; B.error = ''; SFR.emit();
+    try {
+      B.results = {}; B.sharedError = {};
+      B.pendingSave = await SFR.store.get(pendingKey(), {});
+      const response = await fetch('/rest/api/2/mypermissions?projectKey=SIF&permissions=ADMINISTER_PROJECTS,ADMINISTER', { credentials: 'same-origin' });
+      const permissions = response.ok ? (await response.json()).permissions : {};
+      // Explicit requested account exception is a display preference, never a Jira permission grant.
+      B.canAll = SFR.state.me.name === 'hossein.eftekhari' || permissions.ADMINISTER_PROJECTS?.havePermission === true || permissions.ADMINISTER?.havePermission === true;
+      B.accessNote = response.ok ? '' : 'مجوز مدیریتی خوانده نشد؛ نمای کارهای خودتان نمایش داده می‌شود.';
+      if (!B.loaded) B.scope = B.canAll ? 'all' : 'mine';
+      const fields = `summary,status,assignee,parent,updated,${SFR.SIF_FIELDS.product},${SFR.FIELDS.brd},${SFR.SIF_FIELDS.fn}`;
+      // Fetch a one-day margin for Jira profile timezones, then apply Tehran midnight exactly.
+      const margin = SFR.cal.iso(SFR.cal.add(SFR.cal.parse(B.since), -1));
+      const issues = (await SFR.api.searchAll(`project = SIF AND issuetype in subTaskIssueTypes() AND updated >= "${margin}" ORDER BY updated DESC`, { fields, pageSize: 100 })).filter(i => inRange({ updated: i.fields.updated }));
+      const parentKeys = [...new Set(issues.filter(i => !i.fields[SFR.FIELDS.brd] && i.fields.parent?.key).map(i => i.fields.parent.key))];
+      const parents = new Map();
+      for (let n = 0; n < parentKeys.length; n += 75) {
+        const rows = await SFR.api.searchAll(`key in (${parentKeys.slice(n,n+75).join(',')})`, { fields: SFR.FIELDS.brd });
+        rows.forEach(x => parents.set(x.key, x.fields[SFR.FIELDS.brd]));
+      }
+      B.rows = issues.map(i => {
+        const f = i.fields; const raw = f[SFR.FIELDS.brd] || parents.get(f.parent?.key) || '';
+        const url = safeUrl(typeof raw === 'string' ? (raw.match(/https:\/\/[^\s\]<>]+/) || [''])[0] : '');
+        return { key: i.key, title: f.summary, updated: f.updated, status: f.status?.name || '', reviewers: people(f).map(p => ({ name: p.name, display: p.displayName || p.name })), url, parent: f.parent?.key || '', inherited: !f[SFR.FIELDS.brd] && !!url };
+      });
+      const keys = [...new Set(B.rows.map(recordKey))];
+      // Bounded parallel reads; Jira checks access on every request. No browser cache fallback.
+      for (let n = 0; n < keys.length; n += 4) await Promise.all(keys.slice(n,n+4).map(async key => {
+        try { const result = await SFR.brdShared.load(key); if (result) B.results[key] = result; }
+        catch (e) { B.sharedError[key] = e.message || 'خواندن نتیجهٔ مشترک ممکن نشد.'; }
+      }));
+      B.loaded = true;
+      try { B.keyReady = !!(await request('brd:key-status')).ready; } catch { B.keyReady = false; }
+    } catch (e) { B.error = e.message || 'خواندن کارهای SIF ممکن نشد.'; }
+    B.loading = false; SFR.emit();
+  }
+  const mine = row => row.reviewers.some(p => p.name === SFR.state.me?.name);
+  const scoped = () => B.rows.filter(r => inRange(r) && ((B.canAll && B.scope === 'all') || mine(r)));
+  const visible = () => scoped().filter(r => (!B.stage || r.status === B.stage) && (!B.owner || r.reviewers.some(p => p.name === B.owner)) && (!B.filter || stateOf(r) === B.filter) && (!B.query || SFR.norm(`${r.key} ${r.title} ${r.reviewers.map(x => x.display).join(' ')}`).includes(SFR.norm(B.query))));
+  const chip = (state) => `<span class="brd-chip brd-${state}">${esc(levels[state])}</span>`;
+  const fileLink = row => row.url ? `<a class="btn btn-outline btn-sm" href="${esc(row.url)}" target="_blank" rel="noopener noreferrer">${icon('external-link',14)}باز کردن BRD</a>` : '';
+  function detail(row) {
+    if (!row) return `<section class="brd-detail"><p class="brd-muted">یک اینیشیتیو را برای دیدن ارزیابی انتخاب کنید.</p></section>`;
+    const state = stateOf(row); const result = state !== 'unreviewed' && state !== 'missing' ? B.results[recordKey(row)] : null;
+    return `<section class="brd-detail" aria-label="بررسی سند انتخاب‌شده">
+      <div class="brd-detail-top"><bdi>${esc(row.key)}</bdi>${chip(state)}</div>
+      <h2>${esc(row.title)}</h2><p class="brd-muted">مسئول بررسی: ${esc(row.reviewers.map(p => p.display).join('، ') || 'تعیین نشده')}</p>
+      <div class="brd-actions">${fileLink(row)}<a class="btn btn-ghost btn-sm" href="https://jira-it.snappfood.ir/browse/${encodeURIComponent(row.key)}" target="_blank" rel="noopener noreferrer">دیدن در جیرا</a></div>
+      ${B.sharedError[recordKey(row)] ? `<p class="brd-error" role="alert">خواندن سابقهٔ مشترک انجام نشد: ${esc(B.sharedError[recordKey(row)])}؛ پیش از ارزیابی، دوباره از جیرا به‌روز کنید.</p>` : ''}
+      ${result && result.url !== row.url ? '<p class="brd-note">لینک سند تغییر کرده است؛ این نتیجه مربوط به لینک قبلی است.</p>' : ''}
+      ${row.inherited ? '<p class="brd-muted">سند از اینیشیتیوی اصلی خوانده شده است.</p>' : ''}
+      ${result ? `<div class="brd-verdict" aria-live="polite">${chip(result.level)}<h3>برداشت کلی از سند</h3><p>${esc(result.reason)}</p>${result.suggestions.length ? `<h3>پیشنهاد برای بهتر شدن</h3><ul>${result.suggestions.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}<small class="brd-muted">${esc(SFR.jDateFull(result.at))} · ارزیابی مشترک · ثبت توسط ${esc(result.by)}</small></div>` : `<div class="brd-note">${row.url ? 'هنوز بررسی نشده است. سند را بخوانید یا از ارزیابی کمکی استفاده کنید.' : 'لینک BRD روی این کار یا اینیشیتیوی اصلی ثبت نشده است.'}</div>`}
+      ${row.url && !B.sharedError[recordKey(row)] ? `<details class="brd-input" ${B.reviewError[row.key] || B.text[row.key] ? 'open' : ''}><summary>متن سند برای ارزیابی</summary><p class="brd-muted">گوگل‌داک خودکار خوانده می‌شود. اگر فایل چند BRD دارد، فقط بخش مربوط را در این کادر قرار دهید.</p>
+      <label for="brd-text">متن BRD <span class="brd-muted">(برای خواندن دستی)</span></label><textarea id="brd-text" data-brd-input="text" data-id="${esc(row.key)}" rows="7" placeholder="متن بخش مرتبط از سند را اینجا وارد کنید">${esc(B.draft[row.key] || B.text[row.key] || '')}</textarea></details>
+      <p class="brd-muted">با ارزیابی، متن این سند به Groq فرستاده می‌شود. نتیجه روی همین SIF ذخیره می‌شود و برای افراد دارای دسترسی قابل مشاهده است.</p>
+      <button class="btn btn-primary" data-brd-action="${result ? 'reevaluate' : 'evaluate'}" data-id="${esc(row.key)}" ${B.busy || B.batch.running || B.preview ? 'disabled' : ''}>${B.busy === row.key ? 'در حال ارزیابی…' : result ? 'ارزیابی مجدد این سند' : 'ارزیابی این سند'}</button>` : ''}
+      ${B.pendingSave[recordKey(row)] ? `<button class="btn btn-outline" data-brd-action="save" data-id="${esc(row.key)}" ${B.busy ? 'disabled' : ''}>تلاش دوباره برای ذخیرهٔ نتیجه</button><p class="brd-note">ارزیابی دریافت شده ولی ذخیره نشده است؛ تلاش دوباره درخواست تازه‌ای به Groq نمی‌فرستد.</p>` : ''}
+      ${!B.keyReady && !B.preview ? '<p class="brd-muted">دیدن نتیجهٔ مشترک به کلید نیاز ندارد. برای ارزیابی جدید، کلید Groq را در پنجرهٔ افزونه وارد کنید.</p>' : ''}
+      ${B.reviewError[row.key] ? `<p class="brd-error" role="alert">${esc(B.reviewError[row.key])}</p>` : ''}
+    </section>`;
+  }
+  function render(el) {
+    initRange();
+    if (!B.loaded && !B.loading && !B.error) { ensure(); }
+    const rows = visible();
+    if (!rows.some(r => r.key === B.selected)) B.selected = rows[0]?.key || '';
+    const selected = rows.find(r => r.key === B.selected);
+    const explanations = { excellent: 'آماده برای شروع بررسی', suitable: 'روشن، با چند جای خالی', weak: 'نیازمند توضیح بیشتر' };
+    const states = [...new Set(scoped().map(r => r.status))].filter(Boolean);
+    const peopleMap = new Map(); scoped().forEach(r => r.reviewers.forEach(p => peopleMap.set(p.name,p.display)));
+    el.innerHTML = `<div class="brd-page">
+      <header class="brd-heading"><div><p class="brd-eyebrow">راهنمای بررسی محصول</p><h1>ارزیابی BRD</h1><p class="brd-muted">کیفیت سند را در یک نگاه ببینید؛ تصمیم نهایی با شماست.</p></div><button class="btn btn-outline" data-brd-action="refresh" ${B.loading || B.busy || B.batch.running || B.preview ? 'disabled' : ''}>${icon('refresh-cw',16)}به‌روزرسانی از جیرا</button></header>
+      ${B.preview ? '<div class="brd-note">پیش‌نمایش با داده و ارزیابی نمونه · اتصال به جیرا و Groq در این صفحه غیرفعال است.</div>' : ''}
+      <form class="brd-batch" data-brd-batch-form>
+        <label for="brd-since">تاریخ شروع (شمسی)<input id="brd-since" data-brd-input="since" inputmode="numeric" dir="ltr" value="${esc(B.dateInput)}" aria-invalid="${!!B.dateError}" aria-describedby="brd-range-help" ${B.batch.running || B.busy ? 'disabled' : ''}></label>
+        <button type="button" class="btn btn-ghost" data-brd-action="recent" ${B.batch.running || B.busy ? 'disabled' : ''}>۱۰ روز گذشته</button>
+        <button type="submit" class="btn btn-primary" ${B.loading || B.busy || B.batch.running || B.preview ? 'disabled' : ''}>${B.batch.running ? 'ارزیابی در حال انجام است…' : 'ارزیابی موارد جدید این فهرست'}</button>
+        ${B.batch.running ? `<button type="button" class="btn btn-outline" data-brd-action="stop" ${B.batch.stop ? 'disabled' : ''}>${B.batch.stop ? 'در انتظار پایان مورد فعلی…' : 'توقف پس از مورد فعلی'}</button>` : ''}
+        <p id="brd-range-help" class="brd-muted">کارهای ایجادشده یا به‌روزشده از ${esc(SFR.cal.full(B.since))} تا امروز؛ نتیجه‌های ذخیره‌شده دوباره ارزیابی نمی‌شوند. متن سندهای جدید به Groq فرستاده می‌شود.</p>
+        ${B.dateError ? `<p class="brd-error" role="alert">${esc(B.dateError)}</p>` : ''}
+        ${B.batch.total || B.batch.message ? `<div class="brd-progress" role="status" aria-live="polite"><progress value="${B.batch.done}" max="${B.batch.total || 1}" aria-label="پیشرفت ارزیابی"></progress><span>${fa(B.batch.done)} از ${fa(B.batch.total)} · ${fa(B.batch.saved)} ارزیابی و ذخیره شد · ${fa(B.batch.skipped)} دارای نتیجهٔ قبلی · ${fa(B.batch.failed)} نیازمند پیگیری</span><span>${esc(B.batch.message)}</span></div>` : ''}
+      </form>
+      <div class="brd-stats">${['excellent','suitable','weak'].map(key => `<button class="brd-stat brd-stat-${key} ${B.filter === key ? 'is-selected' : ''}" data-brd-action="filter" data-value="${key}" aria-pressed="${B.filter === key}"><span class="brd-stat-copy">${chip(key)}<small>${explanations[key]}</small></span><strong>${fa(scoped().filter(r => stateOf(r) === key).length)}</strong></button>`).join('')}</div>
+      <div class="brd-queue"><span>${fa(scoped().length)} کار در ${B.scope === 'all' ? 'نمای همه' : 'فهرست شما'}</span>${['unreviewed','missing'].map(key => `<button class="brd-queue-filter ${B.filter === key ? 'is-on' : ''}" data-brd-action="filter" data-value="${key}" aria-pressed="${B.filter === key}">${levels[key]} <b>${fa(scoped().filter(r => stateOf(r) === key).length)}</b></button>`).join('')}<span class="brd-connection">${B.preview ? 'دادهٔ نمونه' : B.keyReady ? 'Groq آماده است' : 'اتصال Groq از پنجرهٔ افزونه'}</span></div>
+      <div class="brd-toolbar"><div class="switch big" role="group" aria-label="محدودهٔ نمایش"><button data-brd-action="scope" data-value="mine" aria-selected="${B.scope === 'mine'}">کارهای من</button>${B.canAll ? `<button data-brd-action="scope" data-value="all" aria-selected="${B.scope === 'all'}">همهٔ کارها</button>` : ''}</div>
+      <label class="brd-search" for="brd-search">جست‌وجو<input id="brd-search" data-brd-input="search" type="text" value="${esc(B.query)}" placeholder="عنوان، کد یا مسئول بررسی"></label>
+      ${B.canAll && B.scope === 'all' ? `<label for="brd-owner">مسئول بررسی<select id="brd-owner" data-brd-select="owner"><option value="">همهٔ مسئول‌ها</option>${[...peopleMap].map(([name,display]) => `<option value="${esc(name)}" ${B.owner === name ? 'selected' : ''}>${esc(display)}</option>`).join('')}</select></label>` : ''}
+      <label for="brd-stage">مرحلهٔ جیرا<select id="brd-stage" data-brd-select="stage"><option value="">همهٔ مرحله‌ها</option>${states.map(state=>`<option value="${esc(state)}" ${B.stage === state ? 'selected' : ''}>${esc(state)}</option>`).join('')}</select></label>
+      <button class="btn btn-ghost" data-brd-action="clear">پاک‌کردن فیلترها</button></div>
+      ${B.accessNote ? `<p class="brd-muted">${esc(B.accessNote)}</p>` : ''}
+      ${B.error ? `<div class="brd-error" role="alert">خواندن SIF انجام نشد: ${esc(B.error)}</div>` : ''}
+      ${B.loading ? '<div class="brd-loading" role="status"><span>در حال خواندن کارهای SIF…</span><div class="brd-skeleton"></div><div class="brd-skeleton"></div><div class="brd-skeleton"></div></div>' : `<div class="brd-workspace"><section class="brd-list" aria-label="کارهای قابل بررسی"><div class="brd-list-head">${fa(rows.length)} کار <span class="brd-muted">مرتب‌شده بر اساس آخرین تغییر</span></div>${rows.length ? rows.map(r => `<button class="brd-row ${B.selected === r.key ? 'is-selected' : ''}" data-brd-action="select" data-id="${esc(r.key)}" aria-pressed="${B.selected === r.key}"><div class="brd-row-meta"><bdi>${esc(r.key)}</bdi>${chip(stateOf(r))}</div><b>${esc(r.title)}</b><span class="brd-muted">${esc(r.reviewers.map(p => p.display).join('، ') || 'بدون مسئول')} · <bdi>${esc(r.status)}</bdi></span></button>`).join('') : '<div class="brd-empty"><h2>کاری در این فهرست نیست</h2><p>فیلترها را پاک کنید یا بعد از تعیین مسئول بررسی، دوباره از جیرا به‌روز کنید.</p></div>'}</section>${detail(selected)}</div>`}
+    </div>`;
+    el.querySelector('[data-brd-batch-form]')?.addEventListener('submit', e => { e.preventDefault(); runBatch(); });
+    el.querySelector('[data-brd-input="since"]')?.addEventListener('input', e => { B.dateInput = e.target.value; });
+    el.querySelector('[data-brd-input="since"]')?.addEventListener('change', async () => { applyRange(); });
+    el.querySelectorAll('[data-brd-action]').forEach(b => b.addEventListener('click', () => act(b)));
+    el.querySelector('[data-brd-select="stage"]')?.addEventListener('change', e => { B.stage = e.target.value; render(el); });
+    el.querySelector('[data-brd-select="owner"]')?.addEventListener('change', e => { B.owner = e.target.value; render(el); });
+    el.querySelector('[data-brd-input="search"]')?.addEventListener('input', e => { const pos = e.target.selectionStart; B.query = e.target.value; render(el); const input = el.querySelector('[data-brd-input="search"]'); input.focus(); input.setSelectionRange(pos,pos); });
+    el.querySelector('[data-brd-input="text"]')?.addEventListener('input', e => { B.draft[e.target.dataset.id] = e.target.value; const button = el.querySelector('[data-brd-action="evaluate"]'); if (button && !B.busy) button.textContent = 'ارزیابی این سند'; });
+  }
+  function applyRange() {
+    try { B.since = parseSince(B.dateInput); B.dateInput = showSince(B.since); B.dateError = ''; return true; }
+    catch (e) { B.dateError = e.message; SFR.emit(); return false; }
+  }
+  async function evaluateRow(row, action = 'evaluate') {
+    B.busy = row.key; B.reviewError[row.key] = ''; SFR.emit();
+    let phase = 'history';
+    const key = recordKey(row);
+    try {
+      let existing = await SFR.brdShared.load(key);
+      delete B.sharedError[key];
+      if (existing) B.results[key] = existing;
+      if (existing && action !== 'reevaluate') {
+        delete B.pendingSave[key]; await persistPending(); return { outcome: 'skipped' };
+      }
+      phase = 'permission'; await SFR.brdShared.canSave(key);
+      if (action === 'save' || B.pendingSave[key]) {
+        if (!B.pendingSave[key]) throw new Error('نتیجه‌ای برای ذخیره وجود ندارد.');
+        phase = 'save'; B.results[key] = await SFR.brdShared.save(key, B.pendingSave[key]);
+        delete B.pendingSave[key]; await persistPending(); return { outcome: 'saved' };
+      }
+      phase = 'key'; const status = await request('brd:key-status'); B.keyReady = !!status.ready;
+      if (!B.keyReady) throw new Error('ابتدا کلید Groq را در پنجرهٔ افزونه وارد کنید.');
+      phase = 'read';
+      let text = B.draft[row.key]?.trim() || '';
+      if (!text) {
+        if (!row.url) throw new Error('لینک BRD ثبت نشده است.');
+        text = (await request('brd:read', { url: row.url })).text;
+        B.text[row.key] = B.draft[row.key] = text;
+      }
+      if (typeof text !== 'string' || text.trim().length < 20) throw new Error('متن سند خالی یا برای ارزیابی کافی نیست.');
+      // Someone else may have saved a result while the document was being read.
+      phase = 'history'; existing = await SFR.brdShared.load(key);
+      if (existing && action !== 'reevaluate') { B.results[key] = existing; return { outcome: 'skipped' }; }
+      phase = 'api'; const response = await request('brd:evaluate', { text });
+      const record = SFR.brdShared.validate({ ...response.result, schema: 1, at: new Date().toISOString(), by: SFR.state.me.name, url: row.url });
+      B.pendingSave[key] = record; await persistPending();
+      phase = 'save'; const latest = await SFR.brdShared.load(key);
+      if (latest && action !== 'reevaluate') B.results[key] = latest;
+      else B.results[key] = await SFR.brdShared.save(key, record);
+      delete B.pendingSave[key]; await persistPending();
+      return { outcome: 'saved' };
+    } catch (e) {
+      B.reviewError[row.key] = e.message || 'ارزیابی انجام نشد؛ دوباره تلاش کنید.';
+      if (phase === 'history') B.sharedError[key] = B.reviewError[row.key];
+      return { outcome: 'failed', halt: ['key','api','save'].includes(phase), message: B.reviewError[row.key] };
+    } finally { B.busy = ''; SFR.emit(); }
+  }
+  async function runBatch() {
+    if (B.preview || B.batch.running || B.busy || B.loading || B.preparing || !applyRange()) return;
+    B.preparing = true;
+    try { await ensure(true); } finally { B.preparing = false; }
+    if (B.error) return;
+    // Freeze this list. Changing UI filters during a run cannot add new API work.
+    const byKey = new Map(); visible().forEach(row => { if (!byKey.has(recordKey(row))) byKey.set(recordKey(row), row); });
+    const rows = [...byKey.values()];
+    B.batch = { running: true, stop: false, total: rows.length, done: 0, saved: 0, skipped: 0, failed: 0, message: '' };
+    SFR.emit();
+    try {
+      for (const row of rows) {
+        if (B.batch.stop) break;
+        B.selected = row.key;
+        // Always consult Jira, including locally cached successes, before any document/API call.
+        const result = await evaluateRow(row);
+        B.batch.done++; B.batch[result.outcome === 'saved' ? 'saved' : result.outcome === 'skipped' ? 'skipped' : 'failed']++;
+        SFR.emit();
+        if (result.halt) { B.batch.message = result.message; break; }
+      }
+      if (!B.batch.message) B.batch.message = B.batch.stop ? 'متوقف شد؛ اجرای بعدی موارد دارای نتیجه را رد می‌کند.' : 'بررسی فهرست تمام شد.';
+    } finally { B.batch.running = false; SFR.emit(); }
+  }
+  async function act(button) {
+    const a = button.dataset.brdAction;
+    if (a === 'select') B.selected = button.dataset.id;
+    if (a === 'scope') { B.scope = B.canAll && button.dataset.value === 'all' ? 'all' : 'mine'; B.owner = ''; }
+    if (a === 'filter') B.filter = B.filter === button.dataset.value ? '' : button.dataset.value;
+    if (a === 'clear') { B.filter = B.query = B.owner = B.stage = ''; }
+    if (a === 'refresh') return ensure(true);
+    if (a === 'stop') B.batch.stop = true;
+    if (a === 'recent' && !B.batch.running && !B.busy) {
+      B.dateInput = showSince(defaultSince());
+      if (applyRange()) return ensure(true);
+    }
+    if (['evaluate','reevaluate','save'].includes(a) && !B.preview && !B.batch.running) {
+      const row = visible().find(r => r.key === button.dataset.id);
+      if (!row || B.busy) return;
+      await evaluateRow(row, a);
+    }
+    SFR.emit();
+  }
+  SFR.renderBrd = render;
+  SFR.brd = { state: B, people, stateOf, scoped, visible, ensure, recordKey, runBatch, parseSince, defaultSince, evaluateRow };
+})();
+
 /* app/app.js */
 /* Roadmap Lens — app shell, routing between views, event delegation, keyboard, theme. */
 (() => {
@@ -4766,8 +6655,8 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     <div class="app" dir="rtl" lang="fa">
       <header class="topbar">
         <div class="brand">
-          <span class="logo" aria-hidden="true">${icon('square-kanban', 18)}</span>
-          <div class="brand-text"><b>${esc(S.cfg?.name ? 'نقشه‌راه محصول' : 'نقشه‌راه')}</b><small dir="auto">${esc(S.cfg?.name || '')}</small></div>
+          <span class="logo" aria-hidden="true">${icon('lantern', 19)}</span>
+          <div class="brand-text"><b>${SFR.APP_NAME}</b><small>نقشه‌راه محصول</small></div>
         </div>
         <div class="greet" data-greet></div>
         <nav class="tabs" role="tablist" aria-label="بخش‌ها">
@@ -4775,6 +6664,8 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
           <button role="tab" data-act="tab" data-v="following">${icon('star', 16)}دنبال‌شده‌ها<span class="badge" data-badge="news" hidden></span></button>
           <button role="tab" data-act="tab" data-v="dashboard">${icon('chart-pie', 16)}داشبورد</button>
           <button role="tab" data-act="tab" data-v="sif">${icon('list-filter', 16)}قیف SIF</button>
+          <button role="tab" data-act="tab" data-v="capacity">${icon('gauge', 16)}ظرفیت</button>
+          <button role="tab" data-act="tab" data-v="brd">${icon('file-text', 16)}ارزیابی BRD</button>
         </nav>
         <div class="top-actions">
           <span class="sync" data-sync></span>
@@ -4789,9 +6680,12 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
         <div class="view" data-view="following"></div>
         <div class="view" data-view="dashboard"></div>
         <div class="view" data-view="sif"></div>
+        <div class="view" data-view="capacity"></div>
+        <div class="view" data-view="brd"></div>
         <div class="state-screen" data-state></div>
       </main>
       <aside class="drawer" aria-hidden="true"><div class="scrim" data-act="close-drawer"></div><div class="drawer-panel" role="dialog" aria-modal="true" aria-label="جزئیات اینیشیتیو"></div></aside>
+      <aside class="desk-wrap"><div class="scrim" data-act="desk-close"></div><div class="desk-panel" role="dialog" aria-modal="true" aria-label="میز کار امروز"></div></aside>
       <aside class="sheet"><div class="scrim" data-act="close-sheet"></div><div class="sheet-panel" role="dialog" aria-modal="true" aria-label="فهرست اینیشیتیوها"></div></aside>
       <div class="popover" hidden role="dialog"></div>
       <div class="tooltip" hidden role="tooltip"></div>
@@ -4829,12 +6723,10 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     applyTheme(); // the saved theme arrives after mount, with the board settings
     renderState();
     if (S.cfg) {
-      app.querySelector('.brand-text small').textContent = S.cfg.name;
-      const g = app.querySelector('[data-greet]');
-      if (S.me && g && !g.dataset.done) {
-        g.innerHTML = `<b>${SFR.greeting()}، ${esc(SFR.firstName(S.me.display))}</b><small>${SFR.today()}</small>`;
-        g.dataset.done = 1;
-      }
+      app.querySelector('.brand').title = `${SFR.APP_NAME} · ${S.cfg.name}`;
+      // the greeting doubles as the «میز کار» button; the open panel follows the data unless a form is being filled
+      if (SFR.desk.isOpen() && !SFR.desk.acting()) SFR.renderDesk();
+      else SFR.paintGreet(app.querySelector('[data-greet]'));
       SFR.game.paint();
     }
     app.querySelectorAll('[data-act="tab"]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.v === S.ui.tab)));
@@ -4842,6 +6734,7 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     if (S.ui.tab !== 'dashboard') S.anim.dash = false;
     if (S.ui.tab !== 'board') S.anim.board = false;
     if (S.ui.tab !== 'sif') S.anim.sif = false;
+    if (S.ui.tab !== 'capacity') S.anim.cap = false;
     const st = SFR.followingStats();
     const badge = app.querySelector('[data-badge="news"]');
     badge.hidden = !st.news;
@@ -4853,6 +6746,8 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     if (S.ui.tab === 'board') SFR.renderBoard(view);
     else if (S.ui.tab === 'following') SFR.renderFollowing(view);
     else if (S.ui.tab === 'sif') SFR.renderSif(view);
+    else if (S.ui.tab === 'brd') SFR.renderBrd(view);
+    else if (S.ui.tab === 'capacity') SFR.renderCapacity(view);
     else SFR.renderDashboard(view);
     if (what === 'follow' && SFR.drawer.key) SFR.refreshDrawerMeta();
   }
@@ -5021,7 +6916,7 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     retry: () => SFR.load(S.boardId),
   };
 
-  Object.assign(ACT, SFR.drawer.acts, SFR.sifdrill.acts);
+  Object.assign(ACT, SFR.drawer.acts, SFR.sifdrill.acts, SFR.capacity.acts, SFR.gantt.acts, SFR.desk.acts);
 
   function bind(app) {
     app.addEventListener('click', (e) => {
@@ -5033,12 +6928,17 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
         ACT[a.dataset.act]?.(a, e);
         return;
       }
+      const cap = e.target.closest('[data-cd]');
+      if (cap && !cap.disabled) return SFR.openCapDrill(JSON.parse(cap.dataset.cd));
       const sif = e.target.closest('[data-sd]');
       if (sif) return SFR.openSifDrill(JSON.parse(sif.dataset.sd));
       const drill = e.target.closest('[data-drill]');
       if (drill) return SFR.openDrill(JSON.parse(drill.dataset.drill));
       const k = e.target.closest('[data-key]');
-      if (k && !e.target.closest('a,button,select,textarea,input')) SFR.openIssue(k.dataset.key);
+      if (k && !e.target.closest('a,button,select,textarea,input')) {
+        if (SFR.desk.isOpen()) SFR.desk.close();
+        SFR.openIssue(k.dataset.key);
+      }
     });
 
     app.addEventListener('input', (e) => {
@@ -5055,11 +6955,15 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
       } else if (bindTo === 'ed-user') SFR.drawer.searchUsers(t.value);
       else if (bindTo === 'comment') SFR.drawer.onInput(t);
       else if (bindTo === 'sd-q') SFR.sifdrill.onInput(t);
+      else if (bindTo === 'desk-text') SFR.desk.onInput(t);
     });
 
     app.addEventListener('change', (e) => {
       const t = e.target;
       if (t.dataset.bind === 'sd-sel') return SFR.sifdrill.onSelect(t);
+      if (t.dataset.bind === 'desk-label') return SFR.desk.onInput(t);
+      if (t.dataset.bind === 'desk-who') return SFR.desk.onSelect(t);
+      if (t.dataset.bind?.startsWith('cap-')) return SFR.capacity.onSelect(t);
       if (t.dataset.bind === 'move') SFR.moveIssue(t.dataset.key, t.value);
       if (t.dataset.bind === 'dash-fn') ((S.dash.fn = t.value), render());
       if (t.dataset.bind?.startsWith('sif-')) ((S.sif.f[t.dataset.bind.slice(4)] = t.value), (S.anim.sif = true), render());
@@ -5094,13 +6998,15 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
       }
       if (e.key === 'Enter' && (e.ctrlKey || e.metaKey) && t.tagName === 'TEXTAREA') {
         e.preventDefault();
-        t.form.requestSubmit();
+        t.form?.requestSubmit();
         return;
       }
       if (e.key === 'Escape') {
         if (t.dataset?.bind === 'sd-q' && SFR.sifdrill.clearQuery(t)) return;
         if (mpop) mpop.hidden = true;
         else if (!SFR.root.querySelector('.popover').hidden) closePopover();
+        else if (!SFR.drawer.key && SFR.gantt.cancel()) return;
+        else if (!SFR.drawer.key && SFR.desk.cancel()) return;
         else if (SFR.drawer.ed) SFR.drawer.cancelEdit();
         else if (SFR.drawer.key) SFR.closeIssue();
         else if (SFR.root.querySelector('.sheet.is-open')) SFR.closeDrill();
@@ -5108,13 +7014,14 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
         return;
       }
       if (e.key === 'Enter' && !typing && t.matches('[data-key]:not(button)')) return SFR.openIssue(t.dataset.key);
+      if (e.key === 'Enter' && !typing && t.matches('[data-cd]:not(button)')) return SFR.openCapDrill(JSON.parse(t.dataset.cd));
       if (e.key === 'Tab' && SFR.drawer.key) trap(e, SFR.root.querySelector('.drawer-panel'));
       if (typing || e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === '/') {
         e.preventDefault();
         if (S.ui.tab !== 'board') ACT.tab({ dataset: { v: 'board' } });
         SFR.root.querySelector('input[data-bind="search"]')?.focus();
-      } else if (['1', '2', '3', '4'].includes(e.key)) ACT.tab({ dataset: { v: ['board', 'following', 'dashboard', 'sif'][e.key - 1] } });
+      } else if (['1', '2', '3', '4', '5', '6'].includes(e.key)) ACT.tab({ dataset: { v: ['board', 'following', 'dashboard', 'sif', 'capacity', 'brd'][e.key - 1] } });
     });
 
     /* drag a card to another month */
@@ -5232,7 +7139,8 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
     const launcher = document.createElement('button');
     launcher.className = 'launcher';
     launcher.setAttribute('dir', 'rtl');
-    launcher.innerHTML = `${SFR.icon('sparkles', 16)}<span>${onDashboard ? 'داشبورد تمیز' : 'نمای تمیز'}</span><kbd>Alt+L</kbd>`;
+    launcher.innerHTML = `${SFR.icon('lantern', 18)}<span>${SFR.APP_NAME}${onDashboard ? ' · داشبورد' : ''}</span><kbd>Alt+L</kbd>`;
+    launcher.setAttribute('aria-label', `باز کردن ${SFR.APP_NAME}`);
     launcher.addEventListener('click', () => SFR.open());
     shadow.appendChild(launcher);
     // Keep Jira's global keyboard shortcuts from firing while typing inside the lens.
@@ -5282,7 +7190,7 @@ globalThis.SFR = { BUILD: 16, VERSION: "2.16", CSS: "/* ========================
   // The extension tells us when a newer version has been downloaded in the background.
   document.addEventListener('roadmap-lens:updated', (e) => {
     if (String(e.detail?.build) === String(SFR.BUILD)) return;
-    SFR.toast(`نسخه‌ی تازه‌ی نمای تمیز (${SFR.fa(e.detail?.build ?? '')}) دریافت شد.`, 'info', { label: 'تازه‌سازی صفحه', run: () => location.reload() });
+    SFR.toast(`نسخه‌ی تازه‌ی ${SFR.APP_NAME} (${SFR.fa(e.detail?.build ?? '')}) دریافت شد.`, 'info', { label: 'تازه‌سازی صفحه', run: () => location.reload() });
   });
 
   (async () => {
